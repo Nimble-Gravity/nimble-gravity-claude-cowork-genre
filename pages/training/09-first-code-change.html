@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Scaffold the Loan Dashboard — Module 3 Exercise</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+.terminal-block { background: var(--code); border-radius: 8px; padding: 14px 18px; font-family: 'Roboto Mono', monospace; font-size: 13px; color: var(--codeF); margin-top: 8px; line-height: 1.8; }
+.terminal-block .t-prompt { color: var(--mint-on-dark); }
+.terminal-block .t-comment { color: rgba(255,255,255,.28); }
+.terminal-block .t-output { color: rgba(255,255,255,.5); }
+</style>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<div class="module-strip">
+  <span class="ms-label">Workshop</span>
+  <a href="01-how-claude-thinks.html" class="ms-item done"><span class="ms-num">1</span>Foundations</a>
+  <span class="ms-arrow">›</span>
+  <a href="04-projects-and-memory.html" class="ms-item done"><span class="ms-num">2</span>Claude.ai</a>
+  <span class="ms-arrow">›</span>
+  <a href="07-setup-and-init.html" class="ms-item active"><span class="ms-num">3</span>Claude Code</a>
+  <span class="ms-arrow">›</span>
+  <a href="10-multi-file-editing.html" class="ms-item upcoming"><span class="ms-num">4</span>Build It</a>
+</div>
+
+<div class="page-header" id="intro">
+  <div class="eyebrow">Module 3 · Exercise 3 of 3</div>
+  <h1 class="title">Scaffold the <em>Loan Dashboard</em></h1>
+  <p class="subtitle">Create a new project folder, initialize Claude Code, write your CLAUDE.md, and scaffold the skeleton of the Loan Application Status Dashboard. You'll build the full feature set in the Module 4 capstone.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot" style="background:var(--teal)"></div>
+    Hands-on Exercise · ~30 min
+  </div>
+</div>
+
+<!-- WHAT YOU'LL BUILD -->
+<div class="section" id="what">
+  <div class="sec-eyebrow">What you're scaffolding</div>
+  <h2 class="sec-title">A skeleton HTML/CSS/JS dashboard — <em>nothing hardcoded.</em></h2>
+  <p class="sec-sub">By the end of this exercise you'll have: a project folder, a CLAUDE.md, a working HTML page with the table structure, and the LOAN-2024-Q3 data loaded from a JS array. No feature logic yet — that's Module 4. Just the structure.</p>
+
+  <div class="tip-trick">
+    <div class="tip-trick-icon">⚙️</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Before you start</div>
+      <p>Make sure Claude Code is installed (<code style="font-size:13px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:3px;">npm install -g @anthropic-ai/claude-code</code>) and your <code style="font-size:13px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:3px;">ANTHROPIC_API_KEY</code> is set. If you haven't done this yet, go back to Lesson 1 for the full install walkthrough.</p>
+    </div>
+  </div>
+</div>
+
+<!-- EXERCISE -->
+<div class="section section--off" id="exercise">
+  <div class="sec-eyebrow">The Exercise</div>
+  <h2 class="sec-title">Six steps. From empty folder <em>to working skeleton.</em></h2>
+
+  <div class="exercise-box">
+    <div class="exercise-header">
+      <div class="exercise-icon">🏗️</div>
+      <div class="exercise-meta">
+        <div class="exercise-eyebrow">Module 3 · Hands-On Exercise</div>
+        <div class="exercise-title">Scaffold the Loan Dashboard</div>
+      </div>
+      <div class="exercise-duration">~30 min</div>
+    </div>
+    <div class="exercise-body">
+
+      <div class="exercise-steps">
+        <div class="ex-step">
+          <div class="ex-step-num">1</div>
+          <div class="ex-step-content">
+            <h4>Create the project folder</h4>
+            <p>Create a new folder for the dashboard project. Keep it outside any existing git repo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal-block">
+        <span class="t-prompt">$</span> mkdir loan-dashboard && cd loan-dashboard<br>
+        <span class="t-prompt">$</span> git init<br>
+        <span class="t-output">Initialized empty Git repository in .../loan-dashboard/.git/</span>
+      </div>
+
+      <div class="checkpoint" style="margin-top:24px;">
+        <div class="checkpoint-line"></div>
+        <div class="checkpoint-badge">Write the CLAUDE.md first</div>
+        <div class="checkpoint-line"></div>
+      </div>
+
+      <div class="exercise-steps" style="margin-top:16px;">
+        <div class="ex-step">
+          <div class="ex-step-num">2</div>
+          <div class="ex-step-content">
+            <h4>Create CLAUDE.md before launching Claude Code</h4>
+            <p>Write your standing instructions before the first session. This tells Claude Code what you're building from the very first message. Copy the template below, save it as <code>CLAUDE.md</code> in your project folder.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-wrap">
+        <div class="prompt-topbar">
+          <span class="pb-dot" style="background:#ff5f57"></span>
+          <span class="pb-dot" style="background:#febc2e"></span>
+          <span class="pb-dot" style="background:#28c840"></span>
+          <span class="prompt-label">CLAUDE.md — paste this, save as CLAUDE.md in project root</span>
+          <button class="copy-btn" onclick="copyPrompt('claudemd')">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <pre id="claudemd"># Loan Application Status Dashboard
+
+## What this is
+A vanilla HTML/CSS/JS dashboard showing the LOAN-2024-Q3 portfolio.
+No frameworks. No bundlers. Single HTML file + one CSS file + one JS file.
+Designed to be opened directly in a browser (no local server required).
+
+## Data
+Portfolio: LOAN-2024-Q3
+Six branches, seven columns: Branch ID, Branch Name, Target Approvals,
+Actual Approvals, % to Target (calculated), Last Updated, Status.
+
+Status logic:
+- Ahead: Actual >= Target * 1.05
+- On Track: Actual >= Target * 0.90
+- At Risk: Actual < Target * 0.90
+
+## Stack
+- Pure HTML5, CSS3, vanilla JS (ES6+)
+- No jQuery, no React, no Tailwind, no external libraries
+- No build step — must open in browser directly
+- CSS custom properties for all colors and spacing
+
+## Accessibility
+- WCAG 2.1 AA
+- Status badges: icon + label ALWAYS — never color alone
+- Keyboard navigation for filter buttons and table interactions
+
+## Conventions
+- JS data array named `loanData` in dashboard.js
+- Status computed from the data, not hardcoded per row
+- CSS class names: kebab-case
+- No inline styles — all styling via CSS classes
+
+## Files
+- index.html — main page
+- styles.css — all CSS
+- dashboard.js — data + all interactive behavior</pre>
+        </div>
+      </div>
+
+      <div class="checkpoint" style="margin-top:24px;">
+        <div class="checkpoint-line"></div>
+        <div class="checkpoint-badge">Launch and /init</div>
+        <div class="checkpoint-line"></div>
+      </div>
+
+      <div class="exercise-steps" style="margin-top:16px;">
+        <div class="ex-step">
+          <div class="ex-step-num">3</div>
+          <div class="ex-step-content">
+            <h4>Launch Claude Code and run /init</h4>
+            <p>Launch Claude Code from your project folder. Run /init — it will read your CLAUDE.md and any other files present, then confirm it understands the project.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="terminal-block">
+        <span class="t-prompt">$</span> claude<br>
+        <span class="t-output">Claude Code v1.x.x — claude.ai/code</span><br>
+        <span class="t-output">Loaded CLAUDE.md (387 tokens)</span><br>
+        <br>
+        <span class="t-prompt" style="color:rgba(255,255,255,.35);">&gt;</span> /init<br>
+        <span class="t-output">Exploring project structure... ✓</span><br>
+        <span class="t-output">Reading CLAUDE.md... ✓</span><br>
+        <span class="t-output">I see a new vanilla JS project for a Loan Application Status Dashboard.</span><br>
+        <span class="t-output">Your CLAUDE.md is clear — I'll use the three-file structure (index.html,</span><br>
+        <span class="t-output">styles.css, dashboard.js) and compute status from data. Ready.</span>
+      </div>
+
+      <div class="ex-step ex-step--observe" style="margin-top:16px;">
+        <div class="ex-step-num">👁</div>
+        <div class="ex-step-content">
+          <h4>Observe: Did Claude confirm the file structure?</h4>
+          <p>Check whether Claude's /init summary reflects your CLAUDE.md. Did it pick up the three-file structure? The no-external-libraries constraint? The accessibility requirement? If it missed something, clarify it now rather than after the first prompt.</p>
+        </div>
+      </div>
+
+      <div class="checkpoint" style="margin-top:24px;">
+        <div class="checkpoint-line"></div>
+        <div class="checkpoint-badge">Enable Plan mode</div>
+        <div class="checkpoint-line"></div>
+      </div>
+
+      <div class="exercise-steps" style="margin-top:16px;">
+        <div class="ex-step">
+          <div class="ex-step-num">4</div>
+          <div class="ex-step-content">
+            <h4>Enable Plan mode, then scaffold the skeleton</h4>
+            <p>Press <strong>Shift+Tab</strong> to enable Plan mode. Then run this prompt. Read the plan carefully before approving — Claude should be creating exactly three files.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-wrap">
+        <div class="prompt-topbar">
+          <span class="pb-dot" style="background:#ff5f57"></span>
+          <span class="pb-dot" style="background:#febc2e"></span>
+          <span class="pb-dot" style="background:#28c840"></span>
+          <span class="prompt-label">Prompt — Scaffold the skeleton (run in Plan mode)</span>
+          <button class="copy-btn" onclick="copyPrompt('p-scaffold')">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <pre id="p-scaffold">Create the three-file skeleton for the Loan Application Status Dashboard.
+
+index.html: HTML page with proper doctype, charset, viewport meta, linked stylesheet
+and script. Include a header with the title "LOAN-2024-Q3 Portfolio Dashboard" and
+a main element with id="dashboard" where the table will go. No content yet.
+
+styles.css: CSS custom properties for color palette (navy, teal, amber, white, light
+grey border), base reset (box-sizing, margins), body font (system font stack), and
+placeholder rule sets for .dashboard-table, .status-badge, .filter-bar. No visual
+styling yet — just the structure.
+
+dashboard.js: A const loanData array with all six LOAN-2024-Q3 branches:
+- BR-001 Springfield, Target: 90, Actual: 94, Last Updated: 2024-09-30
+- BR-002 Riverside, Target: 75, Actual: 81, Last Updated: 2024-09-28
+- BR-003 Lakewood, Target: 110, Actual: 103, Last Updated: 2024-09-29
+- BR-004 Northgate, Target: 85, Actual: 72, Last Updated: 2024-09-27
+- BR-005 Westfield, Target: 95, Actual: 91, Last Updated: 2024-09-30
+- BR-006 Harbor Point, Target: 60, Actual: 49, Last Updated: 2024-09-25
+
+Compute percentToTarget and status for each branch using the logic in CLAUDE.md.
+Add a console.log at the end that logs loanData to verify the data loaded.</pre>
+        </div>
+      </div>
+
+      <div class="ex-step ex-step--observe" style="margin-top:16px;">
+        <div class="ex-step-num">👁</div>
+        <div class="ex-step-content">
+          <h4>Read the plan before approving</h4>
+          <p>Claude should plan to create exactly three files. The plan should list each file and what will be in it. If it's planning to create more files, or use a library, or use a bundler — reject the plan and clarify. Only approve when the plan matches your CLAUDE.md constraints.</p>
+        </div>
+      </div>
+
+      <div class="checkpoint" style="margin-top:24px;">
+        <div class="checkpoint-line"></div>
+        <div class="checkpoint-badge">Verify the output</div>
+        <div class="checkpoint-line"></div>
+      </div>
+
+      <div class="exercise-steps" style="margin-top:16px;">
+        <div class="ex-step">
+          <div class="ex-step-num">5</div>
+          <div class="ex-step-content">
+            <h4>Open index.html in a browser and check the console</h4>
+            <p>Open index.html directly in your browser (no server needed). Open the browser developer tools console. You should see the loanData array logged with all six branches and their computed status values.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex-step ex-step--observe" style="margin-top:12px;">
+        <div class="ex-step-num">👁</div>
+        <div class="ex-step-content">
+          <h4>Check the status computations</h4>
+          <p>Based on the status logic in CLAUDE.md: BR-001 (94/90=104.4%) should be <strong>Ahead</strong>. BR-002 (81/75=108%) should be <strong>Ahead</strong>. BR-003 (103/110=93.6%) should be <strong>On Track</strong>. BR-004 (72/85=84.7%) should be <strong>At Risk</strong>. BR-005 (91/95=95.8%) should be <strong>On Track</strong>. BR-006 (49/60=81.7%) should be <strong>At Risk</strong>. If any are wrong, ask Claude to fix the calculation.</p>
+        </div>
+      </div>
+
+      <div class="checkpoint" style="margin-top:24px;">
+        <div class="checkpoint-line"></div>
+        <div class="checkpoint-badge">First commit</div>
+        <div class="checkpoint-line"></div>
+      </div>
+
+      <div class="exercise-steps" style="margin-top:16px;">
+        <div class="ex-step">
+          <div class="ex-step-num">6</div>
+          <div class="ex-step-content">
+            <h4>Ask Claude Code to commit the skeleton</h4>
+            <p>Once the skeleton looks right, commit it. You can do this yourself or ask Claude Code to do it — both are valid approaches. The commit message should be clear about what's in it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-wrap">
+        <div class="prompt-topbar">
+          <span class="pb-dot" style="background:#ff5f57"></span>
+          <span class="pb-dot" style="background:#febc2e"></span>
+          <span class="pb-dot" style="background:#28c840"></span>
+          <span class="prompt-label">Prompt — Commit the scaffold</span>
+          <button class="copy-btn" onclick="copyPrompt('p-commit')">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <pre id="p-commit">The skeleton looks correct. Please:
+1. Add all three files to git staging
+2. Commit with message: "feat: scaffold Loan Dashboard — LOAN-2024-Q3 data structure and file layout"
+3. Show me the git log to confirm the commit</pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- REFLECTION -->
+<div class="section section-dark" id="reflect">
+  <div class="sec-eyebrow on-dark">Debrief</div>
+  <h2 class="sec-title on-dark">What just happened — and what <em>didn't.</em></h2>
+
+  <div class="reflect-grid">
+    <div class="reflect-card">
+      <div class="reflect-q">"Did reading the plan change anything you approved?"</div>
+      <div class="reflect-hint">If you edited the plan or rejected it once before it was right — that's the lesson. The plan isn't bureaucracy. It's the cheapest place to catch a misunderstanding between you and the model.</div>
+    </div>
+    <div class="reflect-card">
+      <div class="reflect-q">"How did CLAUDE.md affect the quality of the scaffold?"</div>
+      <div class="reflect-hint">Did Claude follow the three-file constraint? The no-framework constraint? The naming conventions? Compare what you got to what you'd get from a generic "build a table" prompt with no CLAUDE.md. What's the delta?</div>
+    </div>
+    <div class="reflect-card">
+      <div class="reflect-q">"What would you add to CLAUDE.md based on the output you got?"</div>
+      <div class="reflect-hint">Did Claude make any assumption that you had to correct? Add a rule to CLAUDE.md now. By Module 4, your CLAUDE.md will be the product of real iterations — not a template.</div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 3 COMPLETE -->
+<div class="section" id="m3complete">
+  <div class="sec-eyebrow" style="color:var(--teal);">Module 3 Complete</div>
+  <h2 class="sec-title">You have a skeleton and a workflow. <em>Now complete the app.</em></h2>
+  <p class="sec-sub">Module 4 covers multi-file editing, iterating on Claude's output, git commits from Claude Code, and the final capstone exercise where you complete the Loan Dashboard with filters, status badges, and a form.</p>
+  <a href="10-multi-file-editing.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;font-size:15px;margin-top:8px;">Start Module 4 →</a>
+</div>
+
+<div class="page-footer"></div>
+<script>
+function copyPrompt(id) {
+  const pre = document.getElementById(id);
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    document.querySelectorAll('.copy-btn').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) {
+        b.textContent = 'Copied!';
+        setTimeout(() => b.textContent = 'Copy', 2000);
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>

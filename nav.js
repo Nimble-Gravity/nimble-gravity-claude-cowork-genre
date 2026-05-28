@@ -1,59 +1,83 @@
 (function () {
 
   // ── Craft manifest ────────────────────────────────────────────────────────
+  // Each entry maps to a training module. `folder` is the shared directory;
+  // `filePrefix` is used to detect which module is active on a given page.
   var CRAFTS = [
     {
-      id: 'requirements',
-      label: 'Product',
-      color: '#8c47e4',
-      navColor: '#c4b5fd',
+      id: 'm1',
+      folder: 'training',
+      label: 'Module 1',
+      subLabel: 'Foundations',
+      color: '#2f6b66',
+      navColor: '#4f9990',
+      filePrefix: ['01-', '02-', '03-'],
       pages: [
-        '01 AI Multiplier Effect',
-        '02 Stakeholder Intake',
-        '03 AI-Ready Requirements'
+        '01-how-claude-thinks',
+        '02-prompt-anatomy',
+        '03-first-conversations'
+      ],
+      labels: [
+        'Tokens & Context',
+        'Prompt Anatomy',
+        'First Conversations'
       ]
     },
     {
-      id: 'design',
-      label: 'Design',
-      color: '#4f9990',
-      navColor: '#6ee7df',
-      pages: [
-        '01 PRD UX Analysis Skill',
-        '02 Example PRD Interview',
-        '03 Designing with LLMs'
-      ]
-    },
-    {
-      id: 'handoff',
-      label: 'Handoff',
-      color: '#3c7a6b',
-      navColor: '#8dd8c5',
-      pages: [
-        '01 Handoff'
-      ]
-    },
-    {
-      id: 'development',
-      label: 'Development',
+      id: 'm2',
+      folder: 'training',
+      label: 'Module 2',
+      subLabel: 'Claude.ai',
       color: '#2b6880',
       navColor: '#7dd3e8',
+      filePrefix: ['04-', '05-', '06-'],
       pages: [
-        '01 Models, Prompts & Context',
-        '02 Agents, Skills & Planning',
-        '03 MCP, Context Hygiene & Scaling',
-        '04 Audit-Ready Release Automation'
+        '04-projects-and-memory',
+        '05-artifacts-and-output',
+        '06-document-analysis-lab'
+      ],
+      labels: [
+        'Projects & Context',
+        'Artifacts & Output',
+        'Doc Analysis Lab'
       ]
     },
     {
-      id: 'qa',
-      label: 'QA & Testing',
+      id: 'm3',
+      folder: 'training',
+      label: 'Module 3',
+      subLabel: 'Claude Code',
+      color: '#8c47e4',
+      navColor: '#c4b5fd',
+      filePrefix: ['07-', '08-', '09-'],
+      pages: [
+        '07-setup-and-init',
+        '08-explore-and-plan',
+        '09-first-code-change'
+      ],
+      labels: [
+        'Setup & /init',
+        'Explore & Plan',
+        'Scaffold Dashboard'
+      ]
+    },
+    {
+      id: 'm4',
+      folder: 'training',
+      label: 'Module 4',
+      subLabel: 'Build It',
       color: '#e8a317',
       navColor: '#f2c56b',
+      filePrefix: ['10-', '11-', '12-'],
       pages: [
-        '01 AI-Assisted Test Generation',
-        '02 PR Gates, Reports & Traceability',
-        '03 Playwright, Evidence & GxP'
+        '10-multi-file-editing',
+        '11-git-and-review',
+        '12-capstone-lab'
+      ],
+      labels: [
+        'Multi-File Editing',
+        'Git & PR Review',
+        'Capstone Lab'
       ]
     }
   ];
@@ -267,13 +291,16 @@
   homeEl.href = root + 'index.html';
   homeEl.className = 'nav-home' + (isHome ? ' active' : '');
   homeEl.innerHTML =
-    '<i class="nav-home-icon iconoir-book" aria-hidden="true"></i>' +
-    '<span class="nav-home-label">SDLC Playbook</span>';
+    '<i class="nav-home-icon iconoir-academic-cap" aria-hidden="true"></i>' +
+    '<span class="nav-home-label">Claude Training</span>';
   topRow.appendChild(homeEl);
 
   // Craft labels
   CRAFTS.forEach(function (craft) {
-    var isCurrent = craft.id === craftFolder;
+    var craftActualFolder = craft.folder || craft.id;
+    var folderMatch = craftActualFolder === craftFolder;
+    var fileMatch   = !craft.filePrefix || craft.filePrefix.some(function (p) { return currentFile.indexOf(p) === 0; });
+    var isCurrent = folderMatch && fileMatch;
     var hasPages  = craft.pages.length > 0;
     var isSoon    = craft.pages.length === 0;
 
@@ -291,7 +318,7 @@
     var nameEl;
     if (hasPages && !isCurrent) {
       nameEl = document.createElement('a');
-      nameEl.href = root + 'pages/' + craft.id + '/' + encodeURIComponent(craft.pages[0] + '.html');
+      nameEl.href = root + 'pages/' + craftActualFolder + '/' + encodeURIComponent(craft.pages[0] + '.html');
       nameEl.className = 'nav-craft-name';
     } else {
       nameEl = document.createElement('span');
@@ -319,7 +346,12 @@
   navEl.appendChild(topRow);
 
   // ── Sub row (steps for active craft only) ─────────────────────────────────
-  var activeCraft = CRAFTS.find(function (c) { return c.id === craftFolder; }) || null;
+  var activeCraft = CRAFTS.find(function (c) {
+    var folder = c.folder || c.id;
+    var folderMatch = folder === craftFolder;
+    var fileMatch = !c.filePrefix || c.filePrefix.some(function (p) { return currentFile.indexOf(p) === 0; });
+    return folderMatch && fileMatch;
+  }) || null;
 
   if (activeCraft && activeCraft.pages.length > 0) {
     var subRow = document.createElement('div');
@@ -338,10 +370,10 @@
 
       var filename = pageName + '.html';
       var isActive = currentFile === filename;
-      var label    = pageName;
+      var label    = (activeCraft.labels && activeCraft.labels[i]) || pageName;
 
       var stepA = document.createElement('a');
-      stepA.href = root + 'pages/' + activeCraft.id + '/' + encodeURIComponent(filename);
+      stepA.href = root + 'pages/' + (activeCraft.folder || activeCraft.id) + '/' + encodeURIComponent(filename);
       stepA.className = 'nav-sub-step' + (isActive ? ' active' : '');
       stepA.style.setProperty('--nc', activeCraft.color);
       stepA.style.animationDelay = (i * 90) + 'ms';
@@ -374,8 +406,8 @@
   overlayHome.href = root + 'index.html';
   overlayHome.className = 'nav-overlay-home' + (isHome ? ' active' : '');
   overlayHome.innerHTML =
-    '<i class="iconoir-book" aria-hidden="true" style="font-size:16px;flex-shrink:0;"></i>' +
-    '<span>SDLC Playbook</span>';
+    '<i class="iconoir-academic-cap" aria-hidden="true" style="font-size:16px;flex-shrink:0;"></i>' +
+    '<span>Claude Training</span>';
   overlayBody.appendChild(overlayHome);
 
   // Craft groups with page links
@@ -387,23 +419,26 @@
     var group = document.createElement('div');
     group.className = 'nav-overlay-craft-group';
 
-    var isCraftActive = craft.id === craftFolder;
+    var craftActualFolder = craft.folder || craft.id;
+    var isCraftActive = craftActualFolder === craftFolder &&
+      (!craft.filePrefix || craft.filePrefix.some(function (p) { return currentFile.indexOf(p) === 0; }));
 
     var craftLabel = document.createElement('div');
     craftLabel.className = 'nav-overlay-craft-label' + (isCraftActive ? ' active-craft' : '');
     craftLabel.style.setProperty('--nc', craft.navColor || craft.color);
-    craftLabel.textContent = craft.label;
+    craftLabel.textContent = craft.label + (craft.subLabel ? ' · ' + craft.subLabel : '');
     group.appendChild(craftLabel);
 
-    craft.pages.forEach(function (pageName) {
+    craft.pages.forEach(function (pageName, idx) {
       var filename = pageName + '.html';
       var isActive = isCraftActive && currentFile === filename;
       var numMatch = pageName.match(/^(\d+)/);
       var num = numMatch ? numMatch[1].replace(/^0+/, '') : '';
-      var title = pageName.replace(/^\d+\s+/, '');
+      var title = (craft.labels && craft.labels[idx]) ||
+        pageName.replace(/^\d+[-\s]+/, '').replace(/-/g, ' ');
 
       var link = document.createElement('a');
-      link.href = root + 'pages/' + craft.id + '/' + encodeURIComponent(filename);
+      link.href = root + 'pages/' + craftActualFolder + '/' + encodeURIComponent(filename);
       link.className = 'nav-overlay-page-link' + (isActive ? ' active' : '');
       link.style.setProperty('--nc', craft.navColor || craft.color);
       link.setAttribute('aria-current', isActive ? 'page' : '');

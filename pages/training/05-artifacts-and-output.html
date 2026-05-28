@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Artifacts &amp; Output Types — Module 2</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+.artifact-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+@media(max-width:768px) { .artifact-types { grid-template-columns: 1fr; } }
+.at-card { border-radius: 10px; border: 1px solid var(--border); background: var(--white); overflow: hidden; }
+.at-header { padding: 18px 20px 14px; border-bottom: 1px solid var(--border); }
+.at-icon { font-size: 24px; margin-bottom: 8px; }
+.at-name { font-family: 'Fraunces', serif; font-size: 17px; color: var(--navy); }
+.at-tag { display: inline-block; font-family: 'Roboto Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; margin-top: 4px; }
+.at-body { padding: 16px 20px; font-size: 14px; color: var(--slate); line-height: 1.65; }
+.at-use { margin-top: 10px; font-size: 13px; }
+.at-use strong { color: var(--navy); }
+.iteration-list { margin-top: 28px; counter-reset: iter; }
+.iter-item { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+.iter-num { width: 32px; height: 32px; min-width: 32px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; font-family: 'Roboto Mono', monospace; margin-top: 2px; }
+.iter-content { flex: 1; }
+.iter-title { font-weight: 700; color: var(--navy); font-size: 15px; margin-bottom: 4px; }
+.iter-body { font-size: 14px; color: var(--slate); line-height: 1.6; }
+</style>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<div class="module-strip">
+  <span class="ms-label">Workshop</span>
+  <a href="01-how-claude-thinks.html" class="ms-item done"><span class="ms-num">1</span>Foundations</a>
+  <span class="ms-arrow">›</span>
+  <a href="04-projects-and-memory.html" class="ms-item active"><span class="ms-num">2</span>Claude.ai</a>
+  <span class="ms-arrow">›</span>
+  <a href="07-setup-and-init.html" class="ms-item upcoming"><span class="ms-num">3</span>Claude Code</a>
+  <span class="ms-arrow">›</span>
+  <a href="10-multi-file-editing.html" class="ms-item upcoming"><span class="ms-num">4</span>Build It</a>
+</div>
+
+<div class="page-header" id="intro">
+  <div class="eyebrow">Module 2 · Lesson 2 of 3</div>
+  <h1 class="title">Artifacts &amp; <em>Output Types</em></h1>
+  <p class="subtitle">Claude can generate more than text. Artifacts are live, interactive outputs — code you can run, documents you can edit, diagrams you can view — all inside the conversation. Knowing which output type to request determines how useful the result is.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot" style="background:var(--teal)"></div>
+    Claude.ai · ~20 min
+  </div>
+</div>
+
+<!-- WHAT IS AN ARTIFACT -->
+<div class="section" id="artifacts">
+  <div class="sec-eyebrow">01 — Artifacts explained</div>
+  <h2 class="sec-title">An Artifact is an output Claude <em>separates from the chat.</em></h2>
+  <p class="sec-sub">When you ask Claude to write code or create a document, it can render the result in a dedicated panel next to the chat — an Artifact. You can preview it live, copy it, or ask Claude to modify it without re-generating the whole response. Artifacts are the iteration surface.</p>
+
+  <div class="artifact-types">
+    <div class="at-card">
+      <div class="at-header">
+        <div class="at-icon">💻</div>
+        <div class="at-name">Code</div>
+        <div><span class="at-tag" style="background:rgba(47,107,102,.1);color:var(--teal);">Runnable</span></div>
+      </div>
+      <div class="at-body">
+        HTML/CSS/JS renders live in the preview panel. Other languages (Python, TypeScript, etc.) display with syntax highlighting and copy-to-clipboard. The preview panel updates immediately when you ask Claude to make changes.
+        <div class="at-use"><strong>Use for:</strong> UI prototypes, interactive components, data utilities, scripts.</div>
+      </div>
+    </div>
+    <div class="at-card">
+      <div class="at-header">
+        <div class="at-icon">📝</div>
+        <div class="at-name">Document</div>
+        <div><span class="at-tag" style="background:rgba(232,163,23,.1);color:#9a5a00;">Editable</span></div>
+      </div>
+      <div class="at-body">
+        Markdown documents render with formatting in the preview panel. Claude can append to, rewrite sections of, or restructure the document as separate operations without regenerating the whole thing.
+        <div class="at-use"><strong>Use for:</strong> Requirements docs, changelogs, meeting notes, Jira descriptions, README files.</div>
+      </div>
+    </div>
+    <div class="at-card">
+      <div class="at-header">
+        <div class="at-icon">🔀</div>
+        <div class="at-name">SVG / Diagram</div>
+        <div><span class="at-tag" style="background:rgba(140,71,228,.1);color:var(--violet);">Visual</span></div>
+      </div>
+      <div class="at-body">
+        SVG renders directly. Mermaid diagrams (flowcharts, sequence diagrams, ER diagrams) are supported via code artifacts. Useful for architecture diagrams, user flow maps, and data model visualization.
+        <div class="at-use"><strong>Use for:</strong> System diagrams, user flows, data models, quick wireframe sketches.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:32px;">
+    <div class="tip-trick-icon">💡</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">How to request an Artifact</div>
+      <p>Claude creates Artifacts automatically when the output is clearly a standalone artifact (code, a document, SVG). You can also ask explicitly: "Create a code artifact" or "Put this in an Artifact so I can iterate on it." If Claude inline-pastes code instead of creating an artifact, try: "Rewrite that as an Artifact."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ITERATION WORKFLOW -->
+<div class="section section-dark" id="iteration">
+  <div class="sec-eyebrow on-dark">02 — Iteration pattern</div>
+  <h2 class="sec-title on-dark">One prompt to create. Many messages to <em>refine.</em></h2>
+  <p class="sec-sub on-dark">The power of Artifacts isn't the first output — it's the iteration loop. Because the Artifact is in the same context as the chat, you can refine it with natural language follow-ups. Each message updates the Artifact in place.</p>
+
+  <div class="iteration-list">
+    <div class="iter-item">
+      <div class="iter-num">1</div>
+      <div class="iter-content">
+        <div class="iter-title">Create the Artifact</div>
+        <div class="iter-body" style="color:rgba(255,255,255,.65);">"Create an HTML/CSS/JS Artifact for a Loan Application status table. Use this data: Branch Springfield, 90 target approvals, 87 actual, On Track. Branch Riverside, 75 target, 81 actual, Ahead. Use a clean table layout with a header row."</div>
+      </div>
+    </div>
+    <div class="iter-item">
+      <div class="iter-num">2</div>
+      <div class="iter-content">
+        <div class="iter-title">Refine the output</div>
+        <div class="iter-body" style="color:rgba(255,255,255,.65);">"Update the Artifact: add a Status column. Each status badge should use an icon + text label. Ahead = ✓, On Track = →, At Risk = ⚠. Use green/blue/amber colors but the icon is mandatory — do not rely on color alone."</div>
+      </div>
+    </div>
+    <div class="iter-item">
+      <div class="iter-num">3</div>
+      <div class="iter-content">
+        <div class="iter-title">Add interactivity</div>
+        <div class="iter-body" style="color:rgba(255,255,255,.65);">"Add filter buttons above the table for each status value. Clicking a button filters the visible rows. Include an All button that resets the filter. Keep the CSS inline, no external libraries."</div>
+      </div>
+    </div>
+    <div class="iter-item">
+      <div class="iter-num">4</div>
+      <div class="iter-content">
+        <div class="iter-title">Export and use</div>
+        <div class="iter-body" style="color:rgba(255,255,255,.65);">Copy the Artifact source or open it in a new tab to share with stakeholders. At this point you have a working interactive prototype — built in 3 prompts, zero code written by hand.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHEN TO USE ARTIFACTS VS CHAT -->
+<div class="section section--off" id="when">
+  <div class="sec-eyebrow">03 — When to use Artifacts</div>
+  <h2 class="sec-title">Artifacts for standalone outputs. <em>Chat for decisions.</em></h2>
+  <p class="sec-sub">Not everything should be an Artifact. Chat is the right surface for reasoning, analysis, Q&amp;A, and planning conversations. Artifacts are the right surface for things you'll iterate on or hand off.</p>
+
+  <div class="dev-grid-2" style="margin-top:28px;gap:20px;">
+    <div class="dev-card" style="background:var(--white);border:1px solid var(--border);">
+      <div class="dev-kicker" style="color:var(--teal);">Use an Artifact</div>
+      <h3 style="color:var(--navy);">Standalone outputs you'll iterate or share</h3>
+      <ul style="color:var(--slate);font-size:14px;line-height:2;padding-left:20px;margin:0;">
+        <li>Prototypes and interactive components</li>
+        <li>Documents you'll export or paste into Confluence</li>
+        <li>Requirement lists, acceptance criteria, checklists</li>
+        <li>Architecture diagrams and user flows</li>
+        <li>Scripts and utilities you'll run externally</li>
+      </ul>
+    </div>
+    <div class="dev-card" style="background:var(--white);border:1px solid var(--border);">
+      <div class="dev-kicker" style="color:var(--amber);">Keep in chat</div>
+      <h3 style="color:var(--navy);">Reasoning and analysis</h3>
+      <ul style="color:var(--slate);font-size:14px;line-height:2;padding-left:20px;margin:0;">
+        <li>Explaining a concept or decision</li>
+        <li>Answering a question about the codebase</li>
+        <li>Reviewing something for issues or gaps</li>
+        <li>Planning a sequence of steps before you start</li>
+        <li>Comparing options or trade-offs</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SHARING -->
+<div class="section" id="sharing">
+  <div class="sec-eyebrow">04 — Sharing &amp; Collaboration</div>
+  <h2 class="sec-title">Artifacts are the <em>fastest stakeholder prototype</em> in your toolkit.</h2>
+  <p class="sec-sub">An HTML Artifact can be opened in a browser tab and shared as a URL. For teams doing stakeholder demos before components exist in the real UI, this is genuinely useful — a working, interactive prototype you can show the same day you write the requirement.</p>
+
+  <div class="insight-grid" style="margin-top:24px;">
+    <div class="insight-card" style="border-left-color:var(--teal);">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">What makes a good stakeholder Artifact</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Realistic data (use actual LOAN-2024-Q3 branch names, not "Branch A / Branch B"). Correct status values. Functioning interactions (filter, sort, form submission). Close enough to the real component library's visual style that the stakeholder is reviewing the right thing.</p>
+    </div>
+    <div class="insight-card" style="border-left-color:var(--amber);">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">What it is not</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">An Artifact is not production code. It's not an Angular component. It's a communication tool — fast, disposable, purpose-built for alignment. Don't mistake it for implementation. Use it to align on what you're building, then build the real thing in Module 3 and 4.</p>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT -->
+<div class="section" id="next">
+  <div class="sec-eyebrow">Up next</div>
+  <h2 class="sec-title">Lesson 3: Document Analysis Lab <span style="font-family:'Roboto Mono',monospace;font-size:14px;color:var(--teal);vertical-align:middle;margin-left:8px;border:1px solid rgba(79,153,144,.3);padding:3px 8px;border-radius:4px;">Exercise</span></h2>
+  <p class="sec-sub">Upload a PRD excerpt and use Claude to extract requirements, generate a Jira ticket draft, and identify missing coverage. End-to-end, in one Project conversation.</p>
+  <a href="06-document-analysis-lab.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;font-size:15px;margin-top:8px;">Start Exercise →</a>
+</div>
+
+<div class="page-footer"></div>
+</body>
+</html>

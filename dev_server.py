@@ -85,6 +85,16 @@ class LiveReloadHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
+    def handle_error(self, request, client_address):
+        # Suppress noisy browser-disconnect errors (connection reset, broken pipe)
+        import errno as _errno
+        exc = sys.exc_info()[1]
+        if isinstance(exc, (ConnectionResetError, BrokenPipeError)):
+            return
+        if isinstance(exc, OSError) and exc.errno in (_errno.ECONNRESET, _errno.EPIPE, _errno.ENOTCONN):
+            return
+        super().handle_error(request, client_address)
+
     def do_GET(self) -> None:
         if self.path == "/__livereload":
             self.handle_livereload()

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Capstone: Complete the Loan Dashboard — Module 4</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+.capstone-hero { background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%); color: var(--white); border-radius: 14px; padding: 36px 40px; margin-top: 28px; position: relative; overflow: hidden; }
+.capstone-hero::after { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(79,153,144,.12); pointer-events: none; }
+.ch-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--mint-on-dark); margin-bottom: 12px; }
+.ch-title { font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.3; margin-bottom: 12px; }
+.ch-body { font-size: 15px; color: rgba(255,255,255,.7); line-height: 1.7; max-width: 560px; }
+.ch-features { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.ch-feat { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 6px; padding: 6px 12px; font-size: 13px; color: rgba(255,255,255,.8); font-family: 'Roboto Mono', monospace; }
+.feature-section { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 32px; }
+.fs-header { background: var(--navy); color: var(--white); padding: 18px 24px; display: flex; align-items: center; gap: 14px; }
+.fs-num { font-family: 'Roboto Mono', monospace; font-size: 13px; color: var(--mint-on-dark); font-weight: 700; }
+.fs-title { font-family: 'Fraunces', serif; font-size: 18px; }
+.fs-tag { margin-left: auto; font-family: 'Roboto Mono', monospace; font-size: 11px; background: rgba(255,255,255,.1); padding: 4px 10px; border-radius: 4px; color: rgba(255,255,255,.6); }
+.fs-body { padding: 24px; }
+.fs-body p { font-size: 15px; color: var(--slate); line-height: 1.65; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<div class="module-strip">
+  <span class="ms-label">Workshop</span>
+  <a href="01-how-claude-thinks.html" class="ms-item done"><span class="ms-num">1</span>Foundations</a>
+  <span class="ms-arrow">›</span>
+  <a href="04-projects-and-memory.html" class="ms-item done"><span class="ms-num">2</span>Claude.ai</a>
+  <span class="ms-arrow">›</span>
+  <a href="07-setup-and-init.html" class="ms-item done"><span class="ms-num">3</span>Claude Code</a>
+  <span class="ms-arrow">›</span>
+  <a href="10-multi-file-editing.html" class="ms-item active"><span class="ms-num">4</span>Build It</a>
+</div>
+
+<div class="page-header" id="intro">
+  <div class="eyebrow">Module 4 · Capstone Exercise</div>
+  <h1 class="title">Complete the <em>Loan Dashboard</em></h1>
+  <p class="subtitle">Three features. One Claude Code session each. Real code, real commits, real review. You scaffolded the skeleton in Module 3 — now build the product.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot" style="background:var(--teal)"></div>
+    Capstone Exercise · ~60 min
+  </div>
+</div>
+
+<!-- WHAT YOU'RE BUILDING -->
+<div class="section" id="what">
+  <div class="capstone-hero">
+    <div class="ch-eyebrow">What you're building</div>
+    <div class="ch-title">LOAN-2024-Q3 Portfolio Dashboard — Feature Complete</div>
+    <div class="ch-body">Starting from the skeleton you built in Module 3, you'll add three production-ready features using Claude Code. Each feature is its own session: one clear task, Plan mode on, commit after review.</div>
+    <div class="ch-features">
+      <span class="ch-feat">Feature 1 — Status Filter Bar</span>
+      <span class="ch-feat">Feature 2 — Status Badges</span>
+      <span class="ch-feat">Feature 3 — Add Row Modal</span>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:24px;">
+    <div class="tip-trick-icon">📋</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Before each feature: /clear</div>
+      <p>Each feature is its own Claude Code session. Start fresh: /clear, then the feature prompt. This is the feature-by-feature strategy from Lesson 1. Don't try to build all three features in one session.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE 1 -->
+<div class="section section--off" id="feature1">
+  <div class="sec-eyebrow">Feature 1 of 3</div>
+  <h2 class="sec-title">Status Filter Bar — <em>All / Ahead / On Track / At Risk</em></h2>
+
+  <div class="feature-section">
+    <div class="fs-header">
+      <div class="fs-num">Feature 1</div>
+      <div class="fs-title">Status Filter Bar</div>
+      <div class="fs-tag">~15 min</div>
+    </div>
+    <div class="fs-body">
+      <p>Add a row of filter buttons above the table. One button per status plus an "All" button that resets the filter. The active button is visually highlighted. The table updates immediately on click — no page refresh.</p>
+
+      <div class="exercise-box">
+        <div class="exercise-header">
+          <div class="exercise-icon">🔍</div>
+          <div class="exercise-meta">
+            <div class="exercise-eyebrow">Capstone · Feature 1</div>
+            <div class="exercise-title">Status Filter Bar</div>
+          </div>
+          <div class="exercise-duration">~15 min</div>
+        </div>
+        <div class="exercise-body">
+          <div class="exercise-steps">
+            <div class="ex-step">
+              <div class="ex-step-num">1</div>
+              <div class="ex-step-content">
+                <h4>Start fresh</h4>
+                <p>Open your loan-dashboard project in Claude Code. Run /clear if you have any session history. Enable Plan mode (Shift+Tab).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-wrap" style="margin-top:16px;">
+            <div class="prompt-topbar">
+              <span class="pb-dot" style="background:#ff5f57"></span>
+              <span class="pb-dot" style="background:#febc2e"></span>
+              <span class="pb-dot" style="background:#28c840"></span>
+              <span class="prompt-label">Capstone Feature 1 Prompt — run in Plan mode</span>
+              <button class="copy-btn" onclick="copyPrompt('p-feature1')">Copy</button>
+            </div>
+            <div class="prompt-body">
+              <pre id="p-feature1">Add a status filter bar as a complete feature across all three files.
+
+@index.html — add a &lt;div class="filter-bar"&gt; directly above the table.
+Inside it, four buttons: "All", "Ahead", "On Track", "At Risk".
+Each button has class="filter-btn" and data-filter attribute matching the
+status value (or "all" for the All button).
+The "All" button gets class="filter-btn active" by default.
+
+@styles.css — add styling for .filter-bar and .filter-btn:
+- Filter bar: flex row, gap 8px, margin-bottom 16px
+- Buttons: padding 6px 14px, border-radius 20px, border 1px solid #dedede,
+  background white, cursor pointer, font-size 13px, transition background 0.15s
+- .filter-btn.active: background var(--teal, #2f6b66), color white, border-color transparent
+- Hover state for inactive buttons: background #f0f0f0
+
+@dashboard.js — add filter functionality:
+- Track activeFilter in a module-level variable, default 'all'
+- setFilter(value) function: updates activeFilter, updates .active class on buttons,
+  calls renderTable with filtered data
+- Update renderTable to accept a data parameter instead of always using loanData
+- Wire up click events on all .filter-btn elements in DOMContentLoaded
+- "All" shows all six branches; other filters show only matching status</pre>
+            </div>
+          </div>
+
+          <div class="ex-step ex-step--observe" style="margin-top:16px;">
+            <div class="ex-step-num">👁</div>
+            <div class="ex-step-content">
+              <h4>Read the plan — three files, no surprises</h4>
+              <p>The plan should show edits to all three files. If it's only touching one or two, reject and clarify. The feature isn't complete unless all three files are updated in one commit.</p>
+            </div>
+          </div>
+
+          <div class="exercise-steps" style="margin-top:16px;">
+            <div class="ex-step">
+              <div class="ex-step-num">2</div>
+              <div class="ex-step-content">
+                <h4>Test in the browser</h4>
+                <p>Open index.html. Click each filter button. Does the table update? Does the active state move to the clicked button? Do all six rows show when "All" is clicked?</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-steps">
+            <div class="ex-step">
+              <div class="ex-step-num">3</div>
+              <div class="ex-step-content">
+                <h4>Commit</h4>
+                <p>Run this commit prompt once the feature is verified:</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-wrap">
+            <div class="prompt-topbar">
+              <span class="pb-dot" style="background:#ff5f57"></span>
+              <span class="pb-dot" style="background:#febc2e"></span>
+              <span class="pb-dot" style="background:#28c840"></span>
+              <span class="prompt-label">Commit Prompt — Feature 1</span>
+              <button class="copy-btn" onclick="copyPrompt('p-commit1')">Copy</button>
+            </div>
+            <div class="prompt-body">
+              <pre id="p-commit1">Feature looks correct. Please stage all three files and commit with this message:
+"feat: add status filter bar — All / Ahead / On Track / At Risk"</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE 2 -->
+<div class="section" id="feature2">
+  <div class="sec-eyebrow">Feature 2 of 3</div>
+  <h2 class="sec-title">Status Badges — <em>Icon + Label, Never Color Alone</em></h2>
+
+  <div class="feature-section">
+    <div class="fs-header">
+      <div class="fs-num">Feature 2</div>
+      <div class="fs-title">Status Badges</div>
+      <div class="fs-tag">~20 min</div>
+    </div>
+    <div class="fs-body">
+      <p>Replace the plain status text in the table with styled badge elements. Each badge shows an icon and a label — never color alone. This is a WCAG 2.1 AA requirement from your CLAUDE.md: colorblind users must be able to read status without relying on color.</p>
+      <p><strong>Ahead:</strong> ↑ green badge. <strong>On Track:</strong> → teal badge. <strong>At Risk:</strong> ↓ amber/orange badge.</p>
+
+      <div class="exercise-box">
+        <div class="exercise-header">
+          <div class="exercise-icon">🏷️</div>
+          <div class="exercise-meta">
+            <div class="exercise-eyebrow">Capstone · Feature 2</div>
+            <div class="exercise-title">Status Badges</div>
+          </div>
+          <div class="exercise-duration">~20 min</div>
+        </div>
+        <div class="exercise-body">
+          <div class="exercise-steps">
+            <div class="ex-step">
+              <div class="ex-step-num">1</div>
+              <div class="ex-step-content">
+                <h4>/clear, then Plan mode on</h4>
+                <p>Run /clear to start fresh. Enable Plan mode (Shift+Tab). This is a new feature — clean context.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-wrap" style="margin-top:16px;">
+            <div class="prompt-topbar">
+              <span class="pb-dot" style="background:#ff5f57"></span>
+              <span class="pb-dot" style="background:#febc2e"></span>
+              <span class="pb-dot" style="background:#28c840"></span>
+              <span class="prompt-label">Capstone Feature 2 Prompt — run in Plan mode</span>
+              <button class="copy-btn" onclick="copyPrompt('p-feature2')">Copy</button>
+            </div>
+            <div class="prompt-body">
+              <pre id="p-feature2">Add status badges to the Status column in the table. Per CLAUDE.md: icon + label
+always, never color alone (WCAG 2.1 AA requirement).
+
+@dashboard.js — update the renderTable function so the Status cell renders:
+  &lt;span class="status-badge status-badge--ahead"&gt;↑ Ahead&lt;/span&gt;
+  &lt;span class="status-badge status-badge--on-track"&gt;→ On Track&lt;/span&gt;
+  &lt;span class="status-badge status-badge--at-risk"&gt;↓ At Risk&lt;/span&gt;
+
+Use computeStatus() to get the right badge class.
+
+@styles.css — add .status-badge styles:
+- Base: display inline-flex, align-items center, gap 4px, padding 3px 10px,
+  border-radius 12px, font-size 12px, font-weight 600
+- .status-badge--ahead: background #d1fae5, color #065f46
+- .status-badge--on-track: background #e0f2fe, color #075985
+- .status-badge--at-risk: background #fef3c7, color #92400e
+
+Do not change index.html — the badge markup is generated in dashboard.js.</pre>
+            </div>
+          </div>
+
+          <div class="ex-step ex-step--observe" style="margin-top:16px;">
+            <div class="ex-step-num">👁</div>
+            <div class="ex-step-content">
+              <h4>Accessibility check: are the icons present?</h4>
+              <p>Open the browser. Each status row should show a badge with both an arrow icon AND the label text. If any row shows only color with no text label or icon, ask Claude to fix it before committing. This is the WCAG requirement — non-negotiable.</p>
+            </div>
+          </div>
+
+          <div class="prompt-wrap" style="margin-top:16px;">
+            <div class="prompt-topbar">
+              <span class="pb-dot" style="background:#ff5f57"></span>
+              <span class="pb-dot" style="background:#febc2e"></span>
+              <span class="pb-dot" style="background:#28c840"></span>
+              <span class="prompt-label">Commit Prompt — Feature 2</span>
+              <button class="copy-btn" onclick="copyPrompt('p-commit2')">Copy</button>
+            </div>
+            <div class="prompt-body">
+              <pre id="p-commit2">Badges look correct and WCAG-compliant. Stage and commit:
+"feat: add status badges — icon + label pattern, WCAG 2.1 AA"</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURE 3 -->
+<div class="section section--off" id="feature3">
+  <div class="sec-eyebrow">Feature 3 of 3</div>
+  <h2 class="sec-title">Add Row Modal — <em>Form with Validation</em></h2>
+
+  <div class="feature-section">
+    <div class="fs-header">
+      <div class="fs-num">Feature 3</div>
+      <div class="fs-title">Add Row Modal + Form Validation</div>
+      <div class="fs-tag">~25 min</div>
+    </div>
+    <div class="fs-body">
+      <p>Add an "Add Branch" button that opens a modal dialog with a form. The form collects Branch ID, Branch Name, Target Approvals, Actual Approvals, and Last Updated. Status is computed — not entered. Validation ensures no field is empty and that approvals are positive numbers.</p>
+      <p>This is the most complex feature. Use Plan mode. Read the plan carefully. Expect to iterate once on the validation logic.</p>
+
+      <div class="exercise-box">
+        <div class="exercise-header">
+          <div class="exercise-icon">📝</div>
+          <div class="exercise-meta">
+            <div class="exercise-eyebrow">Capstone · Feature 3</div>
+            <div class="exercise-title">Add Row Modal</div>
+          </div>
+          <div class="exercise-duration">~25 min</div>
+        </div>
+        <div class="exercise-body">
+          <div class="exercise-steps">
+            <div class="ex-step">
+              <div class="ex-step-num">1</div>
+              <div class="ex-step-content">
+                <h4>/clear, Plan mode on. This is the biggest feature.</h4>
+                <p>Run /clear. Enable Plan mode. The plan for this one will be longer than the first two — read every step before approving.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-wrap" style="margin-top:16px;">
+            <div class="prompt-topbar">
+              <span class="pb-dot" style="background:#ff5f57"></span>
+              <span class="pb-dot" style="background:#febc2e"></span>
+              <span class="pb-dot" style="background:#28c840"></span>
+              <span class="prompt-label">Capstone Feature 3 Prompt — run in Plan mode</span>
+              <button class="copy-btn" onclick="copyPrompt('p-feature3')">Copy</button>
+            </div>
+            <div class="prompt-body">
+              <pre id="p-feature3">Add an "Add Branch" button and modal form as a complete feature.
+
+@index.html — add two things:
+1. An "Add Branch" button above the filter bar: &lt;button class="add-btn" id="add-branch-btn"&gt;+ Add Branch&lt;/button&gt;
+2. A modal dialog element after the table:
+   &lt;div class="modal-overlay" id="modal-overlay" hidden&gt;
+     &lt;div class="modal"&gt;
+       &lt;div class="modal-header"&gt;Add Branch&lt;span class="modal-close" id="modal-close"&gt;&amp;times;&lt;/span&gt;&lt;/div&gt;
+       &lt;div class="modal-body"&gt;
+         &lt;!-- form fields for: branchId, branchName, target, actual, lastUpdated --&gt;
+       &lt;/div&gt;
+       &lt;div class="modal-footer"&gt;
+         &lt;button id="modal-cancel"&gt;Cancel&lt;/button&gt;
+         &lt;button id="modal-submit" class="submit-btn"&gt;Add Branch&lt;/button&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+
+@styles.css — add styles for:
+- .add-btn: primary button style, background var(--teal, #2f6b66), color white,
+  padding 8px 16px, border-radius 6px, margin-bottom 12px, cursor pointer
+- .modal-overlay: fixed position, full screen, background rgba(0,0,0,0.4), z-index 100,
+  display flex, align-items center, justify-content center
+- .modal: background white, border-radius 10px, width 480px, max-width 90vw, padding 0
+- .modal-header, .modal-body, .modal-footer: standard modal section styles
+- Form fields: full-width inputs, labels above fields, error state for invalid fields
+- .submit-btn: same style as .add-btn
+
+@dashboard.js — add:
+- openModal() and closeModal() functions (toggle hidden attribute on overlay)
+- Wire #add-branch-btn to openModal(), #modal-close and #modal-cancel to closeModal()
+- handleSubmit() function that:
+  1. Reads all five field values
+  2. Validates: no empty fields, target and actual must be positive integers
+  3. Shows inline error messages under invalid fields (do NOT use alert())
+  4. If valid: creates new loanData entry, computes status, calls renderTable,
+     closes modal, clears form
+- Wire #modal-submit to handleSubmit()</pre>
+            </div>
+          </div>
+
+          <div class="ex-step ex-step--observe" style="margin-top:16px;">
+            <div class="ex-step-num">👁</div>
+            <div class="ex-step-content">
+              <h4>Test the full form flow</h4>
+              <p>Try to submit an empty form — do the validation errors appear under each field? Submit with valid data — does the new row appear in the table with the correct status badge? Does the modal close after a successful submit? Does Cancel work?</p>
+            </div>
+          </div>
+
+          <div class="prompt-wrap" style="margin-top:16px;">
+            <div class="prompt-topbar">
+              <span class="pb-dot" style="background:#ff5f57"></span>
+              <span class="pb-dot" style="background:#febc2e"></span>
+              <span class="pb-dot" style="background:#28c840"></span>
+              <span class="prompt-label">Commit Prompt — Feature 3</span>
+              <button class="copy-btn" onclick="copyPrompt('p-commit3')">Copy</button>
+            </div>
+            <div class="prompt-body">
+              <pre id="p-commit3">Form and modal look correct. Stage and commit:
+"feat: add branch modal with validation — Add Branch button opens form, computes status"</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKSHOP COMPLETE -->
+<div class="section section-dark" id="complete">
+  <div class="sec-eyebrow on-dark" style="color:var(--mint-on-dark);">Workshop Complete</div>
+  <h2 class="sec-title on-dark">You built a <em>real product</em> with AI as your pair programmer.</h2>
+  <p class="sec-sub on-dark">In six hours, you went from zero to a functioning interactive dashboard — using Claude.ai for design thinking and Claude Code for implementation. More importantly, you have a set of durable habits:</p>
+
+  <div class="reflect-grid" style="margin-top:28px;">
+    <div class="reflect-card">
+      <div class="reflect-q">Prompt structure</div>
+      <div class="reflect-hint">Role → Task → Context → Format. Every high-stakes prompt. Every time. The habit that produces the biggest quality jump per unit of effort.</div>
+    </div>
+    <div class="reflect-card">
+      <div class="reflect-q">CLAUDE.md as the contract</div>
+      <div class="reflect-hint">Your standing instructions, maintained over time. The delta between a team with a maintained CLAUDE.md and one without is visible in every commit.</div>
+    </div>
+    <div class="reflect-card">
+      <div class="reflect-q">Plan mode before execution</div>
+      <div class="reflect-hint">Read the plan. Check files, scope, approach. Correct before the edit, not after. Ten seconds now saves thirty minutes later.</div>
+    </div>
+    <div class="reflect-card">
+      <div class="reflect-q">/clear between tasks</div>
+      <div class="reflect-hint">Context hygiene is not optional. Long sessions with accumulated context produce drift. Clear the slate and start each new feature clean.</div>
+    </div>
+    <div class="reflect-card">
+      <div class="reflect-q">Read the diff before committing</div>
+      <div class="reflect-hint">The diff is the review. Audit it like a PR from a junior developer. You own the git history — not Claude.</div>
+    </div>
+    <div class="reflect-card">
+      <div class="reflect-q">Feature-by-feature strategy</div>
+      <div class="reflect-hint">One coherent task. One session. One clean commit. This is what separates teams that scale AI usage from teams that create maintenance debt.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:36px;text-align:center;">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);color:var(--white);text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;font-size:15px;border:1px solid rgba(255,255,255,.2);">← Back to Workshop Home</a>
+  </div>
+</div>
+
+<div class="page-footer"></div>
+<script>
+function copyPrompt(id) {
+  const pre = document.getElementById(id);
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    document.querySelectorAll('.copy-btn').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) {
+        b.textContent = 'Copied!';
+        setTimeout(() => b.textContent = 'Copy', 2000);
+      }
+    });
+  });
+}
+</script>
+</body>
+</html>
