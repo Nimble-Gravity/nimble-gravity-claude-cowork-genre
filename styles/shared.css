@@ -3613,6 +3613,8 @@ section.hero .dev-chip {
 .module-cta:hover { gap: 10px; }
 .module-slides { font-size: 12px; font-weight: 600; color: var(--slatel); text-decoration: none; letter-spacing: .04em; white-space: nowrap; transition: color .15s; display: flex; align-items: center; gap: 5px; }
 .module-slides:hover { color: var(--violet); }
+.slides-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--violet); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 8px; transition: background .2s, transform .15s; white-space: nowrap; }
+.slides-cta:hover { background: #7a3ccf; transform: translateY(-1px); }
 
 /* ══════════════════════════════════════════════════════════════════════════════
    PAGE TOC — right-side sticky navigation

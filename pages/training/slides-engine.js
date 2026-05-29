@@ -135,6 +135,59 @@
         }
       });
 
+      /* Best-practice items (.bp-item) */
+      sec.querySelectorAll('.bp-item').forEach(function (card) {
+        var head = card.querySelector('.bp-title');
+        var body = card.querySelector('.bp-body, p');
+        if (head) {
+          bullets.push({
+            heading: textOf(head),
+            body:    body ? truncate(textOf(body), 110) : ''
+          });
+        }
+      });
+
+      /* Hygiene cards (.hy-card) */
+      sec.querySelectorAll('.hy-card').forEach(function (card) {
+        var label = card.querySelector('.hy-label');
+        var title = card.querySelector('.hy-title');
+        var body  = card.querySelector('.hy-body, p');
+        var heading = (label ? textOf(label) + ': ' : '') + (title ? textOf(title) : '');
+        if (heading.trim()) {
+          bullets.push({
+            heading: heading.trim(),
+            body:    body ? truncate(textOf(body), 110) : ''
+          });
+        }
+      });
+
+      /* Strategy cards (.sg-card) */
+      sec.querySelectorAll('.sg-card').forEach(function (card) {
+        var header = card.querySelector('.sg-header');
+        var title  = card.querySelector('.sg-title');
+        var body   = card.querySelector('p');
+        var heading = header ? textOf(header).replace(/^[\u2605-\uFFFF\s✅⚠️❌]+/u, '').trim() : (title ? textOf(title) : '');
+        if (!heading && title) heading = textOf(title);
+        if (heading) {
+          bullets.push({
+            heading: heading,
+            body:    (title && header ? textOf(title) + (body ? ' — ' + truncate(textOf(body), 80) : '') : (body ? truncate(textOf(body), 110) : ''))
+          });
+        }
+      });
+
+      /* Reflection cards (.reflect-card) */
+      sec.querySelectorAll('.reflect-card').forEach(function (card) {
+        var q    = card.querySelector('.reflect-q');
+        var hint = card.querySelector('.reflect-hint');
+        if (q) {
+          bullets.push({
+            heading: textOf(q).replace(/^"|"$/g, ''),
+            body:    hint ? truncate(textOf(hint), 110) : ''
+          });
+        }
+      });
+
       /* Numbered / comparison list items (qa-row, qa-card, step-card, etc.) */
       sec.querySelectorAll('.qa-card, .step-card, .pro-con-card, .comparison-card').forEach(function (card) {
         var head = card.querySelector('h3, .card-label, strong');
