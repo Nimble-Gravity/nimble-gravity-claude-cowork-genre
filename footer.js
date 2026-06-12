@@ -45,14 +45,14 @@
     footer.removeAttribute('style');
     footer.innerHTML =
       '<div class="nav-footer-copy">' +
-        '<div class="nav-footer-kicker">Nimble Gravity × Acme Corp</div>' +
-        '<div class="nav-footer-title">Claude Training · 6-Hour Workshop</div>' +
-        '<div class="nav-footer-text">Four modules covering how Claude thinks, Claude.ai power use, Claude Code fundamentals, and a capstone Loan Application Status Dashboard — built entirely with AI-assisted coding.</div>' +
+        '<div class="nav-footer-kicker">Nimble Gravity · Cowork Enablement</div>' +
+        '<div class="nav-footer-title">Cowork Workshop · Claude Cowork &amp; Copilot Cowork</div>' +
+        '<div class="nav-footer-text">A four-module enablement program that gets knowledge workers productive with Cowork — getting set up, real use cases by industry, building your first skill, then plugins, team deployment, and governance.</div>' +
         '<div class="nav-footer-stages" aria-label="Workshop modules">' +
-          '<span class="nav-footer-stage">Module 1 · Foundations</span>' +
-          '<span class="nav-footer-stage">Module 2 · Claude.ai</span>' +
-          '<span class="nav-footer-stage">Module 3 · Claude Code</span>' +
-          '<span class="nav-footer-stage">Module 4 · Build It</span>' +
+          '<span class="nav-footer-stage">Module 1 · Setup &amp; Foundations</span>' +
+          '<span class="nav-footer-stage">Module 2 · Use Cowork</span>' +
+          '<span class="nav-footer-stage">Module 3 · Build a Skill</span>' +
+          '<span class="nav-footer-stage">Module 4 · Plugins &amp; Rollout</span>' +
         '</div>' +
       '</div>' +
       '<a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">' +

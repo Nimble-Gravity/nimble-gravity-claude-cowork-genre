@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-A static HTML documentation/workshop site for a UX design team at Acme Corp — a financial services software company. The site covers an initiative introducing three AI tools (Claude Design, Figma Make, Cursor + Claude Code) into the team's design practice. No build step, no framework, no package manager.
+A **Nimble Gravity** Cowork-enablement microsite — a four-module program that gets **knowledge workers** (not coders) productive with **Cowork**, the agentic engine that brings Claude Code's capabilities into the Claude desktop app. It leads with **Claude Cowork** (Anthropic) and routes regulated, Microsoft-stack work to **Copilot Cowork** (Microsoft, same engine, in-tenant). The arc: get set up → use it by industry → build your first skill → deploy plugins and govern adoption. No build step, no framework, no package manager.
+
+The framework (nav, footer, design system, slide engine, page template) was forked from an earlier workshop template. The original Acme/loan SDLC lessons and phase pages are preserved under `pages/_reference-acme/` as worked examples — not linked from the live site. The Cowork content is grounded in a content-research report and the "Cowork Next Steps" meeting; key facts (and date-sensitive caveats like the June-2026 audit gap) live in `cowork-context.md`.
 
 To run locally:
 ```bash
@@ -20,18 +22,24 @@ python -m http.server
 ## Architecture
 
 ```
-index.html          — Homepage / tool comparison landing page
-nav.js              — Self-contained navigation component (IIFE; injects its own CSS)
-styles/shared.css   — Shared design system styles: tokens plus cross-page layout/components
-DESIGN-SYSTEM.md    — Layout and spacing rules for reusable page patterns
-pages/*.html        — Content pages (self-contained; each includes all its own CSS)
-Images/             — PNG screenshots referenced by index.html tool cards
-initiative-context.md — Domain and project context (read this before writing content)
+index.html              — Homepage / workshop landing page (hero + TOC + module overview)
+nav.js                  — Self-contained top-nav component (IIFE; injects its own CSS)
+footer.js               — Self-contained footer component (Nimble Gravity wordmark + brand link)
+training-sidebar.js     — Left module/lesson sidebar for training pages
+styles/shared.css       — Shared design system: tokens plus cross-page layout/components
+DESIGN-SYSTEM.md        — Layout/spacing rules + "How slides are generated" (card classes)
+cowork-context.md       — Subject brief: the two products, researched facts, sources, scenario
+pages/training/*.html   — The 12 Cowork lessons + 4 slide decks + slide engine + theme
+pages/_reference-acme/  — Original Acme lessons + the old SDLC phase folders, preserved (not linked)
 ```
 
-**Every page** follows this structure: `<link>` to shared.css → `<style>` block for page-specific CSS → `<script src="nav.js">` as first element of `<body>` → one primary intro pattern (`hero` or `page-header`) → section divs → page-footer div → optional inline `<script>`.
+**Every page** follows this structure: `<link>` to shared.css → `<style>` block for page-specific CSS → `<script src="footer.js">` then `<script src="nav.js">` (and `training-sidebar.js` on training pages) at the start of `<body>` → one primary intro pattern (`hero` or `page-header`) → section divs → page-footer div → optional inline `<script>`.
 
-**nav.js** detects whether the page is in `/pages/` and adjusts root-relative links accordingly. It loads the page list by first trying a local directory listing, then falling back to the GitHub API at `github.com/Nimble-Gravity/acme-corp-SDLC`.
+**The module manifest is duplicated in four places — keep them in sync** when adding/renaming/reordering lessons: the `CRAFTS` array in `nav.js`, the `MODULES` array in `training-sidebar.js`, the `window.SLIDES_CFG` in each `pages/training/module-N-slides.html`, and the footer stage chips in `footer.js`.
+
+**nav.js** detects whether the page is in `/pages/` and adjusts root-relative links accordingly (assuming pages are exactly two directory levels deep). The nav/module structure is driven entirely by the hardcoded `CRAFTS` manifest — there is no external page-list fetch.
+
+**Slides build themselves from lesson HTML.** A deck file (`module-N-slides.html`) is just a small `window.SLIDES_CFG` config; `slides-engine.js` fetches each listed lesson and extracts slides from known card classes. See DESIGN-SYSTEM.md "How slides are generated" before authoring lessons.
 
 **shared.css** provides the shared visual system: Google Fonts imports, CSS custom properties, base resets, and a growing set of cross-page components/layout patterns used by multiple pages. Before creating a new reusable page pattern, check `DESIGN-SYSTEM.md`.
 
@@ -49,15 +57,18 @@ When adding badges, chips, tags, or small craft labels, reuse the shared badge l
 
 ## Domain Context
 
-The target audience is enterprise UX designers and frontend developers building **financial services software** (loan origination platform). Content tone is practitioner-to-practitioner — not marketing copy. Key constraints of the team's actual product:
+The audience is **knowledge workers in regulated enterprise** (financial services, insurance, capital markets, PE, healthcare, legal) — Nimble Gravity's sweet spot. The subject is **Cowork**: lead with **Claude Cowork** (Anthropic — desktop app, local folders, isolated VM), and route compliance-bound work to **Copilot Cowork** (Microsoft — same engine, in-tenant, Purview-audited). Read `cowork-context.md` (audience, researched facts, sources, caveats) before writing content. Tone is practitioner-to-practitioner — not marketing copy.
 
-- Component library: **forked Angular Material UI** (not Tailwind, not React)
-- Compliance: **SOC 2 Type II**, **PCI-DSS Level 1**, WCAG 2.1 AA
-- Color-blind-safe patterns required (icon + label, never color alone for status)
-- Reference products for design language: Salesforce, Jira — high data density, not consumer aesthetic
+The 4-module arc (each module = two learning lessons + a lab; run over two weeks or one intensive):
 
-When generating prompt examples or tutorial content, use the canonical reference feature: **Loan Application Review Table for portfolio LOAN-2024-Q3** (see `initiative-context.md` §11 for full data).
+1. **Setup & Foundations** — delegate vs. chat; the engine (Claude Code's, in Claude Desktop, local + VM); personalization via Global/Folder/Project instructions and the M365 connector; the Claude-vs-Copilot routing; a first delegated session.
+2. **Use Cowork** — industry use cases (seeded from Anthropic's open-sourced finance/legal packs); working effectively (Sonnet-default cost discipline, permission modes, prompt injection, `/schedule`); a hands-on lab.
+3. **Build a Skill** — decompose a workflow into a blueprint; `SKILL.md` the Anthropic way (keyword-rich description, body < 500 lines, progressive disclosure, **evals before docs**); a lab running the skill-creator loop to ship a `.skill`.
+4. **Plugins & Rollout** — skills → plugins (bundles, marketplaces, portability via the Claude Code superset + M365 conversion); private-marketplace deployment + the owner-pushes/members-copy model; a capstone on governance (the audit gap → route regulated to Copilot Cowork) and adoption (Analytics API + OpenTelemetry dashboard, phased rollout).
 
-The three tools covered have distinct roles: Claude Design owns exploration/stakeholder prototypes, Figma Make owns screens that need to live on the Figma canvas, Cursor + Claude Code owns prototypes that terminate in Angular Material output Jordan can work with directly.
+Guidelines for content:
 
-Do not present Storybook as a settled part of the team's workflow — it is under review due to Angular support limitations (see `initiative-context.md` §10).
+- Lead with Claude Cowork; present Copilot Cowork as the **in-tenant alternative for regulated clients** — the deciding fact is the audit gap (as of June 2026, Claude Cowork activity is not in Anthropic's Compliance API/audit logs and history is local).
+- Make every lab a **real delegation that produces a deliverable** — "without enablement, users treat Cowork like Chat."
+- Module 3 is the highest-scrutiny section: quote Anthropic's skill-authoring best-practices verbatim and date-stamp it.
+- Lessons are research-grounded but carry `SCAFFOLD` / `TODO` markers where Nimble Gravity IP (industry examples, the adoption-dashboard build) drops in. **Date-sensitive** — re-verify the audit gap, Copilot Cowork preview status, model lineup, and repo/plugin counts against the **Sources** in `cowork-context.md` before each cohort.

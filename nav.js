@@ -8,76 +8,76 @@
       id: 'm1',
       folder: 'training',
       label: 'Module 1',
-      subLabel: 'Foundations',
+      subLabel: 'Setup & Foundations',
       color: '#2f6b66',
       navColor: '#4f9990',
       filePrefix: ['01-', '02-', '03-'],
       pages: [
-        '01-how-claude-thinks',
-        '02-prompt-anatomy',
-        '03-first-conversations'
+        '01-what-is-cowork',
+        '02-getting-set-up',
+        '03-first-cowork-session'
       ],
       labels: [
-        'Tokens & Context',
-        'Prompt Anatomy',
-        'First Conversations'
+        'What Is Cowork',
+        'Get Set Up',
+        'First Session'
       ]
     },
     {
       id: 'm2',
       folder: 'training',
       label: 'Module 2',
-      subLabel: 'Claude.ai',
-      color: '#2b6880',
-      navColor: '#7dd3e8',
+      subLabel: 'Use Cowork',
+      color: '#8c47e4',
+      navColor: '#c4b5fd',
       filePrefix: ['04-', '05-', '06-'],
       pages: [
-        '04-projects-and-memory',
-        '05-artifacts-and-output',
-        '06-document-analysis-lab'
+        '04-use-cases-by-industry',
+        '05-working-effectively',
+        '06-use-cowork-lab'
       ],
       labels: [
-        'Projects & Context',
-        'Artifacts & Output',
-        'Doc Analysis Lab'
+        'By Industry',
+        'Work Effectively',
+        'Use Cowork Lab'
       ]
     },
     {
       id: 'm3',
       folder: 'training',
       label: 'Module 3',
-      subLabel: 'Claude Code',
-      color: '#8c47e4',
-      navColor: '#c4b5fd',
+      subLabel: 'Build a Skill',
+      color: '#2b6880',
+      navColor: '#7dd3e8',
       filePrefix: ['07-', '08-', '09-'],
       pages: [
-        '07-setup-and-init',
-        '08-explore-and-plan',
-        '09-first-code-change'
+        '07-decompose-your-workflow',
+        '08-anatomy-of-a-skill',
+        '09-build-a-skill-lab'
       ],
       labels: [
-        'Setup & /init',
-        'Explore & Plan',
-        'Scaffold Dashboard'
+        'Decompose',
+        'Skill Anatomy',
+        'Build a Skill Lab'
       ]
     },
     {
       id: 'm4',
       folder: 'training',
       label: 'Module 4',
-      subLabel: 'Build It',
+      subLabel: 'Plugins & Rollout',
       color: '#e8a317',
       navColor: '#f2c56b',
       filePrefix: ['10-', '11-', '12-'],
       pages: [
-        '10-multi-file-editing',
-        '11-git-and-review',
-        '12-capstone-lab'
+        '10-skills-to-plugins',
+        '11-deploy-to-your-team',
+        '12-governance-and-adoption'
       ],
       labels: [
-        'Multi-File Editing',
-        'Git & PR Review',
-        'Capstone Lab'
+        'Skills → Plugins',
+        'Deploy to Team',
+        'Governance & Adoption'
       ]
     }
   ];
@@ -292,7 +292,7 @@
   homeEl.className = 'nav-home' + (isHome ? ' active' : '');
   homeEl.innerHTML =
     '<i class="nav-home-icon iconoir-academic-cap" aria-hidden="true"></i>' +
-    '<span class="nav-home-label">Claude Training</span>';
+    '<span class="nav-home-label">Cowork Workshop</span>';
   topRow.appendChild(homeEl);
 
   // Craft labels
@@ -407,7 +407,7 @@
   overlayHome.className = 'nav-overlay-home' + (isHome ? ' active' : '');
   overlayHome.innerHTML =
     '<i class="iconoir-academic-cap" aria-hidden="true" style="font-size:16px;flex-shrink:0;"></i>' +
-    '<span>Claude Training</span>';
+    '<span>Cowork Workshop</span>';
   overlayBody.appendChild(overlayHome);
 
   // Craft groups with page links

@@ -53,6 +53,44 @@ If a new development section introduces a new card type, match this pattern firs
 - Badge variants should usually change color only. Avoid introducing new font sizes, padding, corner radii, or casing rules for a one-off page treatment.
 - If a new badge needs a different meaning, add a modifier class to the shared badge pattern instead of styling it inline in the HTML.
 
+## How Slides Are Generated
+
+Slide decks are **not authored separately** — `pages/training/slides-engine.js` builds a Reveal.js
+deck by fetching each lesson listed in a deck's `window.SLIDES_CFG` and scraping its HTML. Write a
+lesson with the right structure and its slides appear automatically. To add a deck, copy an existing
+`module-N-slides.html` and edit its `SLIDES_CFG` (`label`, `subLabel`, `color`, `lessons[]`).
+
+What the engine extracts from each lesson:
+
+- **Lesson-title slide** — from `.page-header`: its `.eyebrow`, `h1.title`, and `.subtitle`.
+- **One content slide per `.section`** — needs an `h2.sec-title`. The section's *direct-child*
+  `.sec-eyebrow` becomes the slide eyebrow and its *direct-child* `p.sec-sub` (or first `<p>`) the
+  subtitle. (Direct-child only — eyebrows inside cards are ignored.)
+- **Up to 4 bullets per slide**, pulled from these card classes inside the section (extra cards are
+  dropped, so keep ≤4 slide-worthy cards per section):
+
+  | Card class | Bullet heading ← | Bullet body ← |
+  |---|---|---|
+  | `.insight-card` | `.sec-eyebrow` or `h3` | first `<p>` |
+  | `.dev-card` | `.dev-kicker` + `h3` | first `<p>` |
+  | `.bp-item` | `.bp-title` | `.bp-body` / `<p>` |
+  | `.tip-trick` / `.tip-box` / `.callout` | `.tip-trick-label` / `strong` | `<p>` (styled amber on the slide) |
+  | `.comp-card` | `.comp-label` + `.comp-name` | `.comp-body` / `<p>` |
+  | `.hy-card` | `.hy-label` + `.hy-title` | `.hy-body` / `<p>` |
+  | `.sg-card` | `.sg-header` / `.sg-title` | `.sg-title` + `<p>` |
+  | `.reflect-card` | `.reflect-q` | `.reflect-hint` |
+  | `.qa-card` / `.step-card` / `.pro-con-card` / `.comparison-card` | `h3` / `.card-label` / `strong` | `<p>` |
+
+Notes for authors:
+
+- The four classes that are **styled in `shared.css`** are `.insight-card`, `.dev-card`, `.bp-item`,
+  and `.tip-trick` — prefer these so the lesson page and the slide both look right. The others
+  (`.comp-card`, `.hy-card`, `.sg-card`, `.comparison-card`, …) extract to slides but were page-scoped
+  in the originals; add page CSS if you use them.
+- `<em>` inside titles is preserved on slides; bodies are truncated (~110 chars).
+- Add `class="section-dark"` to render a slide on the dark background.
+- See `pages/_reference-acme/` for lessons exercising every card type.
+
 ## Authoring Rule
 
 - Before adding a new shared layout pattern, check whether it belongs in `shared.css` and should be documented here.

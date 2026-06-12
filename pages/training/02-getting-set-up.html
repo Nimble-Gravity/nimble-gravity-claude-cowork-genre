@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Get Set Up — Module 1</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+/* Page-specific styles go here. This scaffold relies entirely on shared.css. */
+</style>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+<script src="../../training-sidebar.js"></script>
+
+<!-- MODULE PROGRESS -->
+<div class="module-strip">
+  <span class="ms-label">Workshop</span>
+  <a href="01-what-is-cowork.html" class="ms-item active"><span class="ms-num">1</span>Setup &amp; Foundations</a>
+  <span class="ms-arrow">›</span>
+  <a href="04-use-cases-by-industry.html" class="ms-item upcoming"><span class="ms-num">2</span>Use Cowork</a>
+  <span class="ms-arrow">›</span>
+  <a href="07-decompose-your-workflow.html" class="ms-item upcoming"><span class="ms-num">3</span>Build a Skill</a>
+  <span class="ms-arrow">›</span>
+  <a href="10-skills-to-plugins.html" class="ms-item upcoming"><span class="ms-num">4</span>Plugins &amp; Rollout</a>
+</div>
+
+<div class="page-header" id="intro">
+  <div class="eyebrow">Module 1 · Lesson 2 of 3</div>
+  <h1 class="title">Get <em>Set Up</em></h1>
+  <p class="subtitle">Cowork works out of the box, but its answers stay generic until it knows your role, your writing, and the tools you use. A guided setup of 20 to 40 minutes fixes that. You don't fill in forms. A short interview asks you questions and writes the configuration for you.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot" style="background:var(--teal)"></div>
+    Setup &amp; Foundations · ~20 min
+  </div>
+</div>
+
+<!-- WHAT SETUP GIVES YOU -->
+<div class="section" id="output">
+  <div class="sec-eyebrow">01 — What the setup produces</div>
+  <h2 class="sec-title">A few files that travel with <em>you</em></h2>
+  <p class="sec-sub">The setup writes a small set of configuration files that shape every later session. The <code>cowork-cosetup</code> interview generates them from your answers, so you don't have to write any of it yourself.</p>
+
+  <div class="insight-grid" style="margin-top:28px;">
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">copilot-instructions.md</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">The file Cowork reads at the start of every session. It holds your standing context, which is what gets Cowork writing in your register from the first reply.</p>
+    </div>
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">An about-me/ folder</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Five files cover your role and tools (<code>about-me</code>), how you write (<code>voice-profile</code>), what to avoid (<code>writing-rules</code>), and your people and active work (<code>team</code> and <code>memory</code>, which Cowork keeps current).</p>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:32px;">
+    <div class="tip-trick-icon">⏱️</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Before you start</div>
+      <p>You'll need access to Cowork and 20 to 40 minutes. You can stop and pick up where you left off. Connect your M365 first so the interview can pull from your real email, Teams, and calendar instead of starting cold.</p>
+    </div>
+  </div>
+</div>
+
+<!-- INSTALL THE SKILL -->
+<div class="section section-dark" id="install">
+  <div class="sec-eyebrow on-dark">02 — Installing the co-setup skill</div>
+  <h2 class="sec-title on-dark">The same folder works on <em>both</em> products</h2>
+  <p class="sec-sub on-dark">The <code>cowork-cosetup</code> folder holds a <code>SKILL.md</code> and a short guide, and it's identical for Claude Cowork and Copilot Cowork. What changes between them is where your skills folder lives and which connectors are on. Get the folder first, since it's usually shared with you in OneDrive or Teams, then follow your track.</p>
+
+  <div class="dev-grid-2" style="margin-top:28px;">
+    <div class="dev-card">
+      <div class="dev-kicker">Track A · Claude Cowork</div>
+      <h3>Personal skills folder</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Ask Cowork to "list my skills" to find the folder, or "set up my skills folder" if you don't have one yet. Drop <code>cowork-cosetup</code> in, open a fresh session, and run <code>/cowork-cosetup</code>.</p>
+      <div class="dev-quote">Skills live in your local skills folder, not OneDrive.</div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-kicker">Track B · Copilot Cowork</div>
+      <h3>Documents/Cowork in OneDrive</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Copy the folder into your <code>Documents/Cowork</code> skills area and wait for OneDrive to finish syncing. Open a fresh session and run <code>/cowork-cosetup</code>. If the interview can't pull anything in, check that your M365 connector is on.</p>
+      <div class="dev-quote">Skills sync with your M365 account.</div>
+    </div>
+  </div>
+
+  <div class="tip-trick tip-trick--dark" style="margin-top:32px;">
+    <div class="tip-trick-icon">🧭</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">If you get stuck</div>
+      <p>Say "list my skills" in any session and Cowork tells you what's installed and where the folder is. Cowork only picks up new skills when a session starts, so always run one from a fresh chat after you add it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- INSIDE THE INTERVIEW -->
+<div class="section" id="interview">
+  <div class="sec-eyebrow">03 — How the interview works</div>
+  <h2 class="sec-title">It reads first, then <em>asks</em></h2>
+  <p class="sec-sub">The interview is built to go quickly. It looks at your recent work before it asks anything, so most questions arrive with an answer already filled in for you to confirm or change.</p>
+
+  <div class="bp-grid--light" style="margin-top:28px;">
+    <div class="bp-item">
+      <div class="bp-num">01</div>
+      <div class="bp-title">It pre-fills from your work</div>
+      <div class="bp-body">Before any questions, it scans your role, your most frequent collaborators, and how you write, then shows you what it found to confirm or correct.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">02</div>
+      <div class="bp-title">It follows your role</div>
+      <div class="bp-body">Early on it asks whether your work is delivery, operations, sales, enablement, leadership, or a mix, and the rest of the questions follow from your answer.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">03</div>
+      <div class="bp-title">You can skip anything</div>
+      <div class="bp-body">Pick "Skip, fill in later" and it leaves a <code>[FILL IN]</code> marker you can find afterward. A setup with a few gaps still beats one you never finish.</div>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:32px;">
+    <div class="tip-trick-icon">✅</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">When it finishes</div>
+      <p>The files are live straight away, with nothing to switch on. Read back <code>voice-profile.md</code> and <code>writing-rules.md</code> and adjust anything that doesn't sound like you; those two are the ones worth getting right. <code>team.md</code> and <code>memory.md</code> stay current on their own as you work.</p>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT -->
+<div class="section" id="next">
+  <div class="sec-eyebrow">Up next</div>
+  <h2 class="sec-title">Lesson 3: Your First Cowork Session</h2>
+  <p class="sec-sub">With the setup in place, point Cowork at the work that takes the most of your time. Run a piece of research, a document you need to get through, or a task you repeat, and let it produce a first draft in your voice.</p>
+  <a href="03-first-cowork-session.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:var(--white);text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;font-size:15px;margin-top:8px;">Next Lesson →</a>
+</div>
+
+<div class="page-footer"></div>
+</body>
+</html>

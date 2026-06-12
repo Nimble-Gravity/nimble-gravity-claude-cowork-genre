@@ -4,46 +4,46 @@
   var MODULES = [
     {
       label: 'Module 1',
-      subLabel: 'Foundations',
+      subLabel: 'Setup & Foundations',
       color: '#4f9990',
       slidesFile: 'module-1-slides.html',
       lessons: [
-        { file: '01-how-claude-thinks.html',    title: 'Tokens & Context' },
-        { file: '02-prompt-anatomy.html',        title: 'Prompt Anatomy' },
-        { file: '03-first-conversations.html',   title: 'First Conversations', exercise: true }
+        { file: '01-what-is-cowork.html',        title: 'What Is Cowork' },
+        { file: '02-getting-set-up.html',        title: 'Get Set Up' },
+        { file: '03-first-cowork-session.html',  title: 'First Session', exercise: true }
       ]
     },
     {
       label: 'Module 2',
-      subLabel: 'Claude.ai',
-      color: '#7dd3e8',
+      subLabel: 'Use Cowork',
+      color: '#c4b5fd',
       slidesFile: 'module-2-slides.html',
       lessons: [
-        { file: '04-projects-and-memory.html',   title: 'Projects & Context' },
-        { file: '05-artifacts-and-output.html',  title: 'Artifacts & Output' },
-        { file: '06-document-analysis-lab.html', title: 'Doc Analysis Lab', exercise: true }
+        { file: '04-use-cases-by-industry.html', title: 'By Industry' },
+        { file: '05-working-effectively.html',   title: 'Work Effectively' },
+        { file: '06-use-cowork-lab.html',        title: 'Use Cowork Lab', exercise: true }
       ]
     },
     {
       label: 'Module 3',
-      subLabel: 'Claude Code',
-      color: '#c4b5fd',
+      subLabel: 'Build a Skill',
+      color: '#7dd3e8',
       slidesFile: 'module-3-slides.html',
       lessons: [
-        { file: '07-setup-and-init.html',        title: 'Setup & /init' },
-        { file: '08-explore-and-plan.html',      title: 'Explore & Plan' },
-        { file: '09-first-code-change.html',     title: 'Scaffold Dashboard', exercise: true }
+        { file: '07-decompose-your-workflow.html', title: 'Decompose' },
+        { file: '08-anatomy-of-a-skill.html',      title: 'Skill Anatomy' },
+        { file: '09-build-a-skill-lab.html',       title: 'Build a Skill Lab', exercise: true }
       ]
     },
     {
       label: 'Module 4',
-      subLabel: 'Build It',
+      subLabel: 'Plugins & Rollout',
       color: '#f2c56b',
       slidesFile: 'module-4-slides.html',
       lessons: [
-        { file: '10-multi-file-editing.html',    title: 'Multi-File Editing' },
-        { file: '11-git-and-review.html',        title: 'Git & PR Review' },
-        { file: '12-capstone-lab.html',          title: 'Capstone Lab', exercise: true }
+        { file: '10-skills-to-plugins.html',        title: 'Skills → Plugins' },
+        { file: '11-deploy-to-your-team.html',      title: 'Deploy to Team' },
+        { file: '12-governance-and-adoption.html',  title: 'Governance & Adoption', exercise: true }
       ]
     }
   ];
