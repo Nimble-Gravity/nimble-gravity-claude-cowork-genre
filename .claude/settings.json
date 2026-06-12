@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Read(//Users/derrikkbroughton/**)",
+      "Bash(ssh -o StrictHostKeyChecking=no -o BatchMode=yes -T git@github.com)"
+    ]
+  }
+}
