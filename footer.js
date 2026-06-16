@@ -64,6 +64,8 @@
           '<span class="nav-footer-stage">Module 4 · Plugins &amp; Rollout</span>' +
         '</div>' +
         '<div class="nav-footer-portal">' +
+          '<a href="' + ROOT + 'pages/workshops/why-cowork.html">Start here</a>' +
+          '<a href="' + ROOT + 'pages/workshops/acceptable-use.html">Rules of the Road</a>' +
           '<a href="' + ROOT + 'pages/workshops/syllabus.html">Program syllabus</a>' +
           '<a href="' + ROOT + 'pages/workshops/pre-work.html">Pre-work &amp; homework</a>' +
           '<a href="' + ROOT + 'pages/workshops/resources.html">Resource library</a>' +

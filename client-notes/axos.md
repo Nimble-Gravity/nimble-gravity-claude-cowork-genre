@@ -91,3 +91,25 @@ the 15 lessons and the 5-place lesson manifest are unchanged):
   the cohort's dates).
 - The per-hub agendas were expanded with finer sub-steps and inline facilitator cues
   (`.agenda-body ul` / `.agenda-cue`).
+
+## Change-management layer (OCM readiness — P1)
+
+An OCM review found the curriculum strong but the change wrapper thin. First production-
+readiness pieces added to the portal:
+
+- `pages/workshops/why-cowork.html` — "Start Here": a sponsor-message slot
+  (`data-client-slot="sponsor-message"` — drop in a signed exec note), the case for change,
+  WIIFM by role, and an explicit "augmentation, not replacement" answer on jobs.
+- `pages/workshops/acceptable-use.html` — "Rules of the Road": data do/don'ts, the audit-gap
+  caveat, five ground rules, and a personal acknowledgment gate (localStorage, clearly **not a
+  legal record**). Carries a prominent **"DRAFT — pending Legal / Compliance / InfoSec sign-off"**
+  banner; slots: `policy-status`, `data-classification`, `ground-rules`, `who-to-ask`.
+- Wired as the front door: homepage hero CTA + "Before you begin" section + TOC, the footer
+  (every page), and a prerequisite note on the Workshop 1 hub.
+
+**Still open from the review (mostly off-site / process):** named executive sponsor + roadmap;
+audience segmentation + manager enablement; a communications plan + FAQ; an operationalized
+champion network; a reinforcement/sustainment plan; a program measurement plan (pre/post
+maturity baseline + adoption KPIs); post-session evaluation (Kirkpatrick L1–L3); a pilot
+cohort; locked dates; facilitator certification; and the authoritative LMS/SSO certification
+(the current certificate is a personal localStorage record, not the system of record).

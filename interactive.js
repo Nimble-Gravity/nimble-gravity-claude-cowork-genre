@@ -42,10 +42,14 @@
   function getPoll(id)          { var s = getStore(); return (s.poll || {})[id] || null; }
   function saveProfile(name)    { var s = getStore(); s.profile = { name: name, ts: Date.now() }; setStore(s); }
   function getProfile()         { var s = getStore(); return s.profile || null; }
+  function saveAck(id, name)    { var s = getStore(); s.ack = s.ack || {}; s.ack[id] = { name: name, ts: Date.now() }; setStore(s); }
+  function getAck(id)           { var s = getStore(); return (s.ack || {})[id] || null; }
+  function clearAck(id)         { var s = getStore(); if (s.ack) { delete s.ack[id]; setStore(s); } }
   function resetAll()           { try { window.localStorage.removeItem(LS_KEY); } catch (e) {} }
 
   var MODULE_LABELS = { m1: 'Module 1 · Setup & Foundations', m2: 'Module 2 · Use Cowork', m3: 'Module 3 · Build a Skill', m4: 'Module 4 · Plugins & Rollout' };
   function passedCount() { var s = getStore(); var q = s.quiz || {}; var n = 0; ['m1','m2','m3','m4'].forEach(function (m) { if (q[m] && q[m].passed) n++; }); return n; }
+  function fmtDate(ts) { var d = ts ? new Date(ts) : new Date(); var m = ['January','February','March','April','May','June','July','August','September','October','November','December']; return m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear(); }
 
   // ── Content config (questions live here, not in lesson HTML) ────────────────
   var QUIZZES = {
@@ -215,6 +219,9 @@
       '.ix-locked-icon{font-size:28px;}',
       '.ix-locked-title{font-size:18px;font-weight:600;color:var(--navy);margin-top:8px;}',
       '.ix-locked-sub{font-size:14px;color:var(--slate);margin-top:6px;}',
+      // acknowledgment
+      '.ix-check-row{display:flex;align-items:flex-start;gap:11px;margin-top:16px;font-size:15px;color:var(--navy);line-height:1.5;cursor:pointer;}',
+      '.ix-check-row input{margin-top:3px;flex:0 0 auto;width:18px;height:18px;cursor:pointer;}',
       // print: when printing the certificate, show only the print layer
       '.ix-print-layer{display:none;}',
       '@media print{body.ix-printing > *:not(.ix-print-layer){display:none !important;} .ix-print-layer{display:block !important;padding:0;} .ix-print-layer .ix-cert{margin:0;border-width:3px;}}'
@@ -538,6 +545,64 @@
     document.querySelectorAll('[data-ix-readout]').forEach(renderReadout);
   }
 
+  // ── Acknowledgment gate (e.g. Rules of the Road) ────────────────────────────
+  function renderAck(mount) {
+    var id = mount.getAttribute('data-ix-ack') || 'acceptable-use';
+    mount.innerHTML = '';
+    var card = el('div', 'ix-card');
+    card.appendChild(el('div', 'ix-kicker', 'Acknowledgment'));
+    var existing = getAck(id);
+    if (existing) {
+      var done = el('div', 'ix-done');
+      done.appendChild(el('div', 'ix-done-icon', '✓'));
+      var copy = el('div', 'ix-done-copy');
+      copy.appendChild(el('div', 'ix-done-title', 'Acknowledged'));
+      copy.appendChild(el('div', 'ix-done-sub', 'By ' + existing.name + ' on ' + fmtDate(existing.ts) + '. A personal record on this device — not a legal acknowledgment.'));
+      done.appendChild(copy);
+      card.appendChild(done);
+      var a = el('div', 'ix-actions');
+      var redo = el('button', 'ix-btn ix-btn--ghost', 'Update');
+      redo.type = 'button';
+      redo.addEventListener('click', function () { clearAck(id); renderAck(mount); });
+      a.appendChild(redo);
+      card.appendChild(a);
+      mount.appendChild(card);
+      return;
+    }
+    card.appendChild(el('div', 'ix-card-title', 'Read and acknowledge'));
+    card.appendChild(el('p', 'ix-card-sub', 'Confirm you have read the Rules of the Road before using Cowork on Axos work. This is a personal acknowledgment stored on your device — not a legal record, and pending official Axos policy.'));
+    var prof = getProfile();
+    var field = el('div', 'ix-field');
+    var input = el('input', 'ix-input');
+    input.type = 'text';
+    input.placeholder = 'Your full name';
+    if (prof && prof.name) input.value = prof.name;
+    field.appendChild(input);
+    card.appendChild(field);
+    var row = el('label', 'ix-check-row');
+    var cb = el('input');
+    cb.type = 'checkbox';
+    row.appendChild(cb);
+    row.appendChild(el('span', null, 'I have read and agree to the Rules of the Road.'));
+    card.appendChild(row);
+    var actions = el('div', 'ix-actions');
+    var btn = el('button', 'ix-btn', 'Acknowledge');
+    btn.type = 'button';
+    var hint = el('span', 'ix-hint', '');
+    btn.addEventListener('click', function () {
+      var name = input.value.trim();
+      if (!cb.checked) { hint.textContent = 'Tick the box to confirm.'; return; }
+      if (!name) { hint.textContent = 'Add your name.'; return; }
+      if (!prof) saveProfile(name);
+      saveAck(id, name);
+      renderAck(mount);
+    });
+    actions.appendChild(btn);
+    actions.appendChild(hint);
+    card.appendChild(actions);
+    mount.appendChild(card);
+  }
+
   // ── Init ────────────────────────────────────────────────────────────────────
   function init() {
     injectStyles();
@@ -547,6 +612,7 @@
     document.querySelectorAll('[data-ix-profile]').forEach(renderProfile);
     document.querySelectorAll('[data-ix-progress]').forEach(renderProgress);
     document.querySelectorAll('[data-ix-certificate]').forEach(renderCertificate);
+    document.querySelectorAll('[data-ix-ack]').forEach(renderAck);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
