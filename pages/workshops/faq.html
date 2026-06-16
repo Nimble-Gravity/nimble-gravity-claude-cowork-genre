@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FAQ — Axos Cowork</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+.faq-group{margin-top:8px;}
+details.faq{border:1px solid var(--border);border-radius:12px;margin-top:12px;background:var(--white);overflow:hidden;}
+details.faq[open]{border-color:var(--mint-on-dark);}
+summary.faq-q{list-style:none;cursor:pointer;padding:16px 20px;font-weight:600;color:var(--navy);font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+summary.faq-q::-webkit-details-marker{display:none;}
+summary.faq-q::after{content:'+';font-size:24px;color:var(--mint-on-dark);font-weight:400;line-height:1;}
+details.faq[open] summary.faq-q::after{content:'\2013';}
+.faq-a{padding:0 20px 18px;color:var(--slate);font-size:15px;line-height:1.7;}
+.faq-a a{color:var(--teal);font-weight:600;}
+</style>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<div class="page-header" id="intro">
+  <div class="eyebrow">Axos · Cowork Program</div>
+  <h1 class="title">Questions, <em>answered</em></h1>
+  <p class="subtitle">The honest ones first. If something here doesn't match what you've been told, trust the question — and ask. There's no penalty for asking.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot" style="background:var(--teal)"></div>
+    Participant FAQ
+  </div>
+</div>
+
+<!-- THE HONEST QUESTIONS -->
+<div class="section" id="honest">
+  <div class="sec-eyebrow">01 — The honest questions</div>
+  <h2 class="sec-title">Let's start with the real <em>ones</em></h2>
+  <div class="faq-group">
+    <details class="faq">
+      <summary class="faq-q">Is this coming for my job?</summary>
+      <div class="faq-a">No. Cowork drafts; you review, decide, and sign off — the judgment, the relationships, and the accountability stay with you. Axos is investing in you with this skill, not measuring you by it. The people who learn to direct it well become more valuable, not less. See <a href="why-cowork.html#augment">the straight answer on jobs</a>.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">Will I be tracked or measured on how much I use it?</summary>
+      <div class="faq-a">This program isn't a surveillance exercise. We look at things like attendance and whether the workshops landed, in aggregate, to improve the program — not to score individuals. Your in-site progress and quizzes are stored on your own device.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">Is this mandatory?</summary>
+      <div class="faq-a">Your manager and sponsor will confirm the expectation for your team. Either way, the ask is small and concrete: attend four 2-hour sessions, do ten minutes of pre-work each, and try it on real work.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">I'm not technical — is this really for me?</summary>
+      <div class="faq-a">Yes — it's built for knowledge workers, not coders. There's no terminal and no code. You describe a result in plain language and review what comes back. If you can write an email and open a folder, you can do this.</div>
+    </details>
+  </div>
+</div>
+
+<!-- DATA & WHAT'S ALLOWED -->
+<div class="section section--off" id="data">
+  <div class="sec-eyebrow">02 — Your data &amp; what's allowed</div>
+  <h2 class="sec-title">Safety and the <em>ground rules</em></h2>
+  <div class="faq-group">
+    <details class="faq">
+      <summary class="faq-q">Is my data safe?</summary>
+      <div class="faq-a">Claude Cowork runs locally on your machine and only sees the folders you grant it, and on Axos's commercial plan your data isn't used to train models. That said, the binding answer for what you may use it on is the <a href="acceptable-use.html">Rules of the Road</a>, once Legal, Compliance, and InfoSec have signed it off.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">What data can I put into Cowork?</summary>
+      <div class="faq-a">Follow the <a href="acceptable-use.html">Rules of the Road</a>. The short version: lower-sensitivity, internal work product is generally fine in a scoped folder; regulated, restricted, or personal data (customer PII, account numbers, MNPI) stays out unless the approved policy explicitly permits it. When in doubt, leave it out and ask.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">Can I use it on customer or client information?</summary>
+      <div class="faq-a">Not until Axos's approved policy says so for that specific workload. This is exactly the kind of thing the Rules of the Road and your Compliance team define — don't guess.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">What's this "audit gap" I keep hearing about?</summary>
+      <div class="faq-a">As of June 2026, Claude Cowork activity isn't captured in central audit logs and history lives locally on your machine. It's a known limitation we manage with scope, approvals, and monitoring — not a reason to avoid it for appropriate work. Module 4 and the Rules of the Road cover how.</div>
+    </details>
+  </div>
+</div>
+
+<!-- PRACTICAL -->
+<div class="section" id="practical">
+  <div class="sec-eyebrow">03 — Getting it working</div>
+  <h2 class="sec-title">The practical <em>stuff</em></h2>
+  <div class="faq-group">
+    <details class="faq">
+      <summary class="faq-q">Do I have access? Do I need to install anything?</summary>
+      <div class="faq-a">Confirm your Claude Cowork access as part of the pre-work for Workshop 1. If it's not provisioned, flag it to the program team before the session so we can sort it out — don't wait until you're in the room.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">I sign in with SSO — does everything work?</summary>
+      <div class="faq-a">Almost everything. One advanced step in Module 3 (the skill-creator's automatic description optimizer) needs a raw API key, which SSO-only sign-in doesn't provide. You can tune by hand instead — the facilitator will show you. Nothing else is affected.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">Which model should I use, and does it cost the bank money?</summary>
+      <div class="faq-a">Default to Sonnet — it handles most work at much lower cost, and Cowork uses more of your allowance than chat does. Reserve Opus for genuinely hard reasoning. Module 2 covers this; cost discipline is a habit we teach from day one.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">What if I miss a workshop?</summary>
+      <div class="faq-a">Everything for each session lives on its <a href="syllabus.html">workshop hub</a> — the lessons, the lab, and the slides — so you can catch up, and bring questions to office hours. Tell the program team so we can help you stay on track.</div>
+    </details>
+  </div>
+</div>
+
+<!-- AFTER -->
+<div class="section section--off" id="after">
+  <div class="sec-eyebrow">04 — During &amp; after</div>
+  <h2 class="sec-title">Help, and what <em>counts</em></h2>
+  <div class="faq-group">
+    <details class="faq">
+      <summary class="faq-q">Where do I get help after the sessions?</summary>
+      <div class="faq-a"><span data-client-slot="who-to-ask">Office hours, your champions, and the #cowork channel — set the real contacts here.</span> The <a href="resources.html">resource library</a> has the skills, templates, and decks in one place.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">Is the certificate official?</summary>
+      <div class="faq-a">Not yet. The certificate on <a href="my-progress.html">My Progress</a> is a personal record on your device to mark that you finished — it's a motivator, not an HR or compliance record. If completion needs to count formally, that runs through Axos's official system (e.g. the LMS), which the program team is sorting out separately.</div>
+    </details>
+    <details class="faq">
+      <summary class="faq-q">What if Cowork gets something wrong?</summary>
+      <div class="faq-a">Expect it sometimes — that's why every output is a draft you review before anything is used or sent. You stay in the loop and you stay accountable. Catching and correcting is part of the workflow, not a failure of it.</div>
+    </details>
+  </div>
+</div>
+
+<!-- STILL STUCK -->
+<div class="section" id="stuck">
+  <div class="tip-trick">
+    <div class="tip-trick-icon">💬</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Still have a question?</div>
+      <p><span data-client-slot="who-to-ask">Ask the program team, your manager, or the #cowork channel — set the real contact here.</span> No penalty for asking; questions help us improve the program.</p>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer"></div>
+</body>
+</html>

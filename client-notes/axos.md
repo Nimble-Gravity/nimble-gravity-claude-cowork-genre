@@ -107,9 +107,19 @@ readiness pieces added to the portal:
 - Wired as the front door: homepage hero CTA + "Before you begin" section + TOC, the footer
   (every page), and a prerequisite note on the Workshop 1 hub.
 
-**Still open from the review (mostly off-site / process):** named executive sponsor + roadmap;
-audience segmentation + manager enablement; a communications plan + FAQ; an operationalized
-champion network; a reinforcement/sustainment plan; a program measurement plan (pre/post
-maturity baseline + adoption KPIs); post-session evaluation (Kirkpatrick L1–L3); a pilot
-cohort; locked dates; facilitator certification; and the authoritative LMS/SSO certification
-(the current certificate is a personal localStorage record, not the system of record).
+### Added: change plan, manager kit, FAQ, feedback
+
+- `client-notes/axos-change-plan.md` — compressed OCM plan (sponsor roadmap, ~6-week comms
+  calendar, lean measurement) sized to the 2–4 week engagement.
+- `pages/workshops/for-managers.html` — manager enablement kit (role, five actions, a script,
+  the "is this my job?" answer, champions).
+- `pages/workshops/faq.html` — participant FAQ / resistance management (jobs, measurement,
+  data/security, practical, after) using native `<details>` accordions.
+- `pages/workshops/feedback.html` — post-session + 30-day pulses with Microsoft Form slots
+  (`feedback-form-post`, `feedback-form-30day`); a feedback link sits on each hub's close.
+
+**Still needs Axos:** named executive **sponsor** + a signed sponsor note (slot on Why Cowork);
+**Legal/Compliance/InfoSec sign-off** on the Rules of the Road; the **two Microsoft Forms**
+built in-tenant; **locked dates**; a **pilot cohort**; **facilitator certification**; and the
+**authoritative LMS/SSO certification** (the current certificate is a personal localStorage
+record, not the system of record).
