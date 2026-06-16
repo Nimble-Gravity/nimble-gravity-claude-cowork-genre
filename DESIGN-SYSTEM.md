@@ -99,3 +99,7 @@ Notes for authors:
   equal-height rows across each grid
   consistent vertical spacing inside each card and between the grid and adjacent elements
 - When reviewing a new page, check that the top of the page contains a single introduction pattern and no redundant header bar beneath the global nav.
+
+## Workshop agenda timeline (`.agenda`)
+
+The per-module workshop hubs (`pages/workshops/module-N-workshop.html`) use a small timeline pattern: a vertical list of `.agenda-row`s, each with a `.agenda-time` (left column, with a `<small>` duration), a coloured `.agenda-tag` chip, and an `.agenda-body`. Tag modifiers: `--teach`, `--demo`, `--lab`, `--discuss`, `--break` (no modifier = neutral, for Open / Debrief / Close). Defined in `styles/shared.css`; the tag reuses the badge/chip language. Rows should sum to the session length (120 min for a 2-hour workshop). Pages under `pages/workshops/` are not listed in any `SLIDES_CFG`, so they do not generate slides.

@@ -60,3 +60,19 @@ All use cases are framed as **drafts a banker signs off on** — Cowork drafts, 
 Per `ACCESS.md`, **do not deploy this branch to the public GitHub Pages site.** Axos-
 branded content should run on a gated host (private repo + Enterprise Pages, an
 auth-fronted host, or inside Axos's own tenant). The public template repo stays generic.
+
+## Delivery: four 2-hour workshops + portal
+
+The four modules are delivered as **four separate 2-hour, facilitator-led workshops**
+(one per module), and the site is a **portal** for Axos employees. Added (all additive —
+the 15 lessons and the 5-place lesson manifest are unchanged):
+
+- `pages/workshops/module-1..4-workshop.html` — per-module **workshop hubs** with a timed
+  120-min agenda, objectives, materials, and pre-work/homework links.
+- `pages/workshops/pre-work.html` — pre-work + homework, one section per workshop.
+- `pages/workshops/resources.html` — the resource/downloads library.
+- `pages/workshops/facilitator-guide.html` — demo scripts, discussion prompts, timing, troubleshooting.
+- Homepage + training index reframed around the four 2-hour workshops; a global **Resources**
+  nav link and footer portal links make the portal reachable from any page.
+- New `.agenda` CSS pattern (`styles/shared.css` / `DESIGN-SYSTEM.md`).
+- M1 deepened with one section each in lessons 01 (good first tasks at Axos) and 02 (verify your setup).

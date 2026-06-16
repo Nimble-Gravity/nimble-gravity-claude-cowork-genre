@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Workshop 3: Build a Skill — Axos Cowork</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+/* Page-specific styles go here. This scaffold relies entirely on shared.css. */
+</style>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<div class="page-header" id="intro">
+  <div class="eyebrow">Axos · Workshop 3 of 4</div>
+  <h1 class="title">Build a <em>Skill</em></h1>
+  <p class="subtitle">A 2-hour, hands-on session. By the end, everyone has decomposed a real workflow and shipped a working <code>.skill</code> the way Anthropic recommends — evals before docs, a tight description, a body under 500 lines.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot" style="background:var(--blueD)"></div>
+    2-hour workshop · Module 3
+  </div>
+</div>
+
+<!-- OBJECTIVES -->
+<div class="section" id="objectives">
+  <div class="sec-eyebrow">What you'll leave with</div>
+  <h2 class="sec-title">Three outcomes for the <em>session</em></h2>
+  <p class="sec-sub">You finish having shipped your first skill from a workflow you actually run.</p>
+
+  <div class="insight-grid" style="margin-top:28px;">
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">Decompose a workflow</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You can break a repetitive task into steps, data sources, and a clear picture of good versus bad output — the blueprint a skill is built from.</p>
+    </div>
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">Know a good skill from a bad one</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You can hold a <code>SKILL.md</code> against Anthropic's standards: keyword-rich description, under 500 lines, good/bad examples, evals before docs.</p>
+    </div>
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">A shipped <code>.skill</code></div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You've run the skill-creator loop and packaged a working skill for one of your own banking workflows.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AGENDA -->
+<div class="section section--off" id="agenda">
+  <div class="sec-eyebrow">Run of show</div>
+  <h2 class="sec-title">The 2-hour <em>agenda</em></h2>
+  <p class="sec-sub">Teach the method, demo it on the memo workflow, critique good vs bad, then ship a skill.</p>
+
+  <div class="agenda">
+    <div class="agenda-row">
+      <div class="agenda-time">0:00–0:10<small>10 min</small></div>
+      <div class="agenda-tag">Open</div>
+      <div class="agenda-body"><strong>Recap &amp; objectives</strong><p>Share the workflows people named in Workshop 2 — these become today's skills.</p></div>
+    </div>
+    <div class="agenda-row">
+      <div class="agenda-time">0:10–0:35<small>25 min</small></div>
+      <div class="agenda-tag agenda-tag--teach">Teach</div>
+      <div class="agenda-body"><strong>Decompose, anatomy, make it a skill</strong><p><a href="../training/07-decompose-your-workflow.html">Decompose</a>, <a href="../training/08-anatomy-of-a-skill.html">Anatomy of a Skill</a>, and <a href="../training/14-make-it-a-skill.html">Make It a Skill</a>.</p></div>
+    </div>
+    <div class="agenda-row">
+      <div class="agenda-time">0:35–0:55<small>20 min</small></div>
+      <div class="agenda-tag agenda-tag--demo">Demo</div>
+      <div class="agenda-body"><strong>Live: decompose the memo workflow</strong><p>Facilitator runs the workflow-decomposition skill on the memo workflow, then reads the memo skill against the standards. See the <a href="facilitator-guide.html#workshop-3">facilitator guide</a>.</p></div>
+    </div>
+    <div class="agenda-row">
+      <div class="agenda-time">0:55–1:05<small>10 min</small></div>
+      <div class="agenda-tag agenda-tag--discuss">Discuss</div>
+      <div class="agenda-body"><strong>Good skill vs bad skill</strong><p>In pairs, critique a sample description and body against the rubric: would it trigger? Is it concise?</p></div>
+    </div>
+    <div class="agenda-row">
+      <div class="agenda-time">1:05–1:10<small>5 min</small></div>
+      <div class="agenda-tag agenda-tag--break">Break</div>
+      <div class="agenda-body"><strong>Break</strong></div>
+    </div>
+    <div class="agenda-row">
+      <div class="agenda-time">1:10–1:50<small>40 min</small></div>
+      <div class="agenda-tag agenda-tag--lab">Lab</div>
+      <div class="agenda-body"><strong>Build a Skill Lab</strong><p><a href="../training/09-build-a-skill-lab.html">Run the lab</a>: decompose with the skill, draft, test against a baseline, tune the description, and package a <code>.skill</code>.</p></div>
+    </div>
+    <div class="agenda-row">
+      <div class="agenda-time">1:50–1:58<small>8 min</small></div>
+      <div class="agenda-tag">Debrief</div>
+      <div class="agenda-body"><strong>Debrief &amp; knowledge check</strong><p>Share one skill that shipped; then the <a href="../training/09-build-a-skill-lab.html">Module 3 quiz</a> at the end of the lab.</p></div>
+    </div>
+    <div class="agenda-row">
+      <div class="agenda-time">1:58–2:00<small>2 min</small></div>
+      <div class="agenda-tag">Close</div>
+      <div class="agenda-body"><strong>Homework &amp; what's next</strong><p>See <a href="pre-work.html#workshop-3">before &amp; after Workshop 3</a>; Workshop 4 is Plugins &amp; Rollout — invite your IT/compliance partners.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- BEFORE & AFTER -->
+<div class="section" id="beforeafter">
+  <div class="sec-eyebrow">Before &amp; after</div>
+  <h2 class="sec-title">Come ready, leave with <em>homework</em></h2>
+  <div class="tip-trick" style="margin-top:24px;">
+    <div class="tip-trick-icon">📋</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Pre-work &amp; homework</div>
+      <p><strong>Before:</strong> bring one repetitive workflow worth automating. <strong>After:</strong> build a skill for a real workflow of your own and bring it to office hours. Full list on the <a href="pre-work.html#workshop-3">pre-work &amp; homework page</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MATERIALS -->
+<div class="section section--off" id="materials">
+  <div class="sec-eyebrow">Everything for this session</div>
+  <h2 class="sec-title">Materials at your <em>fingertips</em></h2>
+
+  <div class="module-grid" style="margin-top:28px;">
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">07</div>
+        <div class="module-card-meta"><div class="module-label">Lesson</div>
+          <div class="module-name">Decompose Your Workflow</div>
+          <div class="module-desc">Map steps, data sources, and good vs bad output.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="../training/07-decompose-your-workflow.html" class="module-cta">Open lesson <span>→</span></a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">08</div>
+        <div class="module-card-meta"><div class="module-label">Lesson</div>
+          <div class="module-name">Anatomy of a Skill</div>
+          <div class="module-desc">Anthropic's standards, with the memo skill as the example.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="../training/08-anatomy-of-a-skill.html" class="module-cta">Open lesson <span>→</span></a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">14</div>
+        <div class="module-card-meta"><div class="module-label">Lesson</div>
+          <div class="module-name">Make It a Skill</div>
+          <div class="module-desc">Paste a working prompt; harden with the skill-creator loop.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="../training/14-make-it-a-skill.html" class="module-cta">Open lesson <span>→</span></a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">09</div>
+        <div class="module-card-meta"><div class="module-label">Lab</div>
+          <div class="module-name">Build a Skill Lab</div>
+          <div class="module-desc">Run the loop end to end and ship a <code>.skill</code>.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="../training/09-build-a-skill-lab.html" class="module-cta">Open lab <span>→</span></a></div>
+    </div>
+  </div>
+
+  <p style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="../training/module-3-slides.html" class="slides-cta">⊞ Start Presentation</a>
+    <a href="resources.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--blueD);text-decoration:none;font-weight:600;font-size:15px;">Resource library →</a>
+    <a href="facilitator-guide.html#workshop-3" style="display:inline-flex;align-items:center;gap:8px;color:var(--blueD);text-decoration:none;font-weight:600;font-size:15px;">Facilitator guide →</a>
+  </p>
+</div>
+
+<div class="page-footer"></div>
+</body>
+</html>

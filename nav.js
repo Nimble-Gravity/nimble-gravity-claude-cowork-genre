@@ -344,6 +344,19 @@
     topRow.appendChild(craftEl);
   });
 
+  // ── Portal: a global Resources link (reachable from any page) ──────────────
+  var resDivider = document.createElement('div');
+  resDivider.className = 'nav-vdivider';
+  topRow.appendChild(resDivider);
+  var resEl = document.createElement('div');
+  resEl.className = 'nav-craft nav-craft--haslink';
+  var resLink = document.createElement('a');
+  resLink.href = root + 'pages/workshops/resources.html';
+  resLink.className = 'nav-craft-name';
+  resLink.textContent = 'Resources';
+  resEl.appendChild(resLink);
+  topRow.appendChild(resEl);
+
   // ── Hamburger button ──────────────────────────────────────────────────────
   var hamburgerBtn = document.createElement('button');
   hamburgerBtn.className = 'nav-hamburger';

@@ -752,6 +752,64 @@ section.section.dark .section-sub, .section.dark .section-sub { color: var(--sla
   text-align: center;
 }
 
+/* --- Workshop agenda timeline (used on the per-module workshop hubs) ---
+   A vertical list of rows: a left time column, a coloured tag chip, and a body.
+   Rows compose from existing tokens; .agenda-tag reuses the chip language. */
+.agenda {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--white);
+}
+.agenda-row {
+  display: grid;
+  grid-template-columns: 116px auto 1fr;
+  align-items: start;
+  gap: 18px;
+  padding: 18px 22px;
+  border-top: 1px solid var(--border);
+}
+.agenda-row:first-child { border-top: none; }
+.agenda-time {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.agenda-time small { display: block; font-weight: 500; color: var(--slatel); font-size: 11px; margin-top: 2px; }
+.agenda-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid var(--border);
+  background: var(--off);
+  color: var(--slate);
+}
+.agenda-tag--teach  { background: var(--tealL);   border-color: rgba(47,107,102,.3);  color: var(--teal); }
+.agenda-tag--demo   { background: var(--blueL);   border-color: rgba(43,104,128,.3);  color: var(--blueD); }
+.agenda-tag--lab    { background: rgba(140,71,228,.1); border-color: rgba(140,71,228,.3); color: var(--violet); }
+.agenda-tag--discuss{ background: var(--amberL);  border-color: rgba(232,163,23,.3);  color: var(--amber-accessible); }
+.agenda-tag--break  { background: var(--off);     border-color: var(--border);        color: var(--slatel); }
+.agenda-body { min-width: 0; }
+.agenda-body strong { color: var(--navy); font-weight: 600; }
+.agenda-body p { margin: 4px 0 0; font-size: 14px; color: var(--slate); line-height: 1.6; }
+.agenda-body a { color: var(--teal); font-weight: 600; }
+@media (max-width: 768px) {
+  .agenda-row { grid-template-columns: 1fr; gap: 8px; }
+  .agenda-tag { justify-self: start; }
+}
+
 /* ══════════════════════════════════════════════════════════════════════════════
    INDEX PAGE — craft cards, pipeline strip, multiplier row, principles
    ══════════════════════════════════════════════════════════════════════════════ */
