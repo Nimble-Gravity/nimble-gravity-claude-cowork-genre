@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A **Nimble Gravity** Cowork-enablement microsite — a four-module program that gets **knowledge workers** (not coders) productive with **Cowork**, the agentic engine that brings Claude Code's capabilities into the Claude desktop app. It leads with **Claude Cowork** (Anthropic) and routes regulated, Microsoft-stack work to **Copilot Cowork** (Microsoft, same engine, in-tenant). The arc: get set up → use it by industry → build your first skill → deploy plugins and govern adoption. No build step, no framework, no package manager.
 
-The framework (nav, footer, design system, slide engine, page template) was forked from an earlier workshop template. The original Acme/loan SDLC lessons and phase pages are preserved under `pages/_reference-acme/` as worked examples — not linked from the live site. The Cowork content is grounded in a content-research report and the "Cowork Next Steps" meeting; key facts (and date-sensitive caveats like the June-2026 audit gap) live in `cowork-context.md`.
+The framework (nav, footer, design system, slide engine, page template) was forked from an earlier workshop template. (The original Acme/SDLC reference lessons were removed on this Axos client branch; they remain on the template/main branch.) The Cowork content is grounded in a content-research report and the "Cowork Next Steps" meeting; key facts (and date-sensitive caveats like the June-2026 audit gap) live in `cowork-context.md`.
 
 To run locally:
 ```bash
@@ -29,8 +29,8 @@ training-sidebar.js     — Left module/lesson sidebar for training pages
 styles/shared.css       — Shared design system: tokens plus cross-page layout/components
 DESIGN-SYSTEM.md        — Layout/spacing rules + "How slides are generated" (card classes)
 cowork-context.md       — Subject brief: the two products, researched facts, sources, scenario
-pages/training/*.html   — The 12 Cowork lessons + 4 slide decks + slide engine + theme
-pages/_reference-acme/  — Original Acme lessons + the old SDLC phase folders, preserved (not linked)
+pages/training/*.html   — The 15 Cowork lessons + 4 slide decks + slide engine + theme
+pages/workshops/*.html  — Workshop hubs + portal/OCM pages (syllabus, pre-work, resources, FAQ, my-progress, why-cowork, acceptable-use, etc.)
 ```
 
 **Every page** follows this structure: `<link>` to shared.css → `<style>` block for page-specific CSS → `<script src="footer.js">` then `<script src="nav.js">` (and `training-sidebar.js` on training pages) at the start of `<body>` → one primary intro pattern (`hero` or `page-header`) → section divs → page-footer div → optional inline `<script>`.

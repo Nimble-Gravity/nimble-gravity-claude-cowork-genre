@@ -89,7 +89,6 @@ Notes for authors:
   in the originals; add page CSS if you use them.
 - `<em>` inside titles is preserved on slides; bodies are truncated (~110 chars).
 - Add `class="section-dark"` to render a slide on the dark background.
-- See `pages/_reference-acme/` for lessons exercising every card type.
 
 ## Authoring Rule
 
