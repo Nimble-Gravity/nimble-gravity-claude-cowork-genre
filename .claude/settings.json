@@ -22,7 +22,27 @@
       "Bash([ -x \"$CHROME\" ])",
       "Read(//Applications/**)",
       "Bash(pkill -f \"Google Chrome\")",
-      "Bash(xargs kill)"
+      "Bash(xargs kill)",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git reset *)",
+      "Bash(git commit -q -m 'feat: P1 workshop expansion — interactivity, skills, lessons 13-15, customization layer *)",
+      "Bash(curl -s http://localhost:8000/index.html)",
+      "Bash(echo \"homepage title:   $\\(curl -s http://localhost:8000/index.html)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/index.html)",
+      "Bash(echo \"server: $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/index.html || echo down\\)\")",
+      "Bash(git commit -q -m 'feat\\(axos\\): portal + 2-hour workshop layer *)",
+      "Bash(git commit -q -m 'feat\\(axos\\): progress + printable certificate, program syllabus, detailed agendas *)",
+      "Bash(git commit -q -m 'feat\\(axos\\): change-management front door \\(Why Cowork, Rules of the Road, acknowledgment\\) *)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/client-notes/axos-change-plan.md)",
+      "Bash(echo \"change plan serves: $\\(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/client-notes/axos-change-plan.md\\)\")",
+      "Bash(python3 -)",
+      "Bash(git commit -q -m 'feat\\(axos\\): compressed change-management plan + fix engagement cadence *)",
+      "Bash(git commit -q -m 'feat\\(axos\\): manager kit, participant FAQ, and post-session feedback wiring *)",
+      "Bash(git rm *)",
+      "Bash(git commit -q -m 'fix\\(axos\\): renumber lessons to a sequential 01-15 *)",
+      "Bash(python3 -c \"import re;print\\(' '.join\\(re.findall\\(r'\\(\\\\d{2}\\)-[a-z-]+\\\\.html',open\\('training-sidebar.js'\\).read\\(\\)\\)\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8000/)"
     ]
   }
 }
