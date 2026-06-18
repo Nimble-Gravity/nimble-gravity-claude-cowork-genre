@@ -43,7 +43,7 @@ start ASAP, so format stays flexible.**
 - **Cadence options** (decide with Axos — detail in `../axos-change-plan.md`):
   - **Option A — Intensive:** 2 workshops/week over 2 weeks (~4-week OCM envelope).
   - **Option B — Weekly (preferred if calendars allow):** 1/week over ~4 weeks (~6-week envelope).
-- **Track:** **Claude Cowork only** on this branch (Copilot Cowork stripped). The M365
+- **Track:** **Claude Cowork only** on this branch. The M365
   *connector* stays (Claude Cowork → M365 data).
 - **Named areas of Axos interest beyond the core curriculum:**
   1. **Adoption / usage dashboards** — see `adoption-dashboard-brief.md`.

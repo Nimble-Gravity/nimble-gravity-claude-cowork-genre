@@ -3,7 +3,7 @@
 
   var MODULES = [
     {
-      label: 'Module 1',
+      label: 'Workshop 1',
       subLabel: 'Setup & Foundations',
       color: '#4f9990',
       slidesFile: 'module-1-slides.html',
@@ -14,7 +14,7 @@
       ]
     },
     {
-      label: 'Module 2',
+      label: 'Workshop 2',
       subLabel: 'Use Cowork',
       color: '#c4b5fd',
       slidesFile: 'module-2-slides.html',
@@ -26,7 +26,7 @@
       ]
     },
     {
-      label: 'Module 3',
+      label: 'Workshop 3',
       subLabel: 'Build a Skill',
       color: '#7dd3e8',
       slidesFile: 'module-3-slides.html',
@@ -38,7 +38,7 @@
       ]
     },
     {
-      label: 'Module 4',
+      label: 'Workshop 4',
       subLabel: 'Plugins & Rollout',
       color: '#f2c56b',
       slidesFile: 'module-4-slides.html',

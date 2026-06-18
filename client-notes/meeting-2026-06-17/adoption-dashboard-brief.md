@@ -45,11 +45,10 @@ Claude admin (Org settings)
 
 ## Known gaps / constraints (shape scope honestly)
 
-- **Microsoft-side data is out of reach today.** Carlo lacks **Copilot Cowork** access, **Microsoft
-  Graph**, and **WorkIQ** — so cross-surface Microsoft telemetry can't be piped in yet. **For Axos
-  this is fine:** the engagement is **Claude Cowork only**, so the dashboard scopes to **Claude
-  surfaces** (Cowork + Chat + Claude Code) via Anthropic OTel/Analytics. Don't promise M365/Copilot
-  usage data.
+- **Microsoft-side data is out of reach today.** Carlo lacks **Microsoft Graph** and **WorkIQ**
+  access — so cross-surface Microsoft telemetry can't be piped in yet. **For Axos this is fine:**
+  the engagement is **Claude Cowork only**, so the dashboard scopes to **Claude surfaces**
+  (Cowork + Chat + Claude Code) via Anthropic OTel/Analytics. Don't promise Microsoft 365 usage data.
 - **Deployment is unsolved but not hard** — it's a Streamlit app; it needs a hosting target and infra
   access (Kevin). For Axos, deployment lands **in Axos's environment** under the IP/handoff model.
 - **[INTERNAL] Ownership unsettled** — multiple NG people have prototyped; no single owner yet.

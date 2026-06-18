@@ -4,8 +4,8 @@ Read this before writing or revising lesson content. It captures who the program
 agreed structure (from the "Cowork Next Steps" meeting), and the researched facts the lessons are
 grounded in (from the content-research report). Sources and date-sensitive caveats are at the bottom.
 
-> **Date-sensitive — as of June 2026.** Cowork is iterating fast and Copilot Cowork is in preview.
-> Re-verify the audit gap, model lineup, Copilot Cowork status, and repo/plugin counts before each cohort.
+> **Date-sensitive — as of June 2026.** Cowork is iterating fast.
+> Re-verify the audit gap, model lineup, and repo/plugin counts before each cohort.
 
 ## 1. Positioning (from the meeting)
 
@@ -13,9 +13,9 @@ grounded in (from the content-research report). Sources and date-sensitive cavea
   That's the differentiator — "we know how to deploy enterprise regulated AI," not generic AI for anyone.
 - **Audience:** **knowledge workers**, not coders — and the teams enabling them. Bigger market than developers.
   Verticals: financial services, banking, insurance, capital markets, private equity, healthcare, legal.
-- **Lead with Claude Cowork**; present **Copilot Cowork** as the in-tenant option for regulated clients.
-  They're the **same engine** (Microsoft built Copilot Cowork with Anthropic on Claude's engine). Don't
-  "unsell" either — route by client context.
+- **Claude Cowork only for this client.** The program is delivered entirely on Claude Cowork — there is no
+  alternative-stack track. Route high-assurance workloads (zero-retention / centralized audit) to Anthropic's
+  audited surfaces — the API or Claude Code Enterprise — not the Cowork interface.
 - **The program is the IP:** a repeatable microsite + skills library + adoption dashboard NG runs with clients.
   Reuse Anthropic's own training/material where possible; layer NG industry use cases on top.
 
@@ -43,12 +43,11 @@ and the machine awake for tasks. Launched Jan 12 2026 (macOS preview); GA Apr 9 
 ### Module 1 — setup
 - **NG `cowork-cosetup` skill (our method — see the "Setting Up Cowork for Personal Productivity" doc):**
   a guided 20–40 min interview that generates the personalization files instead of writing them by hand —
-  `copilot-instructions.md` (the entry point read every session) + an `about-me/` folder (`about-me`,
-  `voice-profile`, `writing-rules`, and the living `team` + `memory`). **The skill folder is identical for
-  Claude Cowork and Copilot Cowork** — only the skills-folder location and connectors differ:
-  Track A (Claude) = personal skills folder (`"list my skills"` to find it); Track B (Copilot) = OneDrive
-  `Documents/Cowork`. Run with `/cowork-cosetup` from a fresh session. It pre-fills from M365, asks in
-  role-adaptive popups (Delivery/Operations/Sales/Enablement/Leadership), and `[FILL IN]`-marks skips.
+  `cowork-instructions.md` (the entry point read every session) + an `about-me/` folder (`about-me`,
+  `voice-profile`, `writing-rules`, and the living `team` + `memory`). The skill installs into the personal
+  skills folder (`"list my skills"` to find it). Run with `/cowork-cosetup` from a fresh session. It pre-fills
+  from M365, asks in role-adaptive popups (Delivery/Operations/Sales/Enablement/Leadership), and
+  `[FILL IN]`-marks skips.
 - Underlying native layers it builds on: **Global instructions** (every-session prefs), **Folder
   instructions** (project context; Claude can update them — the Cowork analogue of CLAUDE.md), **Projects**
   (persistent workspaces; memory persists within Projects, not across standalone sessions).
@@ -95,7 +94,9 @@ and the machine awake for tasks. Launched Jan 12 2026 (macOS preview); GA Apr 9 
   for an M365 package. "Author once, deploy to both surfaces."
 - **The audit gap (decisive):** **as of June 2026, Claude Cowork activity is NOT in Anthropic's Compliance API
   or audit logs**, and history lives locally (can't be centrally managed/exported). Anthropic steers regulated
-  workloads away. **Copilot Cowork closes it** (Purview audit + Enterprise Data Protection, in-tenant).
+  workloads away. **Manage it deliberately** — least privilege, approvals on, monitor via the Analytics API,
+  re-verify each cycle — and route work needing zero-retention or centralized audit today to Anthropic's
+  audited surfaces (the API or Claude Code Enterprise), not the Cowork interface.
 - **Data/retention:** commercial (Team/Enterprise/API) — no training by default, 30-day retention; ZDR only on
   API + Claude Code Enterprise (not the Cowork interface). Admin: enable via Org settings → Capabilities; SSO/SCIM;
   desktop policy via MDM (Jamf/Kandji/Intune).
@@ -107,16 +108,6 @@ and the machine awake for tasks. Launched Jan 12 2026 (macOS preview); GA Apr 9 
 - **Rollout (Anthropic's published guidance):** pilot → department → org; 2–3 champions/dept; All-Staff 101s
   (everyone completes a real delegation that produces a deliverable); exec sponsors + templates; weekly/biweekly
   office hours. **Three questions, weekly then monthly:** Are people using it? How deeply? Is it paying off?
-
-### Copilot Cowork — the in-tenant alternative
-Microsoft brought "the technology that powers Claude Cowork" into M365 Copilot (Mar 9 2026; Frontier broad
-availability Mar 30 2026; preview). **Cloud-native, not local** — browser/Outlook/Teams/desktop/mobile;
-OneDrive/SharePoint only (local files off-limits by design). Grounds via Microsoft Graph + Work IQ; scheduled
-tasks run in the cloud (advantage over local). **Anthropic as a subprocessor**; admin: enable Copilot Frontier
-(Copilot → Settings → Frontier) + opt in to Anthropic under "AI providers operating as Microsoft subprocessors"
-(Global Admin); M365 Copilot license ($30/user/mo). **13 built-in skills**; custom skills = `SKILL.md` under
-OneDrive `/Documents/Cowork/skills/` (≤ 50 skills, 1 MB each). **No cross-session project persistence yet.**
-The win: inherits **Purview audit + Enterprise Data Protection** — closes Claude Cowork's audit gap.
 
 ## 4. Authoring notes
 - Lessons in `pages/training/` as `NN-slug.html`; the third lesson of each module is the lab/capstone.
@@ -131,6 +122,4 @@ The win: inherits **Purview audit + Enterprise Data Protection** — closes Clau
 - Anthropic — GitHub: `anthropics/skills` (skill-creator, template, spec), `anthropics/knowledge-work-plugins`, `anthropics/claude-for-legal`, `anthropics/financial-services`
 - Anthropic Academy (free courses): <https://anthropic.skilljar.com> — "Introduction to Claude Cowork", "Introduction to agent skills"
 - Anthropic — Cowork Enterprise Administrator Guide & Analytics API / OpenTelemetry monitoring docs (claude.com/docs)
-- MS Learn — Copilot Cowork (Frontier): get-started · use-cowork · admin-governance · responsible-ai (<https://learn.microsoft.com/microsoft-365/copilot/cowork/>)
-- Microsoft 365 Blog — "Copilot Cowork: A new way of getting work done" (2026-03-09) and "Now available in Frontier" (2026-03-30)
 - Internal: "Cowork Next Steps" meeting (2026-06-11); the Cowork content-research report (Anthropic best practices corpus).

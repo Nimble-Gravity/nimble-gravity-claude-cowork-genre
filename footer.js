@@ -21,9 +21,6 @@
       '.nav-footer-text{max-width:62ch;font-size:14px;line-height:1.65;color:#d1cae6;}' +
       '.nav-footer-stages{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}' +
       '.nav-footer-stage{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#f4f2fb;}' +
-      '.nav-footer-portal{display:flex;flex-wrap:wrap;gap:18px;margin-top:10px;}' +
-      '.nav-footer-portal a{color:#c4b5fd;font-size:13px;font-weight:600;text-decoration:none;}' +
-      '.nav-footer-portal a:hover{color:#fff;text-decoration:underline;}' +
       '@media(max-width:768px){' +
       '.nav-site-footer{grid-template-columns:1fr;gap:18px;padding:24px 16px 28px;}' +
       '.nav-site-footer .brand-link{justify-self:end;}' +
@@ -39,12 +36,6 @@
 
     ensureStyles();
 
-    // Root-relative prefix so portal links resolve from any page depth
-    // (pages are exactly two levels deep under /pages/, like nav.js).
-    var pp = window.location.pathname.split('/').filter(Boolean);
-    var pi = pp.indexOf('pages');
-    var ROOT = (pi !== -1 && pp.length > pi + 1) ? '../../' : '';
-
     if (!footer) {
       footer = document.createElement('div');
       document.body.appendChild(footer);
@@ -56,21 +47,12 @@
       '<div class="nav-footer-copy">' +
         '<div class="nav-footer-kicker">Nimble Gravity · Cowork Enablement</div>' +
         '<div class="nav-footer-title">Cowork Workshop · Claude Cowork</div>' +
-        '<div class="nav-footer-text">A four-module enablement program that gets knowledge workers productive with Cowork — getting set up, real use cases by industry, building your first skill, then plugins, team deployment, and governance.</div>' +
-        '<div class="nav-footer-stages" aria-label="Workshop modules">' +
-          '<span class="nav-footer-stage">Module 1 · Setup &amp; Foundations</span>' +
-          '<span class="nav-footer-stage">Module 2 · Use Cowork</span>' +
-          '<span class="nav-footer-stage">Module 3 · Build a Skill</span>' +
-          '<span class="nav-footer-stage">Module 4 · Plugins &amp; Rollout</span>' +
-        '</div>' +
-        '<div class="nav-footer-portal">' +
-          '<a href="' + ROOT + 'pages/workshops/why-cowork.html">Start here</a>' +
-          '<a href="' + ROOT + 'pages/workshops/acceptable-use.html">Rules of the Road</a>' +
-          '<a href="' + ROOT + 'pages/workshops/syllabus.html">Program syllabus</a>' +
-          '<a href="' + ROOT + 'pages/workshops/pre-work.html">Pre-work &amp; homework</a>' +
-          '<a href="' + ROOT + 'pages/workshops/resources.html">Resource library</a>' +
-          '<a href="' + ROOT + 'pages/workshops/my-progress.html">My progress</a>' +
-          '<a href="' + ROOT + 'pages/workshops/facilitator-guide.html">Facilitator guide</a>' +
+        '<div class="nav-footer-text">A four-workshop enablement program that gets knowledge workers productive with Cowork — getting set up, real use cases by industry, building your first skill, then plugins, team deployment, and governance.</div>' +
+        '<div class="nav-footer-stages" aria-label="Workshops">' +
+          '<span class="nav-footer-stage">Workshop 1 · Setup &amp; Foundations</span>' +
+          '<span class="nav-footer-stage">Workshop 2 · Use Cowork</span>' +
+          '<span class="nav-footer-stage">Workshop 3 · Build a Skill</span>' +
+          '<span class="nav-footer-stage">Workshop 4 · Plugins &amp; Rollout</span>' +
         '</div>' +
       '</div>' +
       '<a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">' +

@@ -42,7 +42,26 @@
       "Bash(git rm *)",
       "Bash(git commit -q -m 'fix\\(axos\\): renumber lessons to a sequential 01-15 *)",
       "Bash(python3 -c \"import re;print\\(' '.join\\(re.findall\\(r'\\(\\\\d{2}\\)-[a-z-]+\\\\.html',open\\('training-sidebar.js'\\).read\\(\\)\\)\\)\\)\")",
-      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8000/)"
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8000/)",
+      "Bash(gh api *)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" https://derrikkbnimblegravity.github.io/nimble-gravity-claude-cowork/)",
+      "Bash(git ls-remote *)",
+      "Bash(awk '{print $2}')",
+      "Bash(curl -s -o /dev/null -w \"axos.md → HTTP %{http_code}\\\\n\" https://derrikkbnimblegravity.github.io/nimble-gravity-claude-cowork/client-notes/axos.md)",
+      "Bash(curl -s -o /dev/null -w \"raw meeting-brief.md → HTTP %{http_code}\\\\n\" https://raw.githubusercontent.com/derrikkbnimblegravity/nimble-gravity-claude-cowork/client-axos/client-notes/meeting-2026-06-17/meeting-brief.md)",
+      "Bash(curl -s __TRACKED_VAR__/pages/workshops/module-1-workshop.html)",
+      "Bash(curl -s http://localhost:8000/interactive.js)",
+      "Bash(curl -sI http://localhost:8000/interactive.js)",
+      "Bash(grep -nB3 \"no-cache, no-store, must-revalidate\" dev_server.py)",
+      "Bash(python3 -m py_compile dev_server.py)",
+      "Bash(./serve)",
+      "Bash(curl -sI http://localhost:8000/pages/workshops/module-1-workshop.html)",
+      "Bash(curl -s http://localhost:8000/pages/workshops/module-1-workshop.html)",
+      "Bash(curl -s http://localhost:8000/footer.js)",
+      "Bash(curl -s -o /dev/null -w \"../workshops/my-progress.html → HTTP %{http_code}\\\\n\" http://localhost:8000/pages/workshops/my-progress.html)",
+      "Bash(xargs -0 perl -pi -e 's/Module \\([1-4]\\)/Workshop $1/g')",
+      "WebSearch",
+      "WebFetch(domain:anthropic.skilljar.com)"
     ]
   }
 }

@@ -14,387 +14,96 @@
 <div class="page-header page-header--index" id="top">
   <div class="eyebrow">Nimble Gravity × Axos Bank · Cowork Enablement</div>
   <h1 class="hero-title">Get your team productive<br>with <em>Cowork.</em></h1>
-  <p class="hero-sub">A four-module program for Axos, delivered as four 2-hour, hands-on workshops — one per module. Get set up, use Cowork on real banking work, build your first skill the way Anthropic recommends, then deploy and govern it. This site is your portal: agendas, lessons, labs, skills, and pre-work, all in one place.</p>
+  <p class="hero-sub">A four-workshop program for Axos, delivered as four 2-hour, hands-on sessions. Get set up, use Cowork on real banking work, build your first skill the way Anthropic recommends, then deploy and govern it. This site is your portal — start with Workshop 1 and work through each in turn.</p>
   <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
-    <a href="pages/workshops/why-cowork.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--teal);color:#fff;font-size:14px;font-weight:600;text-decoration:none;border-radius:6px;">Start here: Why Cowork <span>→</span></a>
-    <a href="pages/workshops/module-1-workshop.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);font-size:14px;font-weight:600;text-decoration:none;border-radius:6px;border:1px solid rgba(255,255,255,.2);">Start Workshop 1</a>
+    <a href="pages/workshops/module-1-workshop.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--teal);color:#fff;font-size:14px;font-weight:600;text-decoration:none;border-radius:6px;">Start: Workshop 1 <span>→</span></a>
+    <a href="pages/workshops/syllabus.html" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);font-size:14px;font-weight:600;text-decoration:none;border-radius:6px;border:1px solid rgba(255,255,255,.2);">See the syllabus</a>
   </div>
 </div>
 
-<!-- TWO-COLUMN TOC + CONTENT -->
-<div class="page-toc-wrap">
+<!-- WHAT YOU'LL BE ABLE TO DO -->
+<div class="section" id="overview">
+  <div class="sec-eyebrow">What You'll Be Able to Do</div>
+  <h2 class="sec-title">From a first task to a governed <em>rollout</em></h2>
+  <p class="sec-sub">Cowork takes Claude Code's agent and makes it usable by anyone: you describe a result and it works across your files to produce it. The program takes a team from "what is this" to using Cowork well, building reusable skills, and rolling it out with the governance and adoption tracking a regulated bank needs — built entirely on Claude Cowork.</p>
 
-  <!-- STICKY TOC (left sidebar) -->
-  <nav class="page-toc" aria-label="On this page">
-    <div class="toc-heading">On This Page</div>
-    <ul class="toc-list">
-      <li><a href="#before-you-begin">Before you begin</a></li>
-      <li class="toc-sub"><a href="pages/workshops/why-cowork.html">Why Cowork</a></li>
-      <li class="toc-sub"><a href="pages/workshops/acceptable-use.html">Rules of the Road</a></li>
-      <li class="toc-sub"><a href="pages/workshops/faq.html">FAQ</a></li>
-      <li class="toc-sub"><a href="pages/workshops/for-managers.html">For managers</a></li>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#how-it-runs">How it runs</a></li>
-      <li class="toc-sub"><a href="pages/workshops/syllabus.html">Program syllabus</a></li>
-      <li class="toc-sub"><a href="pages/workshops/pre-work.html">Pre-work &amp; homework</a></li>
-      <li class="toc-sub"><a href="pages/workshops/resources.html">Resource library</a></li>
-      <li class="toc-sub"><a href="pages/workshops/my-progress.html">My progress</a></li>
-      <li class="toc-sub"><a href="pages/workshops/facilitator-guide.html">Facilitator guide</a></li>
-      <li><a href="#module-1">Module 1 · Setup &amp; Foundations</a></li>
-      <li class="toc-sub"><a href="pages/training/01-what-is-cowork.html">What Is Cowork</a></li>
-      <li class="toc-sub"><a href="pages/training/02-getting-set-up.html">Get Set Up</a></li>
-      <li class="toc-sub"><a href="pages/training/03-first-cowork-session.html">First Session ✦</a></li>
-      <li><a href="#module-2">Module 2 · Use Cowork</a></li>
-      <li class="toc-sub"><a href="pages/training/04-use-cases-by-industry.html">Use Cases by Industry</a></li>
-      <li class="toc-sub"><a href="pages/training/05-working-effectively.html">Working Effectively</a></li>
-      <li class="toc-sub"><a href="pages/training/06-folder-access-walkthrough.html">Folder Access</a></li>
-      <li class="toc-sub"><a href="pages/training/07-use-cowork-lab.html">Use Cowork Lab ✦</a></li>
-      <li><a href="#module-3">Module 3 · Build a Skill</a></li>
-      <li class="toc-sub"><a href="pages/training/08-decompose-your-workflow.html">Decompose Your Workflow</a></li>
-      <li class="toc-sub"><a href="pages/training/09-anatomy-of-a-skill.html">Anatomy of a Skill</a></li>
-      <li class="toc-sub"><a href="pages/training/10-make-it-a-skill.html">Make It a Skill</a></li>
-      <li class="toc-sub"><a href="pages/training/11-build-a-skill-lab.html">Build a Skill Lab ✦</a></li>
-      <li><a href="#module-4">Module 4 · Plugins &amp; Rollout</a></li>
-      <li class="toc-sub"><a href="pages/training/12-skills-to-plugins.html">From Skills to Plugins</a></li>
-      <li class="toc-sub"><a href="pages/training/13-deploy-to-your-team.html">Deploy to Your Team</a></li>
-      <li class="toc-sub"><a href="pages/training/14-governance-for-it.html">Governance for IT</a></li>
-      <li class="toc-sub"><a href="pages/training/15-governance-and-adoption.html">Governance &amp; Adoption ✦</a></li>
-    </ul>
-    <div class="toc-divider"></div>
-    <a href="pages/workshops/why-cowork.html" class="toc-start-btn">Start here →</a>
-  </nav>
-
-  <!-- MAIN CONTENT -->
-  <div>
-
-    <!-- BEFORE YOU BEGIN -->
-    <div class="section" id="before-you-begin">
-      <div class="sec-eyebrow">Before you begin</div>
-      <h2 class="sec-title">Two things to read <em>first</em></h2>
-      <p class="sec-sub">Five minutes before Workshop 1: why we're doing this, and the one ground rule for using Cowork on Axos work.</p>
-      <div class="module-grid" style="margin-top:28px;">
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Start here</div>
-            <div class="module-name">Why Cowork, and why now</div>
-            <div class="module-desc">The case for change, what's in it for your role, and our straight answer on jobs.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/why-cowork.html" class="module-cta">Read first <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Ground rule</div>
-            <div class="module-name">Rules of the Road</div>
-            <div class="module-desc">What data may and may not go into Cowork — read and acknowledge before you start.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/acceptable-use.html" class="module-cta">Read &amp; acknowledge <span>→</span></a></div>
-        </div>
-      </div>
+  <div class="insight-grid" style="margin-top:28px;">
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:8px;">Who it's for</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Knowledge workers across Axos — commercial and consumer banking, lending, and treasury management, plus the risk, compliance, and operations teams behind them. No coding needed, and no prior agentic-AI experience assumed.</p>
     </div>
-
-    <!-- OVERVIEW -->
-    <div class="section" id="overview">
-      <div class="sec-eyebrow">What You'll Be Able to Do</div>
-      <h2 class="sec-title">From a first task to a governed <em>rollout</em></h2>
-      <p class="sec-sub">Cowork takes Claude Code's agent and makes it usable by anyone: you describe a result and it works across your files to produce it. The program takes a team from "what is this" to using Cowork well, building reusable skills, and rolling it out with the governance and adoption tracking enterprises ask for. It's built entirely on Claude Cowork, with the enterprise controls a regulated bank needs.</p>
-
-      <div class="insight-grid" style="margin-top:28px;">
-        <div class="insight-card">
-          <div class="sec-eyebrow" style="margin-bottom:8px;">Who it's for</div>
-          <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Knowledge workers across Axos — commercial and consumer banking, lending, and treasury management, plus the risk, compliance, and operations teams behind them. No coding needed, and no prior agentic-AI experience assumed.</p>
-        </div>
-        <div class="insight-card">
-          <div class="sec-eyebrow" style="margin-bottom:8px;">What you leave with</div>
-          <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">A personalized Cowork setup, working fluency on real industry tasks, one reusable skill built the way Anthropic recommends, and a governed rollout plan with an adoption dashboard design.</p>
-        </div>
-      </div>
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:8px;">What you leave with</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">A personalized Cowork setup, working fluency on real industry tasks, one reusable skill built the way Anthropic recommends, and a governed rollout plan with an adoption dashboard design.</p>
     </div>
+  </div>
+</div>
 
-    <!-- HOW IT RUNS -->
-    <div class="section" id="how-it-runs">
-      <div class="sec-eyebrow">How the program runs</div>
-      <h2 class="sec-title">Four workshops, two hours <em>each</em></h2>
-      <p class="sec-sub">Each module is delivered as one 2-hour, hands-on workshop. A little pre-work before, a small task after, and office hours alongside. Everything you need for a session lives on its workshop hub.</p>
+<!-- THE FOUR WORKSHOPS -->
+<div class="section section--off" id="workshops">
+  <div class="sec-eyebrow">The Program</div>
+  <h2 class="sec-title">Four workshops, two hours <em>each</em></h2>
+  <p class="sec-sub">Each workshop is one 2-hour, hands-on session. Open a workshop to find its four stages — pre-work, the workshop content and lab, a knowledge check, and homework — all on one page.</p>
 
-      <div class="bp-grid--light" style="margin-top:28px;">
-        <div class="bp-item"><div class="bp-num">01</div><div class="bp-title">Before each session</div><div class="bp-body">Ten minutes of <a href="pages/workshops/pre-work.html">pre-work</a> so you arrive ready — access confirmed and a real task in hand.</div></div>
-        <div class="bp-item"><div class="bp-num">02</div><div class="bp-title">Two hours, hands-on</div><div class="bp-body">Teach, a live banking demo, discussion, then a 40-minute lab that ends in a real deliverable.</div></div>
-        <div class="bp-item"><div class="bp-num">03</div><div class="bp-title">After, and alongside</div><div class="bp-body">A short homework task and office hours keep it moving between sessions.</div></div>
-      </div>
-
-      <div class="module-grid" style="margin-top:28px;">
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Portal</div>
-            <div class="module-name">Program syllabus</div>
-            <div class="module-desc">All four 2-hour agendas and the schedule on one page.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/syllabus.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Portal</div>
-            <div class="module-name">Pre-work &amp; homework</div>
-            <div class="module-desc">What to do before each workshop, and the task after.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/pre-work.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Portal</div>
-            <div class="module-name">Resource library</div>
-            <div class="module-desc">Skills, templates, slide decks, and Anthropic sources.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/resources.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Portal</div>
-            <div class="module-name">Facilitator guide</div>
-            <div class="module-desc">Demo scripts, discussion prompts, and timing.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/facilitator-guide.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Portal</div>
-            <div class="module-name">FAQ</div>
-            <div class="module-desc">The honest questions — jobs, data, and how it works.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/faq.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">For managers</div>
-            <div class="module-name">Manager kit</div>
-            <div class="module-desc">Your role, five actions, a script, and the job question.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/for-managers.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Portal</div>
-            <div class="module-name">Feedback</div>
-            <div class="module-desc">Two-minute pulses after each session and at 30 days.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/feedback.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-card-meta"><div class="module-label">Portal</div>
-            <div class="module-name">My progress</div>
-            <div class="module-desc">Track completion and unlock your certificate.</div>
-          </div></div>
-          <div class="module-card-footer"><a href="pages/workshops/my-progress.html" class="module-cta">Open <span>→</span></a></div>
-        </div>
-      </div>
+  <div class="module-grid" style="margin-top:28px;">
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">1</div>
+        <div class="module-card-meta"><div class="module-label">2-hour workshop</div>
+          <div class="module-name">Setup &amp; Foundations</div>
+          <div class="module-desc">Delegation vs chat and the local engine, personalizing Cowork with the co-setup interview, and a first delegated task. Opens with Why Cowork + Rules of the Road.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="pages/workshops/module-1-workshop.html" class="module-cta">Open Workshop 1 <span>→</span></a></div>
     </div>
-
-    <!-- MODULE 1 -->
-    <div class="section section--off" id="module-1">
-      <div class="sec-eyebrow">Module 1 · Setup &amp; Foundations · 2-hour workshop</div>
-      <h2 class="sec-title">Set Up &amp; <em>Foundations</em></h2>
-      <p class="sec-sub">What separates Cowork from chat, the Claude Code engine it runs on, installing and personalizing it with the Co-setup interview, and running your first delegated task.</p>
-      <p style="margin-top:20px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;"><a href="pages/workshops/module-1-workshop.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--teal);color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;">Open Workshop 1 hub →</a><a href="pages/training/module-1-slides.html" class="slides-cta">⊞ Start Presentation</a></p>
-
-      <div class="module-grid">
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">01</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">What Is Cowork?</div>
-              <div class="module-desc">How Cowork differs from a chat. It's the same agent as Claude Code, in the desktop app, running locally with an isolated VM.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/01-what-is-cowork.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">02</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Get Set Up</div>
-              <div class="module-desc">The Co-setup interview writes your instruction files, on whichever surface you use. Connect M365 so it can pre-fill.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/02-getting-set-up.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">03</div>
-            <div class="module-card-meta"><div class="module-label">Exercise</div>
-              <div class="module-name">Your First Cowork Session</div>
-              <div class="module-desc">Delegate a real task on Sonnet with "ask before acting," read the plan, and approve each step.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/03-first-cowork-session.html" class="module-cta">Go to exercise <span>→</span></a></div>
-        </div>
-      </div>
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">2</div>
+        <div class="module-card-meta"><div class="module-label">2-hour workshop</div>
+          <div class="module-name">Use Cowork</div>
+          <div class="module-desc">Banking use cases worth starting with, working effectively — model choice, permission modes, folder access — and a real task run end to end.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="pages/workshops/module-2-workshop.html" class="module-cta">Open Workshop 2 <span>→</span></a></div>
     </div>
-
-    <!-- MODULE 2 -->
-    <div class="section" id="module-2">
-      <div class="sec-eyebrow">Module 2 · Use Cowork · 2-hour workshop</div>
-      <h2 class="sec-title">Use <em>Cowork</em></h2>
-      <p class="sec-sub">Put it to work where it pays off, with industry use cases seeded from Anthropic's open-sourced packs, and learn to use it well: choosing models for cost, steering with permission modes, staying clear of prompt injection, and scheduling tasks.</p>
-      <p style="margin-top:20px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;"><a href="pages/workshops/module-2-workshop.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--violet);color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;">Open Workshop 2 hub →</a><a href="pages/training/module-2-slides.html" class="slides-cta">⊞ Start Presentation</a></p>
-
-      <div class="module-grid">
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">04</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Use Cases by Industry</div>
-              <div class="module-desc">What to try first in finance, insurance, legal, and healthcare, starting from Anthropic's open-sourced packs.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/04-use-cases-by-industry.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">05</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Working Effectively</div>
-              <div class="module-desc">Start on Sonnet to keep costs down, steer with permission modes, watch for prompt injection, and break long jobs into pieces.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/05-working-effectively.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">06</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Folder Access</div>
-              <div class="module-desc">Granting Cowork access to a folder, what the permission scopes, the isolated VM, and least privilege in practice.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/06-folder-access-walkthrough.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">07</div>
-            <div class="module-card-meta"><div class="module-label">Exercise</div>
-              <div class="module-name">Use Cowork Lab</div>
-              <div class="module-desc">Run a real industry use case end to end and name the recurring task you'll turn into a skill.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/07-use-cowork-lab.html" class="module-cta">Go to exercise <span>→</span></a></div>
-        </div>
-      </div>
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">3</div>
+        <div class="module-card-meta"><div class="module-label">2-hour workshop</div>
+          <div class="module-name">Build a Skill</div>
+          <div class="module-desc">Decompose a workflow, learn Anthropic's standards for a <code>SKILL.md</code>, and ship a working <code>.skill</code> with the skill-creator loop.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="pages/workshops/module-3-workshop.html" class="module-cta">Open Workshop 3 <span>→</span></a></div>
     </div>
-
-    <!-- MODULE 3 -->
-    <div class="section section--off" id="module-3">
-      <div class="sec-eyebrow">Module 3 · Build a Skill · 2-hour workshop</div>
-      <h2 class="sec-title">Build Your First <em>Skill</em></h2>
-      <p class="sec-sub">Turn a workflow you repeat into a reusable <code>SKILL.md</code>. You'll break it into a plan, learn Anthropic's standards for writing one, and ship a working <code>.skill</code> with the skill-creator loop.</p>
-      <p style="margin-top:20px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;"><a href="pages/workshops/module-3-workshop.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--blueD);color:#fff;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;">Open Workshop 3 hub →</a><a href="pages/training/module-3-slides.html" class="slides-cta">⊞ Start Presentation</a></p>
-
-      <div class="module-grid">
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">08</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Decompose Your Workflow</div>
-              <div class="module-desc">Map the use case, challenges, steps, outcomes, and data sources, work in slices, and define good output first.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/08-decompose-your-workflow.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">09</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Anatomy of a Skill</div>
-              <div class="module-desc">Writing SKILL.md the way Anthropic recommends: a keyword-rich description, a body under 500 lines, and evals before docs.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/09-anatomy-of-a-skill.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">10</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Make It a Skill</div>
-              <div class="module-desc">Turn working prompt text into a skill by asking Claude, then harden it with the skill-creator loop and evals.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/10-make-it-a-skill.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">11</div>
-            <div class="module-card-meta"><div class="module-label">Exercise</div>
-              <div class="module-name">Build a Skill Lab</div>
-              <div class="module-desc">Run the skill-creator loop: capture intent, draft, test against a baseline, tune, and package a <code>.skill</code>.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/11-build-a-skill-lab.html" class="module-cta">Go to exercise <span>→</span></a></div>
-        </div>
-      </div>
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">4</div>
+        <div class="module-card-meta"><div class="module-label">2-hour workshop</div>
+          <div class="module-name">Plugins &amp; Rollout</div>
+          <div class="module-desc">Bundle skills into plugins, deploy through a private marketplace, and set the governance and adoption tracking that makes it last.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="pages/workshops/module-4-workshop.html" class="module-cta">Open Workshop 4 <span>→</span></a></div>
     </div>
+  </div>
+</div>
 
-    <!-- MODULE 4 -->
-    <div class="section" id="module-4">
-      <div class="sec-eyebrow">Module 4 · Plugins &amp; Rollout · 2-hour workshop</div>
-      <h2 class="sec-title">Plugins, Deploy &amp; <em>Govern</em></h2>
-      <p class="sec-sub">Move from personal skills to a capability the organization owns: bundle skills into plugins, deploy them through a private marketplace, and set up the governance and adoption tracking that makes it last.</p>
-      <p style="margin-top:20px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;"><a href="pages/workshops/module-4-workshop.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--amber);color:#3a2a06;text-decoration:none;border-radius:6px;font-weight:600;font-size:14px;">Open Workshop 4 hub →</a><a href="pages/training/module-4-slides.html" class="slides-cta">⊞ Start Presentation</a></p>
+<!-- HOW IT RUNS + SYLLABUS SNAPSHOT -->
+<div class="section" id="how-it-runs">
+  <div class="sec-eyebrow">How it runs</div>
+  <h2 class="sec-title">A simple, repeatable <em>rhythm</em></h2>
+  <p class="sec-sub">Every workshop follows the same four stages, so you always know where you are and what's next.</p>
 
-      <div class="module-grid">
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">12</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">From Skills to Plugins</div>
-              <div class="module-desc">Bundle skills, connectors, sub-agents, and hooks; install from marketplaces; author once in the Claude Code structure and reuse in Claude Cowork.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/12-skills-to-plugins.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">13</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Deploy to Your Team</div>
-              <div class="module-desc">Private marketplaces, install policies, and the model where the owner pushes updates and members copy and tweak.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/13-deploy-to-your-team.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">14</div>
-            <div class="module-card-meta"><div class="module-label">Lesson</div>
-              <div class="module-name">Governance for IT</div>
-              <div class="module-desc">The IT and compliance page: enabling and managing Cowork, identity and device controls, the June 2026 audit-coverage gap, and data retention.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/14-governance-for-it.html" class="module-cta">Go to lesson <span>→</span></a></div>
-        </div>
-        <div class="module-card">
-          <div class="module-card-top"><div class="module-num-big">15</div>
-            <div class="module-card-meta"><div class="module-label">Capstone</div>
-              <div class="module-name">Governance &amp; Adoption</div>
-              <div class="module-desc">The audit gap, an adoption dashboard from the Analytics API and OTel, and a governed phased rollout plan.</div>
-            </div></div>
-          <div class="module-card-footer"><a href="pages/training/15-governance-and-adoption.html" class="module-cta">Go to capstone <span>→</span></a></div>
-        </div>
-      </div>
-    </div>
+  <div class="bp-grid--light" style="margin-top:28px;">
+    <div class="bp-item"><div class="bp-num">01</div><div class="bp-title">Pre-work</div><div class="bp-body">Ten minutes before each session — access confirmed and a real task in hand.</div></div>
+    <div class="bp-item"><div class="bp-num">02</div><div class="bp-title">Workshop content</div><div class="bp-body">Two hours, hands-on: teach, a live banking demo, discussion, then a 40-minute lab that ends in a real deliverable.</div></div>
+    <div class="bp-item"><div class="bp-num">03</div><div class="bp-title">Knowledge check</div><div class="bp-body">A short quiz on each workshop — pass all four to unlock your certificate.</div></div>
+    <div class="bp-item"><div class="bp-num">04</div><div class="bp-title">Homework</div><div class="bp-body">A small task after each session, with office hours alongside to keep it moving.</div></div>
+  </div>
 
-  </div><!-- /main -->
-
-</div><!-- /page-toc-wrap -->
-
-<!-- CAPSTONE CALLOUT -->
-<div class="section-dark" id="capstone">
-  <div class="sec-eyebrow">Capstone</div>
-  <h2 class="sec-title on-dark">Roll It Out, <em>Governed</em></h2>
-  <p class="sec-sub on-dark">The program ends with a deliverable a sponsor can act on, built in three moves.</p>
-
-  <div class="output-grid" style="margin-top:32px;">
-    <div class="output-card oc1">
-      <div class="output-num">01</div>
-      <div class="output-title">Govern by workload</div>
-      <div class="output-body">Decide which workloads run in Claude Cowork now and how each is scoped: least-privilege folders, the right permission mode, and which sensitive data waits given the June 2026 audit-coverage gap.</div>
-    </div>
-    <div class="output-card oc2">
-      <div class="output-num">02</div>
-      <div class="output-title">Design the dashboard</div>
-      <div class="output-body">Pull the Enterprise Analytics API and OpenTelemetry into Power BI or Databricks for weekly active usage, per-user spend by model, and your AI champions.</div>
-    </div>
-    <div class="output-card oc3">
-      <div class="output-num">03</div>
-      <div class="output-title">Plan the rollout</div>
-      <div class="output-body">Pilot, then department, then org, with two or three champions per team and All-Staff 101s where everyone delegates a real task, plus one reusable skill shipped.</div>
+  <div class="tip-trick" style="margin-top:32px;">
+    <div class="tip-trick-icon">🗓️</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Syllabus at a glance</div>
+      <p>Run it as two workshops a week over two weeks, or one a week over about four. The full program syllabus — all four 2-hour agendas and the schedule — is on the <a href="pages/workshops/syllabus.html">syllabus page</a>.</p>
     </div>
   </div>
 </div>
 
 <div class="page-footer"></div>
-
-<script>
-// Highlight active TOC section on scroll
-(function () {
-  var links = document.querySelectorAll('.page-toc .toc-list > li:not(.toc-sub) > a[href^="#"]');
-  var sections = Array.from(links).map(function(a) {
-    return document.querySelector(a.getAttribute('href'));
-  }).filter(Boolean);
-
-  function onScroll() {
-    var scrollY = window.scrollY + 120;
-    var active = sections[0];
-    sections.forEach(function(s) { if (s.offsetTop <= scrollY) active = s; });
-    links.forEach(function(a) {
-      a.classList.toggle('toc--active', a.getAttribute('href') === '#' + active.id);
-    });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
-</script>
 
 </body>
 </html>

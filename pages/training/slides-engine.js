@@ -6,7 +6,7 @@
  * Expects window.SLIDES_CFG to be defined before this script loads:
  *   window.SLIDES_CFG = {
  *     module: 1,
- *     label:  'Module 1',
+ *     label:  'Workshop 1',
  *     subLabel: 'Foundations',
  *     color:  '#4f9990',
  *     lessons: [

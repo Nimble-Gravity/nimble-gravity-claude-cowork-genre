@@ -47,77 +47,77 @@
   function clearAck(id)         { var s = getStore(); if (s.ack) { delete s.ack[id]; setStore(s); } }
   function resetAll()           { try { window.localStorage.removeItem(LS_KEY); } catch (e) {} }
 
-  var MODULE_LABELS = { m1: 'Module 1 · Setup & Foundations', m2: 'Module 2 · Use Cowork', m3: 'Module 3 · Build a Skill', m4: 'Module 4 · Plugins & Rollout' };
+  var MODULE_LABELS = { m1: 'Workshop 1 · Setup & Foundations', m2: 'Workshop 2 · Use Cowork', m3: 'Workshop 3 · Build a Skill', m4: 'Workshop 4 · Plugins & Rollout' };
   function passedCount() { var s = getStore(); var q = s.quiz || {}; var n = 0; ['m1','m2','m3','m4'].forEach(function (m) { if (q[m] && q[m].passed) n++; }); return n; }
   function fmtDate(ts) { var d = ts ? new Date(ts) : new Date(); var m = ['January','February','March','April','May','June','July','August','September','October','November','December']; return m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear(); }
 
   // ── Content config (questions live here, not in lesson HTML) ────────────────
   var QUIZZES = {
     m1: {
-      label: 'Module 1 · Setup & Foundations',
+      label: 'Workshop 1 · Setup & Foundations',
       questions: [
         { q: 'How is Cowork different from a chat?',
-          options: ['It just writes longer replies', 'You delegate a multi-step job and supervise while it does the work', 'It only works offline'],
+          options: ['It writes longer answers, but you still copy them out and do the work yourself', 'You delegate a multi-step job and supervise while it works across your files', 'It is the same as chat, just renamed'],
           answer: 1 },
         { q: 'Where does Claude Cowork run your work?',
-          options: ['On a public website', 'Locally on your machine in an isolated VM, on the folders you grant it', 'Only in the cloud with no local access'],
+          options: ['Entirely in Anthropic’s cloud, like a chatbot', 'Locally on your machine, in an isolated VM, on the folders you grant it', 'On your machine with full access to every file by default'],
           answer: 1 },
         { q: 'What does the co-setup interview produce?',
-          options: ['A new email account', 'About-me / instruction context files that personalize Cowork', 'A billing invoice'],
+          options: ['A one-time summary it forgets when the session ends', 'Instruction and about-me context files that personalize every session', 'A new Claude model trained on your data'],
           answer: 1 },
         { q: 'On your first delegated task, which permission mode is recommended?',
-          options: ['Act without asking', 'Ask before acting — approve each step', 'No mode is needed'],
+          options: ['Act without asking, so it finishes fastest', 'Ask before acting — approve each step', 'Either mode is fine; it doesn’t change what Cowork can do'],
           answer: 1 }
       ]
     },
     m2: {
-      label: 'Module 2 · Use Cowork',
+      label: 'Workshop 2 · Use Cowork',
       questions: [
         { q: 'What is the safe default model for everyday work?',
-          options: ['Opus for everything', 'Sonnet, stepping up to Opus only for hard reasoning', 'Haiku only'],
+          options: ['Opus for everything — it is the most capable', 'Sonnet by default, stepping up to Opus only for hard reasoning', 'Haiku for everything, to minimize cost'],
           answer: 1 },
         { q: 'Before running a task, what should you connect?',
-          options: ['Your whole hard drive', 'Only the folder the task needs', 'Nothing — Cowork guesses'],
+          options: ['A parent folder, so it has everything it might need', 'Only the folder the task needs', 'Every folder up front, so you never have to grant again'],
           answer: 1 },
         { q: 'What makes a strong first use case?',
-          options: ['A one-off creative poem', 'A repetitive, document-heavy job that ends in a deliverable', 'Anything that needs no files'],
+          options: ['A quick factual question you could just ask in chat', 'A repetitive, document-heavy job that ends in a deliverable', 'A one-off creative task with no source files'],
           answer: 1 },
         { q: 'What standing risk comes with untrusted external content?',
-          options: ['Prompt injection', 'The app running too fast', 'Too many fonts'],
+          options: ['Prompt injection — hidden instructions in a page, email, or document', 'The model forgetting your earlier messages', 'Your files being uploaded to train the model'],
           answer: 0 }
       ]
     },
     m3: {
-      label: 'Module 3 · Build a Skill',
+      label: 'Workshop 3 · Build a Skill',
       questions: [
         { q: 'What comes first when authoring a skill, per Anthropic?',
-          options: ['The marketing copy', 'The evaluations — evals before docs', 'The logo'],
+          options: ['Polished, exhaustive documentation', 'The evaluations — evals before docs', 'A long list of rules in ALL-CAPS'],
           answer: 1 },
         { q: 'A good SKILL.md body should be…',
-          options: ['As long as possible', 'Under 500 lines, using progressive disclosure', 'A single sentence'],
+          options: ['As detailed as possible, covering every case in one file', 'Under 500 lines, with detail pushed into reference files (progressive disclosure)', 'Just the frontmatter — the body is optional'],
           answer: 1 },
         { q: 'What makes a description trigger reliably?',
-          options: ['It is vague and short', 'It is keyword-rich and written in the third person', 'It is written in the first person'],
+          options: ['It is short and general, so it matches anything', 'It is keyword-rich and third person — what it does and when to use it', 'It is written in the first person ("I help you…")'],
           answer: 1 },
         { q: 'The fastest way to start a skill from working text is to…',
-          options: ['Rewrite everything from scratch', 'Paste the working prompt and ask Claude to turn it into a skill', 'Email it to support'],
+          options: ['Write the SKILL.md by hand from a blank file', 'Paste the working prompt and ask Claude to turn it into a skill', 'Wait for Anthropic to publish an official one'],
           answer: 1 }
       ]
     },
     m4: {
-      label: 'Module 4 · Plugins & Rollout',
+      label: 'Workshop 4 · Plugins & Rollout',
       questions: [
         { q: 'Several people build the same skill. That is a signal to…',
-          options: ['Ban the skill', 'Make it a team plugin with one owner', 'Delete every copy'],
+          options: ['Tell everyone to stop building their own skills', 'Make it a team plugin with one owner who pushes updates', 'Let each person keep their own private copy'],
           answer: 1 },
         { q: 'As of June 2026, where is Claude Cowork activity NOT captured?',
-          options: ['In your local history', 'In Anthropic’s Compliance API / audit logs', 'In the desktop app'],
+          options: ['In your local conversation history', 'In Anthropic’s Compliance API / audit logs', 'In the admin usage dashboard'],
           answer: 1 },
-        { q: 'For a regulated bank, how do you handle the June 2026 audit-coverage gap?',
-          options: ['Ignore it', 'Manage it — least privilege, approvals on, monitor via the Analytics API, and re-verify each cycle', 'Stop using Cowork entirely'],
+        { q: 'Some work needs centralized audit or zero data retention today. Where should it run?',
+          options: ['On the Claude Cowork interface — its controls are enough', 'On Anthropic’s audited surfaces — the API or Claude Code Enterprise — not the Cowork interface', 'Anywhere — the audit gap does not matter for regulated work'],
           answer: 1 },
         { q: 'Which three questions track adoption?',
-          options: ['Are people using it? How deeply? Is it paying off?', 'Weather, time, and date?', 'None — adoption cannot be measured'],
+          options: ['Are people using it? How deeply? Is it paying off?', 'How many messages were sent, by whom, and when?', 'How many skills are installed, and how big are they?'],
           answer: 0 }
       ]
     }
@@ -176,6 +176,38 @@
       '.ix-done-copy{flex:1 1 220px;min-width:0;}',
       '.ix-done-title{font-size:17px;font-weight:600;color:var(--navy);}',
       '.ix-done-sub{font-size:14px;color:var(--slate);margin-top:2px;}',
+      // quiz flow (one question at a time)
+      '.ixq{position:relative;overflow:hidden;}',
+      '.ixq-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px;}',
+      '.ixq-counter{font-family:\'Roboto Mono\',monospace;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--slate);}',
+      '.ixq-dots{display:flex;gap:7px;}',
+      '.ixq-dot{width:9px;height:9px;border-radius:50%;background:var(--border);transition:background .25s,transform .25s;}',
+      '.ixq-dot.done{background:var(--mint-on-dark);}',
+      '.ixq-dot.active{background:var(--teal);transform:scale(1.4);}',
+      '.ixq-stage{position:relative;margin-top:6px;}',
+      '.ixq-panel{transition:opacity .32s ease,transform .32s ease;}',
+      '.ixq-panel.ixq-enter{opacity:0;transform:translateX(26px);}',
+      '.ixq-panel.ixq-enter.ixq-active{opacity:1;transform:translateX(0);}',
+      '.ixq-q{font-size:17px;font-weight:600;color:var(--navy);margin:18px 0 14px;line-height:1.35;}',
+      '.ixq-opt-pop{animation:ixq-pop .42s cubic-bezier(.2,.9,.3,1.4) both;}',
+      '.ixq-feedback{margin-top:14px;font-size:14px;font-weight:600;opacity:0;max-height:0;overflow:hidden;transition:opacity .25s ease,max-height .25s ease;}',
+      '.ixq-feedback.show{opacity:1;max-height:88px;}',
+      '.ixq-feedback.good{color:var(--teal);}',
+      '.ixq-feedback.bad{color:var(--amber-accessible);}',
+      '.ixq-next{margin-top:18px;min-height:40px;}',
+      '.ixq-next .ix-btn{animation:ixq-rise .3s ease both;}',
+      '.ixq-result-panel{text-align:center;padding:12px 0 4px;}',
+      '.ixq-badge{font-size:46px;line-height:1;margin:8px 0 8px;display:inline-block;animation:ixq-pop .55s cubic-bezier(.2,.9,.3,1.5) both;}',
+      '.ixq-result-title{font-size:24px;font-weight:700;color:var(--navy);}',
+      '.ixq-result-score{font-size:16px;color:var(--slate);margin-top:6px;font-family:\'Roboto Mono\',monospace;}',
+      '.ixq-result-sub{font-size:14px;color:var(--slate);margin-top:8px;line-height:1.5;max-width:46ch;margin-left:auto;margin-right:auto;}',
+      '.ixq-result-panel .ix-actions{justify-content:center;}',
+      '.ixq-confetti{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:14px;}',
+      '.ixq-confetti-piece{position:absolute;top:-14px;width:9px;height:14px;border-radius:2px;opacity:0;animation:ixq-fall 1.2s ease-in forwards;}',
+      '@keyframes ixq-fall{0%{opacity:1;transform:translateY(-10%) translateX(0) rotate(0);}100%{opacity:0;transform:translateY(440px) translateX(calc(var(--dx,0) * 120px)) rotate(var(--rot,180deg));}}',
+      '@keyframes ixq-pop{0%{transform:scale(0);}60%{transform:scale(1.15);}100%{transform:scale(1);}}',
+      '@keyframes ixq-rise{0%{opacity:0;transform:translateY(8px);}100%{opacity:1;transform:translateY(0);}}',
+      '@media(prefers-reduced-motion:reduce){.ixq-panel,.ixq-badge,.ixq-next .ix-btn,.ixq-opt-pop{transition:none !important;animation:none !important;}.ixq-dot{transition:none;}}',
       // poll
       '.ix-scale{display:flex;flex-direction:column;gap:10px;margin-top:18px;}',
       '.ix-level{display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;padding:13px 16px;border:1px solid var(--border);border-radius:12px;background:var(--off);font-family:inherit;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;}',
@@ -245,83 +277,153 @@
     var pass = parseInt(mount.getAttribute('data-ix-pass'), 10);
     if (isNaN(pass)) pass = Math.ceil(total * 0.6);
 
-    var saved = getQuiz(id);
-    if (saved) { renderQuizDone(mount, id, cfg, saved, pass); }
-    else { renderQuizForm(mount, id, cfg, total, pass); }
+    renderQuizFlow(mount, id, cfg, total, pass);
   }
 
-  function renderQuizForm(mount, id, cfg, total, pass) {
+  // One question at a time: select → instant feedback → Next, with animated
+  // transitions and a confetti celebration on a pass. Saves the same
+  // {passed, score, total, ts} shape so progress/certificate are unaffected.
+  function renderQuizFlow(mount, id, cfg, total, pass) {
     mount.innerHTML = '';
-    var card = el('div', 'ix-card');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var card = el('div', 'ix-card ixq');
     card.appendChild(el('div', 'ix-kicker', 'Knowledge check · ' + cfg.label));
-    card.appendChild(el('div', 'ix-card-title', 'Quick check — reinforce the essentials'));
-    card.appendChild(el('p', 'ix-card-sub', 'A few easy questions. Pick an answer for each, then check.'));
 
-    var selected = new Array(total).fill(-1);
-    var qNodes = [];
+    var prior = getQuiz(id);
+    if (prior && prior.passed) {
+      card.appendChild(el('p', 'ix-card-sub', '✓ You’ve already passed this (' + prior.score + '/' + prior.total + '). Run through it again any time.'));
+    }
 
-    cfg.questions.forEach(function (qcfg, qi) {
-      var qWrap = el('div', 'ix-q');
-      qWrap.appendChild(el('div', 'ix-q-text', (qi + 1) + '. ' + qcfg.q));
+    var head = el('div', 'ixq-head');
+    var counter = el('div', 'ixq-counter', 'Question 1 of ' + total);
+    head.appendChild(counter);
+    var dots = el('div', 'ixq-dots');
+    var dotEls = [];
+    for (var i = 0; i < total; i++) { var dn = el('span', 'ixq-dot'); dots.appendChild(dn); dotEls.push(dn); }
+    head.appendChild(dots);
+    card.appendChild(head);
+
+    var stage = el('div', 'ixq-stage');
+    card.appendChild(stage);
+
+    var score = 0;
+    var current = 0;
+
+    function paintDots() {
+      dotEls.forEach(function (dot, k) {
+        dot.className = 'ixq-dot' + (k < current ? ' done' : '') + (k === current ? ' active' : '');
+      });
+    }
+
+    // Replace the stage panel, sliding the new one in (unless reduced motion).
+    function swap(node) {
+      if (reduce || !stage.firstChild) { stage.innerHTML = ''; stage.appendChild(node); return; }
+      stage.innerHTML = '';
+      node.classList.add('ixq-enter');
+      stage.appendChild(node);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { node.classList.add('ixq-active'); }); });
+    }
+
+    function buildQuestion(idx) {
+      var qcfg = cfg.questions[idx];
+      counter.textContent = 'Question ' + (idx + 1) + ' of ' + total;
+      paintDots();
+
+      var panel = el('div', 'ixq-panel');
+      panel.appendChild(el('div', 'ixq-q', (idx + 1) + '. ' + qcfg.q));
       var opts = el('div', 'ix-opts');
+      var feedback = el('div', 'ixq-feedback');
+      var nextWrap = el('div', 'ixq-next');
       var optBtns = [];
+      var answered = false;
+
       qcfg.options.forEach(function (optText, oi) {
         var b = el('button', 'ix-opt');
         b.type = 'button';
         b.appendChild(el('span', 'ix-mark'));
         b.appendChild(el('span', null, optText));
         b.addEventListener('click', function () {
-          selected[qi] = oi;
-          optBtns.forEach(function (ob, k) { ob.classList.toggle('selected', k === oi); });
+          if (answered) return;
+          answered = true;
+          var correct = oi === qcfg.answer;
+          if (correct) score++;
+          optBtns.forEach(function (ob, k) {
+            ob.disabled = true;
+            if (k === qcfg.answer) { ob.classList.add('correct'); if (!reduce) ob.classList.add('ixq-opt-pop'); }
+            else if (k === oi) ob.classList.add('incorrect');
+          });
+          feedback.className = 'ixq-feedback show ' + (correct ? 'good' : 'bad');
+          feedback.textContent = correct ? 'Correct.' : 'Not quite — the right answer is highlighted.';
+          var isLast = idx === total - 1;
+          var nb = el('button', 'ix-btn', isLast ? 'See results →' : 'Next question →');
+          nb.type = 'button';
+          nb.addEventListener('click', function () {
+            if (isLast) { showResults(); }
+            else { current = idx + 1; swap(buildQuestion(idx + 1)); }
+          });
+          nextWrap.appendChild(nb);
         });
         optBtns.push(b);
         opts.appendChild(b);
       });
-      qWrap.appendChild(opts);
-      qNodes.push({ optBtns: optBtns });
-      card.appendChild(qWrap);
-    });
 
-    var actions = el('div', 'ix-actions');
-    var checkBtn = el('button', 'ix-btn', 'Check answers');
-    checkBtn.type = 'button';
-    var hint = el('span', 'ix-hint', '');
-    actions.appendChild(checkBtn);
-    actions.appendChild(hint);
-    card.appendChild(actions);
+      panel.appendChild(opts);
+      panel.appendChild(feedback);
+      panel.appendChild(nextWrap);
+      return panel;
+    }
 
-    checkBtn.addEventListener('click', function () {
-      if (selected.indexOf(-1) !== -1) { hint.textContent = 'Answer all questions first.'; return; }
-      hint.textContent = '';
-      var score = 0;
-      cfg.questions.forEach(function (qcfg, qi) {
-        var btns = qNodes[qi].optBtns;
-        btns.forEach(function (b, oi) {
-          b.disabled = true;
-          b.classList.remove('selected');
-          if (oi === qcfg.answer) b.classList.add('correct');
-          else if (oi === selected[qi]) b.classList.add('incorrect');
-        });
-        if (selected[qi] === qcfg.answer) score++;
-      });
+    function showResults() {
       var passed = score >= pass;
       saveQuiz(id, { passed: passed, score: score, total: total, ts: Date.now() });
-      checkBtn.remove();
-      hint.remove();
-      var res = el('div', 'ix-result ' + (passed ? 'pass' : 'fail'));
-      res.appendChild(el('span', 'ix-result-badge', passed ? '✓' : '↻'));
-      res.appendChild(el('span', null, passed
-        ? 'You passed — ' + score + '/' + total + '. Nice work.'
-        : 'You got ' + score + '/' + total + '. Review the highlights above, then retake.'));
-      card.appendChild(res);
-      var again = el('button', 'ix-btn ix-btn--ghost', 'Retake');
-      again.type = 'button';
-      again.style.marginTop = '16px';
-      again.addEventListener('click', function () { renderQuizForm(mount, id, cfg, total, pass); });
-      card.appendChild(again);
-    });
+      current = total;
+      dotEls.forEach(function (dot) { dot.className = 'ixq-dot done'; });
+      counter.textContent = passed ? 'Complete' : 'Almost there';
 
+      var panel = el('div', 'ixq-panel ixq-result-panel');
+      panel.appendChild(el('div', 'ixq-badge' + (passed ? ' pass' : ' fail'), passed ? '🎉' : '↻'));
+      panel.appendChild(el('div', 'ixq-result-title', passed ? 'You passed!' : 'So close.'));
+      panel.appendChild(el('div', 'ixq-result-score', 'You scored ' + score + ' / ' + total + '.'));
+      panel.appendChild(el('div', 'ixq-result-sub', passed
+        ? 'Module complete — it now counts toward your certificate.'
+        : 'You need ' + pass + ' of ' + total + ' to pass. Give it another go — you’ve got this.'));
+
+      var actions = el('div', 'ix-actions');
+      if (passed) {
+        var prog = el('a', 'ix-btn', 'See my progress →');
+        prog.href = '../workshops/my-progress.html';
+        actions.appendChild(prog);
+      }
+      var again = el('button', 'ix-btn' + (passed ? ' ix-btn--ghost' : ''), passed ? 'Retake' : 'Try again');
+      again.type = 'button';
+      again.addEventListener('click', function () { renderQuizFlow(mount, id, cfg, total, pass); });
+      actions.appendChild(again);
+      panel.appendChild(actions);
+
+      swap(panel);
+      if (passed && !reduce) burstConfetti(card);
+    }
+
+    stage.appendChild(buildQuestion(0));
     mount.appendChild(card);
+  }
+
+  // Lightweight CSS confetti burst, scoped to the quiz card. No libraries.
+  function burstConfetti(host) {
+    var layer = el('div', 'ixq-confetti');
+    var colors = ['#2f6b66', '#8c47e4', '#e8a317', '#2b6880', '#408c84'];
+    for (var i = 0; i < 28; i++) {
+      var p = el('span', 'ixq-confetti-piece');
+      p.style.background = colors[i % colors.length];
+      p.style.left = (8 + Math.random() * 84) + '%';
+      p.style.setProperty('--dx', (Math.random() * 2 - 1).toFixed(2));
+      p.style.setProperty('--rot', Math.round(Math.random() * 540 - 270) + 'deg');
+      p.style.animationDelay = (Math.random() * 0.15).toFixed(2) + 's';
+      p.style.animationDuration = (0.9 + Math.random() * 0.7).toFixed(2) + 's';
+      layer.appendChild(p);
+    }
+    host.appendChild(layer);
+    setTimeout(function () { if (layer.parentNode) layer.parentNode.removeChild(layer); }, 1900);
   }
 
   function renderQuizDone(mount, id, cfg, saved, pass) {
@@ -340,7 +442,7 @@
     var retake = el('button', 'ix-btn ix-btn--ghost', 'Retake');
     retake.type = 'button';
     retake.addEventListener('click', function () {
-      renderQuizForm(mount, id, cfg, cfg.questions.length, pass);
+      renderQuizFlow(mount, id, cfg, cfg.questions.length, pass);
     });
     actions.appendChild(retake);
     card.appendChild(actions);
@@ -397,7 +499,7 @@
     ['m1', 'm2', 'm3', 'm4'].forEach(function (m, i) {
       var passed = quiz[m] && quiz[m].passed;
       var pill = el('span', 'ix-pill' + (passed ? ' on' : ''));
-      pill.appendChild(el('span', null, (passed ? '✓ ' : '○ ') + 'Module ' + (i + 1)));
+      pill.appendChild(el('span', null, (passed ? '✓ ' : '○ ') + 'Workshop ' + (i + 1)));
       grid.appendChild(pill);
     });
     card.appendChild(grid);
@@ -475,7 +577,7 @@
     fill.style.width = (n / 4 * 100) + '%';
     bar.appendChild(fill);
     card.appendChild(bar);
-    card.appendChild(el('p', 'ix-prog-summary', n + ' of 4 modules complete' + (n === 4 ? ' — certificate unlocked below.' : '.')));
+    card.appendChild(el('p', 'ix-prog-summary', n + ' of 4 workshops complete' + (n === 4 ? ' — certificate unlocked below.' : '.')));
     var actions = el('div', 'ix-actions');
     var reset = el('button', 'ix-btn ix-btn--ghost', 'Clear my data');
     reset.type = 'button';
@@ -509,7 +611,7 @@
       var locked = el('div', 'ix-locked');
       locked.appendChild(el('div', 'ix-locked-icon', '🔒'));
       locked.appendChild(el('div', 'ix-locked-title', 'Certificate locked'));
-      locked.appendChild(el('div', 'ix-locked-sub', 'Pass all four module quizzes to unlock your certificate — ' + n + ' of 4 done. The quizzes are at the end of each module lab.'));
+      locked.appendChild(el('div', 'ix-locked-sub', 'Pass all four module quizzes to unlock your certificate — ' + n + ' of 4 done. Each one is the Knowledge check stage on its workshop hub.'));
       mount.appendChild(locked);
       return;
     }

@@ -42,7 +42,7 @@ Add new slots as the engagement needs them; record each one in this table.
 
 ## Stack-specific setup tracks
 
-`pages/training/02-getting-set-up.html` already encodes the **Track A (Claude Cowork) / Track B (Copilot Cowork)** split using the `dev-grid-2` + `.dev-card` pattern. That two-column pattern is the reusable home for stack variation — to add another stack (e.g. a Google-shop track), add a `.dev-card`; nothing structural changes. Building out additional stack tracks beyond A/B is P2.
+`pages/training/02-getting-set-up.html` encodes connector setup by stack (Microsoft 365 / Google and other shops) using the `dev-grid-2` + `.dev-card` pattern. That two-column pattern is the reusable home for stack variation — to add another stack, add a `.dev-card`; nothing structural changes.
 
 ## Adding or renaming a lesson? Update all 5 manifests
 

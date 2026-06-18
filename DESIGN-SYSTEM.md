@@ -102,3 +102,16 @@ Notes for authors:
 ## Workshop agenda timeline (`.agenda`)
 
 The per-module workshop hubs (`pages/workshops/module-N-workshop.html`) use a small timeline pattern: a vertical list of `.agenda-row`s, each with a `.agenda-time` (left column, with a `<small>` duration), a coloured `.agenda-tag` chip, and an `.agenda-body`. Tag modifiers: `--teach`, `--demo`, `--lab`, `--discuss`, `--break` (no modifier = neutral, for Open / Debrief / Close). Defined in `styles/shared.css`; the tag reuses the badge/chip language. Rows should sum to the session length (120 min for a 2-hour workshop). Pages under `pages/workshops/` are not listed in any `SLIDES_CFG`, so they do not generate slides.
+
+## The module hub spine
+
+Each module's **hub** (`pages/workshops/module-N-workshop.html`) is the module's home base, and is the unit the nav "enters" — the top-nav label is **`Module N`** and links to the hub (`CRAFTS[n].hub` in `nav.js`), matching the Home page's module cards. Every hub is organized into the **same two ordered, anchored sections**:
+
+| Stage | Section `id` | Holds |
+|---|---|---|
+| Pre-work | `#prework` | Before-the-session items (Module 1 also opens with Why Cowork + Rules of the Road); links to `pre-work.html` for the full before/after |
+| Workshop content | `#content` | Objectives → `.agenda` run-of-show → lesson cards + `⊞ Start Presentation` |
+
+`nav.js` exposes these two as the **sub-row** (the navigation bar) via the shared `MODULE_STAGES` array (label + `#hash`), whenever you're on a module's hub **or** one of its lessons. On the hub the sub-row **scroll-spies** the section ids; on a lesson page it marks **Workshop content** active. Keep the two hub `id`s and the `MODULE_STAGES`/`hub` entries in sync.
+
+The **knowledge check** is not on the hub: each module's single `data-ix-quiz` mount (`m1..m4`, feeding the My-progress certificate) lives at the end of its lab/capstone lesson (`03/07/11/15`) and renders as the animated one-question-at-a-time component in `interactive.js`. **Homework** lives on the shared `pre-work.html` (the "Pre-work & Homework" page, anchors `#workshop-1..4`), which the hubs link to from their Pre-work stage and agenda close.

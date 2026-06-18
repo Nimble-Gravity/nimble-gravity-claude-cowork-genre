@@ -85,6 +85,12 @@ class LiveReloadHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
+    def end_headers(self) -> None:
+        # Dev server: never let the browser cache assets (JS/CSS/HTML), so edits
+        # always show on reload without a manual hard-refresh.
+        self.send_header("Cache-Control", "no-store, must-revalidate")
+        super().end_headers()
+
     def handle_error(self, request, client_address):
         # Suppress noisy browser-disconnect errors (connection reset, broken pipe)
         import errno as _errno
@@ -110,7 +116,6 @@ class LiveReloadHandler(SimpleHTTPRequestHandler):
     def handle_livereload(self) -> None:
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "text/event-stream; charset=utf-8")
-        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
         self.send_header("Connection", "keep-alive")
         self.end_headers()
 
@@ -168,7 +173,6 @@ class LiveReloadHandler(SimpleHTTPRequestHandler):
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(encoded)))
-        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
         self.end_headers()
         self.wfile.write(encoded)
 
@@ -199,7 +203,6 @@ class LiveReloadHandler(SimpleHTTPRequestHandler):
         self.send_response(HTTPStatus.OK)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(encoded)))
-        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
         self.end_headers()
         self.wfile.write(encoded)
         return None

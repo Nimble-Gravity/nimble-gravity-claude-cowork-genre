@@ -7,7 +7,8 @@
     {
       id: 'm1',
       folder: 'training',
-      label: 'Module 1',
+      hub: 'pages/workshops/module-1-workshop.html',
+      label: 'Workshop 1',
       subLabel: 'Setup & Foundations',
       color: '#2f6b66',
       navColor: '#4f9990',
@@ -26,7 +27,8 @@
     {
       id: 'm2',
       folder: 'training',
-      label: 'Module 2',
+      hub: 'pages/workshops/module-2-workshop.html',
+      label: 'Workshop 2',
       subLabel: 'Use Cowork',
       color: '#8c47e4',
       navColor: '#c4b5fd',
@@ -47,7 +49,8 @@
     {
       id: 'm3',
       folder: 'training',
-      label: 'Module 3',
+      hub: 'pages/workshops/module-3-workshop.html',
+      label: 'Workshop 3',
       subLabel: 'Build a Skill',
       color: '#2b6880',
       navColor: '#7dd3e8',
@@ -68,7 +71,8 @@
     {
       id: 'm4',
       folder: 'training',
-      label: 'Module 4',
+      hub: 'pages/workshops/module-4-workshop.html',
+      label: 'Workshop 4',
       subLabel: 'Plugins & Rollout',
       color: '#e8a317',
       navColor: '#f2c56b',
@@ -88,6 +92,14 @@
     }
   ];
 
+  // ── Module stages ─────────────────────────────────────────────────────────
+  // Every module shares the same four-stage spine. These live as anchored
+  // sections on the module's workshop hub, so each stage is `hub + hash`.
+  var MODULE_STAGES = [
+    { label: 'Pre-work',         hash: '#prework' },
+    { label: 'Workshop content', hash: '#content' }
+  ];
+
   // ── Path detection ────────────────────────────────────────────────────────
   var pathParts   = window.location.pathname.split('/').filter(Boolean);
   var pagesIdx    = pathParts.indexOf('pages');
@@ -96,6 +108,10 @@
   var currentFile = inPages ? decodeURIComponent(pathParts[pathParts.length - 1]) : '';
   var root        = inPages ? '../../' : '';
   var isHome      = !inPages;
+
+  // Which craft's hub (if any) is the current page?
+  function hubFileOf(craft) { return craft.hub ? craft.hub.split('/').pop() : null; }
+  function isHubOf(craft)   { return hubFileOf(craft) === currentFile; }
 
   function ensureIconoirStylesheet() {
     if (document.getElementById('iconoir-css')) return;
@@ -275,7 +291,9 @@
     '.nav-sequence-card--prev:hover .nav-next-arrow{transform:translateX(-6px);}' +
 
     // ── Responsive ────────────────────────────────────────────────────────
-    '@media(max-width:768px){' +
+    // Collapse to the hamburger at 1024px — matches the training sidebar
+    // breakpoint and keeps the (now longer) desktop top row from overflowing.
+    '@media(max-width:1024px){' +
     '.nav-top{padding:0 16px;}' +
     '.nav-sub{display:none;}' +
     '.nav-hamburger{display:flex;}' +
@@ -310,52 +328,52 @@
     '<span class="nav-home-label">Cowork Workshop</span>';
   topRow.appendChild(homeEl);
 
-  // Craft labels
+  // Craft labels — each links to its workshop hub (the module's home base)
   CRAFTS.forEach(function (craft) {
     var craftActualFolder = craft.folder || craft.id;
     var folderMatch = craftActualFolder === craftFolder;
     var fileMatch   = !craft.filePrefix || craft.filePrefix.some(function (p) { return currentFile.indexOf(p) === 0; });
-    var isCurrent = folderMatch && fileMatch;
-    var hasPages  = craft.pages.length > 0;
-    var isSoon    = craft.pages.length === 0;
+    var isCurrent = (folderMatch && fileMatch) || isHubOf(craft);
 
     var divider = document.createElement('div');
     divider.className = 'nav-vdivider';
     topRow.appendChild(divider);
 
     var craftEl = document.createElement('div');
-    craftEl.className = 'nav-craft' +
-      (isCurrent  ? ' nav-craft--active'  : '') +
-      (hasPages && !isCurrent ? ' nav-craft--haslink' : '') +
-      (isSoon     ? ' nav-craft--soon'    : '');
+    craftEl.className = 'nav-craft nav-craft--haslink' +
+      (isCurrent ? ' nav-craft--active' : '');
     craftEl.style.setProperty('--nc', craft.navColor || craft.color);
 
-    var nameEl;
-    if (hasPages && !isCurrent) {
-      nameEl = document.createElement('a');
-      nameEl.href = root + 'pages/' + craftActualFolder + '/' + encodeURIComponent(craft.pages[0] + '.html');
-      nameEl.className = 'nav-craft-name';
-    } else {
-      nameEl = document.createElement('span');
-      nameEl.className = 'nav-craft-name';
-    }
+    var nameEl = document.createElement('a');
+    nameEl.href = root + craft.hub;
+    nameEl.className = 'nav-craft-name';
     nameEl.textContent = craft.label;
     craftEl.appendChild(nameEl);
     topRow.appendChild(craftEl);
   });
 
-  // ── Portal: a global Resources link (reachable from any page) ──────────────
-  var resDivider = document.createElement('div');
-  resDivider.className = 'nav-vdivider';
-  topRow.appendChild(resDivider);
-  var resEl = document.createElement('div');
-  resEl.className = 'nav-craft nav-craft--haslink';
-  var resLink = document.createElement('a');
-  resLink.href = root + 'pages/workshops/resources.html';
-  resLink.className = 'nav-craft-name';
-  resLink.textContent = 'Resources';
-  resEl.appendChild(resLink);
-  topRow.appendChild(resEl);
+  // ── Portal: global links reachable from any page ───────────────────────────
+  var PORTAL_LINKS = [
+    { label: 'Resources',   href: 'pages/workshops/resources.html',   file: 'resources.html'   },
+    { label: 'My Progress', href: 'pages/workshops/my-progress.html', file: 'my-progress.html' },
+    { label: 'FAQ',         href: 'pages/workshops/faq.html',         file: 'faq.html'         }
+  ];
+  PORTAL_LINKS.forEach(function (link) {
+    var pDivider = document.createElement('div');
+    pDivider.className = 'nav-vdivider';
+    topRow.appendChild(pDivider);
+
+    var pEl = document.createElement('div');
+    pEl.className = 'nav-craft nav-craft--haslink' +
+      (currentFile === link.file ? ' nav-craft--active' : '');
+
+    var pLink = document.createElement('a');
+    pLink.href = root + link.href;
+    pLink.className = 'nav-craft-name';
+    pLink.textContent = link.label;
+    pEl.appendChild(pLink);
+    topRow.appendChild(pEl);
+  });
 
   // ── Hamburger button ──────────────────────────────────────────────────────
   var hamburgerBtn = document.createElement('button');
@@ -373,21 +391,24 @@
 
   navEl.appendChild(topRow);
 
-  // ── Sub row (steps for active craft only) ─────────────────────────────────
+  // ── Sub row (the module's four stages) ────────────────────────────────────
+  // Active when on the module's hub OR on one of its lessons; the stages live
+  // on the hub as anchored sections, so each step is `hub + hash`.
   var activeCraft = CRAFTS.find(function (c) {
+    if (isHubOf(c)) return true;
     var folder = c.folder || c.id;
     var folderMatch = folder === craftFolder;
     var fileMatch = !c.filePrefix || c.filePrefix.some(function (p) { return currentFile.indexOf(p) === 0; });
     return folderMatch && fileMatch;
   }) || null;
 
-  if (activeCraft && activeCraft.pages.length > 0) {
+  if (activeCraft) {
+    var onHub = isHubOf(activeCraft);
     var subRow = document.createElement('div');
     subRow.className = 'nav-sub';
     subRow.style.setProperty('--nc', activeCraft.color);
 
-    activeCraft.pages.forEach(function (pageName, i) {
-      // Arrow between steps
+    MODULE_STAGES.forEach(function (stage, i) {
       if (i > 0) {
         var arrow = document.createElement('span');
         arrow.className = 'nav-sub-arrow';
@@ -396,22 +417,43 @@
         subRow.appendChild(arrow);
       }
 
-      var filename = pageName + '.html';
-      var isActive = currentFile === filename;
-      var label    = (activeCraft.labels && activeCraft.labels[i]) || pageName;
+      // On a lesson page you're inside "Workshop content"; on the hub the active
+      // stage is driven by scroll position (see the stage scroll-spy below).
+      var isActive = onHub ? (stage.hash === '#prework') : (stage.hash === '#content');
 
       var stepA = document.createElement('a');
-      stepA.href = root + 'pages/' + (activeCraft.folder || activeCraft.id) + '/' + encodeURIComponent(filename);
+      stepA.href = root + activeCraft.hub + stage.hash;
       stepA.className = 'nav-sub-step' + (isActive ? ' active' : '');
       stepA.style.setProperty('--nc', activeCraft.color);
       stepA.style.animationDelay = (i * 90) + 'ms';
-      stepA.setAttribute('aria-current', isActive ? 'page' : '');
-      stepA.innerHTML =
-        '<span class="nav-sub-label">' + label + '</span>';
+      stepA.setAttribute('data-stage', stage.hash);
+      stepA.innerHTML = '<span class="nav-sub-label">' + stage.label + '</span>';
       subRow.appendChild(stepA);
     });
 
     navEl.appendChild(subRow);
+
+    // Stage scroll-spy — on the hub, highlight the stage section currently in view.
+    if (onHub) {
+      var stageEls = MODULE_STAGES.map(function (s) {
+        return { hash: s.hash, el: document.getElementById(s.hash.slice(1)) };
+      }).filter(function (s) { return s.el; });
+      var stageSteps = subRow.querySelectorAll('.nav-sub-step');
+      var syncStage = function () {
+        if (!stageEls.length) return;
+        var y = window.scrollY + 140;
+        var active = stageEls[0].hash;
+        stageEls.forEach(function (s) { if (s.el.offsetTop <= y) active = s.hash; });
+        stageSteps.forEach(function (a) {
+          var on = a.getAttribute('data-stage') === active;
+          a.classList.toggle('active', on);
+          a.setAttribute('aria-current', on ? 'true' : '');
+        });
+      };
+      window.addEventListener('scroll', syncStage, { passive: true });
+      window.addEventListener('load', syncStage);
+      syncStage();
+    }
   }
 
   // Insert before the script tag
@@ -457,6 +499,21 @@
     craftLabel.textContent = craft.label + (craft.subLabel ? ' · ' + craft.subLabel : '');
     group.appendChild(craftLabel);
 
+    // Workshop hub — the module's home base (previously unreachable on mobile)
+    if (craft.hub) {
+      var hubLink = document.createElement('a');
+      hubLink.href = root + craft.hub;
+      hubLink.className = 'nav-overlay-page-link' + (isHubOf(craft) ? ' active' : '');
+      hubLink.style.setProperty('--nc', craft.navColor || craft.color);
+      hubLink.setAttribute('aria-current', isHubOf(craft) ? 'page' : '');
+      hubLink.innerHTML =
+        '<span class="nav-ol-num" aria-hidden="true">▸</span>' +
+        '<span class="nav-ol-title">' + craft.label + ' hub</span>' +
+        '<span class="nav-ol-active-dot" aria-hidden="true"></span>';
+      group.appendChild(hubLink);
+      allOverlayLinks.push(hubLink);
+    }
+
     craft.pages.forEach(function (pageName, idx) {
       var filename = pageName + '.html';
       var isActive = isCraftActive && currentFile === filename;
@@ -481,6 +538,35 @@
 
     overlayBody.appendChild(group);
   });
+
+  // Program group — program-wide pages, also reachable on mobile
+  var portalGroup = document.createElement('div');
+  portalGroup.className = 'nav-overlay-craft-group';
+
+  var portalLabel = document.createElement('div');
+  portalLabel.className = 'nav-overlay-craft-label';
+  portalLabel.textContent = 'Program';
+  portalGroup.appendChild(portalLabel);
+
+  [
+    { label: 'Resources',   file: 'resources.html'   },
+    { label: 'My Progress', file: 'my-progress.html' },
+    { label: 'Syllabus',    file: 'syllabus.html'    },
+    { label: 'FAQ',         file: 'faq.html'         }
+  ].forEach(function (item) {
+    var pl = document.createElement('a');
+    pl.href = root + 'pages/workshops/' + item.file;
+    pl.className = 'nav-overlay-page-link' + (currentFile === item.file ? ' active' : '');
+    pl.setAttribute('aria-current', currentFile === item.file ? 'page' : '');
+    pl.innerHTML =
+      '<span class="nav-ol-num" aria-hidden="true"></span>' +
+      '<span class="nav-ol-title">' + item.label + '</span>' +
+      '<span class="nav-ol-active-dot" aria-hidden="true"></span>';
+    portalGroup.appendChild(pl);
+    allOverlayLinks.push(pl);
+  });
+
+  overlayBody.appendChild(portalGroup);
 
   overlay.appendChild(overlayBody);
 
@@ -552,7 +638,7 @@
 
   // Close when viewport goes wide (e.g. rotate to landscape tablet)
   window.addEventListener('resize', function () {
-    if (menuOpen && window.innerWidth > 768) closeMenu();
+    if (menuOpen && window.innerWidth > 1024) closeMenu();
     // Keep overlay top aligned
     if (overlay.classList.contains('nav-overlay-open')) {
       overlay.style.top = navEl.offsetHeight + 'px';
@@ -599,16 +685,18 @@
     craft.pages.forEach(function (pageName, i) {
       linearSeq.push({
         craftId:    craft.id,
+        folder:     craft.folder || craft.id,
         craftLabel: craft.label,
         color:      craft.navColor || craft.color,
         file:       pageName + '.html',
-        label:      pageName
+        title:      (craft.labels && craft.labels[i]) ||
+                    pageName.replace(/^\d+[-\s]+/, '').replace(/-/g, ' ')
       });
     });
   });
 
   function buildSequenceCard(entry, direction, labelText, isCraftTransition) {
-    var href = root + 'pages/' + entry.craftId + '/' + encodeURIComponent(entry.file);
+    var href = root + 'pages/' + entry.folder + '/' + encodeURIComponent(entry.file);
     var arrow = direction === 'next' ? '→' : '←';
     var directionColor = entry.color;
     var eyebrow = isCraftTransition
@@ -639,14 +727,16 @@
     var currentIdx = -1;
     if (!isHome) {
       linearSeq.forEach(function (entry, i) {
-        if (entry.craftId === craftFolder && entry.file === currentFile) currentIdx = i;
+        if (entry.folder === craftFolder && entry.file === currentFile) currentIdx = i;
       });
     }
 
+    // The sequence banner is for lesson→lesson flow only. Home keeps its own
+    // hub-first CTAs, so it gets no banner (avoids bypassing the workshop hubs).
     var previous = !isHome && currentIdx > 0 ? linearSeq[currentIdx - 1] : null;
-    var next = isHome
-      ? (linearSeq.length ? linearSeq[0] : null)
-      : (currentIdx >= 0 && currentIdx < linearSeq.length - 1 ? linearSeq[currentIdx + 1] : null);
+    var next = !isHome && currentIdx >= 0 && currentIdx < linearSeq.length - 1
+      ? linearSeq[currentIdx + 1]
+      : null;
 
     function insert() {
       var footer = window.SDLCFooter && typeof window.SDLCFooter.ensure === 'function'
@@ -665,7 +755,7 @@
           buildSequenceCard(
             previous,
             'prev',
-            previous.label,
+            previous.title,
             linearSeq[currentIdx] && linearSeq[currentIdx].craftId !== previous.craftId
           )
         );
@@ -676,7 +766,7 @@
           buildSequenceCard(
             next,
             'next',
-            next.label,
+            next.title,
             !isHome && linearSeq[currentIdx] && linearSeq[currentIdx].craftId !== next.craftId
           )
         );
