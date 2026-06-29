@@ -51,8 +51,10 @@ adaptive question bank, and the file templates.
    (finance, law, healthcare, sales, engineering, ops, HR — anything), then generate the
    questions that matter for *that* work. Don't read a fixed script; let each answer
    shape the next question.
-3. **Keep it tight and honest.** Aim for 20–40 minutes; ask in small batches. Mark skips
-   with `[FILL IN]`, never invent an answer, and read back a recap before writing.
+3. **Ask one at a time, in the modal.** Put each question in Cowork's question popup (the
+   modal) — one at a time, not inline in chat — with answer choices where they help. Aim
+   for 20–40 minutes; mark skips with `[FILL IN]`, never invent an answer, and read back a
+   recap before writing.
 
 ## Writing the files
 

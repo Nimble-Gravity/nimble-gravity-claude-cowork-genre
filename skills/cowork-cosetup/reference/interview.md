@@ -1,8 +1,10 @@
 # Co-setup interview — harvest checklist, adaptive question bank & file templates
 
 Loaded only when running the interview (progressive disclosure). The goal is to build a
-real picture of the user, then write `claude.md` + the `about-me/` files. Mark anything
-skipped with `[FILL IN]`; never invent an answer.
+real picture of the user, then write `claude.md` + the `about-me/` files. Ask questions
+**one at a time using Cowork's question popup (the modal), not inline in chat** — offer
+answer choices where they help. Mark anything skipped with `[FILL IN]`; never invent an
+answer.
 
 ## 1. Harvest first (if a connector is available)
 
