@@ -19,9 +19,12 @@ and (2) **one real delegation run end-to-end that produced a deliverable.**
 ## Pre-session prep
 1. **Stage the demo folder.** Download `sample-loan-file.md`, put it alone in a clean folder (e.g.
    `loan-demo`). Have the **exact prompt** open to paste.
-2. **Set up the before/after.** Back up your real setup (copy your **global instructions**; duplicate your
-   `about-me/` folder and `claude.md`), then have a **cold path** ready — a fresh session with cleared global
-   instructions and no `about-me/`, *or* a pre-captured screenshot of the cold result. You'll restore at Close.
+2. **Set up the before/after.** You'll demo as the **Maya Chen** persona (card below), not your own profile.
+   Have a **cold path** ready for the "before" — a session with **no profile loaded** (cleared global
+   instructions, no `about-me/`). Decide whether you'll run co-setup **live** as Maya in the demo, or
+   **pre-build** her profile beforehand and show only a short live snippet (safer on time). Either way, keep
+   the persona card open to read from. A **ready-made copy** of Maya's `claude.md` + `about-me/` lives in
+   `assets/demo/maya-profile/` (and the resource library) — drop it in for an instant "after."
 3. **Confirm M365 admin consent** for your account *and* the cohort. If it's not in, use the fallback below.
 4. **Know the fallback:** if a connector won't authorize, `/cowork-cosetup` **still runs without the M365
    harvest** — it just asks more questions. Nothing breaks.
@@ -37,6 +40,26 @@ and (2) **one real delegation run end-to-end that produced a deliverable.**
 | 1:10–1:50 | **Lab** | Your first Cowork session (40 min) |
 | 1:50–1:58 | **Debrief** | Debrief + knowledge check |
 | 1:58–2:00 | **Close** | Homework + what's next + feedback |
+
+### 🎭 Demo persona — answer the co-setup interview as this person
+> Read these answers when you run `/cowork-cosetup` in the demo. They're written to match the sample loan
+> file, so the "after" summary comes back as a credit analyst's committee memo. Stay in character; it keeps
+> the demo fast and the before/after coherent.
+
+**Maya Chen — Commercial Credit Analyst, Axos Bank** · Commercial Banking, Credit team · reports to the VP of Commercial Credit.
+
+| Interview question | Answer to give |
+|---|---|
+| Name, title, team, who you report to | "Maya Chen, Commercial Credit Analyst, Commercial Banking — Credit. I report to the VP of Commercial Credit." |
+| What are you accountable for? (one sentence) | "Underwriting and monitoring commercial loan relationships — turning loan files into credit recommendations the committee can decide on." |
+| The 3–5 tasks that eat your week | "One-page committee credit summaries from loan files; quarterly covenant checks — DSCR, leverage, liquidity; spreading financials into the portfolio tracker; annual relationship reviews; answering RM questions on structure and pricing." |
+| Tools / data you live in | "Microsoft 365 — Outlook, Teams, SharePoint — the loan-origination system, Excel spreads, and credit-policy docs in SharePoint." |
+| How should drafts sound? | "Concise and committee-ready — bottom line first, plain English, no fluff. Like an internal credit memo, not marketing." |
+| Hard rules for anything in your name | "Never invent or estimate figures — cite the source file; if a number's missing, say so. Flag every risk explicitly. Everything is a draft a banker signs off on — recommend, don't decide. Follow the bank's memo structure." |
+| (Delivery role block) good vs rushed; approvals | "Good = risks flagged with evidence, numbers tied to the file, a clear recommendation. Rushed = generic, unsupported, no missing-data callouts. Chain: analyst drafts → VP Credit reviews → loan committee decides." |
+
+**Voice sample (give if it asks):** "Recommend approval subject to a 1.25x DSCR covenant. Relationship's solid, but margins are compressing and one customer is ~24% of revenue — both worth watching."
+**One memory fact (give if it asks):** "Credit committee meets Thursdays; memos due Tuesday EOD. Standard minimum DSCR covenant is 1.25x."
 
 ---
 
@@ -91,27 +114,36 @@ a living `team` and `memory`. You'll run it in the lab."
 ---
 
 ## Demo · 0:35–0:55 (20 min) — Summarize a loan file, before → after
-*Asset: `assets/demo/sample-loan-file.md` + the exact prompt — on the [facilitator guide](pages/workshops/facilitator-guide.html#workshop-1).*
+*Assets: `assets/demo/sample-loan-file.md`, the exact prompt, and Maya's ready-made profile (`assets/demo/maya-profile/`) — on the [facilitator guide](pages/workshops/facilitator-guide.html#workshop-1).*
 
 **[SAY]** "Here's the difference setup makes — same file, same prompt, run twice." **[DO]** Grant Cowork the
 `loan-demo` folder (the sample loan file). **[NOTE]** Least privilege out loud: one folder, not a parent.
 
-### (a) Cold — before co-setup
-**[DO]** On your **cold path** (stripped/clean session), paste the **exact prompt**:
+### (a) Cold — before any setup
+**[DO]** On your **cold path** (a session with no profile loaded), paste the **exact prompt**:
 > *"Read the loan file in this folder and write a one-page credit summary I can take to committee. Cover:
 > the borrower and the request, the key financials and any trends, collateral and guarantors, covenant
 > headroom, and the top three risks to flag. Don't invent numbers — if something isn't in the file, say so."*
 
 **[SAY]** as it runs: "Watch the right side — that's the **plan.** Read the plan before the result; fixing a
 wrong plan costs nothing." **[DO]** Approve a step; open the finished summary. **[SAY]** "Useful — but
-generic. Neutral tone, generic structure. Remember it; we'll run the *exact same sentence* again."
+**generic.** Neutral tone, generic structure, no idea who I am. Remember it; we'll run the *exact same
+sentence* again."
 
-### (b) After — with your real personalized profile
-**[DO]** Switch to your real (personalized) account and paste the **identical** prompt against the same file.
-**[SAY]** "Same file, same sentence. Now it comes back in *my* voice, in the committee-memo format I actually
-use, framed for a credit role — it flags the thin DSCR headroom, the customer concentration, the stale
-financials — and it says what's *missing* instead of inventing it. That's `claude.md` and `about-me/` doing
-the work. And this is **20 minutes of setup, not 2 months.**"
+### (b) Build the profile live — run co-setup as the persona
+**[DO]** Fresh session → `/cowork-cosetup`. Answer the core questions **as Maya Chen** (persona card in
+pre-session prep) — name and role, what she's accountable for, her weekly tasks, tools, voice, and rules —
+and `[FILL IN]` the rest. **[SAY]** "I'm answering as a **commercial credit analyst** — the kind of person
+in this room. Watch how few questions it really needs, and how it pulls from M365 to pre-fill."
+**[NOTE]** Short on time? Pre-build Maya's profile before the session and show just a **2–3 question snippet**
+here, then switch to the ready profile (ready-made files: `assets/demo/maya-profile/`).
+
+### (c) After — same prompt, now personalized
+**[DO]** New session on **Maya's** profile; paste the **identical** prompt against the same file.
+**[SAY]** "Same file, same sentence. Now it's **Maya's committee memo** — bottom line first, in her voice,
+flagging the thin DSCR headroom, the ~24% customer concentration, the stale interim financials — and it says
+what's *missing* instead of inventing it. That's `claude.md` and `about-me/` doing the work, and it's
+**20 minutes of setup, not 2 months.**"
 
 **[SAY] — bank framing:** "This is a **draft a banker signs off on** — Cowork drafts, it doesn't decide.
 Kept on **Sonnet** the whole time."
