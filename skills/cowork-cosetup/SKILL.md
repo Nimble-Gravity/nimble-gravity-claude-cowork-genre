@@ -38,14 +38,21 @@ skill is a separate step and is what creates the skills folder.
 
 ## The interview
 
-1. **Pre-fill, don't interrogate.** If an M365 connector is available, read name, role,
-   and team first and confirm them rather than asking cold.
-2. **Adapt to the role.** Ask role-shaped questions — Delivery, Operations, Sales,
-   Enablement, or Leadership. See `reference/interview.md` for the question bank and
-   the file templates.
-3. **Keep it short.** Aim for 20–40 minutes. Mark anything the user skips with
-   `[FILL IN]` so the file is honest about what's missing — never invent an answer.
-4. **Read it back.** Summarize what you heard before writing, so the user can correct it.
+Run it in three moves; see `reference/interview.md` for the harvest checklist, the
+adaptive question bank, and the file templates.
+
+1. **Harvest first.** If an M365 (or other) connector is available, read everything you
+   reasonably can — name, title, department and org position, manager, frequent
+   collaborators, recurring meetings, the documents and data they work with, current
+   priorities, and their writing voice from sent mail — and build a draft profile, then
+   confirm it rather than re-asking. **If nothing is connected or readable, do not fail —
+   just ask the questions directly to fill every gap.**
+2. **Adapt to the role and domain.** Work out what the user does and in what field
+   (finance, law, healthcare, sales, engineering, ops, HR — anything), then generate the
+   questions that matter for *that* work. Don't read a fixed script; let each answer
+   shape the next question.
+3. **Keep it tight and honest.** Aim for 20–40 minutes; ask in small batches. Mark skips
+   with `[FILL IN]`, never invent an answer, and read back a recap before writing.
 
 ## Writing the files
 

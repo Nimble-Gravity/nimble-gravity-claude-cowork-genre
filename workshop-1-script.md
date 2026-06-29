@@ -106,10 +106,17 @@ dial** — leave it there; Opus only for genuinely hard reasoning (Workshop 2). 
 long threads cost more and drift; fresh session for the next task. **Chat for the small stuff** — don't spin
 up a delegation for a one-liner — and watch **Settings → Usage.**"
 
+**[SAY] — two layers, keep them straight:** "Cowork reads instructions from two places. **Global
+instructions** live in **Settings** and apply to *every* session — chat, Cowork, everything — so that's the
+place for broad, always-on preferences. **Folder ('cowork') instructions** are a **`claude.md`** file that
+sits *inside a specific folder* and only apply when you're working in that folder — project context for that
+one workspace."
+
 **[SAY] — co-setup overview:** "Setup is one command — `/cowork-cosetup`. It **reads first, then asks**:
 pulls your role and team from M365 and has you confirm, adapts to your role, and anything you skip it marks
-`[FILL IN]`. It writes a **`claude.md`** entry file plus an **`about-me/` folder** — your voice, your rules,
-a living `team` and `memory`. You'll run it in the lab."
+`[FILL IN]`. Here's the key thing: it writes the **folder `claude.md`** (plus your **`about-me/`** files)
+**for the local folder — *not* your global Settings.** So your personalization travels with the folder, and
+you can keep different context per project. You'll run it in the lab."
 
 ---
 

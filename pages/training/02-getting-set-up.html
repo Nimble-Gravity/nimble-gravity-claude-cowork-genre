@@ -134,53 +134,60 @@
 <!-- THE SKILL ITSELF -->
 <div class="section" id="cosetup-skill">
   <div class="sec-eyebrow">04 — The co-setup skill</div>
-  <h2 class="sec-title">Copy the skill, paste it into <em>Cowork</em></h2>
-  <p class="sec-sub">The quickest way to install <code>cowork-cosetup</code> is to copy the skill below, paste it into a fresh Cowork session, and ask Claude to "make this a skill." Downloading the file is the secondary path, for re-runs or for setting someone else up.</p>
+  <h2 class="sec-title">Skip the install — paste a prompt and <em>start</em></h2>
+  <p class="sec-sub">Don't want to install a skill first? Paste the prompt below into a fresh Cowork session and the interview starts right away — same questions, same files, nothing to set up. Prefer a reusable skill you can re-run with <code>/cowork-cosetup</code>? Use the install above, or download it below.</p>
 
   <div class="code-wrap" style="margin-top:28px;">
     <div class="code-topbar">
       <span class="cb-dot" style="background:#ff5f57"></span>
       <span class="cb-dot" style="background:#febc2e"></span>
       <span class="cb-dot" style="background:#28c840"></span>
-      <span class="code-label">cowork-cosetup / SKILL.md</span>
+      <span class="code-label">Paste into Cowork — starts the co-setup interview</span>
       <button class="copy-btn" onclick="copyBlock('skill-cosetup', this)">Copy</button>
     </div>
     <div class="code-body">
-<pre id="skill-cosetup">---
-name: cowork-cosetup
-description: Interviews a new Claude Cowork user and writes their personalization files — claude.md plus an about-me/ folder — so Cowork knows their role, voice, priorities, and team from the first session. Use at first-time setup, when onboarding someone to Claude Cowork, when a user asks to "set me up", "personalize Cowork", or run "co-setup", or whenever Cowork is giving generic, role-blind answers that ignore who the user is.
----
+<pre id="skill-cosetup">You're going to personalize Cowork for me. Run a thorough, adaptive interview, then write my personalization files to THIS folder so that from now on you know my role, my voice, my priorities, and my team. Treat it like onboarding a sharp new assistant — by the end you should be able to draft in my voice and tailor your help to my actual job.
 
-# Cowork Co-Setup
+STEP 1 — HARVEST FIRST
+If my Microsoft 365 is connected, harvest everything you reasonably can about me BEFORE asking anything: my name, title, department and where I sit in the org, my manager, the people I email and meet with most, my recurring meetings and their cadence, the kinds of documents and data I work with, my current projects and priorities from recent threads, and how I write (tone, length, sign-off) from my sent mail. Build a draft picture of me from this, and only ask me about what you couldn't find or need to confirm.
+If M365 (or any connector) is NOT connected, or you can't read anything useful, do NOT stop and do NOT error — just go to the interview and ask me directly to fill every gap. Either path must finish and produce the files.
 
-Run a short guided interview, then write the personalization files that make Cowork
-play back who the user is and tailor its help to their actual job.
+STEP 2 — IDENTIFY MY ROLE AND DOMAIN
+Work out what I actually do and in what field — finance, accounting, law, healthcare, sales, marketing, engineering, operations, HR, consulting, or anything else. If the harvest told you, confirm it in a sentence; if not, ask. This shapes everything that follows.
 
-## What you produce
+STEP 3 — RUN AN ADAPTIVE INTERVIEW
+Tailor the questions to my role and field — a credit analyst, a litigator, a nurse manager, a sales engineer, an HR partner, and a controller should each get a different conversation. Don't read from a fixed script: let each answer shape your next question, and generate the questions that actually matter for my work. (For finance you'd dig into models, materiality, and sign-off; for law, matter types, privilege, jurisdictions, and citation standards; for healthcare, clinical vs admin work and PHI constraints; for sales, accounts, pipeline stages, and client-facing tone — use the same instinct for whatever I turn out to do.)
 
-claude.md       (read at the start of every session)
-about-me/about-me.md         (role, responsibilities, priorities, tools)
-about-me/voice-profile.md    (how the user writes and wants drafts to sound)
-about-me/writing-rules.md    (do / don't rules for any drafted output)
-about-me/team.md             (living: who they work with and how)
-about-me/memory.md           (living: durable facts worth remembering)
+Run it well:
+- Ask in small batches — 2–4 related questions at a time, then wait. Keep it conversational.
+- Confirm what you harvested; only ask for what you don't already know.
+- Sharpen vague answers with follow-ups; get concrete examples, real names and numbers where they help.
+- Respect my time — aim for 20–40 minutes. If I skip something, put [FILL IN] there; never invent an answer.
+- Read it back. Before writing any files, recap what you heard and let me correct it.
 
-These are context files, not skills — they live alongside your Claude Cowork skills
-folder. Installing your first skill is what creates that folder.
+COVER THESE (adapt and prioritize to my role)
+- Identity and role: name, title, team, who I report to.
+- Accountability: in one sentence, the outcomes I own.
+- Where my week goes: the 3–7 tasks or deliverables that take most of my time, and which recur.
+- Priorities and current work: what I'm focused on now; active projects.
+- Audience and stakeholders: who I produce work for; who I collaborate with; who reviews or approves it.
+- Tools, data, and domain rules: the systems and data I live in, plus any standards or regulations that bind my work.
+- Voice and tone: how I want drafts to sound; capture a short real sample of my writing (from sent mail if you have it, confirmed by me).
+- Writing rules: hard do's and don'ts for anything in my name — always (cite sources, follow a template) and never (invent figures, make the decision, overclaim) — plus how to avoid sounding like generic AI.
+- Standards: what "good" vs "rushed" looks like, and the review or approval steps I must respect.
+- Durable facts: stable things worth remembering — fiscal year, recurring deadlines, naming conventions, regulatory constraints.
 
-## The interview
+THEN WRITE THESE FILES TO THIS FOLDER (keep claude.md short and pointing to the about-me/ files; plain first person, concrete over generic):
+- claude.md — short entry point: read the about-me/ files each session; who I am in a line; what I'm accountable for; default to my voice-profile and writing-rules for anything you draft.
+- about-me/about-me.md — role, team, reporting; accountability; where my week goes; current priorities; audience and stakeholders; tools, data, and domain rules; good vs rushed; my approval chain.
+- about-me/voice-profile.md — 3–6 bullets on how I write and want drafts to sound, plus a short sample in my voice.
+- about-me/writing-rules.md — do / don't for anything drafted in my name, my hard constraints, and rules for not sounding like generic AI.
+- about-me/team.md — the people I work with and how (manager, collaborators, reviewers, audience); seed it from what you harvested; leave room to grow.
+- about-me/memory.md — durable facts to remember across sessions; start with what I gave you; note it grows with use.
 
-1. Pre-fill, don't interrogate. If an M365 connector is available, read name, role,
-   and team first and confirm them rather than asking cold.
-2. Adapt to the role — Delivery, Operations, Sales, Enablement, or Leadership.
-3. Keep it to 20–40 minutes. Mark skips with [FILL IN]; never invent an answer.
-4. Read it back before writing, so the user can correct it.
+QUALITY BAR: specific over generic; use the real details you harvested or I gave you; mark gaps with [FILL IN] rather than padding. When done, list the files you wrote and tell me to start a fresh session and run two checks — "Recap what you know about me." and "Given who I am, what are the three highest-leverage things you could help me with this week?" If the playback is thin, point me to the file to fix.
 
-## After setup
-
-Start a fresh session and run two prompts: "Recap what you know about me." and
-"Given who I am, what can you help me with?" If the playback is generic, open the
-relevant file, fix it, and re-run.</pre>
+START NOW: first tell me what you found about me from my connected tools (or say you couldn't read anything and will ask directly), confirm my role and field, then begin.</pre>
     </div>
   </div>
 

@@ -1,34 +1,69 @@
-# Co-setup interview — question bank & file templates
+# Co-setup interview — harvest checklist, adaptive question bank & file templates
 
-Loaded only when running the interview (progressive disclosure). Ask the shared
-questions, then the block that matches the user's role. Mark skips with `[FILL IN]`.
+Loaded only when running the interview (progressive disclosure). The goal is to build a
+real picture of the user, then write `claude.md` + the `about-me/` files. Mark anything
+skipped with `[FILL IN]`; never invent an answer.
 
-## Shared questions (everyone)
+## 1. Harvest first (if a connector is available)
 
-- Name, title, team, and who you report to.
-- In one sentence, what are you accountable for?
-- The 3–5 tasks that eat most of your week.
-- Which tools and data sources do you live in (M365, specific folders, systems)?
-- How do you want drafts to sound — formal, plain, terse, warm?
-- Hard rules for anything written in your name (never claim X, always cite sources, etc.).
+If M365 (or any connector) is on, read before you ask and build a draft profile from:
 
-## Role blocks
+- **Identity** — name, title, department, where they sit in the org, who they report to.
+- **People** — who they email and meet with most (collaborators, reviewers, stakeholders).
+- **Cadence** — recurring meetings and deadlines; what their week actually looks like.
+- **Work** — the documents, systems, and data they touch; current projects and priorities
+  from recent threads.
+- **Voice** — tone, length, and sign-off from their sent mail.
 
-**Delivery / Practitioner** — typical deliverables; what "good" vs "rushed" looks like;
-recurring docs you produce; review/approval steps you must respect.
+Then **confirm** what you found instead of re-asking it.
 
-**Operations** — processes you own; systems of record; reporting cadence; what must
-never be automated without a human check.
+**No connector, or nothing readable? Do not fail.** Skip the harvest and ask the questions
+below directly. Either path must finish and produce the files.
 
-**Sales** — accounts and segments; pipeline stages; collateral you reuse; tone for
-client-facing vs internal notes.
+## 2. Identify role and domain
 
-**Enablement** — audiences you train; the change you're driving; what success looks like.
+Before the full interview, establish what the user does and in what field — finance,
+accounting, law, healthcare, sales, marketing, engineering, operations, HR, consulting, or
+anything else. Confirm from the harvest, or ask. This drives which questions matter.
 
-**Leadership** — decisions you own; the metrics you watch; how you want briefs structured
-(bottom line first, length limits).
+## 3. Core coverage (everyone — adapt and prioritize to the role)
 
-## File templates
+- Identity and role: name, title, team, who they report to.
+- Accountability: in one sentence, the outcomes they own.
+- Where the week goes: the 3–7 tasks or deliverables that take most of their time.
+- Priorities and current work; active projects.
+- Audience and stakeholders: who they produce work for; who reviews or approves it.
+- Tools, data, and domain rules: the systems and data they live in, plus any standards or
+  regulations that bind the work.
+- Voice and tone: how they want drafts to sound; capture a short, real writing sample.
+- Writing rules: always / never for anything in their name, plus how to avoid sounding like
+  generic AI.
+- Standards: what "good" vs "rushed" looks like, and the review/approval steps they respect.
+- Durable facts: fiscal year, recurring deadlines, naming conventions, constraints.
+
+## 4. Branch by domain (don't read a fixed script)
+
+Generate the questions that actually matter for the user's field, and let each answer shape
+the next. Examples of where to dig:
+
+- **Finance / accounting** — models and memos, materiality thresholds, GAAP/covenant
+  frameworks, the review and sign-off chain.
+- **Legal** — matter types, privilege, jurisdictions, citation standards, "draft for
+  attorney review."
+- **Healthcare** — clinical vs administrative work, PHI/HIPAA constraints, documentation
+  standards.
+- **Sales** — accounts and segments, pipeline stages, reusable collateral, client-facing vs
+  internal tone.
+- **Engineering / product** — systems and repos, specs and reviews, the definition of done.
+- **Operations** — processes owned, systems of record, reporting cadence, what must never be
+  automated without a human check.
+- **HR / people** — confidentiality, policy, tone for sensitive communications.
+- **Marketing** — brand voice, channels, claims and compliance review.
+
+For any role not listed, apply the same instinct: find the deliverables, the standards, the
+constraints, and the sign-off path.
+
+## 5. File templates
 
 `claude.md`
 ```
@@ -46,11 +81,15 @@ any draft. When unsure about my context, check about-me/ before guessing.
 [one sentence]
 ## Where my week goes
 - [task 1] … [task 5]
-## Tools & data
-[M365, folders, systems]
+## Audience & stakeholders
+[who I produce work for; who reviews or approves it]
+## Tools, data & domain rules
+[M365, folders, systems; standards or regulations that bind my work]
+## Good vs rushed
+[what good looks like; what rushed looks like; my approval chain]
 ```
 
-`about-me/voice-profile.md` — 3–5 bullets on tone + a short "good" sample in their voice.
-`about-me/writing-rules.md` — a do/don't list (e.g. "Do cite the source file. Don't invent figures.").
-`about-me/team.md` — start with `[FILL IN]`; add people and working norms as they come up.
+`about-me/voice-profile.md` — 3–6 bullets on tone + a short "good" sample in their voice.
+`about-me/writing-rules.md` — a do/don't list (e.g. "Do cite the source file. Don't invent figures.") plus rules for not sounding like generic AI.
+`about-me/team.md` — seed from the harvest; add people and working norms as they come up.
 `about-me/memory.md` — durable facts ("our fiscal year starts in April"); grows with use.
