@@ -54,8 +54,8 @@ and (2) **one real delegation run end-to-end that produced a deliverable.**
 | What are you accountable for? (one sentence) | "Underwriting and monitoring commercial loan relationships — turning loan files into credit recommendations the committee can decide on." |
 | The 3–5 tasks that eat your week | "One-page committee credit summaries from loan files; quarterly covenant checks — DSCR, leverage, liquidity; spreading financials into the portfolio tracker; annual relationship reviews; answering RM questions on structure and pricing." |
 | Tools / data you live in | "Microsoft 365 — Outlook, Teams, SharePoint — the loan-origination system, Excel spreads, and credit-policy docs in SharePoint." |
-| How should drafts sound? | "Concise and committee-ready — bottom line first, plain English, no fluff. Like an internal credit memo, not marketing." |
-| Hard rules for anything in your name | "Never invent or estimate figures — cite the source file; if a number's missing, say so. Flag every risk explicitly. Everything is a draft a banker signs off on — recommend, don't decide. Follow the bank's memo structure." |
+| Voice & writing style (expect several) | "Bottom line first, then support. Short, declarative sentences; concise, committee-ready, plain English. Measured and even-handed — never promotional. Precise banking terms (DSCR, covenant, LTV), no fluff or hype words like 'strong' without evidence. Structured memo with headers, not prose. More formal for committee; plainer for an RM email." |
+| AI do's and don'ts | "Always: cite the source file for every figure, flag every risk, say when data is missing or interim, frame it as a draft for sign-off. Never: invent or estimate numbers, make the credit decision, bury a risk, be promotional. Avoid AI tells: no clichés or filler, no emoji, don't over-hedge, don't overuse em-dashes." |
 | (Delivery role block) good vs rushed; approvals | "Good = risks flagged with evidence, numbers tied to the file, a clear recommendation. Rushed = generic, unsupported, no missing-data callouts. Chain: analyst drafts → VP Credit reviews → loan committee decides." |
 
 **Voice sample (give if it asks):** "Recommend approval subject to a 1.25x DSCR covenant. Relationship's solid, but margins are compressing and one customer is ~24% of revenue — both worth watching."
@@ -138,10 +138,12 @@ wrong plan costs nothing." **[DO]** Approve a step; open the finished summary. *
 sentence* again."
 
 ### (b) Build the profile live — run co-setup as the persona
-**[DO]** Fresh session → `/cowork-cosetup`. Answer the core questions **as Maya Chen** (persona card in
-pre-session prep) — name and role, what she's accountable for, her weekly tasks, tools, voice, and rules —
-and `[FILL IN]` the rest. **[SAY]** "I'm answering as a **commercial credit analyst** — the kind of person
-in this room. Watch how few questions it really needs, and how it pulls from M365 to pre-fill."
+**[DO]** Fresh session → `/cowork-cosetup`. It **harvests from M365 first** (if connected), then asks
+**one question at a time in a popup** — answer **as Maya Chen** (persona card in pre-session prep): her role,
+what she's accountable for, her weekly work, her voice and writing style, and her AI do's and don'ts;
+`[FILL IN]` anything you'd skip. **[SAY]** "I'm answering as a **commercial credit analyst** — the kind of
+person in this room. Notice it adapts its questions to my field, harvests what it can from M365 first, and
+asks one at a time."
 **[NOTE]** Short on time? Pre-build Maya's profile before the session and show just a **2–3 question snippet**
 here, then switch to the ready profile (ready-made files: `assets/demo/maya-profile/`).
 

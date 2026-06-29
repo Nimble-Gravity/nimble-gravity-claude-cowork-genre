@@ -37,9 +37,14 @@ anything else. Confirm from the harvest, or ask. This drives which questions mat
 - Audience and stakeholders: who they produce work for; who reviews or approves it.
 - Tools, data, and domain rules: the systems and data they live in, plus any standards or
   regulations that bind the work.
-- Voice and tone: how they want drafts to sound; capture a short, real writing sample.
-- Writing rules: always / never for anything in their name, plus how to avoid sounding like
-  generic AI.
+- Voice and writing style (the most important area — ask several questions): formality;
+  sentence feel; tone; jargon vs plain language and words they always use or avoid; format
+  defaults (bullets vs prose, length, headings, openings, sign-offs); and how voice shifts by
+  audience. Capture a short, real writing sample to anchor it.
+- AI do's and don'ts (ask directly): what the AI should ALWAYS do in their name (cite sources,
+  flag uncertainty, ask before sending, keep it tight) and NEVER do (invent figures, make the
+  decision, overclaim, be sycophantic), plus the AI "tells" to avoid — clichés and filler,
+  over-hedging, emoji, bullet overload, em-dash overuse.
 - Standards: what "good" vs "rushed" looks like, and the review/approval steps they respect.
 - Durable facts: fiscal year, recurring deadlines, naming conventions, constraints.
 
@@ -91,7 +96,7 @@ any draft. When unsure about my context, check about-me/ before guessing.
 [what good looks like; what rushed looks like; my approval chain]
 ```
 
-`about-me/voice-profile.md` — 3–6 bullets on tone + a short "good" sample in their voice.
-`about-me/writing-rules.md` — a do/don't list (e.g. "Do cite the source file. Don't invent figures.") plus rules for not sounding like generic AI.
+`about-me/voice-profile.md` — voice in detail: formality, sentence feel, tone, jargon level, words used/avoided, format defaults, and how it shifts by audience, plus a short "good" sample in their voice.
+`about-me/writing-rules.md` — explicit AI do's and don'ts (always / never in their name), hard constraints, and the AI "tells" to avoid (clichés, filler, over-hedging, emoji, em-dash overuse).
 `about-me/team.md` — seed from the harvest; add people and working norms as they come up.
 `about-me/memory.md` — durable facts ("our fiscal year starts in April"); grows with use.
