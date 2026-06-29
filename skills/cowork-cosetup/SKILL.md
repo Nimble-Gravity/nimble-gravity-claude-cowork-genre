@@ -62,7 +62,9 @@ adaptive question bank, and the file templates.
   files — progressive disclosure, not one giant file.
 - Keep each `about-me/` file focused on its one topic.
 - Use plain, first-person statements ("I lead…", "I prefer drafts that…").
-- Leave `team.md` and `memory.md` deliberately thin; they grow with use.
+- Leave `team.md` and `memory.md` deliberately thin; they grow with use. In `claude.md`,
+  instruct ongoing upkeep — update `memory.md` during and after each session whenever a
+  durable fact comes up.
 
 ## After setup
 

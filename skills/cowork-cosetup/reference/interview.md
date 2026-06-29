@@ -78,6 +78,8 @@ constraints, and the sign-off path.
 Read the about-me/ files at the start of each session. I'm [name], [role] on [team].
 I'm accountable for [one sentence]. Default to my voice-profile and writing-rules for
 any draft. When unsure about my context, check about-me/ before guessing.
+Keep about-me/memory.md current: when you learn a durable fact during a session, add or
+update it there, and review memory.md at the end of each session.
 ```
 
 `about-me/about-me.md`
@@ -99,4 +101,4 @@ any draft. When unsure about my context, check about-me/ before guessing.
 `about-me/voice-profile.md` — voice in detail: formality, sentence feel, tone, jargon level, words used/avoided, format defaults, and how it shifts by audience, plus a short "good" sample in their voice.
 `about-me/writing-rules.md` — explicit AI do's and don'ts (always / never in their name), hard constraints, and the AI "tells" to avoid (clichés, filler, over-hedging, emoji, em-dash overuse).
 `about-me/team.md` — seed from the harvest; add people and working norms as they come up.
-`about-me/memory.md` — durable facts ("our fiscal year starts in April"); grows with use.
+`about-me/memory.md` — durable facts ("our fiscal year starts in April"); a living document the assistant updates during and after each session (per claude.md).
