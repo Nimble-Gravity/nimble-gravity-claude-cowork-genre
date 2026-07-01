@@ -6,7 +6,13 @@
 <title>Use Cowork Lab — Workshop 2</title>
 <link rel="stylesheet" href="../../styles/shared.css"/>
 <style>
-/* Page-specific styles go here. This scaffold relies entirely on shared.css. */
+/* Lab track tabs (page-scoped) */
+.lab-tabs__nav { display:flex; gap:4px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.lab-tab { appearance:none; -webkit-appearance:none; background:none; border:none; padding:10px 18px; font-family:inherit; font-size:15px; font-weight:600; color:var(--slate); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; }
+.lab-tab:hover { color:var(--navy); }
+.lab-tab.is-active { color:var(--violet); border-bottom-color:var(--violet); }
+.lab-panel { display:none; }
+.lab-panel.is-active { display:block; }
 </style>
 </head>
 <body>
@@ -93,21 +99,47 @@
   </div>
 
   <div style="margin-top:32px;">
-    <div class="sec-eyebrow">Track 2 — Variance analysis commentary (finance, FP&amp;A, accounting)</div>
-    <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:8px;">Stage one folder with a balance sheet or income statement, a GL detail export or chart of accounts, and a prior period comparison if available. No files? Use the <a href="../../assets/demo/sample-variance-dataset.md" download>sample variance dataset</a> from the resource library.</p>
-    <div class="code-wrap" style="margin-top:20px;">
-      <div class="code-topbar">
-        <span class="cb-dot" style="background:#ff5f57"></span>
-        <span class="cb-dot" style="background:#febc2e"></span>
-        <span class="cb-dot" style="background:#28c840"></span>
-        <span class="code-label">Track 2 prompt — paste into Cowork</span>
-        <button class="copy-btn" onclick="copyBlock('track2-prompt', this)">Copy</button>
+    <div class="sec-eyebrow">Pick your track — ready-to-paste prompts</div>
+    <div class="lab-tabs" id="track-tabs" style="margin-top:16px;">
+      <div class="lab-tabs__nav" role="tablist">
+        <button class="lab-tab is-active" role="tab" aria-selected="true" onclick="showTrack('t1', this)">Track 1 · Credit memo</button>
+        <button class="lab-tab" role="tab" aria-selected="false" onclick="showTrack('t2', this)">Track 2 · Variance analysis</button>
       </div>
-      <div class="code-body">
-<pre id="track2-prompt">Read the financial files in this folder. Draft variance analysis commentary for the balance sheet and income statement line items that show the most material movement. For each variance: name the line item, state the direction and approximate size of the change, and give a plain-language explanation of what is driving it based on what you can see in the files. If a prior period comparison is missing or a figure looks incomplete, say so and do not fill it in. Format the output as a commentary section ready for a finance reviewer to edit and sign off on.</pre>
+
+      <div class="lab-panel is-active" id="track-t1" role="tabpanel">
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:20px;">Lending, credit, commercial banking. Point Cowork at a commercial loan file — application, financial statements, covenants. No file of your own? Use the <a href="../../assets/demo/sample-loan-file.md" download>sample loan file</a>.</p>
+        <div class="code-wrap" style="margin-top:16px;">
+          <div class="code-topbar">
+            <span class="cb-dot" style="background:#ff5f57"></span>
+            <span class="cb-dot" style="background:#febc2e"></span>
+            <span class="cb-dot" style="background:#28c840"></span>
+            <span class="code-label">Track 1 prompt — paste into Cowork</span>
+            <button class="copy-btn" onclick="copyBlock('t1-prompt', this)">Copy</button>
+          </div>
+          <div class="code-body">
+<pre id="t1-prompt">Read the loan file in this folder and draft a one-page credit memo for committee: the request, the borrower, the financial trend, collateral and guarantors, a covenant analysis, and a risk section with the top risks and a recommendation with conditions. Cite the file for every figure, flag anything missing or interim, and treat it as a draft for sign-off — not a decision.</pre>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:16px;"><strong>Acceptance test:</strong> "The credit memo has a risk section with at least three flagged risks and a recommendation with conditions. Every figure cites a specific line in the loan file. Anything missing or marked interim is called out. Nothing is invented."</p>
+      </div>
+
+      <div class="lab-panel" id="track-t2" role="tabpanel">
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:20px;">Finance, FP&amp;A, accounting. Point Cowork at a balance sheet or income statement, a GL detail export or chart of accounts, and a prior period comparison if available. No files? Use the <a href="../../assets/demo/sample-variance-dataset.md" download>sample variance dataset</a>.</p>
+        <div class="code-wrap" style="margin-top:16px;">
+          <div class="code-topbar">
+            <span class="cb-dot" style="background:#ff5f57"></span>
+            <span class="cb-dot" style="background:#febc2e"></span>
+            <span class="cb-dot" style="background:#28c840"></span>
+            <span class="code-label">Track 2 prompt — paste into Cowork</span>
+            <button class="copy-btn" onclick="copyBlock('t2-prompt', this)">Copy</button>
+          </div>
+          <div class="code-body">
+<pre id="t2-prompt">Read the financial files in this folder. Draft variance analysis commentary for the balance sheet and income statement line items that show the most material movement. For each variance: name the line item, state the direction and approximate size of the change, and give a plain-language explanation of what is driving it based on what you can see in the files. If a prior period comparison is missing or a figure looks incomplete, say so and do not fill it in. Format the output as a commentary section ready for a finance reviewer to edit and sign off on.</pre>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:16px;"><strong>Acceptance test:</strong> "The commentary covers at least three material line item variances, explains the direction and size of each movement in plain language, and flags any line where the source data is incomplete or where a prior period comparison is missing. No numbers are invented."</p>
       </div>
     </div>
-    <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:16px;"><strong>Acceptance test:</strong> "The commentary covers at least three material line item variances, explains the direction and size of each movement in plain language, and flags any line where the source data is incomplete or where a prior period comparison is missing. No numbers are invented."</p>
   </div>
 </div>
 
@@ -189,6 +221,13 @@ function copyBlock(id, btn) {
     btn.textContent = 'Copied!';
     setTimeout(function () { btn.textContent = prev; }, 2000);
   });
+}
+function showTrack(id, btn) {
+  var root = document.getElementById('track-tabs');
+  root.querySelectorAll('.lab-tab').forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+  root.querySelectorAll('.lab-panel').forEach(function (p) { p.classList.remove('is-active'); });
+  btn.classList.add('is-active'); btn.setAttribute('aria-selected', 'true');
+  document.getElementById('track-' + id).classList.add('is-active');
 }
 </script>
 </body>

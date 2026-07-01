@@ -14,7 +14,7 @@ today it produces a fuller **credit memo with flagged risks**. On the
 [facilitator guide](pages/workshops/facilitator-guide.html#workshop-2) and in the
 [resource library](pages/workshops/resources.html).
 
-**Legend:** **[SAY]** talk track · **[DO]** live demo · **[THEY]** participants act · **[NOTE]** facilitator note
+**Legend:** **[SAY]** talk track · **[DO]** live demo · **[THEY]** participants act · **[NOTE]** facilitator note · **[POLL]** Teams poll (pre-build — see prep)
 
 ---
 
@@ -27,6 +27,13 @@ today it produces a fuller **credit memo with flagged risks**. On the
 3. **Confirm folder access + the least-privilege story.** You'll grant only the loan folder on screen.
 4. **Have a prompt-injection line ready** to narrate (see the Demo). Optional: a second doc in the folder for
    a multi-file feel.
+5. **Pre-build the Teams polls** so each launches in one click (they're marked **[POLL]** at each slot below):
+   - Open — "Since Workshop 1, how much have you used Cowork?" *(single)*
+   - Open — "Which best describes your day-to-day work?" *(single)*
+   - Discuss — "Which use cases would save you the most time? Pick up to 2." *(multi-select)*
+   - Debrief — "How ready do you feel to run a real task on your own?" *(single)*
+   - Close — "How useful was today? 1–5." *(single)*
+   Export the **Discuss** results after — that ranking is your Workshop 3 skill backlog and Workshop 4 demand data.
 
 ### Run of show — the 2-hour agenda
 | Time | Slot | Content |
@@ -49,6 +56,11 @@ use cases, how to work effectively without overspending, and a task you will run
 deliverable. The thread across all four workshops: W1 gave you the setup, today gives you the workflow, W3
 packages it as a reusable skill, and W4 governs and scales it. Keep that arc in mind as we go."
 
+**[POLL] — usage pulse (drop now):** "Since Workshop 1, how much have you used Cowork?" — *Ran a real task, it
+saved me time · Tried it, output needed work · Opened it but didn't finish · Haven't yet.*
+**[NOTE]** The top-two share is your between-session **adoption number** — the "are people using it?" metric,
+live. If most land in the bottom two, spend 60 seconds on the barrier before you move on.
+
 **[SAY]** "Last time you got set up and ran a first delegation. The homework was one more — so let's start
 there: **who delegated something this week, and what did it produce?**" **[DO]** Take two or three in voice
 or Teams; keep it quick.
@@ -56,6 +68,11 @@ or Teams; keep it quick.
 **[SAY] — objectives:** "Today is about doing **real work** with Cowork — and doing it **effectively and
 safely.** By the end you'll have run a real banking task end to end to a finished deliverable, and you'll
 have named the one workflow you'd most want to standardize — because next week we turn it into a skill."
+
+**[POLL] — who's in the room (drop now):** "Which best describes your day-to-day work?" — *Lending / credit /
+commercial · Finance / FP&A / accounting · Deposits / treasury / operations · Risk / compliance / AML · Other.*
+**[NOTE]** This sets up the two-track lab — note the **Finance / FP&A** count, those are your **Track 2**
+people — and tells you which use cases to lean on today.
 
 ---
 
@@ -138,9 +155,17 @@ catch it.** That's why we keep least privilege and approvals on for anything fro
 ---
 
 ## Discuss · 0:55–1:05 (10 min) — Shortlist your use cases
-**[SAY]** "Which of the banking use cases fit **your** week? Each person, pick **two** and drop them in Teams
-— be concrete ('triage my overnight AML alerts,' 'summarize a new deposit relationship')." **[DO]** Tally the
-top few live. **[SAY]** "These are your lab task in a minute — and your **skills in Workshop 3.**"
+**[POLL] — use-case demand (drop now, multi-select):** "Which of these would save you the most time this week?
+Pick up to two." — *Credit memo from a loan file · Deposit / treasury relationship summary · Fraud / AML alert
+triage → brief · Loan terms compared across a portfolio · Variance analysis / financial commentary · Something
+else (say what in chat).*
+
+**[SAY]** "If you pick 'something else,' name it in the chat — 'triage my overnight AML alerts,' 'summarize a
+new deposit relationship.'" **[DO]** Read the live tally aloud, name the **top pick**, and point people toward
+it for the lab in a minute. **[SAY]** "These are your lab task next — and your **skills in Workshop 3.**"
+
+**[NOTE]** Highest-value data of the day: the ranking is your **Workshop 3 skill backlog** and your **Workshop 4
+demand map** — export it. The top two also tell you which lab track will be busiest.
 
 ---
 
@@ -224,6 +249,11 @@ source data is incomplete or where a prior period comparison is missing. No numb
 ---
 
 ## Debrief · 1:50–1:58 (8 min) — Debrief + knowledge check
+**[POLL] — readiness (drop now):** "How ready do you feel to run a real task in Cowork on your own?" —
+*Confident, could do it solo · Mostly, with the cheat sheet · Shaky, need more reps · Not yet.*
+**[NOTE]** Your session-effectiveness read. Anyone in the bottom two — invite them to office hours by name in
+the chat. If you ran this same poll last week, screenshot the shift.
+
 **[SAY] — the skill candidate:** "Which part of your task would you happily do **every week**? That's your
 skill candidate for next week — **name it.**" Take a few.
 
@@ -240,7 +270,11 @@ shortlisted use case once more this week, and bring the **one recurring workflow
 standardize — that's what we turn into a skill next time."
 
 **[SAY] — next:** "Workshop 3 — **Build a Skill**: decompose the workflow, the authoring standards, and ship a
-working `.skill`." **[DO]** Drop the **2-minute [feedback](pages/workshops/feedback.html)** link.
+working `.skill`."
+
+**[POLL] — quick feedback (drop now):** "How useful was today? 1 (not really) → 5 (very)." **[DO]** Then drop the
+**2-minute [feedback](pages/workshops/feedback.html)** link for the open-text detail. **[NOTE]** The poll is an
+instant CSAT you can trend across the four workshops; the form gives you the "why."
 
 ---
 
@@ -254,6 +288,10 @@ working `.skill`." **[DO]** Drop the **2-minute [feedback](pages/workshops/feedb
   (slice it into steps with an artifact between).
 - **Seeds Workshop 3:** the Discuss shortlist and the Debrief "job you'd repeat" are the raw material for the
   skill each person builds next week — capture them.
+- **Polls do double duty.** Five one-tap Teams polls (prep item 5) keep the room engaged *and* hand you live
+  data: adoption (Open), the room's mix for track planning (Open), use-case demand (Discuss → the W3 backlog +
+  W4 demand), and readiness + usefulness (Debrief + Close → your effectiveness read). Export the Discuss and
+  readiness results.
 
 ### Script ↔ on-site sync notes
 - **Agenda** matches `module-2-workshop.html` / `syllabus.html` (8 slots, 2 hours) and the
