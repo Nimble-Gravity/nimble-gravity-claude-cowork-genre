@@ -34,10 +34,13 @@ real `SKILL.md`, and (2) having built, repaired, authored, and chained skills un
 5. **Stage the demo.** Have the memo-generation `SKILL.md` open in a text editor (so you can read
    against it on screen) and the workflow-decomposition skill installed. Run the decomposition live on
    the memo workflow — the prompt is in the Demo section below.
-6. **Distribute lab files.** Share the five lab files (on the hub and lab page) in Teams chat *before*
-   the break — participants need them staged in a folder before the vault clock starts:
-   `vault-standup-notes.txt`, `client-formatter-SKILL.md`, `raw-notes.txt`,
-   `interview-notes-jmalik.txt`, `qa-checklist.txt`.
+6. **Distribute lab files.** Share all six lab files (on the hub and lab page) in Teams chat *before*
+   the break — participants need them staged before the vault clock starts:
+   `meeting-extractor-SKILL.md`, `vault-standup-notes.txt`, `client-formatter-SKILL.md`,
+   `raw-notes.txt`, `interview-notes-jmalik.txt`, `qa-checklist.txt`.
+   **Note:** `meeting-extractor-SKILL.md` must be installed as a Cowork skill before the vault opens
+   (Room 1 step 1). Tell participants to create a folder named `meeting-extractor`, put the file
+   inside it, and add it via Settings → Skills.
 7. **Open the [facilitator view](escape-room/admin.html).** Keep it in a side window during the lab —
    it shows live team progress, hints used, and a reset button for stuck teams.
 

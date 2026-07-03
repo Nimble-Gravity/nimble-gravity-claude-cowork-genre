@@ -9,8 +9,8 @@
       "title": "The Inherited Skill",
       "narrative": "The consultant left one working skill behind: 'Meeting Extractor.' Nobody knows what it does. Invoke it correctly and it will surrender the first key.",
       "labSteps": [
-        "Open Cowork and locate the provided skill 'Meeting Extractor' in your skills panel.",
-        "Read its description — note what kind of request triggers it.",
+        "Install the provided 'meeting-extractor-SKILL.md' into Cowork: create a folder named 'meeting-extractor', place the SKILL.md file inside it, then add that folder via Settings → Skills (or drag it to your skills panel). Confirm 'Meeting Extractor' appears in the panel before continuing.",
+        "Read its description — note what kind of request triggers it and what output it promises.",
         "Upload the provided file 'vault-standup-notes.txt' to your session.",
         "Prompt Cowork with a request that matches the skill's trigger (ask it to extract action items from the notes).",
         "The skill outputs an action-item table. The unlock code is the number of action items assigned to 'R. Vega' followed by the first word of Vega's first action item, no space. Example format: 3Draft"
