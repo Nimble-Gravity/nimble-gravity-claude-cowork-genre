@@ -1,0 +1,85 @@
+{
+  "workshopTitle": "Workshop 3: The Skill Vault",
+  "scenario": "A departing consultant locked the team's playbook inside the Skill Vault. Their custom Cowork skills are the only keys. Learn them, fix them, build your own — and get the playbook out before the client call in 40 minutes.",
+  "timeLimitMinutes": 40,
+  "hintPenaltySeconds": 120,
+  "rooms": [
+    {
+      "id": "room-1",
+      "title": "The Inherited Skill",
+      "narrative": "The consultant left one working skill behind: 'Meeting Extractor.' Nobody knows what it does. Invoke it correctly and it will surrender the first key.",
+      "labSteps": [
+        "Open Cowork and locate the provided skill 'Meeting Extractor' in your skills panel.",
+        "Read its description — note what kind of request triggers it.",
+        "Upload the provided file 'vault-standup-notes.txt' to your session.",
+        "Prompt Cowork with a request that matches the skill's trigger (ask it to extract action items from the notes).",
+        "The skill outputs an action-item table. The unlock code is the number of action items assigned to 'R. Vega' followed by the first word of Vega's first action item, no space. Example format: 3Draft"
+      ],
+      "codePlaintext": "4Migrate",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "Skills trigger on intent, not magic words. Ask for the outcome the description promises: extracting action items from meeting notes.",
+        "Filter the output to owner R. Vega. Count the rows, then take the first word of Vega's first action."
+      ],
+      "skillsTaught": ["What a skill is", "How skill descriptions control triggering", "Invoking an existing skill"]
+    },
+    {
+      "id": "room-2",
+      "title": "The Broken Trigger",
+      "narrative": "The second key sits behind the skill 'Client Formatter' — but it never fires. The consultant sabotaged its description on the way out. Repair it and the skill will do the rest.",
+      "labSteps": [
+        "Open the provided file 'client-formatter-SKILL.md' and read its three parts: name, description, instructions.",
+        "The description says 'A skill.' — too vague for Cowork to ever match it to a request. This is the sabotage.",
+        "Rewrite the description so it clearly states WHEN to use the skill (formatting raw notes into the firm's client status update template) and WHAT triggers it (mentions of status updates, client reports, weekly summaries).",
+        "Save the repaired skill into your Cowork session.",
+        "Prompt: 'Turn these notes into a client status update' using the provided 'raw-notes.txt'. If your description repair worked, the skill fires and formats the output.",
+        "The formatted output has a footer line the instructions always append. The unlock code is the name of the firm's method in that footer."
+      ],
+      "codePlaintext": "Cornerstone",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "A good description answers two questions: what does this skill produce, and which requests should trigger it? Write 2-3 sentences covering both.",
+        "Once the skill fires, find the footer: 'Prepared with the ___ method.' The blank is your code."
+      ],
+      "skillsTaught": ["Skill anatomy (name / description / instructions)", "Why descriptions drive triggering", "Editing and reloading a skill"]
+    },
+    {
+      "id": "room-3",
+      "title": "Forge Your Own Key",
+      "narrative": "The third lock has no matching skill. The vault only opens for a skill YOU build: one that turns messy interview notes into the firm's candidate evaluation format.",
+      "labSteps": [
+        "Ask Cowork to help you draft a new SKILL.md for a 'Candidate Evaluator' skill.",
+        "Requirements for the instructions: output must have exactly four sections — Strengths, Concerns, Evidence, Recommendation — and the Recommendation must be one of: Advance, Hold, Decline.",
+        "Write a description that would trigger on requests like 'write up my interview feedback'.",
+        "Load your new skill, then run it against the provided 'interview-notes-jmalik.txt'.",
+        "If your skill enforced the format, the Recommendation section contains a single verdict word. The unlock code is that verdict plus the number of items your skill listed under Concerns. Example format: Hold3"
+      ],
+      "codePlaintext": "Advance2",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "Be prescriptive in the instructions: name the four sections explicitly and constrain the Recommendation to the three allowed verdicts. Vague instructions produce drifting formats.",
+        "The notes flag exactly two concerns and describe a strong candidate. Verdict + count."
+      ],
+      "skillsTaught": ["Authoring a skill from scratch", "Writing prescriptive instructions", "Constraining output format"]
+    },
+    {
+      "id": "room-4",
+      "title": "The Playbook Door",
+      "narrative": "The final door needs two keys turned at once: chain the repaired Client Formatter with your new Candidate Evaluator to produce the one document the vault accepts — a hiring status update for the client.",
+      "labSteps": [
+        "Upload 'interview-notes-jmalik.txt' and 'raw-notes.txt' into one session.",
+        "Prompt Cowork to first evaluate the candidate (your Room 3 skill should fire), then fold that evaluation into a client status update (the Room 2 skill should fire).",
+        "Verify both skills triggered — the output should show the four evaluation sections nested inside the status update template with the firm's footer.",
+        "Run the provided QA checklist prompt: 'Check this document against qa-checklist.txt and report a pass count.'",
+        "The unlock code is the pass count followed by the candidate's verdict. Example format: 7Hold"
+      ],
+      "codePlaintext": "8Advance",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "If only one skill fired, your prompt probably only expressed one intent. State both outcomes in one request: evaluate, then format as a client status update.",
+        "The QA checklist has 8 items; a correctly chained document passes them all."
+      ],
+      "skillsTaught": ["Chaining multiple skills in one workflow", "Prompting for multi-intent tasks", "QA against a checklist"]
+    }
+  ]
+}
