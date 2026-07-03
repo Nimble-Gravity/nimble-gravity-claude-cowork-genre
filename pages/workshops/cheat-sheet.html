@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cowork Quick Reference — Axos</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+.syllabus-print{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;}
+.syllabus-print:hover{background:var(--mint);}
+@media print {
+  .nav-wrapper, .page-footer, .nav-next-banner, .syllabus-print-wrap { display:none !important; }
+  body { padding-top:0 !important; }
+  .page-header { background:#fff !important; }
+  .page-header::before, .page-header::after { display:none !important; }
+  .page-header .eyebrow, .page-header .title, .page-header .subtitle, .header-phase { color:#1a1a1a !important; }
+  .header-phase-dot { display:none; }
+}
+</style>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<div class="page-header" id="intro">
+  <div class="eyebrow">Axos · Cowork Program</div>
+  <h1 class="title">Cowork <em>Quick Reference</em></h1>
+  <p class="subtitle">Everything you need to remember on one page — model defaults, permission modes, the five prompt principles, session hygiene, and the /schedule constraint.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot"></div>
+    Print-friendly · keep it handy
+  </div>
+</div>
+
+<!-- PRINT BUTTON -->
+<div class="section" id="models">
+  <div class="syllabus-print-wrap" style="display:flex;justify-content:flex-end;margin-bottom:24px;">
+    <button class="syllabus-print" type="button" onclick="window.print()">&#9113; Print this page</button>
+  </div>
+
+  <div class="sec-eyebrow">01 — Models</div>
+  <h2 class="sec-title">Model &amp; effort <em>defaults</em></h2>
+  <p class="sec-sub">Pick the right model for the job — Opus is powerful but costs more of your usage allowance. Start with Sonnet.</p>
+  <div class="bp-grid--light" style="margin-top:28px;">
+    <div class="bp-item">
+      <div class="bp-num">01</div>
+      <div class="bp-title">Sonnet — everyday default</div>
+      <div class="bp-body">Documents, drafts, summaries, analysis. This is your workhorse. Use it for anything that doesn't require edge-case judgment.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">02</div>
+      <div class="bp-title">Opus — hardest calls only</div>
+      <div class="bp-body">Complex reasoning, edge-case legal or credit decisions. Reserve it — Opus consumes significantly more of your usage allowance.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">03</div>
+      <div class="bp-title">Effort levels</div>
+      <div class="bp-body"><code>high</code> is the product default. Step down to <code>medium</code> for routine work to save usage allowance. Use <code>low</code> for quick lookups only.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PERMISSION MODES -->
+<div class="section section--off" id="permissions">
+  <div class="sec-eyebrow">02 — Permission modes</div>
+  <h2 class="sec-title">Permission <em>modes</em></h2>
+  <p class="sec-sub">Permission mode controls whether Cowork pauses to ask before taking action. When in doubt, ask first.</p>
+  <div class="bp-grid--light" style="margin-top:28px;">
+    <div class="bp-item">
+      <div class="bp-num">01</div>
+      <div class="bp-title">Ask before acting</div>
+      <div class="bp-body">Pauses for approval before any file write, delete, or shell command. Use for untrusted content — emails, web pages, uploaded files from outside the bank.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">02</div>
+      <div class="bp-title">Act without asking</div>
+      <div class="bp-body">Runs without pausing. Use only for trusted, known files while actively supervising. Riskier — a hidden instruction in a file can redirect the agent.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">03</div>
+      <div class="bp-title">Default rule</div>
+      <div class="bp-body">Start every new task with "Ask before acting" until you know the files are clean. Switching to act-without-asking is a deliberate choice, not the default.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROMPTING -->
+<div class="section" id="prompting">
+  <div class="sec-eyebrow">03 — Prompting</div>
+  <h2 class="sec-title">The five prompt <em>principles</em></h2>
+  <p class="sec-sub">These five moves close the gap between what Cowork produces and what you actually needed.</p>
+  <div class="bp-grid--light" style="margin-top:28px;">
+    <div class="bp-item">
+      <div class="bp-num">01</div>
+      <div class="bp-title">Outcome over steps</div>
+      <div class="bp-body">Say what you want, not how to do it. Let Cowork choose the method — that's what it's for.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">02</div>
+      <div class="bp-title">Define done</div>
+      <div class="bp-body">State what good output looks like and what should never appear. "A two-page summary, no raw numbers without context, no customer PII in the subject line."</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">03</div>
+      <div class="bp-title">Flag gaps, don't fill them</div>
+      <div class="bp-body">"If something's missing from the file, say so — don't estimate." Prevents confident-sounding fabrication.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">04</div>
+      <div class="bp-title">Name the reader</div>
+      <div class="bp-body">"Write this for a credit committee unfamiliar with the borrower." Context about the audience shapes tone, length, and what gets explained.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">05</div>
+      <div class="bp-title">Iterate with one sentence</div>
+      <div class="bp-body">Redirect with a single sentence rather than restarting. "Make the executive summary one paragraph and move the detail to an appendix."</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCHEDULE -->
+<div class="section section--off" id="schedule">
+  <div class="sec-eyebrow">04 — Scheduling</div>
+  <h2 class="sec-title">/schedule &amp; its <em>constraints</em></h2>
+  <p class="sec-sub">Recurring tasks are powerful — but /schedule has hard requirements that catch people by surprise.</p>
+  <div class="bp-grid--light" style="margin-top:28px;">
+    <div class="bp-item">
+      <div class="bp-num">01</div>
+      <div class="bp-title">What /schedule does</div>
+      <div class="bp-body">Sets a recurring task — for example, a daily digest delivered at 7 AM. The agent runs at the configured time and writes output to your folder.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">02</div>
+      <div class="bp-title">The hard requirement</div>
+      <div class="bp-body">The machine must be awake and Claude Desktop must be open at run time. There is no background daemon — if the app is closed, the run does not happen.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">03</div>
+      <div class="bp-title">Missed runs are skipped</div>
+      <div class="bp-body">A missed run is skipped, not queued. It catches up when the app reopens only if you configured a catch-up policy. Otherwise, you lose that run.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">04</div>
+      <div class="bp-title">Verify manually first</div>
+      <div class="bp-body">Verify the first 2–3 runs manually before trusting automation. Confirm the output is in the right folder and looks correct before walking away.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SESSION HYGIENE -->
+<div class="section" id="hygiene">
+  <div class="sec-eyebrow">05 — Session habits</div>
+  <h2 class="sec-title">Session <em>hygiene</em></h2>
+  <p class="sec-sub">Small habits prevent the most common sources of poor output and lost context.</p>
+  <div class="bp-grid--light" style="margin-top:28px;">
+    <div class="bp-item">
+      <div class="bp-num">01</div>
+      <div class="bp-title">One task per session</div>
+      <div class="bp-body">Complex multi-topic sessions degrade — the model's attention spreads across too many threads. Start a new session for a new task.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">02</div>
+      <div class="bp-title">Summary handoff</div>
+      <div class="bp-body">End a long session with: "Summarize what we did and what's still open." Paste the summary into the next session as your first message.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">03</div>
+      <div class="bp-title">Where files land</div>
+      <div class="bp-body">Outputs go into the folder you granted access to. Check there first before assuming the file wasn't created.</div>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">04</div>
+      <div class="bp-title">Compaction is normal</div>
+      <div class="bp-body">When a session gets long, Cowork compacts older context. This is expected behavior, not a sign something went wrong. Carry forward what matters with a summary.</div>
+    </div>
+  </div>
+</div>
+
+<!-- GET HELP -->
+<div class="section section--off" id="help">
+  <div class="sec-eyebrow">06 — Get help</div>
+  <h2 class="sec-title">Who to ask when you're <em>stuck</em></h2>
+  <p class="sec-sub">You're not on your own. Use these channels when a session goes sideways or a question comes up between workshops.</p>
+  <div class="insight-grid" style="margin-top:28px;">
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">In the session</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Post in the Axos Cowork Teams channel or raise your hand in the room. Your cohort and facilitator are there in real time.</p>
+    </div>
+    <div class="insight-card">
+      <div class="sec-eyebrow" style="margin-bottom:6px;">Between sessions</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Office hours [TBD] and the training microsite at <a href="#">this page</a>. Bring a real example — "here's what I tried" gets much better help than "it didn't work."</p>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:32px;">
+    <div class="tip-trick-icon">🖨️</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Print tip</div>
+      <p>Use your browser's Print function (Cmd+P / Ctrl+P). Set margins to Narrow and enable Background graphics for the best result.</p>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer"></div>
+</body>
+</html>
