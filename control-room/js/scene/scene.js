@@ -1,17 +1,24 @@
-// The 3D vault. Visuals and animation timing come from the original prototype;
-// this module wraps them behind a small API so game logic never touches THREE:
-//   glideTo(i, instant)  — move camera to room i (i === roomCount → exit vault)
-//   setActive(i)         — mark room i as the one being attempted
-//   startUnlock(i)       — play the unlock animation for room i
-//   openInstant(i)       — jump room i to its unlocked end-state (refresh restore)
-//   setDone(v)           — spin the exit vault door
-//   celebrate()          — confetti + exit glow
+// The 3D operations floor. A bank of review stations facing a master status
+// board; each station is an open exception until its evidence is accepted.
+// This module wraps the visuals behind a small API so game logic never touches
+// THREE:
+//   glideTo(i, instant)  — move camera to station i (i === count → master board)
+//   setActive(i)         — mark station i as the one being worked
+//   startUnlock(i)       — play the sign-off animation for station i
+//   openInstant(i)       — jump station i to its cleared end-state (refresh restore)
+//   setDone(v)           — stand the floor down from alert
+//   celebrate()          — sign-off burst at the master board
 // Throws if WebGL is unavailable — callers fall back to a no-3D mode.
-import { floorTex, steelTex, wallTex, keypadTex, signTex, envMap } from './textures.js';
+import {
+  floorTex, steelTex, wallTex, screenTex, terminalTex, signTex, boardTex, videoWallTex, envMap,
+} from './textures.js';
 
 const THREE = globalThis.THREE;
 
-export function createScene({ container, roomCount, reduceMotion }) {
+const AMBER = 0xE0A93E;
+const TEAL = 0x58C7B4;
+
+export function createScene({ container, roomCount, reduceMotion, stationLabels = [] }) {
   const env = envMap();
 
   const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -25,257 +32,270 @@ export function createScene({ container, roomCount, reduceMotion }) {
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x070b14);
-  scene.fog = new THREE.Fog(0x070b14, 34, 85);
+  scene.fog = new THREE.Fog(0x070b14, 34, 90);
 
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 200);
 
-  /* Lighting: cool ambient + warm accents */
-  scene.add(new THREE.AmbientLight(0x2a3854, 0.65));
-  const key = new THREE.DirectionalLight(0xaebfdd, 0.35);
+  /* Lighting: cool ambient, with the working station lit from above */
+  scene.add(new THREE.AmbientLight(0x2a3854, 0.7));
+  const key = new THREE.DirectionalLight(0xaebfdd, 0.32);
   key.position.set(-16, 24, 12);
   scene.add(key);
 
-  /* Active-room spotlight (moves as teams progress) */
-  const spot = new THREE.SpotLight(0xfff2dd, 1.35, 40, Math.PI / 5.5, 0.45, 1.2);
+  const spot = new THREE.SpotLight(0xdfeaff, 1.25, 42, Math.PI / 5.5, 0.45, 1.2);
   spot.castShadow = true;
   spot.shadow.mapSize.set(1024, 1024);
   scene.add(spot);
   scene.add(spot.target);
 
-  /* Architecture */
-  const ROOM_W = 8, ROOM_D = 7, ROOM_H = 4.6, GAP = 3.5, CEIL_H = 8.2;
-  const startX = -((roomCount - 1) / 2) * (ROOM_W + GAP);
-  const endX = startX + (roomCount - 1) * (ROOM_W + GAP);
+  /* Floor plan */
+  const BAY_W = 8, BAY_D = 7, GAP = 3.5, CEIL_H = 8.2;
+  const startX = -((roomCount - 1) / 2) * (BAY_W + GAP);
+  const endX = startX + (roomCount - 1) * (BAY_W + GAP);
 
   const floorMat = new THREE.MeshStandardMaterial({
-    map: floorTex(), color: 0xffffff, roughness: 0.28, metalness: 0.55,
-    envMap: env, envMapIntensity: 0.7,
+    map: floorTex(), color: 0xffffff, roughness: 0.34, metalness: 0.45,
+    envMap: env, envMapIntensity: 0.6,
   });
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(170, 170), floorMat);
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(190, 190), floorMat);
   floor.rotation.x = -Math.PI / 2;
   floor.receiveShadow = true;
   scene.add(floor);
 
-  /* Back wall */
+  /* Equipment-rack back wall */
   const wall = new THREE.Mesh(
-    new THREE.PlaneGeometry(170, CEIL_H),
+    new THREE.PlaneGeometry(190, CEIL_H),
     new THREE.MeshStandardMaterial({ map: wallTex(), roughness: 0.85, metalness: 0.15 })
   );
-  wall.position.set(0, CEIL_H / 2, -ROOM_D / 2 - 4.5);
+  wall.position.set(0, CEIL_H / 2, -BAY_D / 2 - 5);
   scene.add(wall);
 
-  /* Ceiling with recessed light panels */
+  /* Ambient video wall in front of the racks */
+  {
+    const vw = new THREE.Mesh(
+      new THREE.PlaneGeometry(Math.max(52, (endX - startX) + 26), 3.4),
+      new THREE.MeshBasicMaterial({ map: videoWallTex() })
+    );
+    vw.position.set((startX + endX) / 2, 4.5, -BAY_D / 2 - 4.85);
+    scene.add(vw);
+  }
+
+  /* Ceiling + alert strips (pulse amber while exceptions are open) */
   const ceil = new THREE.Mesh(
-    new THREE.PlaneGeometry(170, 60),
+    new THREE.PlaneGeometry(190, 60),
     new THREE.MeshStandardMaterial({ color: 0x0a101c, roughness: 0.95, metalness: 0.05 })
   );
   ceil.rotation.x = Math.PI / 2;
   ceil.position.y = CEIL_H;
   scene.add(ceil);
-  for (let i = -8; i <= 10; i++) {
+
+  const alertStrips = [];
+  for (let i = -9; i <= 11; i++) {
     const panel = new THREE.Mesh(
-      new THREE.PlaneGeometry(2.4, 1.1),
+      new THREE.PlaneGeometry(2.4, 0.9),
       new THREE.MeshBasicMaterial({ color: 0xcfdbee })
     );
     panel.rotation.x = Math.PI / 2;
     panel.position.set(i * 4.2, CEIL_H - 0.03, 4.5);
     scene.add(panel);
+
+    const strip = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.4, 0.14),
+      new THREE.MeshBasicMaterial({ color: AMBER, transparent: true, opacity: 0.75 })
+    );
+    strip.rotation.x = Math.PI / 2;
+    strip.position.set(i * 4.2, CEIL_H - 0.04, 6.1);
+    scene.add(strip);
+    alertStrips.push(strip);
   }
 
-  /* Corridor guide lights */
-  for (let i = 0; i < 30; i++) {
-    const strip = new THREE.Mesh(
-      new THREE.BoxGeometry(0.16, 0.03, 1.4),
+  /* Cable-tray guide line along the floor */
+  for (let i = 0; i < 34; i++) {
+    const seg = new THREE.Mesh(
+      new THREE.BoxGeometry(1.3, 0.03, 0.16),
       new THREE.MeshBasicMaterial({ color: 0x46587a })
     );
-    strip.position.set(-23 + i * 1.7, 0.03, 6.2);
-    scene.add(strip);
+    seg.position.set(-26 + i * 1.7, 0.03, 6.4);
+    scene.add(seg);
   }
 
   const steelMat = new THREE.MeshStandardMaterial({
-    map: steelTex(), color: 0xffffff, roughness: 0.32, metalness: 0.9,
-    envMap: env, envMapIntensity: 0.9,
+    map: steelTex(), color: 0xffffff, roughness: 0.35, metalness: 0.85,
+    envMap: env, envMapIntensity: 0.85,
   });
-  const glassMat = new THREE.MeshPhysicalMaterial({
-    color: 0xaac6d8, transparent: true, opacity: 0.09, roughness: 0.05, metalness: 0.1,
-    envMap: env, envMapIntensity: 0.5, side: THREE.DoubleSide,
+  const shellMat = new THREE.MeshStandardMaterial({
+    color: 0x1b2536, roughness: 0.55, metalness: 0.5, envMap: env, envMapIntensity: 0.5,
   });
 
-  function makeLock() {
+  /* Holographic exception beacon above an unresolved station */
+  function makeBeacon() {
     const g = new THREE.Group();
-    const mk = (geo, op) => new THREE.Mesh(
-      geo, new THREE.MeshBasicMaterial({ color: 0xE0A93E, transparent: true, opacity: op })
-    );
+    const mk = (geo, op) => {
+      const m = new THREE.Mesh(
+        geo, new THREE.MeshBasicMaterial({ color: AMBER, transparent: true, opacity: op })
+      );
+      m.userData.baseOpacity = op;
+      return m;
+    };
     const ring = mk(new THREE.TorusGeometry(0.85, 0.04, 12, 64), 0.95);
-    const ring2 = mk(new THREE.TorusGeometry(0.62, 0.026, 12, 64), 0.5);
+    const ring2 = mk(new THREE.TorusGeometry(0.62, 0.026, 12, 64), 0.45);
     ring2.rotation.x = Math.PI / 3;
-    const body = mk(new THREE.BoxGeometry(0.48, 0.4, 0.14), 0.95);
-    const shackle = mk(new THREE.TorusGeometry(0.18, 0.045, 10, 32, Math.PI), 0.95);
-    shackle.position.y = 0.21;
-    g.add(ring, ring2, body, shackle);
+    // warning triangle
+    const side = 0.62, bar = 0.05;
+    for (let a = 0; a < 3; a++) {
+      const edge = mk(new THREE.BoxGeometry(side, bar, bar), 0.95);
+      const ang = a * (Math.PI * 2 / 3) + Math.PI / 2;
+      edge.position.set(Math.cos(ang) * 0.18, Math.sin(ang) * 0.18, 0);
+      edge.rotation.z = ang + Math.PI / 2;
+      g.add(edge);
+    }
+    const stem = mk(new THREE.BoxGeometry(0.05, 0.22, 0.05), 0.95);
+    stem.position.y = 0.04;
+    const dot = mk(new THREE.BoxGeometry(0.07, 0.07, 0.05), 0.95);
+    dot.position.y = -0.14;
+    g.add(ring, ring2, stem, dot);
     return g;
   }
 
-  const rooms3d = [];
-  function makeRoom(i) {
+  const stations = [];
+  function makeStation(i) {
     const g = new THREE.Group();
-    const x = startX + i * (ROOM_W + GAP);
+    const x = startX + i * (BAY_W + GAP);
     g.position.set(x, 0, 0);
 
-    const pillarGeo = new THREE.BoxGeometry(0.3, ROOM_H, 0.3);
-    [[-ROOM_W / 2, -ROOM_D / 2], [ROOM_W / 2, -ROOM_D / 2], [-ROOM_W / 2, ROOM_D / 2], [ROOM_W / 2, ROOM_D / 2]]
-      .forEach(([px, pz]) => {
-        const p = new THREE.Mesh(pillarGeo, steelMat);
-        p.position.set(px, ROOM_H / 2, pz);
-        p.castShadow = true;
-        g.add(p);
-      });
-    const beamX = new THREE.BoxGeometry(ROOM_W + 0.3, 0.3, 0.3);
-    const beamZ = new THREE.BoxGeometry(0.3, 0.3, ROOM_D + 0.3);
-    [[0, -ROOM_D / 2], [0, ROOM_D / 2]].forEach(([px, pz]) => {
-      const b = new THREE.Mesh(beamX, steelMat);
-      b.position.set(px, ROOM_H, pz);
-      g.add(b);
+    /* Desk: a slab on two plinths */
+    const desk = new THREE.Mesh(new THREE.BoxGeometry(6.4, 0.16, 2.2), steelMat);
+    desk.position.set(0, 0.95, 1.4);
+    desk.castShadow = true;
+    desk.receiveShadow = true;
+    g.add(desk);
+    [-2.5, 2.5].forEach((px) => {
+      const plinth = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.95, 1.9), shellMat);
+      plinth.position.set(px, 0.475, 1.4);
+      plinth.castShadow = true;
+      g.add(plinth);
     });
-    [[-ROOM_W / 2, 0], [ROOM_W / 2, 0]].forEach(([px, pz]) => {
-      const b = new THREE.Mesh(beamZ, steelMat);
-      b.position.set(px, ROOM_H, pz);
-      g.add(b);
+    // modesty panel
+    const panel = new THREE.Mesh(new THREE.BoxGeometry(5.1, 0.75, 0.08), shellMat);
+    panel.position.set(0, 0.5, 2.42);
+    g.add(panel);
+
+    /* Desk edge status bar — the at-a-glance state of this station */
+    const barMat = new THREE.MeshBasicMaterial({ color: AMBER });
+    const statusBar = new THREE.Mesh(new THREE.BoxGeometry(6.4, 0.09, 0.09), barMat);
+    statusBar.position.set(0, 1.02, 2.5);
+    g.add(statusBar);
+
+    /* Monitor bank: three angled screens on a crossbar */
+    const crossbar = new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.09, 0.09), steelMat);
+    crossbar.position.set(0, 1.55, 0.75);
+    g.add(crossbar);
+    [-1.5, 0, 1.5].forEach((px) => {
+      const stalk = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.5, 0.07), steelMat);
+      stalk.position.set(px, 1.3, 0.75);
+      g.add(stalk);
     });
-    // base skirting
-    const skirt = new THREE.Mesh(new THREE.BoxGeometry(ROOM_W + 0.3, 0.16, 0.34), steelMat);
-    skirt.position.set(0, 0.08, ROOM_D / 2);
-    g.add(skirt);
 
-    // glass walls
-    const back = new THREE.Mesh(new THREE.PlaneGeometry(ROOM_W, ROOM_H), glassMat);
-    back.position.set(0, ROOM_H / 2, -ROOM_D / 2);
-    g.add(back);
-    const sideGeo = new THREE.PlaneGeometry(ROOM_D, ROOM_H);
-    const sL = new THREE.Mesh(sideGeo, glassMat);
-    sL.rotation.y = Math.PI / 2;
-    sL.position.set(-ROOM_W / 2, ROOM_H / 2, 0);
-    g.add(sL);
-    const sR = new THREE.Mesh(sideGeo, glassMat);
-    sR.rotation.y = Math.PI / 2;
-    sR.position.set(ROOM_W / 2, ROOM_H / 2, 0);
-    g.add(sR);
+    const monitors = [];
+    [-1.95, 0, 1.95].forEach((px, k) => {
+      const bezel = new THREE.Mesh(new THREE.BoxGeometry(1.85, 1.16, 0.07), shellMat);
+      const yaw = -px * 0.12;
+      bezel.position.set(px, 2.28, 0.72 + Math.abs(px) * 0.06);
+      bezel.rotation.y = yaw;
+      bezel.rotation.x = -0.07;
+      g.add(bezel);
 
-    // sliding doors with steel handles
-    const doorMat = new THREE.MeshPhysicalMaterial({
-      color: 0xbcd6e6, transparent: true, opacity: 0.16,
-      roughness: 0.06, metalness: 0.15, envMap: env, envMapIntensity: 0.6, side: THREE.DoubleSide,
+      const offMat = new THREE.MeshBasicMaterial({ map: screenTex('offline', i * 3 + k) });
+      const liveMat = new THREE.MeshBasicMaterial({ map: screenTex('live', i * 3 + k) });
+      const face = new THREE.Mesh(new THREE.PlaneGeometry(1.7, 1.02), offMat);
+      face.position.set(0, 0, 0.038);
+      bezel.add(face);
+      monitors.push({ face, offMat, liveMat });
     });
-    const dGeo = new THREE.PlaneGeometry(ROOM_W / 2, ROOM_H);
-    const doorL = new THREE.Mesh(dGeo, doorMat.clone());
-    doorL.position.set(-ROOM_W / 4, ROOM_H / 2, ROOM_D / 2);
-    const doorR = new THREE.Mesh(dGeo, doorMat.clone());
-    doorR.position.set(ROOM_W / 4, ROOM_H / 2, ROOM_D / 2);
-    const hGeo = new THREE.BoxGeometry(0.09, 1.4, 0.09);
-    const hL = new THREE.Mesh(hGeo, steelMat);
-    hL.position.set(ROOM_W / 4 - 0.35, 0, 0.06);
-    doorL.add(hL);
-    const hR = new THREE.Mesh(hGeo, steelMat);
-    hR.position.set(-ROOM_W / 4 + 0.35, 0, 0.06);
-    doorR.add(hR);
-    g.add(doorL, doorR);
 
-    // door status strip (red -> green)
-    const stripMat = new THREE.MeshBasicMaterial({ color: 0xE06A5A });
-    const strip = new THREE.Mesh(new THREE.BoxGeometry(ROOM_W - 0.6, 0.09, 0.09), stripMat);
-    strip.position.set(0, ROOM_H - 0.28, ROOM_D / 2 + 0.06);
-    g.add(strip);
+    /* Desk terminal — where sign-off lands */
+    const termLocked = new THREE.MeshBasicMaterial({ map: terminalTex('locked') });
+    const termCleared = new THREE.MeshBasicMaterial({ map: terminalTex('cleared') });
+    const terminal = new THREE.Mesh(new THREE.BoxGeometry(0.78, 0.98, 0.06), termLocked);
+    terminal.position.set(2.15, 1.36, 1.55);
+    terminal.rotation.x = -0.5;
+    g.add(terminal);
 
-    // signage above door
+    /* Evidence hologram: three bars that stand up when the station clears */
+    const holo = new THREE.Group();
+    const holoBars = [];
+    [-0.26, 0, 0.26].forEach((px, k) => {
+      const m = new THREE.Mesh(
+        new THREE.BoxGeometry(0.16, 0.5 + k * 0.22, 0.16),
+        new THREE.MeshBasicMaterial({ color: AMBER, transparent: true, opacity: 0.5 })
+      );
+      m.position.set(px, (0.5 + k * 0.22) / 2, 0);
+      holo.add(m);
+      holoBars.push(m);
+    });
+    holo.position.set(-2.0, 1.06, 1.5);
+    holo.scale.setScalar(0.9);
+    g.add(holo);
+
+    /* Nameplate */
     const sign = new THREE.Mesh(
-      new THREE.PlaneGeometry(2.6, 0.86),
-      new THREE.MeshBasicMaterial({ map: signTex(i + 1), transparent: false })
+      new THREE.PlaneGeometry(2.9, 0.96),
+      new THREE.MeshBasicMaterial({ map: signTex(i + 1, stationLabels[i] || '') })
     );
-    sign.position.set(0, ROOM_H + 0.75, ROOM_D / 2 + 0.02);
+    sign.position.set(0, 3.55, 0.4);
     g.add(sign);
 
-    // keypad pedestal in front of the door
-    const post = new THREE.Mesh(new THREE.BoxGeometry(0.22, 1.15, 0.22), steelMat);
-    post.position.set(ROOM_W / 2 - 1.1, 0.575, ROOM_D / 2 + 1.5);
-    post.castShadow = true;
-    g.add(post);
-    const padMatLocked = new THREE.MeshBasicMaterial({ map: keypadTex('red') });
-    const padMatOpen = new THREE.MeshBasicMaterial({ map: keypadTex('green') });
-    const pad = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.8, 0.09), padMatLocked);
-    pad.position.set(ROOM_W / 2 - 1.1, 1.42, ROOM_D / 2 + 1.5);
-    pad.rotation.x = -0.28;
-    g.add(pad);
+    const beacon = makeBeacon();
+    beacon.position.set(0, 4.75, 0.4);
+    g.add(beacon);
 
-    // pedestal + artifact
-    const ped = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.72, 1.1, 28), steelMat);
-    ped.position.set(0, 0.55, 0);
-    ped.castShadow = true;
-    g.add(ped);
-    const artifact = new THREE.Mesh(
-      new THREE.OctahedronGeometry(0.42),
-      new THREE.MeshStandardMaterial({
-        color: 0x58C7B4, emissive: 0x11463d, roughness: 0.15,
-        metalness: 0.7, envMap: env, envMapIntensity: 1.1,
-      })
-    );
-    artifact.position.set(0, 1.66, 0);
-    g.add(artifact);
-
-    const glow = new THREE.PointLight(0x58C7B4, 0, 13);
-    glow.position.set(0, ROOM_H - 1, 0);
+    const glow = new THREE.PointLight(TEAL, 0, 13);
+    glow.position.set(0, 2.6, 1.6);
     g.add(glow);
-
-    const lock = makeLock();
-    lock.position.set(0, ROOM_H + 1.35, 0);
-    g.add(lock);
 
     scene.add(g);
     return {
-      group: g, doorL, doorR, lock, glow, artifact, strip, pad, padMatOpen, x,
-      unlockT: -1, doorT: 0, state: i === 0 ? 'active' : 'locked',
+      group: g, monitors, terminal, termCleared, statusBar, holo, holoBars, beacon, glow, x,
+      unlockT: -1, state: i === 0 ? 'active' : 'locked',
     };
   }
-  for (let i = 0; i < roomCount; i++) rooms3d.push(makeRoom(i));
+  for (let i = 0; i < roomCount; i++) stations.push(makeStation(i));
 
-  /* Exit vault door */
-  const exitDoor = new THREE.Group();
+  /* Master status board */
+  let openCount = roomCount;
+  const boardMat = new THREE.MeshBasicMaterial({ map: boardTex(openCount, roomCount) });
+  const board = new THREE.Mesh(new THREE.PlaneGeometry(10.4, 5.2), boardMat);
+  board.position.set(endX + BAY_W / 2 + 9, 4.1, -2.2);
+  scene.add(board);
   {
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(2.6, 0.38, 18, 80), steelMat);
-    const hub = new THREE.Mesh(
-      new THREE.CylinderGeometry(2.35, 2.35, 0.55, 56),
-      new THREE.MeshStandardMaterial({
-        color: 0x26344c, roughness: 0.3, metalness: 0.9, envMap: env, envMapIntensity: 0.9,
-      })
-    );
-    hub.rotation.x = Math.PI / 2;
-    for (let a = 0; a < 3; a++) {
-      const sp = new THREE.Mesh(new THREE.BoxGeometry(0.22, 4.3, 0.22), steelMat);
-      sp.rotation.z = a * Math.PI / 3;
-      sp.position.z = 0.32;
-      exitDoor.add(sp);
-    }
-    // bolts around the ring
-    for (let a = 0; a < 12; a++) {
-      const bolt = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.2, 10), steelMat);
-      bolt.rotation.x = Math.PI / 2;
-      bolt.position.set(Math.cos(a / 12 * Math.PI * 2) * 2.6, Math.sin(a / 12 * Math.PI * 2) * 2.6, 0.36);
-      exitDoor.add(bolt);
-    }
-    exitDoor.add(ring, hub);
-    exitDoor.position.set(endX + ROOM_W / 2 + 7, 3.1, 0);
-    exitDoor.rotation.y = -Math.PI / 2;
-    scene.add(exitDoor);
+    const frame = new THREE.Mesh(new THREE.BoxGeometry(10.9, 5.7, 0.18), shellMat);
+    frame.position.copy(board.position);
+    frame.position.z -= 0.12;
+    scene.add(frame);
+    // support legs
+    [-4.4, 4.4].forEach((px) => {
+      const leg = new THREE.Mesh(new THREE.BoxGeometry(0.22, 3.1, 0.22), steelMat);
+      leg.position.set(board.position.x + px, 1.55, board.position.z - 0.1);
+      scene.add(leg);
+    });
   }
-  const exitGlow = new THREE.PointLight(0xE0A93E, 0.4, 18);
-  exitGlow.position.set(endX + ROOM_W / 2 + 5.5, 3.4, 2);
-  scene.add(exitGlow);
+  const boardGlow = new THREE.PointLight(AMBER, 0.45, 20);
+  boardGlow.position.set(board.position.x, 4.2, 2.2);
+  scene.add(boardGlow);
 
-  /* Dust motes */
+  function refreshBoard() {
+    boardMat.map.dispose();
+    boardMat.map = boardTex(openCount, roomCount);
+    boardMat.needsUpdate = true;
+    boardGlow.color.set(openCount === 0 ? TEAL : AMBER);
+  }
+
+  /* Dust motes in the light beams */
   let motes = null;
   {
     const n = 170, pos = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
-      pos[i * 3] = startX - 6 + Math.random() * (endX - startX + 22);
+      pos[i * 3] = startX - 6 + Math.random() * (endX - startX + 26);
       pos[i * 3 + 1] = 0.4 + Math.random() * 6.5;
       pos[i * 3 + 2] = -3 + Math.random() * 11;
     }
@@ -287,24 +307,24 @@ export function createScene({ container, roomCount, reduceMotion }) {
     scene.add(motes);
   }
 
-  /* Confetti */
-  let confetti = null;
-  function launchConfetti() {
+  /* Sign-off burst at the board */
+  let burst = null;
+  function launchBurst() {
     const n = 350, pos = new Float32Array(n * 3), vel = [];
-    const cx = exitDoor.position.x - 2;
+    const cx = board.position.x - 2;
     for (let i = 0; i < n; i++) {
       pos[i * 3] = cx;
-      pos[i * 3 + 1] = 3;
+      pos[i * 3 + 1] = 3.2;
       pos[i * 3 + 2] = 0;
       vel.push([(Math.random() - 0.5) * 0.22, Math.random() * 0.3 + 0.08, (Math.random() - 0.5) * 0.22]);
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    confetti = {
-      pts: new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.18, color: 0xE0A93E })),
+    burst = {
+      pts: new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.18, color: TEAL })),
       vel, life: 0,
     };
-    scene.add(confetti.pts);
+    scene.add(burst.pts);
   }
 
   /* Camera */
@@ -312,12 +332,12 @@ export function createScene({ container, roomCount, reduceMotion }) {
   function camTargetFor(i) {
     if (i >= roomCount) {
       return {
-        pos: new THREE.Vector3(exitDoor.position.x - 14, 6.4, 14),
-        look: new THREE.Vector3(exitDoor.position.x, 3, 0),
+        pos: new THREE.Vector3(board.position.x - 13, 6.6, 14),
+        look: new THREE.Vector3(board.position.x, 3.8, 0),
       };
     }
-    const x = rooms3d[i].x;
-    return { pos: new THREE.Vector3(x - 4.2, 6.6, 15.8), look: new THREE.Vector3(x, 1.9, 0) };
+    const x = stations[i].x;
+    return { pos: new THREE.Vector3(x - 4.2, 6.4, 15.2), look: new THREE.Vector3(x, 2.1, 0) };
   }
   let camFrom = camTargetFor(0), camTo = camTargetFor(0), camT = 1;
   camera.position.copy(camTo.pos);
@@ -331,13 +351,12 @@ export function createScene({ container, roomCount, reduceMotion }) {
       camera.position.copy(camTo.pos);
       lookCur.copy(camTo.look);
     }
-    // move the spotlight
-    const t = i >= roomCount ? exitDoor.position : new THREE.Vector3(rooms3d[i].x, 0, 0);
+    const t = i >= roomCount ? board.position : new THREE.Vector3(stations[i].x, 0, 0);
     spot.position.set(t.x, CEIL_H - 0.4, 4.4);
     spot.target.position.set(t.x, 0, 1.4);
   }
-  spot.position.set(rooms3d[0].x, CEIL_H - 0.4, 4.4);
-  spot.target.position.set(rooms3d[0].x, 0, 1.4);
+  spot.position.set(stations[0].x, CEIL_H - 0.4, 4.4);
+  spot.target.position.set(stations[0].x, 0, 1.4);
   const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
   function resize() {
@@ -348,6 +367,18 @@ export function createScene({ container, roomCount, reduceMotion }) {
   }
   addEventListener('resize', resize);
   resize();
+
+  /* Drop a station straight into its cleared end-state */
+  function applyCleared(s) {
+    s.state = 'open';
+    s.unlockT = -1;
+    s.beacon.visible = false;
+    s.monitors.forEach((m) => { m.face.material = m.liveMat; });
+    s.terminal.material = s.termCleared;
+    s.statusBar.material.color.set(TEAL);
+    s.holoBars.forEach((b) => { b.material.color.set(TEAL); b.material.opacity = 0.85; });
+    s.glow.intensity = 1.5;
+  }
 
   const clock = new THREE.Clock();
   function animate() {
@@ -365,51 +396,61 @@ export function createScene({ container, roomCount, reduceMotion }) {
     }
     camera.lookAt(lookCur);
 
-    rooms3d.forEach((r, i) => {
-      if (r.state !== 'open' || r.unlockT >= 0) {
-        r.lock.rotation.y += dt * (r.state === 'active' ? 1.1 : 0.35);
+    // ceiling alert strips: pulse amber on alert, settle teal when stood down
+    const pulse = done ? 0.35 : 0.45 + Math.sin(t * 2.2) * 0.3;
+    alertStrips.forEach((s) => {
+      s.material.opacity = reduceMotion ? (done ? 0.35 : 0.6) : pulse;
+      s.material.color.set(done ? TEAL : AMBER);
+    });
+
+    stations.forEach((s, i) => {
+      // beacon: spin + hologram flicker while the exception is open
+      if (s.state !== 'open' || s.unlockT >= 0) {
+        s.beacon.rotation.y += dt * (s.state === 'active' ? 1.1 : 0.35);
         if (!reduceMotion) {
-          r.lock.position.y = ROOM_H + 1.35 + Math.sin(t * 1.4 + i) * 0.11;
-          // hologram flicker
+          s.beacon.position.y = 4.75 + Math.sin(t * 1.4 + i) * 0.11;
           const f = 0.86 + Math.sin(t * 23 + i * 7) * 0.06 + Math.sin(t * 61 + i * 3) * 0.04;
-          r.lock.children.forEach((m) => {
-            if (r.unlockT < 0) m.material.opacity = m === r.lock.children[1] ? 0.5 * f : 0.95 * f;
-          });
+          if (s.unlockT < 0) {
+            s.beacon.children.forEach((m) => {
+              m.material.opacity = (m.userData.baseOpacity || 0.9) * f;
+            });
+          }
         }
       }
-      r.artifact.rotation.y += dt * 0.6;
-      if (!reduceMotion) r.artifact.position.y = 1.66 + Math.sin(t * 1.1 + i * 2) * 0.05;
+      // evidence hologram idles
+      s.holo.rotation.y += dt * 0.55;
+      if (!reduceMotion) {
+        s.holoBars.forEach((b, k) => {
+          b.material.opacity = (s.state === 'open' ? 0.85 : 0.5) + Math.sin(t * 1.6 + k) * 0.08;
+        });
+      }
 
-      if (r.unlockT >= 0) {
-        r.unlockT += dt;
-        const u = r.unlockT;
-        r.lock.children.forEach((m) => {
-          m.material.color.set(0x58C7B4);
+      if (s.unlockT >= 0) {
+        s.unlockT += dt;
+        const u = s.unlockT;
+        // beacon flares teal and dissolves
+        s.beacon.children.forEach((m) => {
+          m.material.color.set(TEAL);
           m.material.opacity = Math.max(0, 1 - u / 0.9);
         });
-        r.lock.scale.setScalar(1 + u * 1.6);
-        if (u > 0.35 && r.doorT < 1) {
-          r.doorT = Math.min(1, r.doorT + dt / 1.1);
-          const d = easeInOut(r.doorT);
-          r.doorL.position.x = -ROOM_W / 4 - d * (ROOM_W / 2);
-          r.doorR.position.x = ROOM_W / 4 + d * (ROOM_W / 2);
-          r.doorL.material.opacity = 0.16 * (1 - d * 0.5);
-          r.doorR.material.opacity = 0.16 * (1 - d * 0.5);
+        s.beacon.scale.setScalar(1 + u * 1.6);
+        // monitors come online one after another
+        s.monitors.forEach((m, k) => {
+          if (u > 0.3 + k * 0.18 && m.face.material !== m.liveMat) m.face.material = m.liveMat;
+        });
+        if (u > 0.2 && s.statusBar.material.color.getHex() !== 0x58C7B4) {
+          s.statusBar.material.color.set(TEAL);
+          s.terminal.material = s.termCleared;
+          s.holoBars.forEach((b) => b.material.color.set(TEAL));
         }
-        r.glow.intensity = Math.min(1.7, u * 2);
-        if (u > 0.2 && r.strip.material.color.getHex() !== 0x58C7B4) {
-          r.strip.material.color.set(0x58C7B4);
-          r.pad.material = r.padMatOpen;
-        }
+        s.glow.intensity = Math.min(1.5, u * 2);
         if (u > 1.2) {
-          r.lock.visible = false;
-          r.unlockT = -1;
-          r.state = 'open';
+          s.beacon.visible = false;
+          s.unlockT = -1;
+          s.state = 'open';
         }
       }
     });
-
-    if (done && !reduceMotion) exitDoor.rotation.z += dt * 0.5;
 
     if (motes && !reduceMotion) {
       const p = motes.geometry.attributes.position.array;
@@ -421,10 +462,10 @@ export function createScene({ container, roomCount, reduceMotion }) {
       motes.geometry.attributes.position.needsUpdate = true;
     }
 
-    if (confetti) {
-      confetti.life += dt;
-      const p = confetti.pts.geometry.attributes.position.array;
-      confetti.vel.forEach((v, i) => {
+    if (burst) {
+      burst.life += dt;
+      const p = burst.pts.geometry.attributes.position.array;
+      burst.vel.forEach((v, i) => {
         v[1] -= dt * 0.35;
         p[i * 3] += v[0];
         p[i * 3 + 1] += v[1];
@@ -436,9 +477,9 @@ export function createScene({ container, roomCount, reduceMotion }) {
           v[2] *= 0.9;
         }
       });
-      confetti.pts.geometry.attributes.position.needsUpdate = true;
-      confetti.pts.material.opacity = Math.max(0, 1 - confetti.life / 6);
-      confetti.pts.material.transparent = true;
+      burst.pts.geometry.attributes.position.needsUpdate = true;
+      burst.pts.material.opacity = Math.max(0, 1 - burst.life / 6);
+      burst.pts.material.transparent = true;
     }
 
     renderer.render(scene, camera);
@@ -448,34 +489,34 @@ export function createScene({ container, roomCount, reduceMotion }) {
   return {
     glideTo,
     setActive(i) {
-      if (rooms3d[i] && rooms3d[i].state === 'locked') rooms3d[i].state = 'active';
+      if (stations[i] && stations[i].state === 'locked') stations[i].state = 'active';
     },
     startUnlock(i) {
-      if (rooms3d[i]) rooms3d[i].unlockT = 0;
+      if (!stations[i]) return;
+      stations[i].unlockT = 0;
+      openCount = Math.max(0, openCount - 1);
+      refreshBoard();
     },
-    // Jump straight to the unlocked end-state — matches where startUnlock's
+    // Jump straight to the cleared end-state — matches where startUnlock's
     // animation lands, used when restoring a refreshed session.
     openInstant(i) {
-      const r = rooms3d[i];
-      if (!r) return;
-      r.state = 'open';
-      r.unlockT = -1;
-      r.doorT = 1;
-      r.lock.visible = false;
-      r.doorL.position.x = -ROOM_W / 4 - ROOM_W / 2;
-      r.doorR.position.x = ROOM_W / 4 + ROOM_W / 2;
-      r.doorL.material.opacity = 0.08;
-      r.doorR.material.opacity = 0.08;
-      r.glow.intensity = 1.7;
-      r.strip.material.color.set(0x58C7B4);
-      r.pad.material = r.padMatOpen;
+      const s = stations[i];
+      if (!s) return;
+      applyCleared(s);
+      openCount = Math.max(0, roomCount - stations.filter((x) => x.state === 'open').length);
+      refreshBoard();
     },
     setDone(v) {
       done = !!v;
+      if (done) {
+        openCount = 0;
+        refreshBoard();
+      }
     },
     celebrate() {
-      launchConfetti();
-      exitGlow.intensity = 1.4;
+      launchBurst();
+      boardGlow.intensity = 1.5;
+      boardGlow.color.set(TEAL);
     },
   };
 }

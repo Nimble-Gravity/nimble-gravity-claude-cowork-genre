@@ -3,7 +3,7 @@
 // without it the app degrades to local-only (same browser) — stated in the UI.
 //
 // Row shape (both adapters):
-//   { id, team_name, current_room, escaped, attempts, hints_used[],
+//   { id, team_name, current_room, cleared, attempts, hints_used[],
 //     penalty_seconds, started_at, finished_at, total_seconds,
 //     reset_requested, updated_at }
 const RUNS_KEY = 'controlRoom.teams.v1';
@@ -64,7 +64,7 @@ function localAdapter() {
   };
 }
 
-function supabaseAdapter({ supabaseUrl, supabaseAnonKey, supabaseTable = 'skill_vault_teams' }) {
+function supabaseAdapter({ supabaseUrl, supabaseAnonKey, supabaseTable = 'control_room_teams' }) {
   const base = `${supabaseUrl.replace(/\/$/, '')}/rest/v1/${supabaseTable}`;
   const baseHeaders = {
     apikey: supabaseAnonKey,

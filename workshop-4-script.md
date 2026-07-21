@@ -7,7 +7,7 @@
 
 **Outcome:** every participant leaves (1) able to explain Axos's Cowork access model and audit position
 to someone who has to sign off on it, and (2) holding a one-page control narrative they produced under
-a clock in **The Control Room** — the 40-minute escape-room lab.
+a clock in **The Control Room** — the 40-minute control-review simulation.
 
 **This is the session with IT and compliance in the room.** The content pivoted to governance, RBAC,
 analytics, and setup practice for exactly that reason. Plugins are covered in five minutes as the
@@ -32,7 +32,7 @@ yet"* — is quoted from Anthropic's own Cowork Enterprise Administrator Guide.
 **Before you present:** re-check that quote and the RBAC details against the Sources block in
 `cowork-context.md`. Anthropic is actively closing this gap, and a compliance audience will know if
 you are a release behind. If it has closed, say so and pivot the framing to "here is what changed" —
-the lab still works, because Lock 4's checklist tests whether you can *state your audit position*,
+the lab still works, because Station 4's checklist tests whether you can *state your audit position*,
 not whether the gap exists.
 
 ---
@@ -66,7 +66,7 @@ not whether the gap exists.
 | 0:33–0:52 | **Demo** | Live: build a Custom role, then read the telemetry |
 | 0:52–1:04 | **Discuss** | Which Axos workloads leave the Cowork interface? + team announcements |
 | 1:04–1:10 | **Break** | Staging break — file confirm |
-| 1:10–1:50 | **Lab** | The Control Room — 40-minute escape room |
+| 1:10–1:50 | **Lab** | The Control Room — 40-minute control review |
 | 1:50–1:58 | **Debrief** | One share per team + knowledge check |
 | 1:58–2:00 | **Close** | Homework + program wrap + feedback |
 
@@ -149,7 +149,7 @@ the pilot group can use Cowork — because the role didn't list it. The org togg
 The role is the *grant*."
 
 **[>>]** *This is the single most useful thing you will say all day.* It is the defect that burns a
-morning of a real rollout, it is Lock 2 of the lab, and it is the kind of specific, operational detail
+morning of a real rollout, it is Station 2 of the lab, and it is the kind of specific, operational detail
 that convinces an IT audience you've actually deployed this rather than read a brochure. Say it slowly
 and let someone write it down.
 
@@ -229,12 +229,12 @@ off? Weekly active usage trending up is the headline."
 ## Demo · 0:33–0:52 (19 min) — Build a role, then read the telemetry
 
 **[SAY]** "Two things in nineteen minutes. First I'll build the access control. Then I'll show you how
-you find out whether it's working. Everything you're about to see is a lock in the Control Room."
+you find out whether it's working. Everything you're about to see is a station in the Control Room."
 
-**[>>]** *"Everything you're about to see is a lock" — say this line.* It is the W3 transition that
+**[>>]** *"Everything you're about to see is a station" — say this line.* It is the W3 transition that
 worked, and it does the same job here: it converts the demo from something participants watch into
 something they know they'll be graded on in thirty minutes. Attention in the Demo slot measurably
-determines how many teams clear Lock 2.
+determines how many teams clear Station 2.
 
 ### (a) Build a least-privilege Custom role (10 min)
 **[DO]** Admin console → Organization settings → Roles → create a Custom role.
@@ -253,7 +253,7 @@ fake a live console. An IT audience can tell, and the credibility cost is far hi
 
 ### (b) Read the telemetry (9 min)
 **[DO]** Open `control-room/lab-files/analytics-export.csv` on screen — this is the same file they'll use
-in Lock 3, which is intentional.
+in Station 3, which is intentional.
 
 **[SAY]** "Last week, twelve weekly active users. Now watch what one column tells me." Walk the model
 column by department. "Capital Markets is running about **88% of its dispatch turns on Opus.** Every
@@ -282,7 +282,7 @@ showed you about audit coverage — **which Axos workloads should not run in the
 
 **[DO]** Call your pre-recruited partner: *"[Name], 90 seconds — where would you draw that line?"* Then
 take two or three more from the room. Capture answers in the chat or on a shared slide; **these become
-Lock 4 material** for several teams.
+Station 4 material** for several teams.
 
 **[SAY] — seed it if the room is quiet:** "Think about anything with a retention obligation. Anything
 where you'd need to reproduce the full interaction for an examiner. Anything touching material
@@ -291,7 +291,7 @@ non-public information. Those are candidates for the API or Claude Code Enterpri
 **[>>]** *Why this discussion and not a plugin-candidates discussion?* The old W4 asked which skills
 should become team plugins — a fine question that the wrong half of the room can answer. This one puts
 the business users and the compliance partners in genuine dialogue, and it produces the exact artifact
-Lock 4 scores (checklist item 3 requires a named workload routed to an audited surface). Teams that
+Station 4 scores (checklist item 3 requires a named workload routed to an audited surface). Teams that
 engage here finish the lab meaningfully faster.
 
 **[SAY] — the reframe to land before the break:** "Notice what we just did. We didn't decide whether
@@ -300,11 +300,11 @@ like, and it's what your one-pager has to show."
 
 **[DO] — Control Room team announcements (4 min):** "You'll play in teams of 2–4. **Mix the teams — put
 an IT or compliance person with the business users.** One person drives Cowork and shares their screen;
-everyone else advises. Two hints per lock: first is free, second adds 2 minutes. Wrong codes cost nothing
+everyone else advises. Two hints per station: first is free, second adds 2 minutes. Wrong codes cost nothing
 but time. Forty minutes." Announce breakout assignments and drivers.
 
-**[>>]** *Insist on mixed teams.* Lock 1 and Lock 3 favour business users comfortable delegating to
-Cowork; Lock 2 favours whoever knows what SCIM is. Homogeneous teams stall on one of the two. Mixed
+**[>>]** *Insist on mixed teams.* Station 1 and Station 3 favour business users comfortable delegating to
+Cowork; Station 2 favours whoever knows what SCIM is. Homogeneous teams stall on one of the two. Mixed
 teams also produce the cross-functional conversation that the rollout actually needs — which is,
 quietly, the real deliverable of this workshop.
 
@@ -330,48 +330,48 @@ seconds for stragglers rather than starting with file-less teams.
 **[DO]** "The Control Room is open. Clock starts when your team enters a name. One driver in Cowork, the
 rest advising. Game in one window, Cowork in the other. Go."
 
-**[>>]** *Why an escape room for governance content?* The same three reasons it worked in W3, plus one
+**[>>]** *Why a timed simulation for governance content?* The same three reasons the vault worked in W3, plus one
 specific to this material. The clock stops teams over-polishing; the team mechanic means fast thinkers
 carry slower ones; and every code is gated on a real control. The addition here: governance content is
 the easiest material in the program to *nod along to and not absorb*. Nobody argues with "apply least
 privilege." Making them count seven actual violations in a real register converts agreement into skill.
 
-### The four locks — what to watch for
+### The four stations — what to watch for
 
-**Lock 1 — The Access Map (delegate an access review):**
+**Station 1 — The Access Map (delegate an access review):**
 **[NOTE]** Teams test 18 grants against a 4-rule rubric. **Answer: 7 non-compliant rows; the worst
 offender is in Commercial Lending.** Common failure: counting *violations* instead of *rows* — the
 rubric says count each row once, and teams that miss that line get 10 or 11. Redirect: *"Re-read the
 counting instruction in the rubric."*
 
-**[>>]** *What Lock 1 teaches.* That an access review is a real, delegable piece of work — and that
+**[>>]** *What Station 1 teaches.* That an access review is a real, delegable piece of work — and that
 folder scope is where the risk actually lives. Teams that scope their own Cowork grant to just the lab
 folder without being told have already understood the lesson.
 
-**Lock 2 — The Broken Role Matrix (repair the RBAC design):**
+**Station 2 — The Broken Role Matrix (repair the RBAC design):**
 **[NOTE]** Seven defect areas; the code needs two of them. **Answer: 4 people move off Owner** (two of
 the six genuinely administer the org), **and the mandatory-disclaimer plugin must be Required.** Common
 failure: teams count all six Owners, or count only the obviously-wrong ones. Push them to the "what they
 actually need to do" column — anyone whose need maps to exactly one of the six admin areas gets a
 Custom role.
 
-**[>>]** *Lock 2 is the highest-transfer lock, exactly as Room 2 was in the vault.* After repairing this
+**[>>]** *Station 2 is the highest-transfer station, exactly as Room 2 was in the vault.* After repairing this
 matrix, participants will never again hand out Owner casually, and they will never again forget that
 Custom roles grant nothing implicitly. If a team is stuck past the 20-minute mark, give hint 1 free.
 
-**Lock 3 — Read the Room (author a skill, run it on the export):**
+**Station 3 — Read the Room (author a skill, run it on the export):**
 **[NOTE]** Teams author a `cowork-adoption-review` skill with four prescribed sections, then run it on
 the export. **Answer: Capital Markets, 12 weekly active users.** Two common failures: (a) computing
 Opus share across the whole file instead of per department, and (b) counting *rows* or *sessions*
 instead of distinct users. Both are caught by the "sanity-check by hand" step — push teams to it.
 
-**[>>]** *Lock 3 is the W3 callback.* It is the only lock that asks them to author a skill, and it
+**[>>]** *Station 3 is the W3 callback.* It is the only station that asks them to author a skill, and it
 deliberately reuses the discipline they learned in the vault — prescribe the output shape, don't
 describe it. Teams that write a vague skill get a drifting readout and can't find the number.
 
-**Lock 4 — The Control Narrative (chain everything + QA):**
+**Station 4 — The Control Narrative (chain everything + QA):**
 **[NOTE]** Teams fold all three artifacts into a one-page control narrative and score it against a
-9-item checklist. **The door only opens on a clean sweep: 9 and the verdict word.** Most first drafts
+9-item checklist. **The station only clears on a clean sweep: 9 and the verdict word.** Most first drafts
 fail items 2, 6, and 7 — the three monitoring planes, the explicit-capability-grant rule, and naming
 the OTel collector plus the no-data-by-default caveat.
 
@@ -381,13 +381,13 @@ the OTel collector plus the no-data-by-default caveat.
 - **B — they're writing prose instead of answering items.** A beautiful page that fails four items.
   Redirect: *"Score it first, then write to the gaps. The checklist is your outline."*
 
-**[>>]** *Lock 4 is where the capstone deliverable actually gets produced* — the one-pager that used to
-be a quiet writing exercise is now the final door. That's the whole design of the pivot: the artifact a
+**[>>]** *Station 4 is where the capstone deliverable actually gets produced* — the one-pager that used to
+be a quiet writing exercise is now the final station. That's the whole design of the pivot: the artifact a
 sponsor needs is the thing that lets them out of the room. Teams will iterate three or four times, and
 each iteration is a real editing pass on a real governance document.
 
-**[NOTE — pacing]** If a team hasn't cleared Lock 2 by the 15-minute mark, drop a hint in their breakout
-chat. If a team is in Lock 4 at the 35-minute mark with no code, tell them to score before they polish.
+**[NOTE — pacing]** If a team hasn't cleared Station 2 by the 15-minute mark, drop a hint in their breakout
+chat. If a team is in Station 4 at the 35-minute mark with no code, tell them to score before they polish.
 **At 1:47 — 3 minutes left — call time** and ask each team to note where they stopped.
 
 ---
@@ -398,14 +398,14 @@ chat. If a team is in Lock 4 at the 35-minute mark with no code, tell them to sc
 examiner? Thirty seconds each."
 
 **[SAY] — the meta-lesson, say each one and pause:** "Here's what the Control Room was really testing.
-**Lock 1:** least privilege is a folder decision, and it's reviewable. **Lock 2:** delegation is a
-Custom role, not an Owner seat — and capabilities are never inherited. **Lock 3:** measurement is only
-useful if it points at a control. **Lock 4:** you don't defend a rollout with evidence, you defend it
+**Station 1:** least privilege is a folder decision, and it's reviewable. **Station 2:** delegation is a
+Custom role, not an Owner seat — and capabilities are never inherited. **Station 3:** measurement is only
+useful if it points at a control. **Station 4:** you don't defend a rollout with evidence, you defend it
 with a position — written down, owned, and dated."
 
-**[>>]** *Same reason as W3: consolidate or the puzzle overwrites the principle.* An escape room leaves
+**[>>]** *Same reason as W3: consolidate or the puzzle overwrites the principle.* A timed simulation leaves
 a vivid memory of the game and a fuzzy memory of the content unless you name the discipline behind each
-door explicitly. This matters more in W4 than W3, because the people who most need the principle — the
+station explicitly. This matters more in W4 than W3, because the people who most need the principle — the
 IT and compliance partners — are the ones least likely to have driven the keyboard.
 
 **[THEY]** "Two minutes — run the **Workshop 4 knowledge check** at the bottom of Lesson 5. Do it now
@@ -416,7 +416,7 @@ while it's fresh." *(6 questions, 4 to pass.)*
 ## Close · 1:58–2:00 (2 min) — Homework + program wrap
 
 **[SAY] — homework:** "The Control Room used a synthetic Axos pilot. Your homework uses the real one.
-Export your own Cowork folder grants and run the Lock 1 review against the rubric. Map your pilot group
+Export your own Cowork folder grants and run the Station 1 review against the rubric. Map your pilot group
 to Custom roles. Then score your real control narrative against `exam-checklist.txt` until all nine
 items pass — and take it to your sponsor."
 
@@ -445,7 +445,7 @@ champions take it from here.
 value lands.
 
 **Answer key (do not share):**
-| Lock | Code | Derivation |
+| Station | Code | Derivation |
 |---|---|---|
 | 1 · The Access Map | `7Commercial` | 7 non-compliant rows; worst offender (4 rules) is C. Duarte, Commercial Lending |
 | 2 · The Broken Role Matrix | `4Required` | 4 of 6 Owners move to Custom roles; disclaimer plugin must be Required |
@@ -458,7 +458,7 @@ Reset is available per team in the facilitator view.
 **Top risks:**
 - **Lab files not staged.** Confirm in Teams chat during the break. Six files, one folder.
 - **A team grants a real data folder.** Redirect to the lab folder — and note the irony out loud; it's
-  a teaching moment for Lock 1.
+  a teaching moment for Station 1.
 - **Someone challenges the audit-gap claim.** Good. Show them the quote and the date. If Anthropic has
   shipped coverage since 21 July 2026, concede immediately and reframe: the lab tests whether you can
   *state* your audit position, which is still required.
@@ -472,7 +472,7 @@ Reset is available per team in the facilitator view.
   Axos governance one-pager NG delivers.
 - Note which workloads the Discuss slot flagged for audited surfaces; that list is a deliverable in
   its own right.
-- Anyone who cleared Lock 2 quickly is an RBAC champion. Name them to the sponsor.
+- Anyone who cleared Station 2 quickly is an RBAC champion. Name them to the sponsor.
 
 ### Script ↔ on-site sync notes
 - **Agenda** matches `module-4-workshop.html` / `syllabus.html` (8 slots, 2 hours) and
@@ -483,5 +483,5 @@ Reset is available per team in the facilitator view.
 - **Facilitator view:** `control-room/admin.html` — open throughout the lab slot.
 - **Governance facts** quoted in Teach were verified against Anthropic's documentation on
   **2026-07-21**; the Sources block in `cowork-context.md` has the references. Re-verify each cohort.
-- **Deepens W3:** Lock 3 reuses the skill-authoring discipline from the Skill Vault (prescribe the
+- **Deepens W3:** Station 3 reuses the skill-authoring discipline from the Skill Vault (prescribe the
   output shape); the Open callbacks the vault leaderboard. Continuity is intentional.

@@ -3,7 +3,7 @@
 import { createLeaderboard } from './leaderboard.js';
 import { fmt } from './timer.js';
 
-const CFG = globalThis.SKILL_VAULT_CONFIG || {};
+const CFG = globalThis.CONTROL_ROOM_CONFIG || {};
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => (
   { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
@@ -89,19 +89,19 @@ function rel(ms) {
 }
 
 function rowHtml(t, roomCount) {
-  const escaped = !!t.finished_at || !!t.escaped;
-  const elapsed = escaped
+  const cleared = !!t.finished_at || !!t.cleared;
+  const elapsed = cleared
     ? t.total_seconds ?? 0
     : t.started_at
       ? Math.max(0, Math.floor((Date.now() - new Date(t.started_at).getTime()) / 1000)) + (t.penalty_seconds | 0)
       : null;
-  const room = escaped
-    ? '<span class="escaped">ESCAPED</span>'
+  const station = cleared
+    ? '<span class="cleared">CLEARED</span>'
     : `${(t.current_room | 0) + 1}${roomCount ? ' / ' + roomCount : ''}`;
   const seen = t.updated_at ? rel(Date.now() - new Date(t.updated_at).getTime()) : '—';
   return `<tr${t.reset_requested ? ' class="resetting"' : ''}>
     <td>${esc(t.team_name || '—')}${t.reset_requested ? ' <em>(reset pending)</em>' : ''}</td>
-    <td>${room}</td>
+    <td>${station}</td>
     <td class="mono">${elapsed == null ? '—' : fmt(elapsed)}</td>
     <td class="mono">${sumHints(t.hints_used)}</td>
     <td class="mono">${Math.round((t.penalty_seconds | 0) / 60)}m</td>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Skill Vault — Workshop 3</title>
+<title>The Control Room — Workshop 4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/game.css">
@@ -15,28 +15,28 @@
 
 <div id="hud">
   <div>
-    <div class="hud-title">The Skill <span>Vault</span></div>
-    <div class="hud-sub">Workshop 3 · Claude Cowork · Skills Lab</div>
+    <div class="hud-title">The Control <span>Room</span></div>
+    <div class="hud-sub">Workshop 4 · Claude Cowork · Governance Review</div>
   </div>
   <div id="hud-right">
-    <div id="locks"></div>
+    <div id="stations"></div>
     <div id="timer">40:00</div>
   </div>
 </div>
 
 <aside id="panel">
   <div id="panel-scroll">
-    <div class="eyebrow" id="room-eyebrow">Room 01</div>
-    <div class="room-title" id="room-title"></div>
-    <p class="narrative" id="room-narrative"></p>
+    <div class="eyebrow" id="station-eyebrow">Station 01</div>
+    <div class="station-title" id="station-title"></div>
+    <p class="narrative" id="station-narrative"></p>
     <details open>
-      <summary>Lab instructions</summary>
-      <ol class="steps" id="room-steps"></ol>
+      <summary>Review procedure</summary>
+      <ol class="steps" id="station-steps"></ol>
     </details>
-    <div class="code-label">Enter unlock code</div>
+    <div class="code-label">Enter sign-off code</div>
     <div id="code-row">
       <input id="code-input" autocomplete="off" spellcheck="false" placeholder="CODE">
-      <button id="code-btn">Unlock</button>
+      <button id="code-btn">Sign off</button>
     </div>
     <div id="code-msg"></div>
     <div class="hint-block" id="hint-block"></div>
@@ -49,20 +49,20 @@
 
 <div class="overlay hide" id="start-overlay">
   <div class="overlay-card">
-    <div class="eyebrow">Security briefing</div>
-    <h1>The playbook is <em>locked in</em></h1>
+    <div class="eyebrow">Audit notice</div>
+    <h1>The review starts <em>now</em></h1>
     <p id="scenario-text"></p>
     <input id="team-input" placeholder="Enter team name" maxlength="24" autocomplete="off">
-    <button class="big-btn" id="start-btn">Enter the vault</button>
+    <button class="big-btn" id="start-btn">Take the floor</button>
   </div>
 </div>
 
-<div class="overlay hide" id="escape-overlay">
+<div class="overlay hide" id="cleared-overlay">
   <div class="overlay-card">
-    <div class="eyebrow">Vault cleared</div>
-    <h1>Playbook <em>recovered</em></h1>
-    <div id="escape-stats"></div>
-    <div class="eyebrow teal">What you proved today</div>
+    <div class="eyebrow">Review cleared</div>
+    <h1>Evidence pack <em>accepted</em></h1>
+    <div id="cleared-stats"></div>
+    <div class="eyebrow teal">Controls you demonstrated</div>
     <ul class="recap" id="recap-list"></ul>
     <div class="eyebrow">Leaderboard</div>
     <ol class="lb" id="lb-list"></ol>

@@ -1,5 +1,5 @@
-// All DOM rendering for the game page. Content comes from the room config —
-// nothing here hardcodes room text. Interaction flows back through the
+// All DOM rendering for the game page. Content comes from the station config —
+// nothing here hardcodes station text. Interaction flows back through the
 // callbacks passed to initUI.
 import { fmt } from './timer.js';
 
@@ -9,19 +9,21 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => (
 ));
 const sumHints = (h) => (Array.isArray(h) ? h.reduce((a, b) => a + (b | 0), 0) : h | 0);
 
-const lockSVG = (open) => open
-  ? '<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg>'
-  : '<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+// Open exception → warning triangle. Cleared → signed-off check.
+const statusSVG = (cleared) => (cleared
+  ? '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg>'
+  : '<svg viewBox="0 0 24 24"><path d="M12 4.5L21 19.5H3z"/><path d="M12 10v4"/><path d="M12 16.6v.4"/></svg>');
 
 export function initUI({ rooms, hintPenalty, onStart, onSubmitCode, onTakeHint, onPlayAgain }) {
+  const stations = rooms;
   const pad = (n) => String(n).padStart(2, '0');
 
   const chips = [];
-  rooms.forEach(() => {
+  stations.forEach(() => {
     const c = document.createElement('div');
-    c.className = 'lockchip';
-    c.innerHTML = lockSVG(false);
-    $('locks').appendChild(c);
+    c.className = 'statuschip';
+    c.innerHTML = statusSVG(false);
+    $('stations').appendChild(c);
     chips.push(c);
   });
 
@@ -41,16 +43,16 @@ export function initUI({ rooms, hintPenalty, onStart, onSubmitCode, onTakeHint, 
 
   function chipRefresh(S) {
     chips.forEach((c, j) => {
-      const open = S.done || j < S.room;
+      const cleared = S.done || j < S.room;
       const active = !S.done && j === S.room;
-      c.className = 'lockchip' + (open ? ' open' : '') + (active ? ' active' : '');
-      c.innerHTML = lockSVG(open);
+      c.className = 'statuschip' + (cleared ? ' cleared' : '') + (active ? ' active' : '');
+      c.innerHTML = statusSVG(cleared);
     });
   }
 
   function renderHints(S) {
-    const i = S.room, used = S.hintsUsed[i], r = rooms[i];
-    let html = '<div class="code-label">Game master hints</div>';
+    const i = S.room, used = S.hintsUsed[i], r = stations[i];
+    let html = '<div class="code-label">Duty officer hints</div>';
     for (let h = 0; h < r.hints.length; h++) {
       if (h < used) {
         html += `<div class="hint-text">${esc(r.hints[h])}</div>`;
@@ -65,12 +67,12 @@ export function initUI({ rooms, hintPenalty, onStart, onSubmitCode, onTakeHint, 
     if (btn) btn.addEventListener('click', onTakeHint);
   }
 
-  function renderRoom(S) {
-    const i = S.room, r = rooms[i];
-    $('room-eyebrow').textContent = `Room ${pad(i + 1)} / ${pad(rooms.length)}`;
-    $('room-title').textContent = r.title;
-    $('room-narrative').textContent = r.narrative;
-    $('room-steps').innerHTML = r.labSteps.map((s) => `<li>${esc(s)}</li>`).join('');
+  function renderStation(S) {
+    const i = S.room, r = stations[i];
+    $('station-eyebrow').textContent = `Station ${pad(i + 1)} / ${pad(stations.length)}`;
+    $('station-title').textContent = r.title;
+    $('station-narrative').textContent = r.narrative;
+    $('station-steps').innerHTML = r.labSteps.map((s) => `<li>${esc(s)}</li>`).join('');
     $('code-input').value = '';
     $('code-msg').textContent = '';
     renderHints(S);
@@ -78,7 +80,7 @@ export function initUI({ rooms, hintPenalty, onStart, onSubmitCode, onTakeHint, 
   }
 
   return {
-    renderRoom,
+    renderStation,
     renderHints,
     chipRefresh,
     setScenario(text) { $('scenario-text').textContent = text; },
@@ -92,23 +94,23 @@ export function initUI({ rooms, hintPenalty, onStart, onSubmitCode, onTakeHint, 
       $('code-msg').textContent = msg;
     },
     clearCodeMsg() { $('code-msg').textContent = ''; },
-    markChipOpen(i) {
-      chips[i].className = 'lockchip open';
-      chips[i].innerHTML = lockSVG(true);
+    markChipCleared(i) {
+      chips[i].className = 'statuschip cleared';
+      chips[i].innerHTML = statusSVG(true);
     },
     showStart() {
       $('start-overlay').classList.remove('hide');
       $('team-input').focus();
     },
     hideStart() { $('start-overlay').classList.add('hide'); },
-    showEscape({ S, total, rank, finishedCount, entries, mode, delayMs }) {
+    showCleared({ S, total, rank, finishedCount, entries, mode, delayMs }) {
       const hints = S.hintsUsed.reduce((a, b) => a + b, 0);
-      $('escape-stats').innerHTML =
+      $('cleared-stats').innerHTML =
         `<div>Team &nbsp;·&nbsp; <span>${esc(S.team)}</span></div>
          <div>Final time &nbsp;·&nbsp; <span>${fmt(total)}</span>${S.penalty ? ` <small>(incl. ${Math.round(S.penalty / 60)} min hint penalty)</small>` : ''}</div>
          <div>Hints used &nbsp;·&nbsp; <span>${hints}</span> &nbsp;&nbsp; Attempts &nbsp;·&nbsp; <span>${S.attempts}</span></div>
-         ${rank ? `<div>Rank &nbsp;·&nbsp; <span>#${rank}</span> of ${finishedCount} escaped team${finishedCount === 1 ? '' : 's'}</div>` : ''}`;
-      $('recap-list').innerHTML = rooms.map((r) =>
+         ${rank ? `<div>Rank &nbsp;·&nbsp; <span>#${rank}</span> of ${finishedCount} team${finishedCount === 1 ? '' : 's'} cleared</div>` : ''}`;
+      $('recap-list').innerHTML = stations.map((r) =>
         `<li><strong>${esc(r.title)}.</strong> ${r.skillsTaught.map(esc).join(' · ')}</li>`
       ).join('');
       $('lb-list').innerHTML = entries.length
@@ -119,18 +121,18 @@ export function initUI({ rooms, hintPenalty, onStart, onSubmitCode, onTakeHint, 
             `<span class="lb-time">${fmt(r.total_seconds || 0)}</span>` +
             `<span class="lb-hints">${sumHints(r.hints_used)} hints</span></li>`
           ).join('')
-        : '<li class="lb-empty">No finished runs yet.</li>';
+        : '<li class="lb-empty">No completed reviews yet.</li>';
       $('lb-note').textContent = mode === 'local'
         ? 'Local leaderboard — this device only. Configure a backend in config/app-config.js for a shared live board.'
         : 'Live shared leaderboard.';
-      setTimeout(() => $('escape-overlay').classList.remove('hide'), delayMs);
+      setTimeout(() => $('cleared-overlay').classList.remove('hide'), delayMs);
     },
     showFatal(msg) {
       const div = document.createElement('div');
       div.className = 'overlay';
       div.innerHTML =
         `<div class="overlay-card"><div class="eyebrow">Configuration error</div>` +
-        `<h1>Vault <em>offline</em></h1><p>${esc(msg)}</p></div>`;
+        `<h1>Control room <em>offline</em></h1><p>${esc(msg)}</p></div>`;
       document.body.appendChild(div);
     },
   };
@@ -144,6 +146,6 @@ export function showBootError(msg) {
   div.className = 'overlay';
   div.innerHTML =
     `<div class="overlay-card"><div class="eyebrow">Configuration error</div>` +
-    `<h1>Vault <em>offline</em></h1><p>${esc2(msg)}</p></div>`;
+    `<h1>Control room <em>offline</em></h1><p>${esc2(msg)}</p></div>`;
   document.body.appendChild(div);
 }

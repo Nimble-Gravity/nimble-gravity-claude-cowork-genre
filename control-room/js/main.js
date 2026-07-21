@@ -6,7 +6,7 @@ import { createTimer } from './timer.js';
 import { createLeaderboard } from './leaderboard.js';
 import { createScene } from './scene/scene.js';
 
-const CFG = globalThis.SKILL_VAULT_CONFIG || {};
+const CFG = globalThis.CONTROL_ROOM_CONFIG || {};
 
 boot().catch((err) => {
   console.error(err);
@@ -34,6 +34,7 @@ async function boot() {
       container: document.getElementById('scene'),
       roomCount: rooms.length,
       reduceMotion,
+      stationLabels: rooms.map((r) => r.title),
     });
   } catch (e) {
     console.warn('WebGL unavailable — running without the 3D scene.', e);
@@ -74,7 +75,7 @@ async function boot() {
     ui.setTeam(name);
     ui.setAttempts(0);
     ui.hideStart();
-    ui.renderRoom(S);
+    ui.renderStation(S);
     scene.glideTo(0);
     push();
   }
@@ -97,14 +98,14 @@ async function boot() {
   function unlock(i) {
     ui.clearCodeMsg();
     scene.startUnlock(i);
-    ui.markChipOpen(i);
+    ui.markChipCleared(i);
     if (i < rooms.length - 1) {
       S.room = i + 1;
       saveState(S);
       scene.setActive(S.room);
       setTimeout(() => {
         scene.glideTo(S.room);
-        ui.renderRoom(S);
+        ui.renderStation(S);
       }, reduceMotion ? 0 : 900);
       push();
     } else {
@@ -115,12 +116,13 @@ async function boot() {
     }
   }
 
-  // fresh=true: just escaped (full celebration). fresh=false: restoring an
-  // already-finished game after refresh (skip confetti and delays).
+  // fresh=true: review just cleared (full celebration). fresh=false: restoring
+  // an already-finished run after refresh (skip the burst and delays).
   async function finish(fresh) {
     const total = elapsedSeconds(S);
     timer.freeze(total);
     ui.chipRefresh(S);
+    document.body.classList.add('review-cleared');
     scene.setDone(true);
     setTimeout(() => {
       scene.glideTo(rooms.length);
@@ -136,7 +138,7 @@ async function boot() {
     } catch (e) {
       console.warn('Leaderboard fetch failed:', e.message);
     }
-    ui.showEscape({
+    ui.showCleared({
       S,
       total,
       rank,
@@ -171,12 +173,12 @@ async function boot() {
     if (S.done) {
       scene.openInstant(S.room);
       scene.glideTo(rooms.length, true);
-      ui.renderRoom(S);
+      ui.renderStation(S);
       finish(false);
     } else {
       scene.setActive(S.room);
       scene.glideTo(S.room, true);
-      ui.renderRoom(S);
+      ui.renderStation(S);
     }
   } else {
     ui.showStart();
@@ -206,7 +208,7 @@ function rowFor(S, roomCount) {
     id: S.teamId,
     team_name: S.team,
     current_room: S.done ? roomCount : S.room,
-    escaped: S.done,
+    cleared: S.done,
     attempts: S.attempts,
     hints_used: S.hintsUsed,
     penalty_seconds: S.penalty,

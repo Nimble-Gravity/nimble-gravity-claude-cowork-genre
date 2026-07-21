@@ -4,7 +4,7 @@ export const fmt = (s) => {
 };
 
 // Countdown display. getElapsed() returns seconds used (null before the game
-// starts); freeze() pins the display at the final time on escape.
+// starts); freeze() pins the display at the final time on sign-off.
 export function createTimer(el, timeLimitSeconds, getElapsed) {
   let frozen = null;
   function tick() {

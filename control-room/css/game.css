@@ -23,15 +23,24 @@ canvas{display:block}
   color:var(--paper);background:rgba(10,16,28,.7);border:1px solid var(--panel-edge);
   padding:8px 14px;border-radius:6px;backdrop-filter:blur(6px)}
 #timer.warn{color:var(--amber)}
-#locks{display:flex;gap:8px}
-.lockchip{width:34px;height:34px;border-radius:6px;border:1px solid var(--panel-edge);
+#stations{display:flex;gap:8px}
+.statuschip{width:34px;height:34px;border-radius:6px;border:1px solid var(--panel-edge);
   background:rgba(10,16,28,.7);display:flex;align-items:center;justify-content:center;
   backdrop-filter:blur(6px);transition:all .5s}
-.lockchip svg{width:16px;height:16px;stroke:var(--slate);fill:none;stroke-width:2}
-.lockchip.open{border-color:var(--teal)}
-.lockchip.open svg{stroke:var(--teal)}
-.lockchip.active{border-color:var(--amber);box-shadow:0 0 12px rgba(224,169,62,.25)}
-.lockchip.active svg{stroke:var(--amber)}
+.statuschip svg{width:16px;height:16px;stroke:var(--slate);fill:none;stroke-width:2}
+.statuschip.cleared{border-color:var(--teal)}
+.statuschip.cleared svg{stroke:var(--teal)}
+.statuschip.active{border-color:var(--amber);animation:alertPulse 2.2s ease-in-out infinite}
+.statuschip.active svg{stroke:var(--amber)}
+@keyframes alertPulse{
+  0%,100%{box-shadow:0 0 6px rgba(224,169,62,.18)}
+  50%{box-shadow:0 0 16px rgba(224,169,62,.5)}
+}
+/* Alert rail across the top of the panel — amber while the review is open */
+#panel{position:relative}
+#panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:.55}
+body.review-cleared #panel::before{background:linear-gradient(90deg,transparent,var(--teal),transparent)}
 
 #panel{position:fixed;top:0;right:0;bottom:0;width:420px;background:var(--panel);
   border-left:1px solid var(--panel-edge);display:flex;flex-direction:column;z-index:6}
@@ -39,7 +48,7 @@ canvas{display:block}
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--amber);margin-bottom:8px}
 .eyebrow.teal{color:var(--teal)}
-.room-title{font-family:'Saira Semi Condensed',sans-serif;font-weight:700;font-size:27px;
+.station-title{font-family:'Saira Semi Condensed',sans-serif;font-weight:700;font-size:27px;
   line-height:1.1;text-transform:uppercase;letter-spacing:.03em;margin-bottom:14px}
 .narrative{color:var(--slate);line-height:1.55;margin-bottom:22px}
 details{border:1px solid var(--panel-edge);border-radius:8px;margin-bottom:22px;overflow:hidden}
@@ -99,11 +108,11 @@ button{font-family:'IBM Plex Sans',sans-serif;font-weight:600;cursor:pointer;bor
 .big-btn{width:100%;background:var(--amber);color:#131a12;padding:14px;font-size:14px;
   letter-spacing:.1em;text-transform:uppercase}
 .big-btn:hover{filter:brightness(1.1)}
-#escape-stats{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--paper);
+#cleared-stats{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--paper);
   border:1px solid var(--panel-edge);border-radius:8px;padding:16px;margin-bottom:26px;
   display:flex;flex-direction:column;gap:8px}
-#escape-stats span{color:var(--teal)}
-#escape-stats small{color:var(--slate)}
+#cleared-stats span{color:var(--teal)}
+#cleared-stats small{color:var(--slate)}
 .recap{list-style:none;padding:0;margin:0 0 26px;display:flex;flex-direction:column;gap:8px}
 .recap li{font-size:13.5px;color:var(--paper);padding-left:20px;position:relative;line-height:1.45}
 .recap li::before{content:'▸';position:absolute;left:0;color:var(--teal)}
@@ -130,4 +139,5 @@ button{font-family:'IBM Plex Sans',sans-serif;font-weight:600;cursor:pointer;bor
 }
 @media (prefers-reduced-motion:reduce){
   #code-input.reject{animation:none}
+  .statuschip.active{animation:none;box-shadow:0 0 12px rgba(224,169,62,.25)}
 }
