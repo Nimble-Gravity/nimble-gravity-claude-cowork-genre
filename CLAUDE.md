@@ -29,7 +29,9 @@ training-sidebar.js     — Left module/lesson sidebar for training pages
 styles/shared.css       — Shared design system: tokens plus cross-page layout/components
 DESIGN-SYSTEM.md        — Layout/spacing rules + "How slides are generated" (card classes)
 cowork-context.md       — Subject brief: Claude Cowork, researched facts, sources, scenario
-pages/training/*.html   — The 15 Cowork lessons + 4 slide decks + slide engine + theme
+pages/training/*.html   — The 16 Cowork lessons + 4 slide decks + slide engine + theme
+escape-room/            — "The Skill Vault" — Workshop 3's escape-room lab (own README)
+control-room/           — "The Control Room" — Workshop 4's escape-room lab (same engine, own config)
 pages/workshops/*.html  — Workshop hubs + portal/OCM pages (syllabus, pre-work, resources, FAQ, my-progress, why-cowork, acceptable-use, etc.)
 ```
 
@@ -66,7 +68,7 @@ The 4-module arc (each module = two learning lessons + a lab; run over two weeks
 1. **Setup & Foundations** — delegate vs. chat; the engine (Claude Code's, in Claude Desktop, local + VM); personalization via Global/Folder/Project instructions and the M365 connector; a first delegated session.
 2. **Use Cowork** — industry use cases (seeded from Anthropic's open-sourced finance/legal packs); working effectively (Sonnet-default cost discipline, permission modes, prompt injection, `/schedule`); a hands-on lab.
 3. **Build a Skill** — decompose a workflow into a blueprint; `SKILL.md` the Anthropic way (keyword-rich description, body < 500 lines, progressive disclosure, **evals before docs**); a lab running the skill-creator loop to ship a `.skill`.
-4. **Plugins & Rollout** — skills → plugins (bundles, marketplaces, portability via the Claude Code superset); private-marketplace deployment + the owner-pushes/members-copy model; a capstone on governance (the audit gap → manage it; route high-assurance work to Anthropic's audited surfaces) and adoption (Analytics API + OpenTelemetry dashboard, phased rollout).
+4. **Govern & Roll Out** *(governance-first pivot, 2026-07-21 — **five** lessons, 12–16)* — packaging a plugin as the *unit of governed distribution*; **RBAC** (static vs Custom roles, the six admin permission areas, capabilities/connectors/models tabs, SCIM groups and nested-group limits, permission math); the **setup sequence** and the **audit-coverage gap** (Cowork is outside Audit Logs / Compliance API / Data Exports — compensate with the three monitoring planes, route high-assurance work to audited surfaces); **analytics** (dashboard, Analytics API, OpenTelemetry); and **The Control Room** — a 40-minute escape-room capstone producing the governance one-pager. Module 4 facts were re-verified against Anthropic docs on 2026-07-21; see `cowork-context.md` §Module 4.
 
 Guidelines for content:
 

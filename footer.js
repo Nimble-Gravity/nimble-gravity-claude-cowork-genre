@@ -52,7 +52,7 @@
           '<span class="nav-footer-stage">Workshop 1 · Setup &amp; Foundations</span>' +
           '<span class="nav-footer-stage">Workshop 2 · Use Cowork</span>' +
           '<span class="nav-footer-stage">Workshop 3 · Build a Skill</span>' +
-          '<span class="nav-footer-stage">Workshop 4 · Plugins &amp; Rollout</span>' +
+          '<span class="nav-footer-stage">Workshop 4 · Govern &amp; Roll Out</span>' +
         '</div>' +
       '</div>' +
       '<a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">' +

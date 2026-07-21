@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>From Skills to Plugins — Workshop 4</title>
+<title>Package It as a Plugin — Workshop 4</title>
 <link rel="stylesheet" href="../../styles/shared.css"/>
 <style>
 /* Page-specific styles go here. This scaffold relies entirely on shared.css. */
@@ -23,16 +23,16 @@
   <span class="ms-arrow">›</span>
   <a href="08-decompose-your-workflow.html" class="ms-item upcoming"><span class="ms-num">3</span>Build a Skill</a>
   <span class="ms-arrow">›</span>
-  <a href="12-skills-to-plugins.html" class="ms-item active"><span class="ms-num">4</span>Plugins &amp; Rollout</a>
+  <a href="12-skills-to-plugins.html" class="ms-item active"><span class="ms-num">4</span>Govern &amp; Roll Out</a>
 </div>
 
 <div class="page-header" id="intro">
-  <div class="eyebrow">Workshop 4 · Lesson 1 of 4</div>
-  <h1 class="title">From Skills to <em>Plugins</em></h1>
-  <p class="subtitle">One skill helps a person. A plugin bundles skills, connectors, sub-agents, slash commands, and hooks into a single install you can hand to a whole team. It's the next layer up, and it's how skills get distributed.</p>
+  <div class="eyebrow">Workshop 4 · Lesson 1 of 5</div>
+  <h1 class="title">Package It as a <em>Plugin</em></h1>
+  <p class="subtitle">One skill helps a person. A plugin bundles skills, connectors, sub-agents, slash commands, and hooks into a single install you can hand to a whole team. For this workshop it matters as the <em>unit of governed distribution</em> — the thing an admin can require, restrict, or withhold by group.</p>
   <div class="header-phase">
     <div class="header-phase-dot" style="background:var(--amber)"></div>
-    Plugins &amp; Rollout · ~20 min
+    Govern &amp; Roll Out · ~15 min
   </div>
 </div>
 
@@ -74,6 +74,14 @@
       <div class="dev-quote">One source of truth; a fix ships to everyone at once.</div>
     </div>
   </div>
+
+  <div class="tip-trick" style="margin-top:32px;">
+    <div class="tip-trick-icon">🏛️</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Standing up a private marketplace</div>
+      <p>Team and Enterprise owners publish a private marketplace two ways. <strong>ZIP upload</strong> is quick to iterate while you're still refining a plugin. <strong>GitHub sync</strong> is version-controlled from a private repo, with syncs that can take up to half an hour. Two limits to plan around: 100 plugins, and 50 MB per file. How plugins then reach people — required, available, or hidden, per group — is the access question, and that's the next lesson.</p>
+    </div>
+  </div>
 </div>
 
 <!-- DESIGN -->
@@ -112,9 +120,9 @@
 <!-- NEXT -->
 <div class="section" id="next">
   <div class="sec-eyebrow">Up next</div>
-  <h2 class="sec-title">Lesson 2: Deploy to Your Team</h2>
-  <p class="sec-sub">A plugin in your hands helps you. The next lesson covers private marketplaces, install policies, and the model where the owner pushes updates and members copy and tweak their own versions.</p>
-  <a href="13-deploy-to-your-team.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a06;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;font-size:15px;margin-top:8px;">Next Lesson →</a>
+  <h2 class="sec-title">Lesson 2: Roles &amp; Access (RBAC)</h2>
+  <p class="sec-sub">A plugin in your hands helps you. Who <em>gets</em> it — and who can remove it — is a role question. Next: Custom roles, the six admin areas, SCIM groups, and the install preferences that turn a plugin into a control.</p>
+  <a href="13-roles-and-access.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a06;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;font-size:15px;margin-top:8px;">Next Lesson →</a>
 </div>
 
 <div class="page-footer"></div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Workshop 4: Plugins &amp; Rollout — Axos Cowork</title>
+<title>Workshop 4: Govern &amp; Roll Out — Axos Cowork</title>
 <link rel="stylesheet" href="../../styles/shared.css"/>
 <style>
 /* Page-specific styles go here. This scaffold relies entirely on shared.css. */
@@ -15,8 +15,8 @@
 
 <div class="page-header" id="intro">
   <div class="eyebrow">Axos · Workshop 4 of 4</div>
-  <h1 class="title">Plugins &amp; <em>Rollout</em></h1>
-  <p class="subtitle">A 2-hour, hands-on session — bring your IT and compliance partners. By the end, the group has a governed, Claude-Cowork-only rollout plan for Axos. This page is your home base — start with the pre-work, then work through the session content.</p>
+  <h1 class="title">Govern &amp; <em>Roll Out</em></h1>
+  <p class="subtitle">A 2-hour, hands-on session — bring your IT and compliance partners. Access controls, RBAC, the audit-coverage gap, and the analytics that prove adoption — ending in a 40-minute control review under a clock. By the end, the group has a governed, Claude-Cowork-only rollout plan for Axos. This page is your home base — start with the pre-work, then work through the session content.</p>
   <div class="header-phase">
     <div class="header-phase-dot" style="background:var(--amber)"></div>
     Workshop 4 · 2 hours, hands-on
@@ -45,16 +45,16 @@
 
   <div class="insight-grid" style="margin-top:28px;">
     <div class="insight-card">
-      <div class="sec-eyebrow" style="margin-bottom:6px;">Skills become team plugins</div>
-      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You can spot when several people building the same skill is a team-plugin candidate, with one owner who pushes updates and members who copy.</p>
+      <div class="sec-eyebrow" style="margin-bottom:6px;">Design the access model</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You can build a least-privilege access design: Custom roles over blanket Owner, capabilities granted explicitly, SCIM groups that actually sync, and plugins distributed as controls rather than suggestions.</p>
     </div>
     <div class="insight-card">
       <div class="sec-eyebrow" style="margin-bottom:6px;">Govern it for a bank</div>
-      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You can manage the June-2026 audit-coverage gap with scope, approvals, and monitoring — and explain the data and identity controls to IT.</p>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You can state the audit-coverage gap precisely, compensate for it with the three monitoring planes, and route the work that needs centralized audit or zero retention to an audited surface.</p>
     </div>
     <div class="insight-card">
-      <div class="sec-eyebrow" style="margin-bottom:6px;">A rollout plan</div>
-      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You've drafted a phased rollout (pilot → department → org), an adoption-dashboard design, and a governance one-pager a sponsor can act on.</p>
+      <div class="sec-eyebrow" style="margin-bottom:6px;">Prove it with numbers</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">You can read the dashboard, the Analytics API, and the OTel stream — find the dormant desks and the model-spend concentration, and reach for the control that fixes it.</p>
     </div>
   </div>
 </div>
@@ -72,34 +72,34 @@
       <div class="agenda-body"><strong>Recap &amp; welcome IT</strong><p>Share the skills shipped in Workshop 3 and welcome the IT/compliance partners joining for governance.</p></div>
     </div>
     <div class="agenda-row">
-      <div class="agenda-time">0:10–0:35<small>25 min</small></div>
+      <div class="agenda-time">0:10–0:33<small>23 min</small></div>
       <div class="agenda-tag agenda-tag--teach">Teach</div>
-      <div class="agenda-body"><strong>Plugins, deployment, governance for IT</strong><ul><li><strong>0:10–0:18</strong> <a href="../training/12-skills-to-plugins.html">Skills → Plugins</a> — bundles, marketplaces, author once</li><li><strong>0:18–0:26</strong> <a href="../training/13-deploy-to-your-team.html">Deploy to Your Team</a> — private marketplace, owner pushes</li><li><strong>0:26–0:35</strong> <a href="../training/14-governance-for-it.html">Governance for IT</a> — admin, the audit-coverage gap, data retention</li></ul></div>
+      <div class="agenda-body"><strong>Package, delegate, govern, measure</strong><ul><li><strong>0:10–0:15</strong> <a href="../training/12-skills-to-plugins.html">Package It as a Plugin</a> — the unit of governed distribution</li><li><strong>0:15–0:23</strong> <a href="../training/13-roles-and-access.html">Roles &amp; Access (RBAC)</a> — Custom roles, six admin areas, SCIM groups</li><li><strong>0:23–0:29</strong> <a href="../training/14-set-up-and-govern.html">Set Up &amp; Govern</a> — the setup sequence, the audit gap, three planes</li><li><strong>0:29–0:33</strong> <a href="../training/15-analytics-and-adoption.html">Analytics &amp; Adoption</a> — dashboard, Analytics API, OTel</li></ul></div>
     </div>
     <div class="agenda-row">
-      <div class="agenda-time">0:35–0:55<small>20 min</small></div>
+      <div class="agenda-time">0:33–0:52<small>19 min</small></div>
       <div class="agenda-tag agenda-tag--demo">Demo</div>
-      <div class="agenda-body"><strong>Live: govern by workload + the dashboard</strong><p>Facilitator walks the audit-coverage-gap decision (scope, approvals, monitoring) and sketches the adoption dashboard. See the <a href="facilitator-guide.html#workshop-4">facilitator guide</a>.</p></div>
+      <div class="agenda-body"><strong>Live: build a Custom role, then read the telemetry</strong><p>Facilitator builds a least-privilege Custom role in the admin console, then walks an analytics export to find the Opus concentration and names the control that fixes it. See the <a href="facilitator-guide.html#workshop-4">facilitator guide</a>.</p></div>
     </div>
     <div class="agenda-row">
-      <div class="agenda-time">0:55–1:05<small>10 min</small></div>
+      <div class="agenda-time">0:52–1:04<small>12 min</small></div>
       <div class="agenda-tag agenda-tag--discuss">Discuss</div>
-      <div class="agenda-body"><strong>Which skills are team plugins?</strong><p>Look at the skills shipped across the cohort — where did people build the same thing? Those are plugin candidates with an owner.</p></div>
+      <div class="agenda-body"><strong>Which Axos workloads leave the Cowork interface?</strong><p>With IT and compliance in the room: name the work that needs zero retention or centralized audit today, and route it to an audited surface. Then announce Control Room teams.</p></div>
     </div>
     <div class="agenda-row">
-      <div class="agenda-time">1:05–1:10<small>5 min</small></div>
+      <div class="agenda-time">1:04–1:10<small>6 min</small></div>
       <div class="agenda-tag agenda-tag--break">Break</div>
-      <div class="agenda-body"><strong>Break</strong></div>
+      <div class="agenda-body"><strong>Break</strong><p class="agenda-cue">Staging break — confirm the six lab files are downloaded before the clock starts.</p></div>
     </div>
     <div class="agenda-row">
       <div class="agenda-time">1:10–1:50<small>40 min</small></div>
       <div class="agenda-tag agenda-tag--lab">Lab</div>
-      <div class="agenda-body"><strong>Capstone: the rollout one-pager</strong> · <a href="../training/15-governance-and-adoption.html">open the capstone →</a><ul><li>Govern by workload — scope, approvals, monitoring</li><li>Design the adoption dashboard (Analytics API + OTel)</li><li>Draft the phased rollout (pilot → department → org)</li></ul><p class="agenda-cue">Facilitator: make sure every team leaves with a one-pager started.</p></div>
+      <div class="agenda-body"><strong>The Control Room — 40-minute escape room</strong> · <a href="../training/16-the-control-room.html">open the capstone →</a><ul><li><strong>Lock 1</strong> The Access Map — delegate the least-privilege access review</li><li><strong>Lock 2</strong> The Broken Role Matrix — repair the RBAC design</li><li><strong>Lock 3</strong> Read the Room — author an adoption-review skill, run it on the export</li><li><strong>Lock 4</strong> The Control Narrative — the one-pager, scored against Internal Audit's checklist</li></ul><p class="agenda-cue">Facilitator: keep the <a href="../../control-room/admin.html">facilitator view</a> open throughout.</p></div>
     </div>
     <div class="agenda-row">
       <div class="agenda-time">1:50–1:58<small>8 min</small></div>
       <div class="agenda-tag">Debrief</div>
-      <div class="agenda-body"><strong>Debrief &amp; knowledge check</strong><p>Share each team's one-pager; then the <a href="../training/15-governance-and-adoption.html">Workshop 4 knowledge check</a> and your personal readout at the end of the capstone.</p></div>
+      <div class="agenda-body"><strong>Debrief &amp; knowledge check</strong><p>One share per team on their control narrative; then the <a href="../training/16-the-control-room.html">Workshop 4 knowledge check</a> and your readout.</p></div>
     </div>
     <div class="agenda-row">
       <div class="agenda-time">1:58–2:00<small>2 min</small></div>
@@ -118,34 +118,51 @@
     <div class="module-card">
       <div class="module-card-top"><div class="module-num-big">12</div>
         <div class="module-card-meta"><div class="module-label">Lesson</div>
-          <div class="module-name">From Skills to Plugins</div>
-          <div class="module-desc">Bundle skills; install from marketplaces; author once.</div>
+          <div class="module-name">Package It as a Plugin</div>
+          <div class="module-desc">The unit of governed distribution: bundles, marketplaces, author once.</div>
         </div></div>
       <div class="module-card-footer"><a href="../training/12-skills-to-plugins.html" class="module-cta">Open lesson <span>→</span></a></div>
     </div>
     <div class="module-card">
       <div class="module-card-top"><div class="module-num-big">13</div>
         <div class="module-card-meta"><div class="module-label">Lesson</div>
-          <div class="module-name">Deploy to Your Team</div>
-          <div class="module-desc">Private marketplaces; owner pushes, members copy.</div>
+          <div class="module-name">Roles &amp; Access (RBAC)</div>
+          <div class="module-desc">Custom roles, the six admin areas, SCIM groups, install preferences.</div>
         </div></div>
-      <div class="module-card-footer"><a href="../training/13-deploy-to-your-team.html" class="module-cta">Open lesson <span>→</span></a></div>
+      <div class="module-card-footer"><a href="../training/13-roles-and-access.html" class="module-cta">Open lesson <span>→</span></a></div>
     </div>
     <div class="module-card">
       <div class="module-card-top"><div class="module-num-big">14</div>
         <div class="module-card-meta"><div class="module-label">Lesson</div>
-          <div class="module-name">Governance for IT</div>
-          <div class="module-desc">Admin controls, the audit-coverage gap, data retention.</div>
+          <div class="module-name">Set Up &amp; Govern</div>
+          <div class="module-desc">The setup sequence, the audit-coverage gap, and the three monitoring planes.</div>
         </div></div>
-      <div class="module-card-footer"><a href="../training/14-governance-for-it.html" class="module-cta">Open lesson <span>→</span></a></div>
+      <div class="module-card-footer"><a href="../training/14-set-up-and-govern.html" class="module-cta">Open lesson <span>→</span></a></div>
     </div>
     <div class="module-card">
       <div class="module-card-top"><div class="module-num-big">15</div>
-        <div class="module-card-meta"><div class="module-label">Capstone + knowledge check</div>
-          <div class="module-name">Governance &amp; Adoption</div>
-          <div class="module-desc">The rollout one-pager, your readout, and the Workshop 4 knowledge check.</div>
+        <div class="module-card-meta"><div class="module-label">Lesson</div>
+          <div class="module-name">Analytics &amp; Adoption</div>
+          <div class="module-desc">Dashboard, Analytics API, OpenTelemetry, and the three weekly questions.</div>
         </div></div>
-      <div class="module-card-footer"><a href="../training/15-governance-and-adoption.html" class="module-cta">Open capstone <span>→</span></a></div>
+      <div class="module-card-footer"><a href="../training/15-analytics-and-adoption.html" class="module-cta">Open lesson <span>→</span></a></div>
+    </div>
+    <div class="module-card">
+      <div class="module-card-top"><div class="module-num-big">16</div>
+        <div class="module-card-meta"><div class="module-label">Capstone + knowledge check</div>
+          <div class="module-name">The Control Room</div>
+          <div class="module-desc">The 40-minute escape room: access review, role repair, adoption readout, and the control narrative.</div>
+        </div></div>
+      <div class="module-card-footer"><a href="../training/16-the-control-room.html" class="module-cta">Open capstone <span>→</span></a></div>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:28px;">
+    <div class="tip-trick-icon">📁</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Lab file pack — download before the Control Room opens</div>
+      <p>Six synthetic files: the Axos access register, the two written standards, last week's analytics export, and Internal Audit's acceptance checklist. Get them from the <a href="../training/16-the-control-room.html#scenario">capstone page</a> and put them in one folder you can grant Cowork access to.</p>
+      <p style="margin-top:10px;"><a href="../../control-room/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#3a2a06;text-decoration:none;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;">⚿ Enter the Control Room →</a></p>
     </div>
   </div>
 

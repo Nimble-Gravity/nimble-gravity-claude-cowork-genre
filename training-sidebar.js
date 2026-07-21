@@ -39,14 +39,15 @@
     },
     {
       label: 'Workshop 4',
-      subLabel: 'Plugins & Rollout',
+      subLabel: 'Govern & Roll Out',
       color: '#f2c56b',
       slidesFile: 'module-4-slides.html',
       lessons: [
-        { file: '12-skills-to-plugins.html',        title: 'Skills → Plugins' },
-        { file: '13-deploy-to-your-team.html',      title: 'Deploy to Team' },
-        { file: '14-governance-for-it.html',        title: 'Governance for IT' },
-        { file: '15-governance-and-adoption.html',  title: 'Governance & Adoption', exercise: true }
+        { file: '12-skills-to-plugins.html',       title: 'Package as a Plugin' },
+        { file: '13-roles-and-access.html',        title: 'Roles & Access' },
+        { file: '14-set-up-and-govern.html',       title: 'Set Up & Govern' },
+        { file: '15-analytics-and-adoption.html',  title: 'Analytics & Adoption' },
+        { file: '16-the-control-room.html',        title: 'The Control Room', exercise: true }
       ]
     }
   ];

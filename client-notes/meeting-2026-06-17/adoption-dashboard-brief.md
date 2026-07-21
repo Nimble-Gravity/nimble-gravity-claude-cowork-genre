@@ -67,7 +67,7 @@ Deliver, as part of the 2–4 week engagement:
 
 ## [RECONCILE] — repo note
 
-`pages/training/15-governance-and-adoption.html` currently references an **"Axos Power BI adoption
+`pages/training/15-analytics-and-adoption.html` currently references an **"Axos Power BI adoption
 dashboard"** (`data-client-slot="adoption-dashboard-m4"`), but the actual NG build is
 **Databricks + Streamlit** fed by **OTel**. Align the lesson-15 reference (and the dashboard one-pager)
 to the real architecture, or state Power BI as an alternative front-end on the same Databricks data.

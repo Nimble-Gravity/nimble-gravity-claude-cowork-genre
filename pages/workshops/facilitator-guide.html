@@ -189,23 +189,32 @@
 
 <!-- WORKSHOP 4 -->
 <div class="section" id="workshop-4">
-  <div class="sec-eyebrow">Workshop 4 · Plugins &amp; Rollout</div>
+  <div class="sec-eyebrow">Workshop 4 · Govern &amp; Roll Out</div>
   <h2 class="sec-title">Demo, discussion, and <em>timing</em></h2>
   <div class="bp-grid--light" style="margin-top:24px;">
     <div class="bp-item">
       <div class="bp-num">Demo</div>
-      <div class="bp-title">Govern by workload + the dashboard</div>
-      <div class="bp-body">Walk the audit-coverage-gap decision for a bank: scope tightly, keep approvals on, monitor via the admin dashboard and Analytics API, and re-verify each cycle. Sketch the dashboard. This is the half your IT partners came for.</div>
+      <div class="bp-title">Build a Custom role, then read the telemetry</div>
+      <div class="bp-body">Two halves. First, build a least-privilege Custom role live in the admin console — grant Cowork <em>explicitly</em> (narrate that it isn't inherited), set Analytics to Can view, put the connector on Needs approval, and show the Models tab. Then open <code>analytics-export.csv</code> and find the desk running ~88% of its turns on Opus. The payoff line: the fix is the Models tab you just opened, not a note in the minutes.</div>
     </div>
     <div class="bp-item">
       <div class="bp-num">Talk</div>
-      <div class="bp-title">Discussion: team plugins</div>
-      <div class="bp-body">Look across the cohort's skills — where did several people build the same thing? Those are team-plugin candidates with one owner. Name a couple.</div>
+      <div class="bp-title">Discussion: what leaves the Cowork interface?</div>
+      <div class="bp-body">With IT and compliance in the room — which Axos workloads need zero retention or centralized audit today, and therefore route to the API or Claude Code Enterprise? Pre-recruit your compliance partner to open it. Capture the answers: they become Lock 4 material.</div>
     </div>
     <div class="bp-item">
       <div class="bp-num">Aim</div>
-      <div class="bp-title">A sponsor-ready one-pager</div>
-      <div class="bp-body">The capstone deliverable is a one-page rollout + governance plan. Make sure every team leaves with one started.</div>
+      <div class="bp-title">A defensible control narrative</div>
+      <div class="bp-body">The capstone one-pager is now produced <em>inside</em> the lab — it is Lock 4, scored against a 9-item acceptance checklist. Teams iterate until it clears. Make sure every team leaves with theirs.</div>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:28px;">
+    <div class="tip-trick-icon">⚿</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">The Control Room — run the lab</div>
+      <p>Full talk track, answer key, per-lock failure modes, and pacing cues are in <code>workshop-4-script.md</code> at the repo root. Open the <a href="../../control-room/admin.html">facilitator view</a> during the lab slot (local-only this cohort — it sees teams from your browser). Distribute the six lab files before the break; nothing needs installing before the clock starts.</p>
+      <p style="margin-top:10px;"><strong>Date-sensitive:</strong> the governance facts were verified 2026-07-21. Re-check them against the Sources in <code>cowork-context.md</code> before you present.</p>
     </div>
   </div>
 </div>

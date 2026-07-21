@@ -1,0 +1,105 @@
+{
+  "workshopTitle": "Workshop 4: The Control Room",
+  "scenario": "Internal Audit gave notice: a Claude Cowork control review starts in 40 minutes. The pilot ran hot — folders scoped to whole drives, roles copied from a template, spend spiking on one desk, and nobody has written the control narrative. Four locks stand between you and an exam-ready evidence pack.",
+  "timeLimitMinutes": 40,
+  "hintPenaltySeconds": 120,
+  "rooms": [
+    {
+      "id": "room-1",
+      "title": "The Access Map",
+      "narrative": "Audit's first request is the simplest and the most damaging: show us who can read what. The pilot's access register has never been reviewed against the standard. Delegate the review, and the findings open the first lock.",
+      "labSteps": [
+        "Put 'cowork-access-register.csv' and 'least-privilege-rubric.md' in a folder you grant Cowork access to. Scope the grant to that folder only — you are being reviewed on least privilege too.",
+        "Delegate the review: ask Cowork to test every row of the register against all four rules in the rubric, and to produce a findings table listing the user, the department, which rules each row breaks, and the remediation.",
+        "Read the rubric's counting instruction carefully: a row is counted once no matter how many rules it breaks.",
+        "Have Cowork report the two totals the rubric asks for at the end: how many rows are non-compliant, and which single row breaks the most rules.",
+        "The unlock code is the number of non-compliant rows, followed by the first word of the department of the row that breaks the most rules, with no space. Example format: 5Treasury"
+      ],
+      "codePlaintext": "7Commercial",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "Work rule by rule rather than row by row. LP-1 is about folder scope, LP-2 pairs restricted data classes with the approval mode, LP-3 is about contractors and connectors, LP-4 is about the blank reviewer column. Then count the distinct rows you flagged.",
+        "One row fails all four rules at once — it is a contractor, granted a cloud-drive root, running without approvals on restricted data, with nobody signed against it. Its department is the second half of the code."
+      ],
+      "skillsTaught": [
+        "Folder scope as the operative data control",
+        "Reading an access register against a written standard",
+        "Least privilege and approval modes for restricted data"
+      ]
+    },
+    {
+      "id": "room-2",
+      "title": "The Broken Role Matrix",
+      "narrative": "The pilot team drafted a role matrix in a hurry and Identity & Access never reviewed it. Every shortcut they took is a finding waiting to happen. Repair it against the reference standard and the second lock turns.",
+      "labSteps": [
+        "Add 'role-matrix-DRAFT.md' and 'rbac-reference.md' to your session.",
+        "Ask Cowork to audit the draft against every rule in the reference, section by section, and to output a remediation table: the defect, the rule it breaks, and the corrected setting.",
+        "Check that the audit caught all seven defect areas: who holds Owner, the pilot group's capabilities, how the pilot group is sourced from the identity provider, the connector setting, the model policy, the spend-limit assumption, and the plugin distribution preference.",
+        "Section 1 lists six people holding Owner. Under rule RB-1, decide how many of them should be moved off Owner and onto a Custom role scoped to a single admin area.",
+        "Section 6 lists a plugin carrying a disclaimer that Legal requires on every generated client document. Under rule RB-9, decide which install preference it must carry so a member cannot remove it.",
+        "The unlock code is the number of people to move off Owner, followed by the corrected install preference for that plugin, with no space. Example format: 2Available"
+      ],
+      "codePlaintext": "4Required",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "For the first half: two of the six genuinely administer the whole organization. Read the 'what they actually need to do' column — anyone whose need maps to exactly one of the six admin permission areas belongs on a Custom role instead.",
+        "For the second half: look at the four install preferences in RB-9 and pick the one where the member cannot remove the plugin. Being merely offered to the member is not a control — a mandatory disclaimer has to be non-removable."
+      ],
+      "skillsTaught": [
+        "Static roles vs Custom roles and the six admin permission areas",
+        "Custom roles inherit nothing — capabilities must be granted explicitly",
+        "SCIM groups, nested-group limits, and permission math",
+        "Connector approval settings, model caps, and plugin install preferences"
+      ]
+    },
+    {
+      "id": "room-3",
+      "title": "Read the Room",
+      "narrative": "Audit wants to know whether anyone is actually using this, and Finance wants to know why one desk is burning the budget. Last week's analytics export holds both answers — but you need a repeatable readout, not a one-off. Build the skill, run it, and the third lock opens.",
+      "labSteps": [
+        "Ask Cowork to help you author a new skill called 'cowork-adoption-review'. Its job: take a Cowork analytics export and produce the weekly adoption readout.",
+        "Prescribe the output in the skill's instructions — exactly four sections: Weekly Active Users, Adoption by Department, Model and Spend Concentration, and Recommended Actions. Write a description that would trigger on requests like 'run the weekly adoption readout'.",
+        "Install your skill, then run it against 'analytics-export.csv'.",
+        "Weekly Active Users is the count of distinct users who were active in the export. Model and Spend Concentration must identify the single department with the highest share of its dispatch turns running on Opus.",
+        "Sanity-check the readout by hand before you trust it — if the department it names is not far ahead of the others, your skill is aggregating wrong.",
+        "The unlock code is the first word of that department's name, followed by the weekly active user count, with no space. Example format: Treasury9"
+      ],
+      "codePlaintext": "Capital12",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "Opus share is per department, not per row: add up that department's dispatch turns on Opus, then divide by all of its dispatch turns. The leader is not subtle — it sits above 85% while every other department is under a quarter.",
+        "For the user count, count distinct people in the user column across the whole week, not the number of rows and not the number of sessions."
+      ],
+      "skillsTaught": [
+        "Authoring a reusable reporting skill with a prescribed output shape",
+        "Reading the Analytics API surface: DAU/WAU/MAU, dispatch turns, per-user cost by model",
+        "Spotting model-spend concentration — and fixing it with a model cap, not a memo"
+      ]
+    },
+    {
+      "id": "room-4",
+      "title": "The Control Narrative",
+      "narrative": "The examiner is in the room. Everything you have found so far is evidence, but evidence is not an answer. Write the one page that says how Axos governs Cowork — and survive the acceptance checklist.",
+      "labSteps": [
+        "Bring your Room 1 findings, your Room 2 remediation table, and your Room 3 readout into one session, along with 'exam-checklist.txt'.",
+        "Delegate the drafting: ask Cowork to write a one-page Cowork control narrative for Axos that carries your three artifacts forward — the access findings, the corrected role design, and the adoption picture.",
+        "The narrative has to stand on its own in front of an examiner. Be explicit about where Cowork's audit coverage ends today, what compensates for it, and which work is routed elsewhere because of it.",
+        "Run the acceptance check: 'Score this control narrative against every item in exam-checklist.txt. For each item, state PASS or FAIL and briefly why. Then report the total pass count and the resulting verdict.'",
+        "Any FAIL is a gap in your document, not in the checklist. Fix the narrative and score it again until it clears.",
+        "The unlock code is the total pass count followed by the resulting verdict word, with no space. Example format: 7Remediate"
+      ],
+      "codePlaintext": "9Ready",
+      "codeHash": "GENERATE_WITH_SCRIPT",
+      "hints": [
+        "Score first, then write to the gaps. Most first drafts fail items 2, 6 and 7 — the three monitoring planes, the fact that Custom roles grant nothing implicitly, and naming the collector plus acknowledging that no telemetry flows until an admin configures the endpoint.",
+        "The door only accepts a clean sweep of the checklist. If your count is short, the failing items name exactly what to add — the checklist doubles as the outline for the page."
+      ],
+      "skillsTaught": [
+        "Writing the governance one-pager a sponsor or examiner can act on",
+        "Stating the audit-coverage gap and its compensating controls plainly",
+        "Routing high-assurance workloads to audited surfaces",
+        "QA against an acceptance checklist"
+      ]
+    }
+  ]
+}

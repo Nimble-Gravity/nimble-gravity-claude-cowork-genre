@@ -73,21 +73,23 @@
       folder: 'training',
       hub: 'pages/workshops/module-4-workshop.html',
       label: 'Workshop 4',
-      subLabel: 'Plugins & Rollout',
+      subLabel: 'Govern & Roll Out',
       color: '#e8a317',
       navColor: '#f2c56b',
-      filePrefix: ['12-', '13-', '14-', '15-'],
+      filePrefix: ['12-', '13-', '14-', '15-', '16-'],
       pages: [
         '12-skills-to-plugins',
-        '13-deploy-to-your-team',
-        '14-governance-for-it',
-        '15-governance-and-adoption'
+        '13-roles-and-access',
+        '14-set-up-and-govern',
+        '15-analytics-and-adoption',
+        '16-the-control-room'
       ],
       labels: [
-        'Skills → Plugins',
-        'Deploy to Team',
-        'Governance for IT',
-        'Governance & Adoption'
+        'Package as a Plugin',
+        'Roles & Access',
+        'Set Up & Govern',
+        'Analytics & Adoption',
+        'The Control Room'
       ]
     }
   ];

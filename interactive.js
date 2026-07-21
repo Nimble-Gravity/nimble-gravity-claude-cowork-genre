@@ -47,7 +47,7 @@
   function clearAck(id)         { var s = getStore(); if (s.ack) { delete s.ack[id]; setStore(s); } }
   function resetAll()           { try { window.localStorage.removeItem(LS_KEY); } catch (e) {} }
 
-  var MODULE_LABELS = { m1: 'Workshop 1 · Setup & Foundations', m2: 'Workshop 2 · Use Cowork', m3: 'Workshop 3 · Build a Skill', m4: 'Workshop 4 · Plugins & Rollout' };
+  var MODULE_LABELS = { m1: 'Workshop 1 · Setup & Foundations', m2: 'Workshop 2 · Use Cowork', m3: 'Workshop 3 · Build a Skill', m4: 'Workshop 4 · Govern & Roll Out' };
   function passedCount() { var s = getStore(); var q = s.quiz || {}; var n = 0; ['m1','m2','m3','m4'].forEach(function (m) { if (q[m] && q[m].passed) n++; }); return n; }
   function fmtDate(ts) { var d = ts ? new Date(ts) : new Date(); var m = ['January','February','March','April','May','June','July','August','September','October','November','December']; return m[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear(); }
 
@@ -105,20 +105,26 @@
       ]
     },
     m4: {
-      label: 'Workshop 4 · Plugins & Rollout',
+      label: 'Workshop 4 · Govern & Roll Out',
       questions: [
-        { q: 'Several people build the same skill. That is a signal to…',
-          options: ['Tell everyone to stop building their own skills', 'Make it a team plugin with one owner who pushes updates', 'Let each person keep their own private copy'],
+        { q: 'A colleague needs to pull usage reports for the steering committee — nothing else. What should they get?',
+          options: ['The Owner role, so they are not blocked', 'A Custom role with the Analytics admin area', 'A shared login with an existing Owner'],
           answer: 1 },
-        { q: 'As of June 2026, where is Claude Cowork activity NOT captured?',
-          options: ['In your local conversation history', 'In Anthropic’s Compliance API / audit logs', 'In the admin usage dashboard'],
+        { q: 'You assign a Custom role to the pilot group, and Cowork is enabled org-wide. The group still cannot use Cowork. Why?',
+          options: ['Custom roles do not inherit org-enabled capabilities — each one must be granted explicitly', 'Cowork takes 24 hours to propagate to new roles', 'Custom roles cannot be granted Cowork at all'],
+          answer: 0 },
+        { q: 'As of July 2026, where is Claude Cowork activity NOT captured?',
+          options: ['In the admin usage dashboard', 'In Anthropic’s Audit Logs, Compliance API, and Data Exports', 'In the OpenTelemetry event stream'],
+          answer: 1 },
+        { q: 'Which three planes make up a complete Cowork monitoring story?',
+          options: ['Compliance API, OpenTelemetry, and a network proxy or LLM gateway', 'The admin dashboard, email alerts, and quarterly attestation', 'SSO, SCIM, and MDM'],
+          answer: 0 },
+        { q: 'The analytics show one desk running almost everything on Opus. The fix is…',
+          options: ['A note in the steering minutes to monitor it weekly', 'A model and effort cap on the Models tab', 'Removing that team’s Cowork access'],
           answer: 1 },
         { q: 'Some work needs centralized audit or zero data retention today. Where should it run?',
           options: ['On the Claude Cowork interface — its controls are enough', 'On Anthropic’s audited surfaces — the API or Claude Code Enterprise — not the Cowork interface', 'Anywhere — the audit gap does not matter for regulated work'],
-          answer: 1 },
-        { q: 'Which three questions track adoption?',
-          options: ['Are people using it? How deeply? Is it paying off?', 'How many messages were sent, by whom, and when?', 'How many skills are installed, and how big are they?'],
-          answer: 0 }
+          answer: 1 }
       ]
     }
   };

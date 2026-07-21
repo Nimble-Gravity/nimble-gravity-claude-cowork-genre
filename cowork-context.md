@@ -4,8 +4,9 @@ Read this before writing or revising lesson content. It captures who the program
 agreed structure (from the "Cowork Next Steps" meeting), and the researched facts the lessons are
 grounded in (from the content-research report). Sources and date-sensitive caveats are at the bottom.
 
-> **Date-sensitive — as of June 2026.** Cowork is iterating fast.
-> Re-verify the audit gap, model lineup, and repo/plugin counts before each cohort.
+> **Date-sensitive — Module 4 re-verified 2026-07-21** against Anthropic's own docs (see §5 Sources).
+> Modules 1–3 still carry June-2026 stamps. Re-verify the audit gap, model lineup, and repo/plugin
+> counts before each cohort.
 
 ## 1. Positioning (from the meeting)
 
@@ -29,7 +30,11 @@ or a single 6-hour intensive. Homework between sessions; office hours in paralle
 | **1 · Setup & Foundations** | What Is Cowork? · Get Set Up · First Cowork Session (lab) |
 | **2 · Use Cowork** | Use Cases by Industry · Working Effectively · Use Cowork Lab |
 | **3 · Build a Skill** | Decompose Your Workflow · Anatomy of a Skill · Build a Skill Lab |
-| **4 · Plugins & Rollout** | From Skills to Plugins · Deploy to Your Team · Governance & Adoption (capstone) |
+| **4 · Govern & Roll Out** | Package It as a Plugin · Roles & Access (RBAC) · Set Up & Govern · Analytics & Adoption · The Control Room (lab) |
+
+Module 4 carries **five** slots (12–16) — four teaching lessons plus the lab — because the governance
+pivot (2026-07-21) split RBAC, setup/governance, and analytics into their own lessons and moved the
+capstone deliverable inside the lab.
 
 ## 3. Researched facts to build on (from the content report)
 
@@ -82,32 +87,89 @@ and the machine awake for tasks. Launched Jan 12 2026 (macOS preview); GA Apr 9 
   grade → improve → package a `.skill`. Be "pushy" in descriptions (Claude under-triggers). The `run_loop`
   description optimizer needs a raw **ANTHROPIC_API_KEY** — SSO-only users can't run it (flag in the lab).
 
-### Module 4 — plugins, deployment, governance
+### Module 4 — governance, RBAC, analytics, rollout
+*Re-verified 2026-07-21 against Anthropic docs. This module pivoted to governance-first — plugins are
+covered as the unit of governed distribution, not as an authoring topic.*
+
+#### Plugins (the distribution unit)
 - **Plugin** = bundle of skills + MCP connectors + sub-agents + slash commands + hooks. Works in Cowork +
   Claude Code (not Chat, though bundled skills work in Chat). Layout: `plugin.json` in `.claude-plugin/`;
   `skills/ agents/ hooks/ .mcp.json` at root.
 - **Marketplaces:** built-in Knowledge Work (default) + Financial Services, Legal, Life Sciences; add from GitHub.
   Team/Enterprise **private marketplaces** via ZIP upload or GitHub sync (≤ 30 min; 100-plugin cap, 50 MB/file).
-  Install prefs: Installed-by-default / Required / Available / Not-available (Enterprise per-group override).
-  **Edit model:** org-managed plugins can't be edited by members — copy/tweak from a template ("owner pushes,
-  members copy"). **Portability:** a skill or plugin authored in the Claude Code structure (the superset) runs
-  unchanged in Claude Cowork and Claude Code.
-- **The audit gap (decisive):** **as of June 2026, Claude Cowork activity is NOT in Anthropic's Compliance API
-  or audit logs**, and history lives locally (can't be centrally managed/exported). Anthropic steers regulated
-  workloads away. **Manage it deliberately** — least privilege, approvals on, monitor via the Analytics API,
-  re-verify each cycle — and route work needing zero-retention or centralized audit today to Anthropic's
+  Install prefs: Installed-by-default / Required / Available / Not-available, with **group-level overrides tied
+  to SCIM groups**. **Edit model:** org-managed plugins can't be edited by members — copy/tweak from a template
+  ("owner pushes, members copy"). **Portability:** a skill or plugin authored in the Claude Code structure
+  (the superset) runs unchanged in Claude Cowork and Claude Code.
+
+#### RBAC — roles, groups, capabilities (Enterprise)
+- **Static roles:** **User**, **Admin**, **Owner** (plus a single **Primary Owner** per org; **Billing** and
+  **Developer** are also assignable). *"Owners and Primary Owners always have full access to all features."*
+- **Custom roles** (Enterprise) — configured at **Organization settings → Roles**. The critical gotcha, verbatim:
+  *"Members assigned to custom roles don't automatically inherit organization-enabled capabilities. Every
+  capability a 'Custom' role member needs must be explicitly granted."* Also: *"The organization-level toggle
+  must be on for custom roles to control per-member access."*
+- **Six admin permission areas**, each set to *No access / Can view / Can manage*: **Identity & Access**
+  (editing roles and groups), **Billing**, **Analytics**, **Privacy**, **User Management**, **Libraries**.
+  This is how you delegate billing or identity admin without handing out Owner.
+- **Capabilities tab:** per-feature toggles — Cowork, Claude Code, Web Search, Memory, Projects, Code Execution.
+- **Connectors tab:** per connector, **Always allow / Needs approval / Blocked**, with per-tool granularity via
+  "Custom". Note the admin guide's caveat: **no per-group connector control** — connectors are org-wide.
+- **Models tab:** enable/disable specific models, **cap effort levels**, set the default model for new
+  conversations. *This is the structural fix for Opus overuse — a control, not just a dashboard finding.*
+- **Groups:** created manually or **synced via SCIM**; managed at the parent org and propagated to child orgs.
+  **Nested IdP groups are not supported — only direct members sync.** Custom-role permissions apply via
+  group-to-role mapping.
+- **Permission math:** capabilities are **additive** — *"a user in multiple groups gets the union of
+  permissions"* — but **group spend limits invert it**: *"the most restrictive limit across a user's groups wins."*
+- **Sequencing:** configure **SSO first, then RBAC** — enforcing roles before identity is settled risks lockout.
+
+#### Setup best practices (what IT actually does)
+- Enable Cowork at **Organization settings → Capabilities**; bind identity with **SSO + SCIM**.
+- **Desktop app required** (macOS / Windows). Deploy by MDM (Jamf/Kandji/Intune) or allow self-install —
+  on Windows use **the MSIX installer, not the .exe**.
+- Configure **network egress allowlists, mount controls, and desktop extension allowlists** in org settings.
+- **Folder scoping is the real data control:** users select which folders Cowork may read from and write to.
+  There are no granular per-file permissions — least privilege means picking a narrow folder.
+- Set **group spend limits** per team from the admin console.
+
+#### The audit gap (still open — decisive for a bank)
+- Anthropic's own Cowork admin guide, verbatim: ***"the Compliance API and Audit Logs do not cover Claude
+  Cowork yet."*** Cowork is excluded from **Audit Logs, the Compliance API, and Data Exports**, on every plan
+  tier including Enterprise. Conversation history lives locally on the user's machine.
+- Context: Anthropic shipped the **Compliance API on 2026-05-21** (28 security/compliance integrations —
+  CrowdStrike, Microsoft Purview, Okta, Wiz, Zscaler) — Cowork simply isn't in scope for it yet.
+- **The compensating architecture — three planes:** Compliance API = **control plane**; OpenTelemetry =
+  **agent/operational plane**; an on-device proxy or LLM gateway = **network/tool plane**. A **shared user
+  account identifier** lets you correlate OTel events with Compliance API records.
+- **Manage it deliberately** — least privilege folder scope, approvals on for sensitive work, OTel wired to the
+  SIEM, re-verify each cycle — and route work needing zero-retention or centralized audit today to Anthropic's
   audited surfaces (the API or Claude Code Enterprise), not the Cowork interface.
 - **Data/retention:** commercial (Team/Enterprise/API) — no training by default, 30-day retention; ZDR only on
-  API + Claude Code Enterprise (not the Cowork interface). Admin: enable via Org settings → Capabilities; SSO/SCIM;
-  desktop policy via MDM (Jamf/Kandji/Intune).
-- **Adoption telemetry:** native dashboard (Analytics → Cowork: sessions, DAU/WAU/MAU, T+1, CSV 90 days);
-  **Enterprise Analytics API** (dispatch turns [Cowork-exclusive], skill/connector invocations, per-user cost by
-  model — spot Opus overuse; 3-day delay); **OpenTelemetry** real-time → Splunk/Datadog/etc. **Build the
-  partner dashboard** by pulling the Analytics API + OTel into Power BI/Databricks. Anthropic's KPI = weekly
-  active usage trending up.
-- **Rollout (Anthropic's published guidance):** pilot → department → org; 2–3 champions/dept; All-Staff 101s
-  (everyone completes a real delegation that produces a deliverable); exec sponsors + templates; weekly/biweekly
-  office hours. **Three questions, weekly then monthly:** Are people using it? How deeply? Is it paying off?
+  API + Claude Code Enterprise (not the Cowork interface).
+
+#### Analytics & telemetry
+- **Admin dashboard:** Cowork sessions, active users, actions — **T+1** refresh, CSV export.
+- **Analytics API** (Enterprise): per-user daily Cowork activity, org-wide **DAU/WAU/MAU**, **skill and
+  connector rankings** by invocation, per-user cost by model. Session-level auditing remains unavailable.
+- **OpenTelemetry** (Team + Enterprise) — configured at **Claude Desktop → Organization settings → Cowork**:
+  OTLP endpoint URL, HTTP/JSON or HTTP/protobuf, auth headers (encrypted at rest).
+  ***"Events are only exported when an admin configures an OTLP endpoint. No data flows by default."***
+  Emits: **user prompts (full text)**, tool/MCP invocations (server, tool, params, success/failure, duration),
+  **file paths read or modified**, skills/plugins invoked, **human approval decisions (approved / rejected /
+  auto-initiated)**, and API requests (model, token counts, cost estimates, errors). Events share a
+  **`prompt.id`** attribute so a full response can be reconstructed. Sinks: Splunk, Cribl, Elasticsearch, Loki,
+  ClickHouse, Honeycomb, Datadog.
+  ⚠️ **Governance note for a bank:** OTel exports *prompt text and file paths* to your SIEM. That is a
+  data-handling decision in its own right — scope the sink accordingly.
+- **Build the partner dashboard** by pulling the Analytics API + OTel into Power BI/Databricks. Anthropic's
+  KPI = weekly active usage trending up. **OTel is operational telemetry, not compliance-grade audit.**
+
+#### Rollout (Anthropic's published guidance)
+- Pilot → department → org; 2–3 champions/dept; All-Staff 101s (everyone completes a real delegation that
+  produces a deliverable); exec sponsors + templates; weekly/biweekly office hours. **RBAC enables a phased
+  rollout by team** — enable the Cowork capability for the pilot group only, then widen.
+- **Three questions, weekly then monthly:** Are people using it? How deeply? Is it paying off?
 
 ## 4. Authoring notes
 - Lessons in `pages/training/` as `NN-slug.html`; the third lesson of each module is the lab/capstone.
