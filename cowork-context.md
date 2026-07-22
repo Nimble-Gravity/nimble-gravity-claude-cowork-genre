@@ -148,6 +148,33 @@ covered as the unit of governed distribution, not as an authoring topic.*
 - **Data/retention:** commercial (Team/Enterprise/API) — no training by default, 30-day retention; ZDR only on
   API + Claude Code Enterprise (not the Cowork interface).
 
+#### Field corrections (Axos prep call, 2026-07-21 — Kevin Booth, real tenant + dashboard)
+These override the doc-derived claims above where they conflict. Re-confirm each cycle.
+- **"Local" is misleading and must be corrected out loud.** Cowork runs on the desktop against local
+  folders, but **the model call goes to Anthropic's API** — whatever it reads from a granted folder
+  leaves the machine to be processed. The *files* are local; the *reasoning over them* is not. This is
+  the correction that matters most to a bank, because "it runs locally" makes an over-broad folder
+  grant feel harmless.
+- **Spend controls are weaker than the docs imply.** Moving Team → Enterprise **removes** several cost
+  controls, and there is **no clean per-user spend cap**. Orgs needing one are enforcing it through an
+  **API management gateway**. Model/effort caps on the Models tab remain the reliable lever. Treat the
+  group-spend-limit rule as directional and verify per tenant.
+- **Azure AI Foundry is the private-deployment path** for a Microsoft-stack bank — Cowork/Claude Code on
+  Foundry gives a materially better posture because the infrastructure is genuinely yours (real
+  components installed inside your boundary) rather than a toggle. Trade: it's a deployment project.
+  The same gateway layer is where per-user spend control becomes possible.
+- **Don't teach setup depth at Axos.** They've stood up Intune (working through issues themselves) and
+  have not engaged NG on activation. Deliver the six steps as a confirm-checklist, not a tutorial.
+- **The adoption dashboard is built** (Kevin's). Live cards: token usage · number of users · **top
+  expensive prompts** · cost by model · API requests by model · reliability · MCP servers · daily
+  prompts per user. **Cowork and Claude Code are separate sections on a combined board — there is no
+  tool filter.**
+- **The education loop** (best new teaching idea in the module): spend data is a curriculum signal, not
+  a cost report. Repeated expensive patterns route to one of two fixes — **build a skill** (mine top
+  expensive prompts as a backlog: is this asked often enough to package?) or **fix `CLAUDE.md`** (e.g.
+  a session doing hundreds of individual file edits → instruct batched tool/file edits, same output at
+  a fraction of the spend). Frame as **proactive vs retroactive enablement**.
+
 #### Analytics & telemetry
 - **Admin dashboard:** Cowork sessions, active users, actions — **T+1** refresh, CSV export.
 - **Analytics API** (Enterprise): per-user daily Cowork activity, org-wide **DAU/WAU/MAU**, **skill and

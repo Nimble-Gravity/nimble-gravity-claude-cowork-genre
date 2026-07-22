@@ -73,6 +73,11 @@ A finding that says "monitor Opus spend" without a corresponding cap is not reme
 
 **Rule:** never assume a second group loosens a spend cap. It cannot.
 
+> **Field caveat (confirm for your tenant):** Enterprise removes several of the cost controls
+> available on Team, and there is no clean per-user spend cap. Organizations that need genuine
+> per-user limits are enforcing them through an API management gateway rather than in-product.
+> Treat the group-limit rule as directional, and verify what your own plan actually exposes.
+
 ## RB-8 · SSO before RBAC
 
 SSO controls who can log in; RBAC controls which product surfaces they reach.

@@ -42,10 +42,12 @@ not whether the gap exists.
 1. **Have admin console access ready.** The Demo builds a Custom role live. If you cannot get admin
    access to a real tenant, use the screenshots in the facilitator guide and narrate — but say out
    loud that you're using screenshots. This audience notices.
-2. **Pre-build the W3 quiz poll.** The Open runs the Workshop 3 knowledge check live — 4 questions in
-   Teams, built the day before.
-3. **Pull the Skill Vault leaderboard from W3.** Name the teams that escaped. It takes ten seconds and
-   buys you the room's attention.
+2. **Confirm Kevin for the Demo, and capture screenshots anyway.** Kevin screen-shares the live Axos
+   dashboard in Demo (b) while you narrate. His connection dropped during prep — capture the key cards
+   beforehand so a dropout costs you nothing.
+3. **Expect a mixed room.** The invite went wider than the IT/compliance scope it was written for, so
+   plan for an engaged core plus observers. The Open handles this explicitly; the Lab folds observers
+   into teams rather than leaving them adrift.
 4. **Pre-recruit your IT/compliance partner for the Discuss slot.** DM them the day before: *"I'd like
    you to open the discussion on which Axos workloads shouldn't run in the Cowork interface — 90
    seconds, no prep."* This is the highest-stakes discussion of the series and it must not open cold.
@@ -61,9 +63,9 @@ not whether the gap exists.
 ### Run of show — the 2-hour agenda
 | Time | Slot | Content |
 |---|---|---|
-| 0:00–0:10 | **Open** | W3 knowledge check live + vault callback + welcome IT |
+| 0:00–0:10 | **Open** | Audience framing for a mixed room + one-line arc — **no W3 recap** |
 | 0:10–0:33 | **Teach** | Package (0:10–0:15) · RBAC (0:15–0:23) · Set Up & Govern (0:23–0:29) · Analytics (0:29–0:33) |
-| 0:33–0:52 | **Demo** | Live: build a Custom role, then read the telemetry |
+| 0:33–0:52 | **Demo** | Live: build a Custom role, then Kevin's real dashboard + the education loop |
 | 0:52–1:04 | **Discuss** | Which Axos workloads leave the Cowork interface? + team announcements |
 | 1:04–1:10 | **Break** | Staging break — file confirm |
 | 1:10–1:50 | **Lab** | The Control Room — 40-minute control review |
@@ -74,20 +76,30 @@ not whether the gap exists.
 
 ## Open · 0:00–0:10 (10 min)
 
-**[DO] — W3 quiz live (4 min):** Launch the pre-built Workshop 3 knowledge-check poll. Read each
-answer aloud as results land. Brisk — this is a loop-close, not a review.
+> **No W3 recap this session.** The quiz and the vault callback are cut. The room is mixed —
+> the invite went wider than intended — so the Open does audience-setting instead of loop-closing.
 
-**[DO] — vault callback (1 min):** Name the teams that escaped the Skill Vault and their times.
+**[SAY] — name the room, first thing (2 min):** "Quick bit of housekeeping. This session was scoped
+for IT, security and compliance — and some of you were told you didn't need to be here. You're
+welcome anyway. Here's how I'd like to run it: **if you're here to observe, observe** — no pressure to
+speak, and you'll still get something out of the first half. If you own an admin console, a policy, or
+a control, this whole session is aimed at you, and I'm going to be looking to you for the questions."
 
-**[>>]** *Why open on last week's game?* W4 is the session most at risk of feeling like a lecture — it
-is the compliance session, and half the room is here because governance is their job. Opening on the
-scoreboard from a game they enjoyed establishes that today ends the same way. Without that signal,
-participants settle into passive-listening mode during Teach and never fully come back.
+**[>>]** *Say this out loud rather than hoping it sorts itself out.* Nick's invite went to everyone
+despite the session being scoped to IT, so you have an engaged core and a curious tail. An unmanaged
+mixed room fails in a specific way: the observers stay silent, the facilitator reads that silence as
+"no questions," and the engaged handful who actually needed the session never get their airtime.
+Naming the split in the first two minutes gives observers explicit permission to lurk *and* tells the
+core that the floor is theirs. It costs 90 seconds and it changes the whole discussion dynamic.
 
-**[SAY] — welcome the new people:** "Some of you are joining for the first time today — IT, security,
-compliance. You're not late to this; **this is your session.** The last three workshops taught knowledge
-workers to delegate real work to Cowork. Today we answer the question you've been waiting to ask:
-*under what controls?*"
+**[SAY] — arc reminder, one sentence:** "For anyone joining cold: three sessions taught knowledge
+workers to delegate real work to Cowork. Today is the one that answers *under what controls* — and
+then you'll run a live control review against a clock."
+
+**[NOTE — read the room before the Lab.]** Teams and breakouts are running **as designed**, so fold
+observers into teams rather than leaving them adrift. If it turns out the tail is larger than the
+core, pair each observer with a driver and give them the checklist-reading job — it keeps them
+occupied and genuinely helps at Station 4.
 
 **[SAY] — arc reminder:** "Workshop 1 you got set up. W2 you ran a real task. W3 you packaged it into a
 skill. Today: who's allowed to run it, what we can prove about it, and how we know it's working. And
@@ -172,16 +184,38 @@ hasn't settled is how administrators lock themselves out of their own tenant."
 
 ### Set Up & Govern · 0:23–0:29 (6 min) — *follow along: Lesson 3*
 
-**[SAY] — the setup sequence:** "Six steps, and the order matters. Enable the capability. Bind identity
-— SSO then SCIM. Deploy the desktop app through Intune — and on Windows, **use the MSIX installer, not
-the .exe.** Lock the edges: network egress allowlists, mount controls, desktop extension allowlists.
-Publish the approval and folder policy. Set spend limits and model caps *at setup*, not after the first
-invoice."
+**[SAY] — the setup sequence, briskly:** "Six steps, and the order matters. Enable the capability. Bind
+identity — SSO then SCIM. Deploy the desktop app through Intune. Lock the edges: network egress
+allowlists, mount controls, desktop extension allowlists. Publish the approval and folder policy. Set
+model caps at setup, not after the first invoice."
+
+**[NOTE — keep this shallow. Axos has already done most of it.]** They've stood up Intune (with some
+teething problems they're working through themselves) and they haven't engaged us on activation. Read
+the six steps as *a checklist to confirm*, not a tutorial to deliver — the value is spotting the one
+step that isn't done, not walking all six. Anthropic's own marketing bundles setup into activation,
+which is why it looks bigger than it needs to be here. **If you're short on time, this is the second
+thing to cut** (after the plugin slot).
 
 **[SAY] — the control that matters most:** "Folder scope. Users pick which folders Cowork can read and
 write. **There are no per-file permissions.** So the grant *is* the control, and least privilege means
 picking a narrow project folder instead of a drive root. That one decision contains more risk than
 everything else on the slide."
+
+**[SAY] — the correction, and say it deliberately:** "I want to correct an impression the first three
+sessions may have left. We've talked a lot about Cowork being local — desktop app, local folders. That
+is true about *where the files live*. It is **not** true about where the work happens. **When Cowork
+answers a request, that call goes out to Anthropic's API.** Whatever it read from the folder you
+granted leaves the machine to be processed. The files are local; the reasoning over them is not."
+
+**[SAY] — the consequence:** "So the folder grant isn't a convenience setting, it's an access-control
+decision. Scope it as though everything inside it is being sent out — because functionally, it is."
+
+**[>>]** *This is the single most important correction in the session, and it's the one an examiner or
+a CISO will land on.* "It runs locally" is the phrase people take away from a Cowork demo, and in a
+regulated bank that misconception is genuinely dangerous — it makes an over-broad folder grant feel
+harmless. Correcting it here, unprompted and in your own words, is also the strongest credibility move
+you can make with the compliance people in the room: you're volunteering the uncomfortable fact rather
+than being caught by it. Don't soften it and don't bury it in the middle of a list.
 
 **[SAY] — the gap, precisely.** Read Anthropic's words verbatim:
 > *"the Compliance API and Audit Logs do not cover Claude Cowork yet."*
@@ -202,6 +236,18 @@ across them."
 **[SAY] — and the routing decision:** "Some work needs zero retention or centralized audit *today*.
 That work does not belong in the Cowork interface — route it to the API or Claude Code Enterprise.
 Deciding that per workload, in writing, with a named example, is what turns awareness into a control."
+
+**[SAY] — the Microsoft-shop option, worth naming in this room:** "There's a stronger option for a bank
+on the Microsoft stack: **Claude on Azure AI Foundry.** It's a materially better posture for
+high-assurance work because the infrastructure is genuinely yours — real components you install and
+configure inside your own boundary — rather than a setting you toggle. The trade is effort: it's a
+deployment project, not a checkbox. And that same gateway layer is where per-user spend control
+becomes possible, which is the other thing you can't do natively."
+
+**[>>]** *Expect this to be the question the IT partners actually care about.* It connects the audit
+gap, the data-egress correction, and the missing spend controls into one answer, and it's the natural
+next engagement. If someone pushes for detail beyond the shape of it, take it offline — the depth is a
+scoping conversation, not a workshop slot.
 
 ---
 
@@ -251,25 +297,55 @@ determines how many teams clear Station 2.
 **[>>]** *What to do if you can't get admin access.* Narrate over screenshots and say so plainly. Do not
 fake a live console. An IT audience can tell, and the credibility cost is far higher than the polish gain.
 
-### (b) Read the telemetry (9 min)
-**[DO]** Open `control-room/lab-files/analytics-export.csv` on screen — this is the same file they'll use
-in Station 3, which is intentional.
+### (b) Read the telemetry — Kevin's live dashboard (9 min)
 
-**[SAY]** "Last week, twelve weekly active users. Now watch what one column tells me." Walk the model
-column by department. "Capital Markets is running about **88% of its dispatch turns on Opus.** Every
-other desk is under a quarter. And look at the cost column — Capital Markets is more than every other
-department combined."
+> **Kevin screen-shares the real Axos dashboard; you narrate the teaching frame.** Do not use the
+> synthetic `analytics-export.csv` here — that stays in Station 3 of the lab. Real numbers in front of
+> a real IT audience are worth ten times the made-up ones.
+>
+> **Capture screenshots as a fallback.** Kevin's connection dropped during prep. If he can't share,
+> present the captures and say plainly that they're captures.
 
-**[SAY] — the payoff, and the whole point of the demo:** "Now: what do you do about it? The wrong answer
-is a line in the steering minutes that says 'monitor Opus spend weekly.' **The right answer is the
-Models tab I showed you eight minutes ago.** A cap. That's the difference between a finding and a
-remediation — and it's why RBAC and analytics are the same lesson, not two."
+**[DO]** Kevin walks the board. Cards to make sure land: **token usage · number of users · top
+expensive prompts · cost by model · API requests by model · reliability · MCP servers · daily prompts
+per user.** Note as you go that **Cowork and Claude Code have their own sections** on the combined
+board — there is no tool filter, you read the right section.
 
-**[>>]** *This is the intellectual spine of the whole workshop — do not rush it.* Governance sessions fail
-when controls and measurement are taught as separate domains, because participants leave able to produce
-a dashboard and unable to act on it. The Opus example is deliberately chosen: it's financially concrete,
-it appears in their own lab data twenty minutes later, and the fix is a setting they watched you open.
-If participants remember one structural idea from Workshop 4, it should be *measurement points at a control.*
+**[SAY] — the frame, and the whole point of the demo:** "Everyone reads a dashboard like this as a cost
+report. I want you to read it as a **teaching list.** Every expensive pattern on here is telling you to
+do one of exactly two things."
+
+**[SAY] — route 1, build a skill:** "Look at top expensive prompts. That's not a naughty list, it's a
+backlog. If the same request keeps showing up across enough people, it should stop being a prompt and
+become a skill. That's the Workshop 3 loop — except now the data tells you *which* skill to build
+instead of waiting for a volunteer."
+
+**[SAY] — route 2, fix the instructions:** "Sometimes it's cheaper than that. A session doing hundreds of
+individual file edits — one tool call each — costs a fortune next to the same work batched. You don't
+need a skill for that. You need one line in that user's `CLAUDE.md` asking for batched tool and file
+edits. Same output, a fraction of the spend."
+
+**[SAY] — name the distinction:** "That's **proactive versus retroactive** enablement. Retroactive is what
+most places do: somebody runs up a bill, you have an awkward conversation. Proactive is seeing the
+pattern before it becomes a conversation and shipping the fix for everyone at once. The dashboard is
+what makes proactive possible — without it you're only ever reacting to invoices."
+
+**[SAY] — bucket the users:** "Daily prompts per user is worth a look too — not to rank individuals, but
+to see the shape. Where are your heavy users, where's the long tail that opened it twice and stopped?
+Those are two completely different enablement problems."
+
+**[>>]** *This is the strongest five minutes in the module — protect it.* It is the only part of W4 that
+hands the business users in the room something they actively want, and it flips the session from a
+constraint conversation into an enablement one. It also closes the loop back to Workshop 3: the skills
+they built last week now have an evidence-driven pipeline behind them. Governance sessions fail when
+controls and measurement are taught as separate domains — participants leave able to produce a dashboard
+and unable to act on it. If you're running long, cut the plugin slot and the setup walkthrough. Never
+cut this.
+
+**[NOTE]** If model caps come up here, connect it back — the Models tab is the structural fix for a desk
+running everything on Opus. But be straight about the limits: **Enterprise removes several cost controls
+that Team has, and there is no clean per-user spend cap.** Teams that need one are enforcing it through
+an API management gateway. Don't promise a control that isn't there.
 
 ---
 

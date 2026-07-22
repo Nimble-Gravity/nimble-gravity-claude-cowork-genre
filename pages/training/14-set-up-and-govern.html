@@ -40,7 +40,7 @@
 <div class="section" id="setup">
   <div class="sec-eyebrow">01 — The setup sequence</div>
   <h2 class="sec-title">Six steps, and the order <em>matters</em></h2>
-  <p class="sec-sub">Cowork is an admin-enabled capability, not a free-for-all. It is off until you turn it on, so nothing is exposed before you decide to.</p>
+  <p class="sec-sub">Cowork is an admin-enabled capability, not a free-for-all. It is off until you turn it on, so nothing is exposed before you decide to. <strong>Treat this as a checklist to confirm, not a tutorial to follow</strong> — most of it is already done at Axos, and the value here is spotting the one step that isn't.</p>
 
   <div class="bp-grid--light" style="margin-top:28px;">
     <div class="bp-item">
@@ -70,8 +70,8 @@
     </div>
     <div class="bp-item">
       <div class="bp-num">06</div>
-      <div class="bp-title">Set spend limits and model caps</div>
-      <div class="bp-body">Group spend limits per team, plus model and effort caps on the Models tab. Do this at setup, not after the first invoice — and remember the most restrictive spend limit wins.</div>
+      <div class="bp-title">Set model caps — and know the spend-control limits</div>
+      <div class="bp-body">Model and effort caps on the Models tab are your reliable lever. <strong>Spend control is weaker than you'd expect:</strong> moving from Team to Enterprise removes several of the cost controls Team has, and there is no clean per-user spend cap. Teams needing true per-user limits are routing through an API management gateway. Plan for the cap you have, not the one you assume.</div>
     </div>
   </div>
 
@@ -80,6 +80,14 @@
     <div class="tip-trick-copy">
       <div class="tip-trick-label">Folder scope is the data control</div>
       <p>Users select which folders Cowork may read from and write to, and finished work lands in a folder you designate. There are <em>no granular per-file permissions</em> — so the grant is the control. Least privilege here means picking a narrow project folder, and that single decision does more to contain risk than anything else on this page.</p>
+    </div>
+  </div>
+
+  <div class="tip-trick" style="margin-top:24px;">
+    <div class="tip-trick-icon">📡</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">Correction worth stating plainly: "local" does not mean the data stays put</div>
+      <p>Cowork runs on the desktop and works against local folders, and that phrasing has led people to assume the whole thing is on-machine. It isn't. <strong>The model call goes out to Anthropic's API.</strong> Whatever Cowork reads from a granted folder to answer a request leaves the machine to be processed — the <em>files</em> are local, the <em>reasoning over them</em> is not. That is precisely why the folder grant is an access-control decision and not just a convenience setting: scope it as though everything inside it is being sent out, because functionally it can be.</p>
     </div>
   </div>
 </div>
@@ -135,6 +143,7 @@
     <div class="tip-trick-copy">
       <div class="tip-trick-label">Route the work that can't wait for the gap to close</div>
       <p>Some workloads need zero data retention or centralized audit <em>today</em>. Those don't belong in the Cowork interface — route them to Anthropic's audited surfaces, the <strong>API</strong> or <strong>Claude Code Enterprise</strong>. Deciding this per workload, in writing, with a named example, is what turns "we're aware of the gap" into a control.</p>
+      <p style="margin-top:10px;">For a Microsoft-stack bank there is a stronger option worth naming: <strong>Claude on Azure AI Foundry</strong>. It is a materially better posture for high-assurance work because the infrastructure is genuinely yours — real components you install and configure inside your own boundary — rather than a setting you toggle. The trade is effort: it is a deployment project, not a checkbox. That same gateway layer is also where per-user spend control becomes possible.</p>
     </div>
   </div>
 </div>
