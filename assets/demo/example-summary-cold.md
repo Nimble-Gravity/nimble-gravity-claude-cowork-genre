@@ -1,32 +1,34 @@
-# Credit File Summary — Cascade Freight Solutions, LLC
+# Treaty Submission Summary — Pinnacle Mutual Insurance Company
 
 > **Example output — COLD run (before co-setup).** What Cowork returns when it doesn't know who you are:
-> accurate, but generic. No recommendation, no prioritized risks, no committee format. Compare with the
+> accurate, but generic. No recommendation, no prioritized exposures, no committee format. Compare with the
 > "after" example.
 
 ## Overview
-Cascade Freight Solutions, LLC is requesting a $2,500,000 senior secured term loan. The purpose is to
-refinance an existing $1.4M equipment note and provide $1.1M for fleet expansion and working capital. The
-term is 60 months, fully amortizing, at SOFR + 3.25% (currently about 8.10%).
+Pinnacle Mutual Insurance Company is submitting a General Liability Excess of Loss treaty for renewal,
+covering $2M excess of $1M per occurrence with a $6M annual aggregate and one reinstatement. The term is
+12 months on a losses-occurring basis, incepting 1 January.
 
-## Company background
-The borrower is a regional less-than-truckload carrier based in Portland, Oregon, founded in 2014. It has
-62 employees and operates 38 tractors and 71 trailers. The CEO, Dana Whitlock, owns 100% of the company.
+## Cedent background
+The cedent is a regional commercial-lines mutual based in Portland, Oregon, founded in 1961, writing
+predominantly small and mid-market commercial General Liability across the Pacific Northwest and Mountain
+West. It is rated A- (Excellent) by A.M. Best with policyholder surplus of about $310M.
 
-## Financial highlights
-Revenue was $14.82M in FY2023, $16.34M in FY2024, and $15.92M (annualized interim) in FY2025. EBITDA was
-$1.84M, $1.76M, and $1.42M across those periods. Net income was $990K, $760K, and $360K. Gross margin was
-24.0%, then 22.0%, then 19.5%.
+## Experience highlights
+Subject GL premium grew from $39.8M in UY2021 to $48.0M in UY2025 (interim). Ceded premium to the layer was
+$3.18M, $3.41M, $3.59M, $3.70M, and $3.84M across those years. Incurred losses to the layer were $1.84M,
+$2.05M, $2.36M, $2.59M, and $2.72M. The loss ratio to the layer was 57.9%, then 60.1%, 65.7%, 70.0%, and
+70.8%.
 
-## Balance sheet
-As of September 30, 2025, the company had $540K in cash, $2.18M in accounts receivable, $6.42M in net fixed
-assets, and total assets of $9.64M. Total debt on a pro-forma basis is $5.9M and member's equity is $1.23M.
+## Exposure
+UY2025 subject premium is concentrated in California (24%) and Texas (14%), with Oregon, Washington, and
+other Mountain West states making up the balance. The book is weighted to contracting, habitational, and
+light manufacturing General Liability.
 
-## Coverage and collateral
-Pro-forma DSCR is 1.28x. Collateral includes rolling stock appraised at $4.9M, accounts receivable of
-$2.18M, a blanket UCC-1, and a Tacoma terminal valued at about $1.3M. Dana Whitlock provides an unlimited
-personal guaranty.
+## Rate and large losses
+Rate on line is 8.0% of the $2M limit. A single full-limit bodily-injury claim in UY2024 ($2.0M to the
+layer) is in litigation. A UY2023 premises-liability claim settled at $780K.
 
 ## Other notes
-There is one late payment from early 2024, customer concentration among two retail accounts, and a minor
-cargo-damage claim of about $85K.
+There was one late bordereau in early 2024, a mid-2025 reserve strengthening on prior years, and a disputed
+late-notice defense on the UY2024 claim.

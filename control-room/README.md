@@ -54,7 +54,7 @@ ES modules and `fetch` don't work over `file://`, and code hashing needs `https:
 Answer key lives in `../workshop-4-script.md` (facilitator appendix) and in `config/rooms.source.json`.
 
 All six lab files are in `lab-files/` and are linked for download from
-`../pages/training/16-the-control-room.html`. They are **synthetic** — no real Axos data.
+`../pages/training/16-the-control-room.html`. They are **synthetic** — no real Gen Re data.
 
 ## Editing stations
 

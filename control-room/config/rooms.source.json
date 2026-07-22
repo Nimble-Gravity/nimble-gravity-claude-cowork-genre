@@ -15,7 +15,7 @@
         "Have Cowork report the two totals the rubric asks for at the end: how many rows are non-compliant, and which single row breaks the most rules.",
         "The sign-off code is the number of non-compliant rows, followed by the first word of the department of the row that breaks the most rules, with no space. Example format: 5Treasury"
       ],
-      "codePlaintext": "7Commercial",
+      "codePlaintext": "7Facultative",
       "codeHash": "GENERATE_WITH_SCRIPT",
       "hints": [
         "Work rule by rule rather than row by row. LP-1 is about folder scope, LP-2 pairs restricted data classes with the approval mode, LP-3 is about contractors and connectors, LP-4 is about the blank reviewer column. Then count the distinct rows you flagged.",
@@ -64,7 +64,7 @@
         "Sanity-check the readout by hand before you trust it — if the department it names is not far ahead of the others, your skill is aggregating wrong.",
         "The sign-off code is the first word of that department's name, followed by the weekly active user count, with no space. Example format: Treasury9"
       ],
-      "codePlaintext": "Capital12",
+      "codePlaintext": "Specialty12",
       "codeHash": "GENERATE_WITH_SCRIPT",
       "hints": [
         "Opus share is per department, not per row: add up that department's dispatch turns on Opus, then divide by all of its dispatch turns. The leader is not subtle — it sits above 85% while every other department is under a quarter.",
@@ -79,10 +79,10 @@
     {
       "id": "room-4",
       "title": "The Control Narrative",
-      "narrative": "The examiner is in the room. Everything you have found so far is evidence, but evidence is not an answer. Write the one page that says how Axos governs Cowork — and survive the acceptance checklist.",
+      "narrative": "The examiner is in the room. Everything you have found so far is evidence, but evidence is not an answer. Write the one page that says how Gen Re governs Cowork — and survive the acceptance checklist.",
       "labSteps": [
         "Bring your Station 1 findings, your Station 2 remediation table, and your Station 3 readout into one session, along with 'exam-checklist.txt'.",
-        "Delegate the drafting: ask Cowork to write a one-page Cowork control narrative for Axos that carries your three artifacts forward — the access findings, the corrected role design, and the adoption picture.",
+        "Delegate the drafting: ask Cowork to write a one-page Cowork control narrative for Gen Re that carries your three artifacts forward — the access findings, the corrected role design, and the adoption picture.",
         "The narrative has to stand on its own in front of an examiner. Be explicit about where Cowork's audit coverage ends today, what compensates for it, and which work is routed elsewhere because of it.",
         "Run the acceptance check: 'Score this control narrative against every item in exam-checklist.txt. For each item, state PASS or FAIL and briefly why. Then report the total pass count and the resulting verdict.'",
         "Any FAIL is a gap in your document, not in the checklist. Fix the narrative and score it again until it clears.",

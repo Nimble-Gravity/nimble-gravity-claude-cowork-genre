@@ -3,9 +3,9 @@
 
 > **Conforms to the on-site agenda** (`pages/workshops/module-4-workshop.html`, `syllabus.html`,
 > `facilitator-guide.html#workshop-4`). Same 8-slot shape as W1/W2/W3: **Open · Teach · Demo · Discuss ·
-> Break · Lab · Debrief · Close.** **Branch:** `client-axos` — **Claude Cowork only.**
+> Break · Lab · Debrief · Close.** **Branch:** `client-genre` — **Claude Cowork only.**
 
-**Outcome:** every participant leaves (1) able to explain Axos's Cowork access model and audit position
+**Outcome:** every participant leaves (1) able to explain Gen Re's Cowork access model and audit position
 to someone who has to sign off on it, and (2) holding a one-page control narrative they produced under
 a clock in **The Control Room** — the 40-minute control-review simulation.
 
@@ -51,7 +51,7 @@ not whether the gap exists.
    plan for an engaged core plus observers. The Open handles this explicitly; the Lab folds observers
    into teams rather than leaving them adrift.
 4. **Pre-recruit your IT/compliance partner for the Discuss slot.** DM them the day before: *"I'd like
-   you to open the discussion on which Axos workloads shouldn't run in the Cowork interface — 90
+   you to open the discussion on which Gen Re workloads shouldn't run in the Cowork interface — 90
    seconds, no prep."* This is the highest-stakes discussion of the series and it must not open cold.
 5. **Distribute lab files.** Share all six in Teams chat *before* the break:
    `cowork-access-register.csv`, `least-privilege-rubric.md`, `role-matrix-DRAFT.md`,
@@ -91,7 +91,7 @@ Derrikk interjects with the framing, then takes the screen back for Discuss.
   let me show you the part you don't. This is a dashboard we've built at Nimble Gravity to get clients
   to Cowork analytics in days instead of a quarter. Kevin built it — Kevin, take us through it."*
 - **Back out (0:52):** *"Thanks Kevin — stay with us, because the next twelve minutes are exactly your
-  territory. Everyone: which Axos workloads should* not *be running in the Cowork interface?"*
+  territory. Everyone: which Gen Re workloads should* not *be running in the Cowork interface?"*
 
 **Kevin's prep:** dashboard open and ready to share · screenshots of the key cards sent to Derrikk
 beforehand (his connection dropped during prep — if it drops live, Derrikk presents the captures and
@@ -234,7 +234,7 @@ identity — SSO then SCIM. Deploy the desktop app through Intune. Lock the edge
 allowlists, mount controls, desktop extension allowlists. Publish the approval and folder policy. Set
 model caps at setup, not after the first invoice."
 
-**[NOTE — keep this shallow. Axos has already done most of it.]** They've stood up Intune (with some
+**[NOTE — keep this shallow. Gen Re has already done most of it.]** They've stood up Intune (with some
 teething problems they're working through themselves) and they haven't engaged us on activation. Read
 the six steps as *a checklist to confirm*, not a tutorial to deliver — the value is spotting the one
 step that isn't done, not walking all six. Anthropic's own marketing bundles setup into activation,
@@ -257,7 +257,7 @@ decision. Scope it as though everything inside it is being sent out — because 
 
 **[>>]** *This is the single most important correction in the session, and it's the one an examiner or
 a CISO will land on.* "It runs locally" is the phrase people take away from a Cowork demo, and in a
-regulated bank that misconception is genuinely dangerous — it makes an over-broad folder grant feel
+regulated reinsurer that misconception is genuinely dangerous — it makes an over-broad folder grant feel
 harmless. Correcting it here, unprompted and in your own words, is also the strongest credibility move
 you can make with the compliance people in the room: you're volunteering the uncomfortable fact rather
 than being caught by it. Don't soften it and don't bury it in the middle of a list.
@@ -301,7 +301,7 @@ answers before he has to hold the screen, so when the handoff comes at 0:43 the 
 they're listening to him. And this particular correction is more credible from the person who's been
 answering the question repeatedly than from the person running the deck.
 
-**[SAY] — the Microsoft-shop option, worth naming in this room:** "There's a stronger option for a bank
+**[SAY] — the Microsoft-shop option, worth naming in this room:** "There's a stronger option for a reinsurer
 on the Microsoft stack: **Claude on Azure AI Foundry.** It's a materially better posture for
 high-assurance work because the infrastructure is genuinely yours — real components you install and
 configure inside your own boundary — rather than a setting you toggle. The trade is effort: it's a
@@ -327,7 +327,7 @@ manually or auto-initiated."
 are only exported when an admin configures an OTLP endpoint. No data flows by default.'* Organization
 settings → Cowork, OTLP endpoint, protocol, auth headers."
 
-**[SAY] — the thing to flag to a bank:** "That stream carries **prompt text and file paths** into your
+**[SAY] — the thing to flag to a reinsurer:** "That stream carries **prompt text and file paths** into your
 SIEM. That's a data-handling decision in its own right. Scope the sink, restrict who can query it, and
 write it into the control narrative."
 
@@ -335,7 +335,7 @@ write it into the control narrative."
 off? Weekly active usage trending up is the headline."
 
 **[SAY] — hand forward, don't spend it here:** "Hold that, because in about ten minutes Kevin's going to
-put a real dashboard on screen and we'll read those three questions off actual Axos numbers."
+put a real dashboard on screen and we'll read those three questions off actual Gen Re numbers."
 
 **[>>]** *This slot is the frame; Kevin's slot is the evidence. Do not teach the education loop here.*
 The temptation is to explain the whole spend-signal idea now and then have Kevin illustrate it — that
@@ -443,7 +443,7 @@ are yours anyway. **Do not spend ninety seconds waiting for him to reconnect.**
 *Pre-recruited IT/compliance partner goes first.*
 
 **[SAY]** "Here's the question I want in the open, with IT and compliance in the room. Given what I just
-showed you about audit coverage — **which Axos workloads should not run in the Cowork interface today?**"
+showed you about audit coverage — **which Gen Re workloads should not run in the Cowork interface today?**"
 
 **[DO]** Call your pre-recruited partner: *"[Name], 90 seconds — where would you draw that line?"* Then
 take two or three more from the room. Capture answers in the chat or on a shared slide; **these become
@@ -573,7 +573,7 @@ privilege." Making them count seven actual violations in a real register convert
 
 **Station 1 — The Access Map (delegate an access review):**
 **[NOTE]** Teams test 18 grants against a 4-rule rubric. **Answer: 7 non-compliant rows; the worst
-offender is in Commercial Lending.** Common failure: counting *violations* instead of *rows* — the
+offender is in Facultative.** Common failure: counting *violations* instead of *rows* — the
 rubric says count each row once, and teams that miss that line get 10 or 11. Redirect: *"Re-read the
 counting instruction in the rubric."*
 
@@ -594,7 +594,7 @@ Custom roles grant nothing implicitly. If a team is stuck past the 20-minute mar
 
 **Station 3 — Read the Room (author a skill, run it on the export):**
 **[NOTE]** Teams author a `cowork-adoption-review` skill with four prescribed sections, then run it on
-the export. **Answer: Capital Markets, 12 weekly active users.** Two common failures: (a) computing
+the export. **Answer: Specialty & Cat, 12 weekly active users.** Two common failures: (a) computing
 Opus share across the whole file instead of per department, and (b) counting *rows* or *sessions*
 instead of distinct users. Both are caught by the "sanity-check by hand" step — push teams to it.
 
@@ -648,7 +648,7 @@ while it's fresh." *(6 questions, 4 to pass.)*
 
 ## Close · 1:58–2:00 (2 min) — Homework + program wrap
 
-**[SAY] — homework:** "The Control Room used a synthetic Axos pilot. Your homework uses the real one.
+**[SAY] — homework:** "The Control Room used a synthetic Gen Re pilot. Your homework uses the real one.
 Export your own Cowork folder grants and run the Station 1 review against the rubric. Map your pilot group
 to Custom roles. Then score your real control narrative against `exam-checklist.txt` until all nine
 items pass — and take it to your sponsor."
@@ -680,9 +680,9 @@ value lands.
 **Answer key (do not share):**
 | Station | Code | Derivation |
 |---|---|---|
-| 1 · The Access Map | `7Commercial` | 7 non-compliant rows; worst offender (4 rules) is C. Duarte, Commercial Lending |
+| 1 · The Access Map | `7Facultative` | 7 non-compliant rows; worst offender (4 rules) is C. Duarte, Facultative |
 | 2 · The Broken Role Matrix | `4Required` | 4 of 6 Owners move to Custom roles; disclaimer plugin must be Required |
-| 3 · Read the Room | `Capital12` | Capital Markets ≈88.7% Opus share; 12 distinct weekly active users |
+| 3 · Read the Room | `Specialty12` | Specialty & Cat ≈88.7% Opus share; 12 distinct weekly active users |
 | 4 · The Control Narrative | `9Ready` | All 9 checklist items pass → verdict READY |
 
 Codes are case- and whitespace-insensitive. Hint 1 free; hint 2 costs +2 min.
@@ -713,7 +713,7 @@ Reset is available per team in the facilitator view.
 
 **Closes the program:**
 - Capture the Control Room results and the strongest control narratives — those are the seeds of the
-  Axos governance one-pager NG delivers.
+  Gen Re governance one-pager NG delivers.
 - Note which workloads the Discuss slot flagged for audited surfaces; that list is a deliverable in
   its own right.
 - Anyone who cleared Station 2 quickly is an RBAC champion. Name them to the sponsor.

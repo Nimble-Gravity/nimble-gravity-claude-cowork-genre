@@ -1,6 +1,6 @@
 # Cowork Access Rubric — Least Privilege Standard
 
-Axos Information Security · applies to every Claude Cowork folder grant.
+Gen Re Information Security · applies to every Claude Cowork folder grant.
 
 Cowork's real data control is **folder scope**: a user picks which folders Claude may read from and
 write to, and there is no finer-grained per-file permission. So the grant *is* the control. Every row
@@ -16,16 +16,17 @@ rules it breaks.
 The granted folder must be a specific project subfolder. A grant is non-compliant if `folder_granted`
 is a drive root, a cloud-drive root, or a bare user folder with no project subfolder beneath it.
 
-**Non-compliant examples:** `C:\` · `OneDrive - Axos\` · `Desktop` · `Documents`
-**Compliant example:** `Projects\Credit-Memos\2026-Q3`
+**Non-compliant examples:** `C:\` · `OneDrive - Gen Re\` · `Desktop` · `Documents`
+**Compliant example:** `Projects\Submissions\2026-Q3`
 
 *Why:* granting a root hands Cowork every file the user can see. Scope is the only thing standing
 between a delegated task and the whole drive.
 
 ## LP-2 · Restricted data requires approvals
 
-If `data_class` is **Customer PII**, **Loan Files**, or **Board Material**, then `permission_mode`
-must be **Ask before acting**. `Act without asking` on restricted data is non-compliant.
+If `data_class` is **Cedent Confidential**, **Cedent Submissions**, **Claimant PHI**, or **Board
+Material**, then `permission_mode` must be **Ask before acting**. `Act without asking` on restricted
+data is non-compliant.
 
 *Why:* approval decisions are one of the few Cowork events that reach your SIEM. Turning approvals off
 on restricted data removes the human checkpoint *and* the telemetry that proves one existed.

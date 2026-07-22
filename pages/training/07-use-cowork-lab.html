@@ -53,7 +53,7 @@
     <li style="margin-bottom:12px;"><strong>Outcome, not steps.</strong> Cowork builds its own plan. Describe what the finished output looks like, not the steps to get there.</li>
     <li style="margin-bottom:12px;"><strong>Say what done looks like.</strong> Write your acceptance test before you paste the prompt. If you cannot describe a passing output in one sentence, the prompt is not ready.</li>
     <li style="margin-bottom:12px;"><strong>Flag gaps, do not fill them.</strong> Add a line to every prompt: "If something is missing or unclear, say so — do not estimate." This keeps every figure citable.</li>
-    <li style="margin-bottom:12px;"><strong>Name the reader.</strong> "Draft a memo for a credit committee" gets a different output than "summarize this file." The audience shapes the format and detail level. Put it in the prompt.</li>
+    <li style="margin-bottom:12px;"><strong>Name the reader.</strong> "Draft an analysis for the underwriting committee" gets a different output than "summarize this file." The audience shapes the format and detail level. Put it in the prompt.</li>
     <li><strong>One sentence beats a rewrite.</strong> When the first pass misses, add one corrective sentence and let it rerun. Redirect, do not take over.</li>
   </ol>
 </div>
@@ -67,7 +67,7 @@
   <div class="insight-grid" style="margin-top:28px;">
     <div class="insight-card">
       <div class="sec-eyebrow" style="margin-bottom:6px;">Stage the work</div>
-      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Connect only the folder the task needs. You can seed from an Anthropic industry pack so you start with proven structure. <span data-client-slot="canonical-scenario-m2">Axos scenario: point Cowork at a commercial loan file (application, financial statements, covenants) and ask for a one-page credit summary with a cited, flagged-risks list. The analyst reviews and signs off — Cowork drafts, it doesn't decide.</span></p>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Connect only the folder the task needs. You can seed from an Anthropic industry pack so you start with proven structure. <span data-client-slot="canonical-scenario-m2">Gen Re scenario: point Cowork at a cedent treaty submission (the submission letter, loss experience, exposure schedules, and program terms) and ask for a one-page underwriting summary with a cited, flagged-exposures list. The underwriter reviews and signs off — Cowork drafts, it doesn't decide.</span></p>
     </div>
     <div class="insight-card">
       <div class="sec-eyebrow" style="margin-bottom:6px;">Write the acceptance test</div>
@@ -79,21 +79,21 @@
     <div class="tip-trick-icon">✅</div>
     <div class="tip-trick-copy">
       <div class="tip-trick-label">What a good acceptance test looks like</div>
-      <p>"The credit memo has a risk section with at least three flagged risks and a recommendation with conditions. Every figure cites a specific line in the loan file. Anything missing or marked interim is called out. Nothing is invented." One or two sentences is enough. If you can read it at the end and know whether Cowork passed or failed, it works. Write it before you start. You'll reuse this same test in Workshop 3 when you turn the job into a skill.</p>
+      <p>"The underwriting summary has an exposure section with at least three flagged exposures and a recommendation with conditions. Every figure cites a specific line in the submission. Anything missing or marked interim is called out. Nothing is invented." One or two sentences is enough. If you can read it at the end and know whether Cowork passed or failed, it works. Write it before you start. You'll reuse this same test in Workshop 3 when you turn the job into a skill.</p>
     </div>
   </div>
 
   <div style="margin-top:32px;">
     <div class="sec-eyebrow">Pick your track — ready-to-paste prompts</div>
-    <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:8px;">Pick the track that matches your work — <strong>Track 1</strong> if you handle loan or credit files, <strong>Track 2</strong> if you're in finance, FP&amp;A, or accounting — then copy its prompt.</p>
+    <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:8px;">Pick the track that matches your work — <strong>Track 1</strong> if you handle treaty or facultative submissions, <strong>Track 2</strong> if you're in actuarial, pricing, or experience analysis — then copy its prompt.</p>
     <div class="lab-tabs" id="track-tabs" style="margin-top:16px;">
       <div class="lab-tabs__nav" role="tablist">
-        <button class="lab-tab is-active" role="tab" aria-selected="true" onclick="showTrack('t1', this)">Track 1 · Credit memo</button>
-        <button class="lab-tab" role="tab" aria-selected="false" onclick="showTrack('t2', this)">Track 2 · Variance analysis</button>
+        <button class="lab-tab is-active" role="tab" aria-selected="true" onclick="showTrack('t1', this)">Track 1 · Underwriting summary</button>
+        <button class="lab-tab" role="tab" aria-selected="false" onclick="showTrack('t2', this)">Track 2 · Experience analysis</button>
       </div>
 
       <div class="lab-panel is-active" id="track-t1" role="tabpanel">
-        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:20px;">Lending, credit, commercial banking. Point Cowork at a commercial loan file — application, financial statements, covenants. No file of your own? Use the <a href="../../assets/demo/sample-loan-file.md" download>sample loan file</a>.</p>
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:20px;">Treaty and facultative underwriting. Point Cowork at a cedent submission — submission letter, loss experience, exposure schedules, program terms. No file of your own? Use the <a href="../../assets/demo/sample-submission-pack.md" download>sample submission pack</a>.</p>
         <div class="code-wrap" style="margin-top:16px;">
           <div class="code-topbar">
             <span class="cb-dot" style="background:#ff5f57"></span>
@@ -103,14 +103,14 @@
             <button class="copy-btn" onclick="copyBlock('t1-prompt', this)">Copy</button>
           </div>
           <div class="code-body">
-<pre id="t1-prompt">Read the loan file in this folder and draft a credit memo for committee: the request, the borrower, the financial trend, collateral and guarantors, a covenant analysis, and a risk section with the top risks and a recommendation with conditions. Cite the file for every figure, flag anything missing or interim, and treat it as a draft for sign-off — not a decision.</pre>
+<pre id="t1-prompt">Read the cedent submission in this folder and draft an underwriting summary for committee: the program requested, the cedent, the loss-experience trend, the exposure profile, a terms-and-conditions analysis, and an exposure section with the top exposures and a recommendation with conditions. Cite the submission for every figure, flag anything missing or interim, and treat it as a draft for sign-off — not a decision.</pre>
           </div>
         </div>
-        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:16px;"><strong>Acceptance test:</strong> "The credit memo has a risk section with at least three flagged risks and a recommendation with conditions. Every figure cites a specific line in the loan file. Anything missing or marked interim is called out. Nothing is invented."</p>
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:16px;"><strong>Acceptance test:</strong> "The underwriting summary has an exposure section with at least three flagged exposures and a recommendation with conditions. Every figure cites a specific line in the submission. Anything missing or marked interim is called out. Nothing is invented."</p>
       </div>
 
       <div class="lab-panel" id="track-t2" role="tabpanel">
-        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:20px;">Finance, FP&amp;A, accounting. Point Cowork at a balance sheet or income statement, a GL detail export or chart of accounts, and a prior period comparison if available. No files? Use the <a href="../../assets/demo/sample-variance-dataset.md" download>sample variance dataset</a>.</p>
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:20px;">Actuarial, pricing, experience analysis. Point Cowork at a loss-experience triangle or exhibit, an exposure or premium export, and a prior-period comparison if available. No files? Use the <a href="../../assets/demo/sample-experience-dataset.md" download>sample experience dataset</a>.</p>
         <div class="code-wrap" style="margin-top:16px;">
           <div class="code-topbar">
             <span class="cb-dot" style="background:#ff5f57"></span>
@@ -120,10 +120,10 @@
             <button class="copy-btn" onclick="copyBlock('t2-prompt', this)">Copy</button>
           </div>
           <div class="code-body">
-<pre id="t2-prompt">Read the financial files in this folder. Draft variance analysis commentary for the balance sheet and income statement line items that show the most material movement. For each variance: name the line item, state the direction and approximate size of the change, and give a plain-language explanation of what is driving it based on what you can see in the files. If a prior period comparison is missing or a figure looks incomplete, say so and do not fill it in. Format the output as a commentary section ready for a finance reviewer to edit and sign off on.</pre>
+<pre id="t2-prompt">Read the experience files in this folder. Draft experience-analysis commentary for the loss-ratio and frequency/severity movements that are most material. For each movement: name the segment or line, state the direction and approximate size of the change, and give a plain-language explanation of what is driving it based on what you can see in the files. If a prior-period comparison is missing or a figure looks incomplete, say so and do not fill it in. Format the output as a commentary section ready for an actuary to edit and sign off on.</pre>
           </div>
         </div>
-        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:16px;"><strong>Acceptance test:</strong> "The commentary covers at least three material line item variances, explains the direction and size of each movement in plain language, and flags any line where the source data is incomplete or where a prior period comparison is missing. No numbers are invented."</p>
+        <p style="font-size:15px;color:var(--slate);line-height:1.65;margin-top:16px;"><strong>Acceptance test:</strong> "The commentary covers at least three material movements, explains the direction and size of each in plain language, and flags any segment where the source data is incomplete or where a prior-period comparison is missing. No numbers are invented."</p>
       </div>
     </div>
   </div>
@@ -193,7 +193,7 @@
 <div class="section section--off" id="wrap">
   <div class="sec-eyebrow">Wrapping up Workshop 2</div>
   <h2 class="sec-title">Two things before you <em>move on</em></h2>
-  <p class="sec-sub">You've run a real banking task end to end. Close out Workshop 2, then you're set for Workshop 3.</p>
+  <p class="sec-sub">You've run a real reinsurance task end to end. Close out Workshop 2, then you're set for Workshop 3.</p>
   <div class="bp-grid--light" style="margin-top:28px;">
     <div class="bp-item">
       <div class="bp-num">01</div>

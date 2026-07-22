@@ -172,7 +172,7 @@ covered as the unit of governed distribution, not as an authoring topic.*
   There are no granular per-file permissions — least privilege means picking a narrow folder.
 - Set **group spend limits** per team from the admin console.
 
-#### The audit gap (still open — decisive for a bank)
+#### The audit gap (still open — decisive for a regulated reinsurer)
 - Anthropic's own Cowork admin guide, verbatim: ***"the Compliance API and Audit Logs do not cover Claude
   Cowork yet."*** Cowork is excluded from **Audit Logs, the Compliance API, and Data Exports**, on every plan
   tier including Enterprise. Conversation history lives locally on the user's machine.
@@ -187,27 +187,31 @@ covered as the unit of governed distribution, not as an authoring topic.*
 - **Data/retention:** commercial (Team/Enterprise/API) — no training by default, 30-day retention; ZDR only on
   API + Claude Code Enterprise (not the Cowork interface).
 
-#### Field corrections (Axos prep call, 2026-07-21 — Kevin Booth, real tenant + dashboard)
-These override the doc-derived claims above where they conflict. Re-confirm each cycle.
+#### Field corrections (Cowork product prep, 2026-07-21)
+Client-agnostic product corrections that override the doc-derived claims above where they conflict.
+Re-confirm each cycle. **Gen Re-specific facts are not yet gathered — see `CLIENT.md` §10 for the
+open discovery questions (stack, licensed products, dashboard, setup depth).**
 - **"Local" is misleading and must be corrected out loud.** Cowork runs on the desktop against local
   folders, but **the model call goes to Anthropic's API** — whatever it reads from a granted folder
   leaves the machine to be processed. The *files* are local; the *reasoning over them* is not. This is
-  the correction that matters most to a bank, because "it runs locally" makes an over-broad folder
-  grant feel harmless.
+  the correction that matters most to a regulated reinsurer, because "it runs locally" makes an
+  over-broad folder grant feel harmless.
 - **Spend controls are weaker than the docs imply.** Moving Team → Enterprise **removes** several cost
   controls, and there is **no clean per-user spend cap**. Orgs needing one are enforcing it through an
   **API management gateway**. Model/effort caps on the Models tab remain the reliable lever. Treat the
   group-spend-limit rule as directional and verify per tenant.
-- **Azure AI Foundry is the private-deployment path** for a Microsoft-stack bank — Cowork/Claude Code on
-  Foundry gives a materially better posture because the infrastructure is genuinely yours (real
+- **Azure AI Foundry is the private-deployment path** for a Microsoft-stack reinsurer — Cowork/Claude Code
+  on Foundry gives a materially better posture because the infrastructure is genuinely yours (real
   components installed inside your boundary) rather than a toggle. Trade: it's a deployment project.
   The same gateway layer is where per-user spend control becomes possible.
-- **Don't teach setup depth at Axos.** They've stood up Intune (working through issues themselves) and
-  have not engaged NG on activation. Deliver the six steps as a confirm-checklist, not a tutorial.
-- **The adoption dashboard is built** (Kevin's). Live cards: token usage · number of users · **top
-  expensive prompts** · cost by model · API requests by model · reliability · MCP servers · daily
-  prompts per user. **Cowork and Claude Code are separate sections on a combined board — there is no
-  tool filter.**
+- **Confirm setup depth per client.** If the client has already stood up device management (e.g. Intune)
+  and worked through activation, deliver the six setup steps as a confirm-checklist, not a tutorial.
+  Verify Gen Re's actual state in discovery before deciding how much setup to teach.
+- **The adoption dashboard is NG IP** the client stands up in their own environment (see the
+  adoption-dashboard slot in lesson 15 and `CLIENT.md` §10). Typical live cards: token usage · number of
+  users · **top expensive prompts** · cost by model · API requests by model · reliability · MCP servers ·
+  daily prompts per user. **Cowork and Claude Code are separate sections on a combined board — there is
+  no tool filter.**
 - **The education loop** (best new teaching idea in the module): spend data is a curriculum signal, not
   a cost report. Repeated expensive patterns route to one of two fixes — **build a skill** (mine top
   expensive prompts as a backlog: is this asked often enough to package?) or **fix `CLAUDE.md`** (e.g.
@@ -226,8 +230,8 @@ These override the doc-derived claims above where they conflict. Re-confirm each
   auto-initiated)**, and API requests (model, token counts, cost estimates, errors). Events share a
   **`prompt.id`** attribute so a full response can be reconstructed. Sinks: Splunk, Cribl, Elasticsearch, Loki,
   ClickHouse, Honeycomb, Datadog.
-  ⚠️ **Governance note for a bank:** OTel exports *prompt text and file paths* to your SIEM. That is a
-  data-handling decision in its own right — scope the sink accordingly.
+  ⚠️ **Governance note for a regulated reinsurer:** OTel exports *prompt text and file paths* to your SIEM.
+  That is a data-handling decision in its own right — scope the sink accordingly.
 - **Build the partner dashboard** by pulling the Analytics API + OTel into Power BI/Databricks. Anthropic's
   KPI = weekly active usage trending up. **OTel is operational telemetry, not compliance-grade audit.**
 

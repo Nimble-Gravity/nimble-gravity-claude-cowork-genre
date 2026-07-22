@@ -1,6 +1,6 @@
 # Claude Enterprise RBAC — Reference Standard
 
-Axos Identity & Access · the rules a Cowork role design is tested against.
+Gen Re Identity & Access · the rules a Cowork role design is tested against.
 *Reflects Anthropic's Enterprise role-based permissions model, verified 2026-07-21.*
 
 ---
@@ -54,7 +54,7 @@ membership comes from a parent group in the identity provider will sync as empty
 Each connector is set to **Always allow**, **Needs approval**, or **Blocked**, with per-tool
 granularity via **Custom**.
 
-**Rule:** any connector that can reach customer or loan data must be **Needs approval**, not
+**Rule:** any connector that can reach cedent-confidential or claims data must be **Needs approval**, not
 Always allow. Note that connector settings are **organization-wide — there is no per-group connector
 control**, so the strictest requirement governs the whole org.
 

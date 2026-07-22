@@ -23,16 +23,16 @@ working out the permissions.
 
 | Group | Source | Role | Capabilities listed on the role |
 |---|---|---|---|
-| `axos-cowork-pilot` | SCIM — **parent group `axos-all-staff`, nested** | Custom | *(none listed — Cowork is already enabled org-wide, so it should come through)* |
-| `axos-commercial-lending` | SCIM — direct members | Custom | Cowork, Projects |
-| `axos-risk-compliance` | SCIM — direct members | Custom | Cowork, Projects, Web Search |
-| `axos-contractors` | Manual | User | — |
+| `genre-cowork-pilot` | SCIM — **parent group `genre-all-staff`, nested** | Custom | *(none listed — Cowork is already enabled org-wide, so it should come through)* |
+| `genre-treaty-underwriting` | SCIM — direct members | Custom | Cowork, Projects |
+| `genre-risk-compliance` | SCIM — direct members | Custom | Cowork, Projects, Web Search |
+| `genre-contractors` | Manual | User | — |
 
 ## 3. Connectors
 
 | Connector | Setting | Reaches |
 |---|---|---|
-| Microsoft 365 | **Always allow** | Mail, files, calendar — includes customer and loan folders |
+| Microsoft 365 | **Always allow** | Mail, files, calendar — includes cedent-confidential and claims folders |
 | Zoom | Needs approval | Meeting recordings and transcripts |
 
 ## 4. Models
@@ -41,14 +41,14 @@ working out the permissions.
 |---|---|
 | Models enabled | All models, all effort levels |
 | Default model for new conversations | Opus |
-| Note | Capital Markets spend is running hot. **Action: monitor Opus spend weekly in the dashboard.** |
+| Note | Specialty & Cat spend is running hot. **Action: monitor Opus spend weekly in the dashboard.** |
 
 ## 5. Spend limits
 
 | Group | Monthly limit |
 |---|---|
-| `axos-cowork-pilot` | $400 / user |
-| `axos-capital-markets` | $1,200 / user |
+| `genre-cowork-pilot` | $400 / user |
+| `genre-specialty-cat` | $1,200 / user |
 
 > **Assumption:** people in both groups get the higher limit ($1,200), since permissions are additive.
 
@@ -56,8 +56,8 @@ working out the permissions.
 
 | Plugin | Install preference | Why it exists |
 |---|---|---|
-| `axos-credit-memo` | Available | Optional productivity helper for lenders |
-| `axos-disclaimer-footer` | **Available** | Appends the mandatory "AI-assisted draft — not final" disclaimer required by Legal on every generated client document |
+| `genre-underwriting-summary` | Available | Optional productivity helper for underwriters |
+| `genre-disclaimer-footer` | **Available** | Appends the mandatory "AI-assisted draft — not final" disclaimer required by Legal on every generated client document |
 
 ## 7. Rollout sequencing
 

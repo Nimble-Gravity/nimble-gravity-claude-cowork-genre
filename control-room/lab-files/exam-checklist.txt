@@ -16,7 +16,7 @@ Score each item PASS or FAIL, state briefly why, then report the total pass coun
     and a network proxy or LLM gateway (network / tool plane).
 
  3. HIGH-ASSURANCE WORK ROUTED AWAY
-    It names at least one specific Axos workload that requires zero data retention
+    It names at least one specific Gen Re workload that requires zero data retention
     or centralized audit, and routes that workload to an audited surface — the
     Anthropic API or Claude Code Enterprise — rather than the Cowork interface.
 

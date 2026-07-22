@@ -3,7 +3,7 @@
 
 > **Conforms to the on-site agenda** (`pages/workshops/module-3-workshop.html`, `syllabus.html`,
 > `facilitator-guide.html#workshop-3`). Same 8-slot shape as W1/W2: **Open · Teach · Demo · Discuss ·
-> Break · Lab · Debrief · Close.** **Branch:** `client-axos` — **Claude Cowork only.**
+> Break · Lab · Debrief · Close.** **Branch:** `client-genre` — **Claude Cowork only.**
 
 **Outcome:** every participant leaves (1) knowing Anthropic's skill standards well enough to critique a
 real `SKILL.md`, and (2) having built, repaired, authored, and chained skills under live pressure in the
@@ -67,8 +67,8 @@ lesson review.
 **[>>]** *Why open with a quiz?* The W2 knowledge check was deferred as homework for some cohorts; doing it live now closes the accountability loop and — importantly — signals that this series has continuity. Participants who see callbacks to last session's content pay more attention. It's also a 5-minute warm-up that doesn't require anyone to say anything out loud, which lowers the pressure before a more complex session.
 
 **[SAY]** "Before we start — three things you told us after Workshop 2." **[DO]** Name 2–3 use cases
-from the W2 Discuss export. *"You said: 'triage my overnight AML alerts,' 'summarize a new deposit
-relationship,' 'first-pass my quarterly covenant review.' Today we learn how to turn one of those into
+from the W2 Discuss export. *"You said: 'triage my incoming claims advices,' 'summarize a new renewal
+submission,' 'first-pass my quarterly aggregate review.' Today we learn how to turn one of those into
 a skill that runs every time, not just when you remember to ask."*
 
 **[>>]** *Why name their use cases out loud?* It closes the feedback loop from W2 — they submitted something and heard it back, which reinforces that the between-session work matters. It also anchors the abstract skill-authoring content to a concrete use case they already care about. Don't invent examples; use actual submissions even if imperfect.
@@ -91,8 +91,8 @@ your page today. All four lessons, the lab, and the download links hang off it."
 typed a prompt — you described a task, Cowork ran it, you got a result. That's a **delegation**. A
 skill is the step beyond that: instead of you writing the task description every time, **the skill
 holds it.** You install it once, and from then on Cowork reads the skill's description at startup and
-knows: *'When someone asks to draft a credit memo, that's this skill. When someone asks to triage
-AML alerts, that's that skill.'* You just work. Cowork routes to the right instruction set."
+knows: *'When someone asks to draft an underwriting summary, that's this skill. When someone asks to triage
+claims advices, that's that skill.'* You just work. Cowork routes to the right instruction set."
 
 **[SAY]** "Technically: a skill is a folder with one file — `SKILL.md`. YAML frontmatter at the top
 gives it a name and a description; a Markdown body below holds the instructions. That's it. The same
@@ -209,7 +209,7 @@ finished skill against the standards. Everything you're about to see is a key to
 
 ### (a) Run the workflow-decomposition skill
 **[DO]** New session in Cowork, workflow-decomposition skill installed. Paste this prompt:
-> *"I want to build a skill for drafting credit committee memos from commercial loan files. Help me
+> *"I want to build a skill for drafting underwriting committee memos from cedent submissions. Help me
 > decompose the workflow: the steps, the data source for each step, and a clear picture of what a
 > good output looks like versus a bad one."*
 
@@ -267,7 +267,7 @@ a 900-line body of ALL-CAPS rules; no examples; nested references three levels d
 nobody knows whether it works. It reads like documentation nobody tested. A fresh Claude picks it up
 cold — and can't use it."
 
-**[>>]** *Why critique the bad example first, before the good?* Because the failure mode is more memorable than the success mode, especially for a banking audience that's trained on audit findings and exception reports. Starting with "here's what fails and why" is how credit analysts think. The good memo skill they just saw in the demo is the implicit counterexample — they can hold it side by side in their head.
+**[>>]** *Why critique the bad example first, before the good?* Because the failure mode is more memorable than the success mode, especially for a reinsurance audience that's trained on audit findings and exception reports. Starting with "here's what fails and why" is how treaty underwriters think. The good memo skill they just saw in the demo is the implicit counterexample — they can hold it side by side in their head.
 
 **[SAY] — the one thing that's usually wrong:** "In practice, the failure is almost always the
 description. Not the body — the description. Everything else in a skill can be mediocre and it might

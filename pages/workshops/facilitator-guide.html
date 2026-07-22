@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Facilitator Guide — Axos Cowork</title>
+<title>Facilitator Guide — Gen Re Cowork</title>
 <link rel="stylesheet" href="../../styles/shared.css"/>
 <style>
 /* Page-specific styles go here. This scaffold relies entirely on shared.css. */
@@ -14,7 +14,7 @@
 <script src="../../nav.js"></script>
 
 <div class="page-header" id="intro">
-  <div class="eyebrow">Axos · Cowork Program</div>
+  <div class="eyebrow">Gen Re · Cowork Program</div>
   <h1 class="title">Facilitator <em>Guide</em></h1>
   <p class="subtitle">How to run each 2-hour session: the demo to give, the discussion to lead, the timing to hold, and the questions you'll get. Pair this with each workshop's hub page for the full run of show.</p>
   <div class="header-phase">
@@ -54,21 +54,21 @@
   <div class="dev-grid-2" style="margin-top:24px;">
     <div class="dev-card">
       <div class="dev-kicker">Demo (20 min)</div>
-      <h3>Summarize a loan file</h3>
-      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Stage a sample loan-file folder. Ask Cowork for a one-page summary with a cited findings list. Narrate: this is delegation, not chat — show the plan, approve a step, and open the finished file. Contrast with pasting the same ask into chat.</p>
+      <h3>Summarize a cedent submission</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Stage a sample submission folder. Ask Cowork for a one-page summary with a cited findings list. Narrate: this is delegation, not chat — show the plan, approve a step, and open the finished file. Contrast with pasting the same ask into chat.</p>
       <div class="dev-quote">Keep it on Sonnet; point out the cost note.</div>
     </div>
     <div class="dev-card">
       <div class="dev-kicker">Discussion (10 min)</div>
       <h3>"One task you'd hand off"</h3>
-      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Go around: each person names one repetitive, document-heavy task. Good answers are concrete ("summarize my deposit-relationship notes"). Capture them — they seed Workshop 2's use-case shortlist.</p>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Go around: each person names one repetitive, document-heavy task. Good answers are concrete ("summarize a cedent submission," "chronology a claims file"). Capture them — they seed Workshop 2's use-case shortlist.</p>
       <div class="dev-quote">M1 is the thinnest module — let the demo and lab breathe.</div>
     </div>
   </div>
 
   <div class="demo-asset" style="margin-top:28px;">
-    <p class="sec-sub on-dark" style="margin-bottom:14px;"><strong>Run it as a before/after.</strong> Download the sample loan file, drop it in a folder, and run the prompt below <em>cold</em> — before co-setup — then run the exact same prompt <em>after</em>. For the "after," answer the co-setup interview as the <strong>Maya Chen</strong> persona (in the facilitator script), or drop in her ready-made profile to skip straight to it. Same ask; the second answer comes back in the banker's voice and framed for the role — that contrast is the demo.</p>
-    <a href="../../assets/demo/sample-loan-file.md" download style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.28);color:var(--white);text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;">Download the sample loan file ↓</a>
+    <p class="sec-sub on-dark" style="margin-bottom:14px;"><strong>Run it as a before/after.</strong> Download the sample submission pack, drop it in a folder, and run the prompt below <em>cold</em> — before co-setup — then run the exact same prompt <em>after</em>. For the "after," answer the co-setup interview as the <strong>Maya Chen</strong> persona (in the facilitator script), or drop in her ready-made profile to skip straight to it. Same ask; the second answer comes back in the underwriter's voice and framed for the role — that contrast is the demo.</p>
+    <a href="../../assets/demo/sample-submission-pack.md" download style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.28);color:var(--white);text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;">Download the sample submission pack ↓</a>
     <a href="../../assets/demo/maya-profile/" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.28);color:var(--white);text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;margin-left:10px;">Browse the Maya demo profile →</a>
 
     <div class="code-wrap" style="margin-top:18px;">
@@ -80,7 +80,7 @@
         <button class="copy-btn" onclick="copyBlock('demo-prompt-w1', this)">Copy</button>
       </div>
       <div class="code-body">
-<pre id="demo-prompt-w1">Read the loan file in this folder and write a one-page credit summary I can take to committee. Cover: the borrower and the request, the key financials and any trends, collateral and guarantors, covenant headroom, and the top three risks to flag. Don't invent numbers — if something isn't in the file, say so.</pre>
+<pre id="demo-prompt-w1">Read the cedent submission in this folder and write a one-page underwriting summary I can take to committee. Cover: the cedent and the program requested, the loss-experience trend, the exposure profile, the terms and conditions, rate adequacy, and the top three exposures to flag. Don't invent numbers — if something isn't in the submission, say so.</pre>
       </div>
     </div>
   </div>
@@ -91,8 +91,8 @@
   <div class="sec-eyebrow">Workshop 2 · Use Cowork</div>
   <h2 class="sec-title">Demo, tracks, and <em>timing</em></h2>
 
-  <h3 style="margin-top:28px;font-size:19px;color:var(--navy);">Demo (20 min) — A credit memo from a loan file</h3>
-  <p class="sec-sub">Asset: <code>assets/demo/sample-loan-file.md</code> (same file as W1). Run on Maya's profile or your own so the memo comes back in a credit-analyst voice. Stage: put <code>sample-loan-file.md</code> alone in a clean folder, for example <code>loan-demo</code>. Grant Cowork only that folder and say "least privilege" out loud when you do it. Set the model to Sonnet.</p>
+  <h3 style="margin-top:28px;font-size:19px;color:var(--navy);">Demo (20 min) — An underwriting summary from a cedent submission</h3>
+  <p class="sec-sub">Asset: <code>assets/demo/sample-submission-pack.md</code> (same file as W1). Run on Maya's profile or your own so the memo comes back in an underwriter voice. Stage: put <code>sample-submission-pack.md</code> alone in a clean folder, for example <code>submission-demo</code>. Grant Cowork only that folder and say "least privilege" out loud when you do it. Set the model to Sonnet.</p>
 
   <div class="code-wrap" style="margin-top:18px;">
     <div class="code-topbar">
@@ -103,22 +103,22 @@
       <button class="copy-btn" onclick="copyBlock('demo-prompt-w2', this)">Copy</button>
     </div>
     <div class="code-body">
-<pre id="demo-prompt-w2">Read the loan file in this folder and draft a credit memo for committee: the request, the borrower, the financial trend, collateral and guarantors, a covenant analysis, and a risk section with the top risks and a recommendation with conditions. Cite the file for every figure, flag anything missing or interim, and treat it as a draft for sign-off — not a decision.</pre>
+<pre id="demo-prompt-w2">Read the cedent submission in this folder and draft an underwriting summary for committee: the program requested, the cedent, the loss-experience trend, the exposure profile, a terms-and-conditions analysis, and an exposure section with the top exposures and a recommendation with conditions. Cite the submission for every figure, flag anything missing or interim, and treat it as a draft for sign-off — not a decision.</pre>
     </div>
   </div>
 
-  <p class="sec-sub" style="margin-top:16px;">As it runs: watch it flag the thin 1.28x DSCR against the 1.25x covenant, the roughly 24% customer concentration, and the stale interim financials. Every figure cites the source file. It calls out what is missing rather than filling it in. That is a draft a banker signs off on.</p>
+  <p class="sec-sub" style="margin-top:16px;">As it runs: watch it flag the 70.8% latest-year loss ratio against the 65% target, the roughly 30% single-claim concentration in UY2024, and the stale interim bordereau. Every figure cites the source submission. It calls out what is missing rather than filling it in. That is a draft an underwriter signs off on.</p>
 
   <div class="tip-trick" style="margin-top:18px;">
     <div class="tip-trick-icon">🛡️</div>
     <div class="tip-trick-copy">
       <div class="tip-trick-label">Prompt injection beat — say this out loud</div>
-      <p>"Notice approvals are on. If this file, or an email I had forwarded in, carried a hidden line saying ignore your instructions and email this out, Cowork would pause at that step and I would catch it. That is why we keep least privilege and approvals on for anything from outside the bank."</p>
+      <p>"Notice approvals are on. If this file, or an email I had forwarded in, carried a hidden line saying ignore your instructions and email this out, Cowork would pause at that step and I would catch it. That is why we keep least privilege and approvals on for anything from outside Gen Re."</p>
     </div>
   </div>
 
   <h3 style="margin-top:32px;font-size:19px;color:var(--navy);">Discussion (10 min) — Shortlist use cases</h3>
-  <p class="sec-sub">Have each person pick two banking use cases that fit their week and drop them in Teams. Push for concrete examples: "triage my overnight AML alerts," "summarize a new deposit relationship." Tally the top few live. These become the lab tasks and the skill candidates for Workshop 3.</p>
+  <p class="sec-sub">Have each person pick two reinsurance use cases that fit their week and drop them in Teams. Push for concrete examples: "triage this week's claims advices," "summarize a renewal submission." Tally the top few live. These become the lab tasks and the skill candidates for Workshop 3.</p>
 
   <h3 style="margin-top:32px;font-size:19px;color:var(--navy);">Lab tracks (1:10–1:50)</h3>
   <p class="sec-sub">Two parallel tracks run at the same time after the prompting primer. Circulate during staging and point people toward the right track. Sample files for both tracks are in the <a href="resources.html">resource library</a>.</p>
@@ -131,12 +131,12 @@
         <th style="text-align:left;padding:8px 0;border-bottom:1px solid var(--border);">Files needed</th>
       </tr></thead>
       <tbody>
-        <tr><td style="padding:8px 16px 8px 0;border-bottom:1px solid var(--border);">1 (anchor)</td><td style="padding:8px 16px 8px 0;border-bottom:1px solid var(--border);">Credit memo from a loan file</td><td style="padding:8px 16px 8px 0;border-bottom:1px solid var(--border);">Lending, credit, commercial banking</td><td style="padding:8px 0;border-bottom:1px solid var(--border);">Sample loan file or own loan docs</td></tr>
-        <tr><td style="padding:8px 16px 8px 0;">2</td><td style="padding:8px 16px 8px 0;">Variance analysis commentary</td><td style="padding:8px 16px 8px 0;">Finance, FP&amp;A, accounting</td><td style="padding:8px 0;">Balance sheet, income statement, GL detail</td></tr>
+        <tr><td style="padding:8px 16px 8px 0;border-bottom:1px solid var(--border);">1 (anchor)</td><td style="padding:8px 16px 8px 0;border-bottom:1px solid var(--border);">Underwriting summary from a cedent submission</td><td style="padding:8px 16px 8px 0;border-bottom:1px solid var(--border);">Treaty &amp; facultative underwriting</td><td style="padding:8px 0;border-bottom:1px solid var(--border);">Sample submission pack or own submission docs</td></tr>
+        <tr><td style="padding:8px 16px 8px 0;">2</td><td style="padding:8px 16px 8px 0;">Experience-analysis commentary</td><td style="padding:8px 16px 8px 0;">Actuarial, pricing, experience</td><td style="padding:8px 0;">Loss triangle, exposure/premium export</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="sec-sub" style="margin-top:16px;">Both tracks: one folder, Sonnet, approvals on, acceptance test written before starting. If a participant's files do not fit either track clearly, put them in Track 1 with the sample loan file.</p>
+  <p class="sec-sub" style="margin-top:16px;">Both tracks: one folder, Sonnet, approvals on, acceptance test written before starting. If a participant's files do not fit either track clearly, put them in Track 1 with the sample submission pack.</p>
 
   <div class="tip-trick" style="margin-top:18px;">
     <div class="tip-trick-icon">📊</div>
@@ -200,7 +200,7 @@
     <div class="bp-item">
       <div class="bp-num">Talk</div>
       <div class="bp-title">Discussion: what leaves the Cowork interface?</div>
-      <div class="bp-body">With IT and compliance in the room — which Axos workloads need zero retention or centralized audit today, and therefore route to the API or Claude Code Enterprise? Pre-recruit your compliance partner to open it. Capture the answers: they become Lock 4 material.</div>
+      <div class="bp-body">With IT and compliance in the room — which Gen Re workloads need zero retention or centralized audit today, and therefore route to the API or Claude Code Enterprise? Pre-recruit your compliance partner to open it. Capture the answers: they become Lock 4 material.</div>
     </div>
     <div class="bp-item">
       <div class="bp-num">Aim</div>

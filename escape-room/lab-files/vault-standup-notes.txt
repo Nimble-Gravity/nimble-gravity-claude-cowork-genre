@@ -1,4 +1,4 @@
-WEEKLY STANDUP — COMMERCIAL BANKING OPERATIONS
+WEEKLY STANDUP — P&C TREATY OPERATIONS
 Date: June 30, 2026
 Facilitator: P. Chen
 Attendees: R. Vega, D. Kim, A. Torres, S. Okafor, P. Chen
@@ -8,29 +8,29 @@ Attendees: R. Vega, D. Kim, A. Torres, S. Okafor, P. Chen
 UPDATES
 
 D. Kim:
-- Completed the Q3 reconciliation for the treasury management accounts
-- Finalized the rate sheet for the new deposit product line
+- Completed the Q3 reconciliation for the retrocession accounts
+- Finalized the rate sheet for the new facultative binder
 ACTION: D. Kim — Send the finalized rate sheet to legal for sign-off by EOD Tuesday
-ACTION: D. Kim — Coordinate with IT on the new account-opening workflow; target: July 8 go-live
+ACTION: D. Kim — Coordinate with IT on the new submission-intake workflow; target: July 8 go-live
 
 A. Torres:
-- Closed the onboarding for three new commercial lending clients
-- Pending: two outstanding KYC files still waiting on client documents
-ACTION: A. Torres — Follow up on the two outstanding KYC files; escalate if no response by Wednesday
-ACTION: A. Torres — Prepare the monthly new-client summary for the line-of-business report
+- Closed the onboarding for three new cedent clients
+- Pending: two outstanding cedent due-diligence files still waiting on documents
+ACTION: A. Torres — Follow up on the two outstanding due-diligence files; escalate if no response by Wednesday
+ACTION: A. Torres — Prepare the monthly new-cedent summary for the line-of-business report
 
 S. Okafor:
-- Monitoring team is on track for the Q3 covenant review cycle
-- One exception flagged: Holloway Industries covenant test shows a potential breach
-ACTION: S. Okafor — Run the full covenant analysis on Holloway Industries and brief R. Vega by Thursday
+- Monitoring team is on track for the Q3 aggregate review cycle
+- One exception flagged: Holloway Re aggregate test shows a potential breach
+ACTION: S. Okafor — Run the full aggregate analysis on Holloway Re and brief R. Vega by Thursday
 
 R. Vega:
-- Portfolio review was completed; flagged four accounts for enhanced monitoring
+- Portfolio review was completed; flagged four treaties for enhanced monitoring
 - Received the IT green-light on the legacy reporting migration
 ACTION: R. Vega — Migrate the legacy portfolio-reporting scripts to the new data schema; deadline Friday July 3
-ACTION: R. Vega — Review the Holloway Industries covenant analysis once S. Okafor delivers it
-ACTION: R. Vega — Update the enhanced-monitoring tracker with the four newly flagged accounts
-ACTION: R. Vega — Draft the week-end summary for the credit committee ahead of the Tuesday call
+ACTION: R. Vega — Review the Holloway Re aggregate analysis once S. Okafor delivers it
+ACTION: R. Vega — Update the enhanced-monitoring tracker with the four newly flagged treaties
+ACTION: R. Vega — Draft the week-end summary for the underwriting committee ahead of the Tuesday call
 
 P. Chen:
 - The new Cowork rollout is on track; Workshop 3 is scheduled for this week
@@ -39,7 +39,7 @@ ACTION: P. Chen — Distribute the Workshop 3 lab file pack to all participants 
 ---
 
 DECISIONS
-- Holloway covenant exception to be escalated to credit committee if analysis confirms breach
+- Holloway Re aggregate exception to be escalated to underwriting committee if analysis confirms breach
 - Legacy reporting migration is P1 for this sprint; no scope changes until it closes
 
 NEXT STANDUP: July 7, 2026

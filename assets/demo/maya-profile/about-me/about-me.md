@@ -1,28 +1,29 @@
 # About me
 
 ## Role
-Commercial Credit Analyst, Commercial Banking — Credit team, Axos Bank. I report to the VP of Commercial Credit.
+Treaty Underwriter, Property & Casualty — Treaty team, Gen Re. I report to the SVP, Treaty Underwriting.
 
 ## Accountable for
-Underwriting and monitoring commercial loan relationships — turning loan files into credit recommendations
-the committee can decide on.
+Evaluating and pricing treaty reinsurance programs — turning cedent submissions into underwriting
+recommendations the committee can decide on.
 
 ## Where my week goes
-- Writing one-page committee credit summaries from loan files
-- Quarterly covenant compliance checks (DSCR, leverage, liquidity)
-- Spreading borrower financials into the portfolio risk tracker
-- Annual reviews of existing relationships
-- Answering relationship managers' questions on structure and pricing
+- Writing one-page committee underwriting summaries from cedent submissions
+- Reviewing loss-experience triangles and exposure schedules for rate adequacy
+- Treaty terms-and-conditions analysis (attachment, limit, aggregate, commission)
+- Renewal reviews of existing treaty relationships
+- Answering client and broker questions on program structure and pricing
 
 ## Tools & data
-- Microsoft 365 — Outlook, Teams, SharePoint (credit policy and memo templates live in SharePoint)
-- The loan-origination system (borrower files, financials, covenants)
-- Excel spreads for financial analysis
+- Microsoft 365 — Outlook, Teams, SharePoint (underwriting guidelines and templates live in SharePoint)
+- The submission/clearance system (cedent submissions, experience, exposure schedules)
+- Excel exhibits for experience and exposure rating
 
 ## What "good" looks like
-A summary or memo where every risk is flagged with evidence, every number ties back to the source file, and
-there is a clear recommendation. Rushed work is generic, unsupported, and doesn't call out what's missing.
+A summary or memo where every exposure is flagged with evidence, every number ties back to the source
+submission, and there is a clear recommendation. Rushed work is generic, unsupported, and doesn't call
+out what's missing.
 
 ## Approval chain
-I draft → the VP of Commercial Credit reviews → the loan committee decides. My work is always a draft a
-banker signs off on, never the decision itself.
+I draft → the SVP, Treaty Underwriting reviews → the underwriting committee decides. My work is always a
+draft an underwriter signs off on, never the decision itself.

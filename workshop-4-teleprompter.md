@@ -218,7 +218,7 @@ That is your phased rollout mechanism, by the way.
 Enable Cowork for the pilot group and nobody else.
 
 Connectors — Always allow, Needs approval, or Blocked.
-Anything reaching customer or loan data belongs on Needs approval.
+Anything reaching cedent-confidential or claims data belongs on Needs approval.
 One catch: connector settings are organization-wide.
 There's no per-group connector control,
 so the strictest requirement governs everyone.
@@ -342,7 +342,7 @@ Which brings us to the surface you don't have.
 
 [SCROLL: the audit gap]
 
-This is the deciding fact for a regulated bank,
+This is the deciding fact for a regulated reinsurer,
 so I'm going to be precise about it.
 
 Anthropic's own Cowork admin guide says —
@@ -389,7 +389,7 @@ Route it to the API, or to Claude Code Enterprise.
 Deciding that per workload, in writing, with a named example —
 that's what turns awareness into a control.
 
-There's a stronger option for a bank on the Microsoft stack,
+There's a stronger option for a reinsurer on the Microsoft stack,
 and it's worth naming in this room.
 Claude on Azure AI Foundry.
 
@@ -431,7 +431,7 @@ Anthropic's words — events are only exported
 when an admin configures an OTLP endpoint.
 No data flows by default.
 
-And one thing to flag in a bank.
+And one thing to flag in a reinsurer.
 That stream carries prompt text and file paths into your SIEM.
 That is a data-handling decision in its own right.
 Scope the sink, restrict who can query it,
@@ -602,7 +602,7 @@ Here's what I want in the open,
 with IT and compliance in the room.
 
 Given what you've just seen about audit coverage —
-which Axos workloads should NOT be running
+which Gen Re workloads should NOT be running
 in the Cowork interface today?
 
 [CALL THE PRE-RECRUITED PARTNER FIRST]

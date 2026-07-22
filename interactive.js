@@ -601,7 +601,7 @@
     var prof = getProfile();
     var name = (prof && prof.name) ? prof.name : '';
     var cert = el('div', 'ix-cert');
-    cert.appendChild(el('div', 'ix-cert-eyebrow', 'Nimble Gravity × Axos Bank · Cowork Enablement'));
+    cert.appendChild(el('div', 'ix-cert-eyebrow', 'Nimble Gravity × Gen Re · Cowork Enablement'));
     cert.appendChild(el('div', 'ix-cert-title', 'Certificate of Completion'));
     cert.appendChild(el('div', 'ix-cert-line', 'This certifies that'));
     cert.appendChild(el('div', 'ix-cert-name', name || 'Your name'));
@@ -609,7 +609,7 @@
     var d = new Date();
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     cert.appendChild(el('div', 'ix-cert-meta', months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear()));
-    cert.appendChild(el('div', 'ix-cert-disclaimer', 'A personal record of completion — not an official Axos training record.'));
+    cert.appendChild(el('div', 'ix-cert-disclaimer', 'A personal record of completion — not an official Gen Re training record.'));
     return cert;
   }
 
@@ -681,7 +681,7 @@
       return;
     }
     card.appendChild(el('div', 'ix-card-title', 'Read and acknowledge'));
-    card.appendChild(el('p', 'ix-card-sub', 'Confirm you have read the Rules of the Road before using Cowork on Axos work. This is a personal acknowledgment stored on your device — not a legal record, and pending official Axos policy.'));
+    card.appendChild(el('p', 'ix-card-sub', 'Confirm you have read the Rules of the Road before using Cowork on Gen Re work. This is a personal acknowledgment stored on your device — not a legal record, and pending official Gen Re policy.'));
     var prof = getProfile();
     var field = el('div', 'ix-field');
     var input = el('input', 'ix-input');

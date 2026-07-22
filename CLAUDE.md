@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A **Nimble Gravity** Cowork-enablement microsite — a four-module program that gets **knowledge workers** (not coders) productive with **Cowork**, the agentic engine that brings Claude Code's capabilities into the Claude desktop app. It is built entirely on **Claude Cowork** (Anthropic); work needing centralized audit or zero retention routes to Anthropic's audited surfaces — the API or Claude Code Enterprise. The arc: get set up → use it by industry → build your first skill → deploy plugins and govern adoption. No build step, no framework, no package manager.
 
-The framework (nav, footer, design system, slide engine, page template) was forked from an earlier workshop template. (The original Acme/SDLC reference lessons were removed on this Axos client branch; they remain on the template/main branch.) The Cowork content is grounded in a content-research report and the "Cowork Next Steps" meeting; key facts (and date-sensitive caveats like the June-2026 audit gap) live in `cowork-context.md`.
+The framework (nav, footer, design system, slide engine, page template) was forked from an earlier workshop template. (The original Acme/SDLC reference lessons were removed on this Gen Re client branch; they remain on the template/main branch.) The Cowork content is grounded in a content-research report and the "Cowork Next Steps" meeting; key facts (and date-sensitive caveats like the June-2026 audit gap) live in `cowork-context.md`.
 
 To run locally:
 ```bash

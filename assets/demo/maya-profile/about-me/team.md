@@ -2,8 +2,9 @@
 
 People I work with and how.
 
-- **VP of Commercial Credit** — my manager; reviews my memos before committee. Wants the bottom line up top.
-- **Relationship Managers (RMs)** — bring me the deals; I answer their structure and pricing questions.
-- **Loan Committee** — the audience for my one-page summaries; they make the decision.
+- **SVP, Treaty Underwriting** — my manager; reviews my write-ups before committee. Wants the bottom line up top.
+- **Client Managers / Brokers** — bring me the submissions; I answer their structure and pricing questions.
+- **Underwriting Committee** — the audience for my one-page summaries; they make the decision.
+- **Actuarial / Pricing** — I lean on them for experience and exposure rating support.
 
 [FILL IN] — add specific names, preferences, and working norms as they come up.
