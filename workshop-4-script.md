@@ -13,8 +13,8 @@ a clock in **The Control Room** — the 40-minute control-review simulation.
 analytics, and setup practice for exactly that reason. Plugins are covered in five minutes as the
 *unit of governed distribution*, not as an authoring topic — that was Workshop 3.
 
-**Demo assets:** the Claude admin console (Organization settings → Roles) and
-`control-room/lab-files/analytics-export.csv` open in a viewer.
+**Demo asset:** the **Nimble Gravity adoption dashboard** — our own IP, live on Kevin's screen, plus
+his screenshots on Derrikk's machine as a fallback. There is **no admin-console demo** this cohort.
 
 **Lab assets:** six files distributed before breakout rooms open — on the
 [capstone page](pages/training/16-the-control-room.html) and the workshop hub.
@@ -39,15 +39,14 @@ not whether the gap exists.
 
 ## Pre-session prep
 
-1. **Stage Demo (a) in Cowork.** Put `role-matrix-DRAFT.md` and `rbac-reference.md` (from
-   `control-room/lab-files/`) in a folder, and have a Cowork session ready to grant access to *just*
-   that folder on screen. **Neither presenter has admin-console access this cohort** — Demo (a) is a
-   live Cowork audit, not a console walkthrough. Do a dry run: confirm the audit output is legible on
-   a shared screen and re-read the spoiler guard so you don't discuss sections 1 or 6.
-2. **Confirm Kevin for Demo (b), and get screenshots anyway.** He shares the live dashboard 0:43–0:52
-   while you narrate. His connection dropped during prep — have his captures on your machine so a
-   dropout costs you nothing. Also agree the breakout split for the Lab, and give him the 90-second
-   spend-controls cue so it doesn't land cold.
+1. **Brief Kevin properly — he has the screen for 19 minutes and he's narrating.** This is the single
+   biggest dependency in the session. Walk the card order with him beforehand, agree where you'll
+   interject, and agree who says the offer line at the end. **Neither presenter has admin-console
+   access this cohort** — there is no console demo, and nobody should improvise one.
+2. **Get Kevin's screenshots onto your machine regardless.** His connection dropped mid-sentence during
+   prep. If it drops live you present the captures, say plainly they're captures, and carry the card
+   order yourself. Also agree the breakout split for the Lab, and give him the 90-second spend-controls
+   cue so it doesn't land cold.
 3. **Expect a mixed room.** The invite went wider than the IT/compliance scope it was written for, so
    plan for an engaged core plus observers. The Open handles this explicitly; the Lab folds observers
    into teams rather than leaving them adrift.
@@ -65,8 +64,10 @@ not whether the gap exists.
 
 ### Run of show — the 2-hour agenda
 
-**Two presenters. Kevin has the screen once, for nine minutes.** Everything else is Derrikk.
-Kevin is on camera the whole session as the technical answer-man, but he only *drives* in Demo (b).
+**Two presenters. Kevin has the screen once, for nineteen minutes.** Everything else is Derrikk.
+Kevin is on camera the whole session as the technical answer-man, and he **drives and narrates the
+entire Demo slot** — it is a walkthrough of the Nimble Gravity adoption dashboard, our own IP.
+Derrikk interjects with the framing, then takes the screen back for Discuss.
 
 | Time | Slot | Owner | Screen |
 |---|---|---|---|
@@ -74,9 +75,8 @@ Kevin is on camera the whole session as the technical answer-man, but he only *d
 | 0:10–0:15 | **Teach** · Package as a Plugin | **Derrikk** | Derrikk |
 | 0:15–0:23 | **Teach** · Roles & Access (RBAC) | **Derrikk** | Derrikk |
 | 0:23–0:29 | **Teach** · Set Up & Govern | **Derrikk**, + ~90s Kevin on spend controls | Derrikk |
-| 0:29–0:33 | **Teach** · Analytics — frame only | **Derrikk** (concept; Kevin supplies evidence at 0:43) | Derrikk |
-| 0:33–0:43 | **Demo (a)** · Audit the role matrix in Cowork | **Derrikk** | Derrikk |
-| **0:43–0:52** | **Demo (b)** · The live dashboard + education loop | **Kevin drives, Derrikk narrates** | **Kevin** |
+| 0:29–0:33 | **Teach** · Analytics — frame only | **Derrikk** (concept; Kevin supplies the evidence at 0:33) | Derrikk |
+| **0:33–0:52** | **Demo** · The NG adoption dashboard — 19 min | **Kevin drives + narrates; Derrikk interjects** | **Kevin** |
 | 0:52–1:04 | **Discuss** · What leaves the Cowork interface? | **Derrikk** facilitates, **Kevin** answers | Derrikk |
 | 1:04–1:10 | **Break** | — | — |
 | 1:10–1:50 | **Lab** · The Control Room | **Derrikk** runs; **Kevin** floats as SME | Breakouts |
@@ -87,8 +87,9 @@ Kevin is on camera the whole session as the technical answer-man, but he only *d
 
 - **Into Kevin's Teach interjection (~0:26):** *"Kevin, you've been fielding this one from a few
   customers — what actually happens to spend controls when you move from Team to Enterprise?"*
-- **Into Demo (b) (0:43):** *"I'm handing the screen to Kevin. He's going to show you what this looks
-  like when it's actually running, and I'll talk over the top. Kevin, take it away."*
+- **Into the Demo (0:33):** *"Everything I've described so far is something you'd have to build. So
+  let me show you the part you don't. This is a dashboard we've built at Nimble Gravity to get clients
+  to Cowork analytics in days instead of a quarter. Kevin built it — Kevin, take us through it."*
 - **Back out (0:52):** *"Thanks Kevin — stay with us, because the next twelve minutes are exactly your
   territory. Everyone: which Axos workloads should* not *be running in the Cowork interface?"*
 
@@ -97,9 +98,9 @@ beforehand (his connection dropped during prep — if it drops live, Derrikk pre
 says plainly they're captures) · three answers loaded, because these *will* be asked: per-user spend
 control, Azure AI Foundry, and where the audit gap leaves them.
 
-> ⚠️ **Neither presenter has admin-console access this cohort.** Demo (a) has been rebuilt around a
-> live Cowork session instead of a console walkthrough — see the Demo section. **Do not fake a console
-> demo from stock screenshots in front of this audience.**
+> ⚠️ **Neither presenter has admin-console access this cohort.** There is no console demo and no live
+> Cowork demo — the Demo slot is the dashboard walkthrough, start to finish. **Do not improvise a
+> console tour from stock screenshots in front of this audience.**
 
 ---
 
@@ -344,121 +345,91 @@ prompt-text warning, and out. **You own the concept; he owns the proof.**
 
 ---
 
-## Demo · 0:33–0:52 (19 min) — Audit a role design, then read the real telemetry
+## Demo · 0:33–0:52 (19 min) — The Nimble Gravity adoption dashboard
 
-> **Split: (a) Derrikk drives 0:33–0:43 · (b) Kevin drives 0:43–0:52.** One handoff, one handback.
-
-**[SAY]** "Two things in nineteen minutes. First I'll take a broken access design and have Cowork audit
-it — which is exactly what you'll be doing after the break. Then Kevin's going to show you the other
-half: how you find out whether any of this is working, on real numbers. Everything you're about to see
-is a station in the Control Room."
-
-**[>>]** *"Everything you're about to see is a station" — say this line.* It is the W3 transition that
-worked, and it does the same job here: it converts the demo from something participants watch into
-something they know they'll be graded on in thirty minutes. Attention in the Demo slot measurably
-determines how many teams clear Station 2.
-
-### (a) Audit a role design — live in Cowork (10 min) · **Derrikk drives**
-
-> **Rebuilt because neither presenter has admin-console access this cohort.** Rather than narrate stock
-> screenshots of a tenant we can't open, we demo the thing we *can* do live and that the room will do
-> themselves in forty minutes: hand a broken role design to Cowork and let it audit against a standard.
-> This is a stronger demo anyway — it's real, it's on your machine, and it models the lab method.
-
-**[SETUP]** A Cowork session with `role-matrix-DRAFT.md` and `rbac-reference.md` in a granted folder.
-Both are lab files — `control-room/lab-files/`.
-
-**[DO]** Scope the folder grant on screen first, and say why: *"Before I do anything — notice I'm
-granting one project folder, not my drive. That's the whole least-privilege lesson in one click, and
-it's the first thing the room gets graded on later."*
-
-**[DO]** Prompt Cowork:
-> *"Audit this draft role matrix against the reference standard. Go section by section and give me a
-> table: the defect, which rule it breaks, and the corrected setting."*
-
-**[SAY]** as it runs: "This is a governance artifact being reviewed by the thing we're governing. That's
-not a gimmick — an access review is exactly the kind of tedious, rules-against-a-document work that
-should be delegated."
-
-### ⚠️ Spoiler guard — walk only sections 2, 3 and 4
-
-The lab's Station 2 code is derived from **section 1** (how many Owners move to Custom roles) and
-**section 6** (the plugin install preference). **Do not discuss those two on screen.** When the output
-appears, steer deliberately:
-
-> *"It's found things in every section. I'm going to look at three of them now and leave the rest —
-> some of this is your problem to solve after the break."*
-
-**Walk these three, in this order:**
-- **Section 3 · Connectors** — M365 on *Always allow* while reaching customer and loan folders. Should
-  be **Needs approval**. Add the limit: *"connector settings are org-wide — there's no per-group
-  connector control, so the strictest requirement governs everyone."*
-- **Section 4 · Models** — all models, all effort levels, default Opus, and a note that says "monitor
-  Opus spend weekly." *"That's a finding, not a remediation. The fix is a cap on the Models tab."*
-  **This is the setup for Kevin's dashboard in nine minutes — plant it deliberately.**
-- **Section 2 · the pilot group** — sourced from a **nested** IdP group, and a Custom role with no
-  capabilities listed. Two separate failures: it would sync empty, *and* it grants nothing even with
-  Cowork enabled org-wide. *"Custom roles inherit nothing. Every capability has to be named."*
-
-**[>>]** *Why this beats the console demo it replaced.* Three reasons. It's honest — nothing is
-simulated, and this audience can smell a canned screenshot walkthrough. It rehearses the exact motion
-teams need at Station 2, so the lab starts warmer. And it demonstrates the meta-point of the whole
-program: you don't govern Cowork *instead of* using it, you use it to do the governance work. The
-console screenshots would have shown people a UI; this shows them a method.
-
-**[NOTE]** If someone asks to see the actual admin console, be straight: *"I don't have console access
-to your tenant, and I'm not going to show you someone else's. The settings are named in Lesson 2 —
-Kevin can talk to what they look like in practice."* Then move.
-
-### (b) Read the telemetry — Kevin's live dashboard (9 min)
-
-> **Kevin screen-shares the real Axos dashboard; you narrate the teaching frame.** Do not use the
-> synthetic `analytics-export.csv` here — that stays in Station 3 of the lab. Real numbers in front of
-> a real IT audience are worth ten times the made-up ones.
+> **Kevin drives and narrates the whole slot. Derrikk interjects.** One handoff in at 0:33, one
+> handback at 0:52. There is **no console demo and no Cowork demo** in this session — neither
+> presenter has admin-console access, and nobody should improvise one.
 >
-> **Capture screenshots as a fallback.** Kevin's connection dropped during prep. If he can't share,
-> present the captures and say plainly that they're captures.
+> **This is our IP, and we're naming it as an offer.** Standing up Cowork analytics from scratch means
+> pulling the Analytics API and the OpenTelemetry stream into a BI layer and then designing the views
+> — a project. We ship this out of the box. Say so plainly.
 
-**[DO]** Kevin walks the board. Cards to make sure land: **token usage · number of users · top
-expensive prompts · cost by model · API requests by model · reliability · MCP servers · daily prompts
-per user.** Note as you go that **Cowork and Claude Code have their own sections** on the combined
-board — there is no tool filter, you read the right section.
+**[SAY] — the setup, then hand over (0:33):**
+> *"Everything I've described so far is something you'd have to build. So let me show you the part you
+> don't. This is a dashboard we've built at Nimble Gravity to get clients to Cowork analytics in days
+> instead of a quarter. Kevin built it — Kevin, take us through it."*
 
-**[SAY] — the frame, and the whole point of the demo:** "Everyone reads a dashboard like this as a cost
-report. I want you to read it as a **teaching list.** Every expensive pattern on here is telling you to
-do one of exactly two things."
+**[>>]** *Why this framing and not "here's a dashboard".* The room has just sat through twenty-three
+minutes of controls, gaps and caveats — necessary, but it is all constraint. This slot is the first
+time today they get handed something that makes their life easier, and the contrast is the point. Set
+it up as relief, not as another thing to absorb.
 
-**[SAY] — route 1, build a skill:** "Look at top expensive prompts. That's not a naughty list, it's a
-backlog. If the same request keeps showing up across enough people, it should stop being a prompt and
-become a skill. That's the Workshop 3 loop — except now the data tells you *which* skill to build
-instead of waiting for a volunteer."
+### What Kevin covers — the card order
 
-**[SAY] — route 2, fix the instructions:** "Sometimes it's cheaper than that. A session doing hundreds of
-individual file edits — one tool call each — costs a fortune next to the same work batched. You don't
-need a skill for that. You need one line in that user's `CLAUDE.md` asking for batched tool and file
-edits. Same output, a fraction of the spend."
+Agree this order with him beforehand. It builds from "is it alive" to "what do I do about it," which
+is the same arc as the three questions in Lesson 4.
 
-**[SAY] — name the distinction:** "That's **proactive versus retroactive** enablement. Retroactive is what
-most places do: somebody runs up a bill, you have an awkward conversation. Proactive is seeing the
-pattern before it becomes a conversation and shipping the fix for everyone at once. The dashboard is
-what makes proactive possible — without it you're only ever reacting to invoices."
+| # | Card | The line that matters |
+|---|---|---|
+| 1 | **Number of users** | Is this thing alive? Fastest read in a steering meeting. |
+| 2 | **Daily prompts per user** | Not to rank people — to see the *shape*. Heavy users vs the long tail who opened it twice. |
+| 3 | **Token usage** | Volume over time. Sets up everything that follows. |
+| 4 | **Cost by model** · **API requests by model** | Where the money actually goes. The Opus concentration shows up here. |
+| 5 | **Top expensive prompts** | **Spend the most time here.** It is a backlog, not a naughty list. |
+| 6 | **Reliability** · **MCP servers** | Operational health, and what's actually connected. |
 
-**[SAY] — bucket the users:** "Daily prompts per user is worth a look too — not to rank individuals, but
-to see the shape. Where are your heavy users, where's the long tail that opened it twice and stopped?
-Those are two completely different enablement problems."
+**[NOTE]** Cowork and Claude Code appear as **their own sections** on the combined board — there is
+**no tool filter**. Have Kevin say this out loud when he first scrolls past it, or someone will spend
+the next ten minutes hunting for a dropdown.
 
-**[>>]** *This is the strongest five minutes in the module — protect it.* It is the only part of W4 that
-hands the business users in the room something they actively want, and it flips the session from a
-constraint conversation into an enablement one. It also closes the loop back to Workshop 3: the skills
-they built last week now have an evidence-driven pipeline behind them. Governance sessions fail when
-controls and measurement are taught as separate domains — participants leave able to produce a dashboard
-and unable to act on it. If you're running long, cut the plugin slot and the setup walkthrough. Never
-cut this.
+### Derrikk's interjections — three, and only three
 
-**[NOTE]** If model caps come up here, connect it back — the Models tab is the structural fix for a desk
-running everything on Opus. But be straight about the limits: **Enterprise removes several cost controls
-that Team has, and there is no clean per-user spend cap.** Teams that need one are enforcing it through
-an API management gateway. Don't promise a control that isn't there.
+Kevin has the floor. Do not narrate over him continuously; land these three and get out of the way.
+
+**Interjection 1 — after "cost by model" (~0:41):**
+> *"Pause on that one. When you see a whole desk running everything on Opus — the wrong answer is a
+> line in the steering minutes saying 'monitor Opus spend weekly.' The right answer is the Models tab
+> I showed you fifteen minutes ago. A cap. That's the difference between a finding and a remediation."*
+
+**Interjection 2 — on "top expensive prompts", the big one (~0:45):**
+> *"This is the card I'd ask you to sit with. Everyone reads a dashboard like this as a cost report. I
+> want you to read it as a **teaching list**. Every expensive pattern on here is telling you to do one
+> of exactly two things."*
+>
+> *"One — build a skill. If the same request keeps showing up across enough people, it should stop
+> being a prompt and become a skill. That's the Workshop 3 loop, except now the data tells you which
+> skill to build instead of waiting for a volunteer."*
+>
+> *"Two — fix the instructions. A session doing hundreds of individual file edits, one tool call each,
+> costs a fortune next to the same work batched. You don't need a skill for that. You need one line in
+> that user's `CLAUDE.md` asking for batched tool and file edits. Same output, a fraction of the spend."*
+>
+> *"That's **proactive versus retroactive** enablement. Retroactive is what most places do — somebody
+> runs up a bill, you have an awkward conversation. Proactive is seeing the pattern before it becomes
+> a conversation and shipping the fix for everyone at once. This is what makes proactive possible."*
+
+**[>>]** *This is the strongest five minutes in the module — protect it.* It is the only part of W4
+that hands the business users something they actively want, and it flips the session from a constraint
+conversation into an enablement one. It also closes the loop back to Workshop 3: the skills they built
+last week now have an evidence-driven pipeline behind them. If the slot is running long, cut cards 6
+and 3 — never this.
+
+**Interjection 3 — the offer, at the end (~0:50):**
+> *"One thing to be explicit about, because it would be odd not to say it. This isn't a mock-up — it's
+> an accelerator we've built and we stand it up for clients. If getting to this view is something you
+> want, that's a conversation we can have, and it's a short one. Kevin and I can scope it."*
+
+**[>>]** *Make the offer once, plainly, then stop.* This is a training session, and the room includes
+people who were told they didn't need to be here. One clear sentence naming the asset and the next
+step is useful information; anything more turns a workshop into a pitch and costs you the credibility
+you spent the first half building. Say it, let it sit, move to Discuss.
+
+### If Kevin's connection drops
+
+It died mid-sentence during prep, so plan for it. Take the screen back, present his captures, say
+plainly that they're captures, and carry the card order yourself — the framing and the education loop
+are yours anyway. **Do not spend ninety seconds waiting for him to reconnect.**
 
 ---
 
@@ -655,7 +626,7 @@ Codes are case- and whitespace-insensitive. Hint 1 free; hint 2 costs +2 min.
 Reset is available per team in the facilitator view.
 
 **Two-presenter risks:**
-- **Kevin drops during Demo (b).** His connection died in prep. Take the screen back, present the
+- **Kevin drops during the Demo.** His connection died in prep. Take the screen back, present the
   screenshots, say plainly they're captures, and keep narrating the education loop — the teaching
   content is yours, not his. Don't spend 90 seconds waiting for him to reconnect.
 - **The handback at 0:52 gets lost.** Two presenters plus a discussion opening is where sessions drift.

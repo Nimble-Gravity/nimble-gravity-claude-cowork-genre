@@ -5,7 +5,8 @@ Plain-text, line-broken for scrolling.
 [CUES IN CAPS AND BRACKETS] are actions, not speech — do not read them.
 Everything else is spoken.
 
-Presenter: Derrikk. Kevin drives the screen once, 0:43-0:52.
+Presenter: Derrikk. Kevin drives the screen once, 0:33-0:52,
+narrating the NG adoption dashboard. Derrikk interjects 3x.
 Facts verified 22 July 2026. Answer key is in workshop-4-script.md.
 
 
@@ -53,10 +54,11 @@ It's — can we run it responsibly, and prove that we did.
 [PAUSE]
 
 Last thing — let me introduce Kevin.
-Kevin has been living in the admin console and the analytics
+Kevin built the adoption dashboard I'll show you later,
+and he's been living in the admin console and the analytics
 across a number of these deployments.
 He'll take a question from me in a few minutes,
-he's driving a demo about forty minutes in,
+he's driving the demo in about twenty-five minutes,
 and he is the person to aim your hardest technical questions at.
 
 [CUE: point at the hub page]
@@ -223,7 +225,7 @@ so the strictest requirement governs everyone.
 
 Models — enable or disable specific models,
 cap effort levels, set the default.
-Remember that tab. It comes back in about twenty-five minutes.
+Remember that tab. It comes back in about twenty minutes.
 
 [SCROLL: groups and permission math]
 
@@ -447,181 +449,140 @@ and we'll read those three questions off actual numbers.
 
 
 ================================================================
-0:33 - 0:43   DEMO (A) — AUDIT A ROLE DESIGN IN COWORK
-[SHARE SCREEN: Cowork session]
-[FILES READY: role-matrix-DRAFT.md + rbac-reference.md]
+0:33 - 0:52   DEMO — THE NIMBLE GRAVITY ADOPTION DASHBOARD
+[KEVIN DRIVES AND NARRATES THE WHOLE SLOT.]
+[YOU HAVE THREE INTERJECTIONS. DO NOT TALK OVER HIM OTHERWISE.]
+[IF KEVIN DROPS: take the screen, present his captures,
+say plainly they are captures, carry the card order yourself.]
 ================================================================
 
-Two things in the next twenty minutes.
+[HAND OVER — 0:33]
 
-First I'll take a broken access design
-and have Cowork audit it —
-which is exactly what you'll be doing after the break.
+Everything I've described so far
+is something you would have to build.
 
-Then Kevin is going to show you the other half:
-how you find out whether any of this is working,
-on real numbers.
+So let me show you the part you don't.
 
-Everything you're about to see is a station in the Control Room.
+This is a dashboard we've built at Nimble Gravity
+to get clients to Cowork analytics
+in days instead of a quarter.
 
-[CUE: grant the folder on screen]
+Kevin built it.
 
-Before I do anything — notice what I'm granting.
-One project folder. Not my drive.
+Kevin — take us through it.
 
-That's the whole least-privilege lesson in one click,
-and it's the first thing you get graded on later.
-
-[CUE: paste the prompt]
-
-Audit this draft role matrix against the reference standard.
-Go section by section and give me a table:
-the defect, which rule it breaks, and the corrected setting.
-
-[WHILE IT RUNS]
-
-So this is a governance artifact
-being reviewed by the thing we're governing.
-
-That's not a gimmick.
-An access review is exactly the kind of tedious,
-rules-against-a-document work
-that should be delegated.
-
-[WHEN OUTPUT APPEARS — SPOILER GUARD]
-[WALK ONLY SECTIONS 2, 3 AND 4.
-SECTIONS 1 AND 6 CONTAIN THE LAB ANSWER — DO NOT DISCUSS THEM.]
-
-It's found things in every section.
-I'm going to look at three of them now and leave the rest —
-some of this is your problem to solve after the break.
-
-[SECTION 3 — CONNECTORS]
-
-Microsoft 365 is on Always allow,
-and it's reaching customer and loan folders.
-That should be Needs approval.
-
-And remember the limit — connector settings are org-wide.
-There's no per-group control here,
-so the strictest requirement governs everyone.
-
-[SECTION 4 — MODELS]
-
-All models, all effort levels, default Opus.
-And a note that says "monitor Opus spend weekly."
-
-That is a finding. It is not a remediation.
-The fix is a cap, on the Models tab.
-
-Hold that thought — Kevin is about to show you
-what this looks like when it's real.
-
-[SECTION 2 — THE PILOT GROUP]
-
-Two separate failures here.
-
-It's sourced from a nested identity-provider group,
-so it would sync empty.
-
-And the Custom role lists no capabilities,
-so it grants nothing —
-even with Cowork enabled org-wide.
-
-Custom roles inherit nothing.
-Every capability has to be named.
-
-[IF ASKED TO SEE THE ADMIN CONSOLE]
-I don't have console access to your tenant,
-and I'm not going to show you someone else's.
-The settings are all named in Lesson 2,
-and Kevin can speak to what they look like in practice.
+[KEVIN NARRATES. CARD ORDER:]
+[1 number of users · 2 daily prompts per user · 3 token usage]
+[4 cost by model + API requests by model]
+[5 TOP EXPENSIVE PROMPTS — the one to dwell on]
+[6 reliability + MCP servers]
+[He should say out loud that Cowork and Claude Code
+are separate sections — there is no tool filter.]
 
 
-================================================================
-0:43 - 0:52   DEMO (B) — KEVIN'S LIVE DASHBOARD
-[HAND SCREEN TO KEVIN. YOU NARRATE.]
-[IF KEVIN DROPS: present his screenshots, say they're captures, keep going.]
-================================================================
+----------------------------------------------------------------
+INTERJECTION 1 — after "cost by model", around 0:41
+----------------------------------------------------------------
 
-I'm handing the screen to Kevin now.
+Kevin, can I pause you on that one.
 
-He's going to show you what this looks like
-when it's actually running,
-and I'll talk over the top.
+When you see a whole desk
+running everything on Opus —
 
-Kevin, take it away.
+the wrong answer is a line in the steering minutes
+that says "monitor Opus spend weekly."
 
-[KEVIN WALKS THE BOARD.
-CARDS TO LAND: token usage, number of users,
-top expensive prompts, cost by model,
-API requests by model, reliability,
-MCP servers, daily prompts per user.]
+The right answer is the Models tab
+I showed you fifteen minutes ago.
 
-[NOTE ALOUD]
-Worth saying — Cowork and Claude Code
-have their own sections on this board.
-There's no tool filter. You read the right section.
+A cap.
 
-[THE FRAME — THIS IS THE POINT OF THE DEMO]
+That is the difference between a finding
+and a remediation.
+
+[HAND BACK TO KEVIN]
+
+
+----------------------------------------------------------------
+INTERJECTION 2 — on "top expensive prompts", around 0:45
+THIS IS THE BIG ONE. DO NOT RUSH IT.
+----------------------------------------------------------------
+
+This is the card I'd ask you to sit with.
 
 Everyone reads a dashboard like this as a cost report.
 
 I want you to read it as a teaching list.
 
+[PAUSE]
+
 Every expensive pattern on here
 is telling you to do one of exactly two things.
 
-[ROUTE ONE]
-
-Look at top expensive prompts.
-
-That's not a naughty list. It's a backlog.
+One — build a skill.
 
 If the same request keeps showing up,
 across enough people,
-it should stop being a prompt and become a skill.
+it should stop being a prompt
+and become a skill.
 
-That's the Workshop 3 loop —
-except now the data tells you WHICH skill to build,
+That's the Workshop 3 loop.
+Except now the data tells you WHICH skill to build,
 instead of waiting for a volunteer.
 
-[ROUTE TWO]
+[PAUSE]
 
-Sometimes it's cheaper than that.
+Two — fix the instructions.
 
-A session doing hundreds of individual file edits —
-one tool call each —
+A session doing hundreds of individual file edits,
+one tool call each,
 costs a fortune next to the same work batched.
 
 You don't need a skill for that.
+
 You need one line in that user's CLAUDE dot md
 asking for batched tool and file edits.
 
 Same output. A fraction of the spend.
 
-[NAME THE DISTINCTION]
+[PAUSE]
 
 That is proactive versus retroactive enablement.
 
 Retroactive is what most places do.
-Somebody runs up a bill, you have an awkward conversation.
+Somebody runs up a bill,
+you have an awkward conversation.
 
 Proactive is seeing the pattern
 before it becomes a conversation,
 and shipping the fix for everyone at once.
 
-The dashboard is what makes proactive possible.
-Without it you're only ever reacting to invoices.
+This is what makes proactive possible.
 
-[ONE MORE]
+[HAND BACK TO KEVIN]
 
-Daily prompts per user is worth a look too.
-Not to rank individuals — to see the shape.
 
-Where are your heavy users?
-Where's the long tail that opened it twice and stopped?
-Those are two completely different enablement problems.
+----------------------------------------------------------------
+INTERJECTION 3 — THE OFFER, around 0:50
+SAY IT ONCE, PLAINLY, THEN STOP.
+----------------------------------------------------------------
+
+One thing to be explicit about,
+because it would be odd not to say it.
+
+This isn't a mock-up.
+
+It's an accelerator we've built,
+and we stand it up for clients.
+
+If getting to this view is something you want,
+that's a conversation we can have —
+and it's a short one.
+
+Kevin and I can scope it.
+
+[LET IT SIT. DO NOT ELABORATE. MOVE TO DISCUSS.]
+
 
 
 ================================================================
