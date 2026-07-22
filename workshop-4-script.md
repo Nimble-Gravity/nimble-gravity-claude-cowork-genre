@@ -39,12 +39,15 @@ not whether the gap exists.
 
 ## Pre-session prep
 
-1. **Have admin console access ready.** The Demo builds a Custom role live. If you cannot get admin
-   access to a real tenant, use the screenshots in the facilitator guide and narrate — but say out
-   loud that you're using screenshots. This audience notices.
-2. **Confirm Kevin for the Demo, and capture screenshots anyway.** Kevin screen-shares the live Axos
-   dashboard in Demo (b) while you narrate. His connection dropped during prep — capture the key cards
-   beforehand so a dropout costs you nothing.
+1. **Stage Demo (a) in Cowork.** Put `role-matrix-DRAFT.md` and `rbac-reference.md` (from
+   `control-room/lab-files/`) in a folder, and have a Cowork session ready to grant access to *just*
+   that folder on screen. **Neither presenter has admin-console access this cohort** — Demo (a) is a
+   live Cowork audit, not a console walkthrough. Do a dry run: confirm the audit output is legible on
+   a shared screen and re-read the spoiler guard so you don't discuss sections 1 or 6.
+2. **Confirm Kevin for Demo (b), and get screenshots anyway.** He shares the live dashboard 0:43–0:52
+   while you narrate. His connection dropped during prep — have his captures on your machine so a
+   dropout costs you nothing. Also agree the breakout split for the Lab, and give him the 90-second
+   spend-controls cue so it doesn't land cold.
 3. **Expect a mixed room.** The invite went wider than the IT/compliance scope it was written for, so
    plan for an engaged core plus observers. The Open handles this explicitly; the Lab folds observers
    into teams rather than leaving them adrift.
@@ -61,16 +64,42 @@ not whether the gap exists.
    at the top as the source of truth and lean on breakout-room check-ins for progress.
 
 ### Run of show — the 2-hour agenda
-| Time | Slot | Content |
-|---|---|---|
-| 0:00–0:10 | **Open** | Audience framing for a mixed room + one-line arc — **no W3 recap** |
-| 0:10–0:33 | **Teach** | Package (0:10–0:15) · RBAC (0:15–0:23) · Set Up & Govern (0:23–0:29) · Analytics (0:29–0:33) |
-| 0:33–0:52 | **Demo** | Live: build a Custom role, then Kevin's real dashboard + the education loop |
-| 0:52–1:04 | **Discuss** | Which Axos workloads leave the Cowork interface? + team announcements |
-| 1:04–1:10 | **Break** | Staging break — file confirm |
-| 1:10–1:50 | **Lab** | The Control Room — 40-minute control review |
-| 1:50–1:58 | **Debrief** | One share per team + knowledge check |
-| 1:58–2:00 | **Close** | Homework + program wrap + feedback |
+
+**Two presenters. Kevin has the screen once, for nine minutes.** Everything else is Derrikk.
+Kevin is on camera the whole session as the technical answer-man, but he only *drives* in Demo (b).
+
+| Time | Slot | Owner | Screen |
+|---|---|---|---|
+| 0:00–0:10 | **Open** | **Derrikk** — audience framing, arc, introduce Kevin | Derrikk |
+| 0:10–0:15 | **Teach** · Package as a Plugin | **Derrikk** | Derrikk |
+| 0:15–0:23 | **Teach** · Roles & Access (RBAC) | **Derrikk** | Derrikk |
+| 0:23–0:29 | **Teach** · Set Up & Govern | **Derrikk**, + ~90s Kevin on spend controls | Derrikk |
+| 0:29–0:33 | **Teach** · Analytics — frame only | **Derrikk** (concept; Kevin supplies evidence at 0:43) | Derrikk |
+| 0:33–0:43 | **Demo (a)** · Audit the role matrix in Cowork | **Derrikk** | Derrikk |
+| **0:43–0:52** | **Demo (b)** · The live dashboard + education loop | **Kevin drives, Derrikk narrates** | **Kevin** |
+| 0:52–1:04 | **Discuss** · What leaves the Cowork interface? | **Derrikk** facilitates, **Kevin** answers | Derrikk |
+| 1:04–1:10 | **Break** | — | — |
+| 1:10–1:50 | **Lab** · The Control Room | **Derrikk** runs; **Kevin** floats as SME | Breakouts |
+| 1:50–1:58 | **Debrief** | **Derrikk** | Derrikk |
+| 1:58–2:00 | **Close** | **Derrikk** | Derrikk |
+
+**The three handoff lines — say them close to verbatim:**
+
+- **Into Kevin's Teach interjection (~0:26):** *"Kevin, you've been fielding this one from a few
+  customers — what actually happens to spend controls when you move from Team to Enterprise?"*
+- **Into Demo (b) (0:43):** *"I'm handing the screen to Kevin. He's going to show you what this looks
+  like when it's actually running, and I'll talk over the top. Kevin, take it away."*
+- **Back out (0:52):** *"Thanks Kevin — stay with us, because the next twelve minutes are exactly your
+  territory. Everyone: which Axos workloads should* not *be running in the Cowork interface?"*
+
+**Kevin's prep:** dashboard open and ready to share · screenshots of the key cards sent to Derrikk
+beforehand (his connection dropped during prep — if it drops live, Derrikk presents the captures and
+says plainly they're captures) · three answers loaded, because these *will* be asked: per-user spend
+control, Azure AI Foundry, and where the audit gap leaves them.
+
+> ⚠️ **Neither presenter has admin-console access this cohort.** Demo (a) has been rebuilt around a
+> live Cowork session instead of a console walkthrough — see the Demo section. **Do not fake a console
+> demo from stock screenshots in front of this audience.**
 
 ---
 
@@ -237,6 +266,25 @@ across them."
 That work does not belong in the Cowork interface — route it to the API or Claude Code Enterprise.
 Deciding that per workload, in writing, with a named example, is what turns awareness into a control."
 
+### 🔁 Hand to Kevin here (~0:26, about 90 seconds)
+
+**[DO]** This is Kevin's only speaking slot before the Demo. Cue him by name and give him the question
+rather than the answer:
+
+> **[SAY]** *"Kevin, you've been fielding this one from a few customers — what actually happens to spend
+> controls when you move from Team to Enterprise?"*
+
+**[NOTE]** What he'll cover: Enterprise **removes** several cost controls that Team has; there is no
+clean per-user spend cap; organizations that need one are enforcing it through an API management
+gateway. **Take the handback explicitly** — *"So: model caps are the lever you actually have. Which
+brings us to the surface you don't have…"* — and move to the audit gap. If he runs past two minutes,
+park it: this question resurfaces in Discuss and he'll have the floor there.
+
+**[>>]** *Why give Kevin a slot before the Demo at all?* Two reasons. It establishes him as a source of
+answers before he has to hold the screen, so when the handoff comes at 0:43 the room already knows why
+they're listening to him. And this particular correction is more credible from the person who's been
+answering the question repeatedly than from the person running the deck.
+
 **[SAY] — the Microsoft-shop option, worth naming in this room:** "There's a stronger option for a bank
 on the Microsoft stack: **Claude on Azure AI Foundry.** It's a materially better posture for
 high-assurance work because the infrastructure is genuinely yours — real components you install and
@@ -270,32 +318,82 @@ write it into the control narrative."
 **[SAY] — the three questions:** "Weekly, then monthly. Are people using it? How deeply? Is it paying
 off? Weekly active usage trending up is the headline."
 
+**[SAY] — hand forward, don't spend it here:** "Hold that, because in about ten minutes Kevin's going to
+put a real dashboard on screen and we'll read those three questions off actual Axos numbers."
+
+**[>>]** *This slot is the frame; Kevin's slot is the evidence. Do not teach the education loop here.*
+The temptation is to explain the whole spend-signal idea now and then have Kevin illustrate it — that
+kills it twice over. Said abstractly at 0:31 it's a platitude; said at 0:45 over a real "top expensive
+prompts" card it's a genuine insight. Four minutes, three surfaces, the no-data-by-default gotcha, the
+prompt-text warning, and out. **You own the concept; he owns the proof.**
+
 ---
 
-## Demo · 0:33–0:52 (19 min) — Build a role, then read the telemetry
+## Demo · 0:33–0:52 (19 min) — Audit a role design, then read the real telemetry
 
-**[SAY]** "Two things in nineteen minutes. First I'll build the access control. Then I'll show you how
-you find out whether it's working. Everything you're about to see is a station in the Control Room."
+> **Split: (a) Derrikk drives 0:33–0:43 · (b) Kevin drives 0:43–0:52.** One handoff, one handback.
+
+**[SAY]** "Two things in nineteen minutes. First I'll take a broken access design and have Cowork audit
+it — which is exactly what you'll be doing after the break. Then Kevin's going to show you the other
+half: how you find out whether any of this is working, on real numbers. Everything you're about to see
+is a station in the Control Room."
 
 **[>>]** *"Everything you're about to see is a station" — say this line.* It is the W3 transition that
 worked, and it does the same job here: it converts the demo from something participants watch into
 something they know they'll be graded on in thirty minutes. Attention in the Demo slot measurably
 determines how many teams clear Station 2.
 
-### (a) Build a least-privilege Custom role (10 min)
-**[DO]** Admin console → Organization settings → Roles → create a Custom role.
-- Name it something like `cowork-pilot-analyst`.
-- **Grant capabilities explicitly** — narrate this: *"Watch me tick Cowork on. If I skip this, this role
-  gets nothing, even though Cowork is on org-wide."*
-- Set **Analytics: Can view**, everything else No access. *"That's the steering-committee reporter. One
-  area. Not an Owner."*
-- Show the **Connectors** tab: set M365 to **Needs approval**. *"Anything reaching customer or loan data."*
-- Show the **Models** tab: cap effort / disable Opus for this group. *"Hold that thought."*
-- Attach it to a **SCIM group**. Point at the group source: *"Direct members. If this were a nested group
-  it would arrive empty and I'd spend a morning wondering why."*
+### (a) Audit a role design — live in Cowork (10 min) · **Derrikk drives**
 
-**[>>]** *What to do if you can't get admin access.* Narrate over screenshots and say so plainly. Do not
-fake a live console. An IT audience can tell, and the credibility cost is far higher than the polish gain.
+> **Rebuilt because neither presenter has admin-console access this cohort.** Rather than narrate stock
+> screenshots of a tenant we can't open, we demo the thing we *can* do live and that the room will do
+> themselves in forty minutes: hand a broken role design to Cowork and let it audit against a standard.
+> This is a stronger demo anyway — it's real, it's on your machine, and it models the lab method.
+
+**[SETUP]** A Cowork session with `role-matrix-DRAFT.md` and `rbac-reference.md` in a granted folder.
+Both are lab files — `control-room/lab-files/`.
+
+**[DO]** Scope the folder grant on screen first, and say why: *"Before I do anything — notice I'm
+granting one project folder, not my drive. That's the whole least-privilege lesson in one click, and
+it's the first thing the room gets graded on later."*
+
+**[DO]** Prompt Cowork:
+> *"Audit this draft role matrix against the reference standard. Go section by section and give me a
+> table: the defect, which rule it breaks, and the corrected setting."*
+
+**[SAY]** as it runs: "This is a governance artifact being reviewed by the thing we're governing. That's
+not a gimmick — an access review is exactly the kind of tedious, rules-against-a-document work that
+should be delegated."
+
+### ⚠️ Spoiler guard — walk only sections 2, 3 and 4
+
+The lab's Station 2 code is derived from **section 1** (how many Owners move to Custom roles) and
+**section 6** (the plugin install preference). **Do not discuss those two on screen.** When the output
+appears, steer deliberately:
+
+> *"It's found things in every section. I'm going to look at three of them now and leave the rest —
+> some of this is your problem to solve after the break."*
+
+**Walk these three, in this order:**
+- **Section 3 · Connectors** — M365 on *Always allow* while reaching customer and loan folders. Should
+  be **Needs approval**. Add the limit: *"connector settings are org-wide — there's no per-group
+  connector control, so the strictest requirement governs everyone."*
+- **Section 4 · Models** — all models, all effort levels, default Opus, and a note that says "monitor
+  Opus spend weekly." *"That's a finding, not a remediation. The fix is a cap on the Models tab."*
+  **This is the setup for Kevin's dashboard in nine minutes — plant it deliberately.**
+- **Section 2 · the pilot group** — sourced from a **nested** IdP group, and a Custom role with no
+  capabilities listed. Two separate failures: it would sync empty, *and* it grants nothing even with
+  Cowork enabled org-wide. *"Custom roles inherit nothing. Every capability has to be named."*
+
+**[>>]** *Why this beats the console demo it replaced.* Three reasons. It's honest — nothing is
+simulated, and this audience can smell a canned screenshot walkthrough. It rehearses the exact motion
+teams need at Station 2, so the lab starts warmer. And it demonstrates the meta-point of the whole
+program: you don't govern Cowork *instead of* using it, you use it to do the governance work. The
+console screenshots would have shown people a UI; this shows them a method.
+
+**[NOTE]** If someone asks to see the actual admin console, be straight: *"I don't have console access
+to your tenant, and I'm not going to show you someone else's. The settings are named in Lesson 2 —
+Kevin can talk to what they look like in practice."* Then move.
 
 ### (b) Read the telemetry — Kevin's live dashboard (9 min)
 
@@ -351,6 +449,11 @@ an API management gateway. Don't promise a control that isn't there.
 
 ## Discuss · 0:52–1:04 (12 min) — What leaves the Cowork interface? + teams
 
+> **Derrikk facilitates, Kevin answers.** You run the room and keep time; Kevin is the technical
+> authority on anything that lands on routing, spend, Foundry, or the audit gap. Say this out loud as
+> you open so people know who to aim at: *"I'll keep us moving — Kevin's the one to point the hard
+> technical questions at."*
+
 *Pre-recruited IT/compliance partner goes first.*
 
 **[SAY]** "Here's the question I want in the open, with IT and compliance in the room. Given what I just
@@ -402,6 +505,11 @@ seconds for stragglers rather than starting with file-less teams.
 
 *Follow along: Lesson 5. Open at [control-room/](control-room/) — participants in breakouts. Keep the
 [facilitator view](control-room/admin.html) open (local-only this cohort — see prep note 6).*
+
+> **Derrikk runs the room; Kevin floats.** You own the clock, the facilitator view, and the hint calls.
+> Kevin is most useful dropping into breakouts and answering IT questions in chat — **he does not need
+> the main screen for the next 40 minutes.** Agree before the session who takes which breakouts so you
+> aren't both landing in the same one.
 
 **[DO]** "The Control Room is open. Clock starts when your team enters a name. One driver in Cowork, the
 rest advising. Game in one window, Cowork in the other. Go."
@@ -530,6 +638,17 @@ value lands.
 
 Codes are case- and whitespace-insensitive. Hint 1 free; hint 2 costs +2 min.
 Reset is available per team in the facilitator view.
+
+**Two-presenter risks:**
+- **Kevin drops during Demo (b).** His connection died in prep. Take the screen back, present the
+  screenshots, say plainly they're captures, and keep narrating the education loop — the teaching
+  content is yours, not his. Don't spend 90 seconds waiting for him to reconnect.
+- **The handback at 0:52 gets lost.** Two presenters plus a discussion opening is where sessions drift.
+  Say the handback line, then immediately pose the Discuss question. Don't let it become open floor.
+- **You both dive into the same breakout.** Split the list before the session starts.
+- **Kevin over-runs the 90-second Teach interjection.** Park it — he gets the floor properly in Discuss.
+- **Someone asks to see the admin console.** Neither of you has access to their tenant. Say so and move;
+  the settings are named on Lesson 2. Do not improvise a console tour.
 
 **Top risks:**
 - **Lab files not staged.** Confirm in Teams chat during the break. Six files, one folder.
