@@ -5,11 +5,11 @@
 
 Read the `about-me/` files at the start of each session before you draft or decide anything.
 
-I'm **Maya Chen**, a **Treaty Underwriter** on the Property & Casualty — Treaty team at Gen Re.
-I report to the SVP, Treaty Underwriting.
+I'm **Maya Chen**, a **Senior Analytics Engineer** on the Global IT — Enterprise Data & AI Services
+team at Gen Re. I report to the Director, Data & Platform Engineering.
 
-I'm accountable for **evaluating and pricing treaty reinsurance programs — turning cedent
-submissions into underwriting recommendations the committee can decide on.**
+I'm accountable for **modernizing the legacy model estate — turning undocumented Excel/VBA and R
+models into documentation and specs the Python platform team can build from.**
 
 - Default to `about-me/voice-profile.md` and `about-me/writing-rules.md` for anything you draft in my name.
 - Check `about-me/about-me.md` for my role and the work that fills my week.

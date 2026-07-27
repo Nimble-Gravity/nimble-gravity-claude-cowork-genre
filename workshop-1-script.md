@@ -9,7 +9,7 @@
 **Outcome:** every participant leaves with (1) Cowork personalized to their role (`claude.md` + `about-me/`),
 and (2) **one real delegation run end-to-end that produced a deliverable.**
 
-**Demo asset:** the **sample submission pack** (`assets/demo/sample-submission-pack.md`) + the **exact prompt** are on the
+**Demo asset:** the **sample legacy model** (`assets/demo/sample-legacy-model.md`) + the **exact prompt** are on the
 [facilitator guide](pages/workshops/facilitator-guide.html) and in the [resource library](pages/workshops/resources.html).
 
 **Legend:** **[SAY]** talk track · **[DO]** live demo · **[THEY]** participants act · **[NOTE]** facilitator note
@@ -17,24 +17,25 @@ and (2) **one real delegation run end-to-end that produced a deliverable.**
 ---
 
 ## Pre-session prep
-1. **Stage the demo folder.** Download `sample-submission-pack.md`, put it alone in a clean folder (e.g.
-   `submission-demo`). Have the **exact prompt** open to paste.
+1. **Stage the demo folder.** Download `sample-legacy-model.md`, put it alone in a clean folder (e.g.
+   `model-demo`). Have the **exact prompt** open to paste.
 2. **Set up the before/after.** You'll demo as the **Maya Chen** persona (card below), not your own profile.
    Have a **cold path** ready for the "before" — a session with **no profile loaded** (cleared global
    instructions, no `about-me/`). Decide whether you'll run co-setup **live** as Maya in the demo, or
    **pre-build** her profile beforehand and show only a short live snippet (safer on time). Either way, keep
    the persona card open to read from. A **ready-made copy** of Maya's `claude.md` + `about-me/` lives in
    `assets/demo/maya-profile/` (and the resource library) — drop it in for an instant "after."
-3. **Confirm M365 admin consent** for your account *and* the cohort. If it's not in, use the fallback below.
-4. **Know the fallback:** if a connector won't authorize, `/cowork-cosetup` **still runs without the M365
-   harvest** — it just asks more questions. Nothing breaks.
+3. **Connector status:** the M365 connector is **not enabled at Gen Re — under IT Security review**. Run
+   everything local-folder-first; if asked, say exactly that and move on.
+4. **Know the fallback:** `/cowork-cosetup` **runs fine with no connectors** — it just asks more
+   questions instead of pre-filling. Nothing breaks.
 
 ### Run of show — the 2-hour agenda
 | Time | Slot | Content |
 |---|---|---|
 | 0:00–0:10 | **Open** | Welcome, objectives, maturity poll |
 | 0:10–0:35 | **Teach** | What Is Cowork? (0:10–0:22) · Get Set Up (0:22–0:35) |
-| 0:35–0:55 | **Demo** | Summarize a cedent submission — **cold, then after co-setup** |
+| 0:35–0:55 | **Demo** | Summarize a legacy model — **cold, then after co-setup** |
 | 0:55–1:05 | **Discuss** | One task you'd hand off |
 | 1:05–1:10 | **Break** | — |
 | 1:10–1:50 | **Lab** | Your first Cowork session (40 min) |
@@ -42,24 +43,24 @@ and (2) **one real delegation run end-to-end that produced a deliverable.**
 | 1:58–2:00 | **Close** | Homework + what's next + feedback |
 
 ### 🎭 Demo persona — answer the co-setup interview as this person
-> Read these answers when you run `/cowork-cosetup` in the demo. They're written to match the sample submission
-> pack, so the "after" summary comes back as a treaty underwriter's committee memo. Stay in character; it keeps
+> Read these answers when you run `/cowork-cosetup` in the demo. They're written to match the sample legacy
+> model, so the "after" summary comes back as an engineer's stand-up-ready doc. Stay in character; it keeps
 > the demo fast and the before/after coherent.
 
-**Maya Chen — Treaty Underwriter, Gen Re** · Property & Casualty — Treaty team · reports to the SVP, Treaty Underwriting.
+**Maya Chen — Senior Analytics Engineer, Gen Re** · Global IT — Enterprise Data & AI Services · reports to the Director, Data & Platform Engineering.
 
 | Interview question | Answer to give |
 |---|---|
-| Name, title, team, who you report to | "Maya Chen, Treaty Underwriter, Property & Casualty — Treaty. I report to the SVP, Treaty Underwriting." |
-| What are you accountable for? (one sentence) | "Evaluating and pricing treaty reinsurance programs — turning cedent submissions into underwriting recommendations the committee can decide on." |
-| The 3–5 tasks that eat your week | "One-page committee underwriting summaries from cedent submissions; reviewing loss-experience triangles and exposure schedules for rate adequacy; terms-and-conditions analysis (attachment, limit, aggregate, commission); annual renewal reviews; answering client and broker questions on structure and pricing." |
-| Tools / data you live in | "Microsoft 365 — Outlook, Teams, SharePoint — the submission/clearance system, Excel exhibits, and underwriting guidelines in SharePoint." |
-| Voice & writing style (expect several) | "Bottom line first, then support. Short, declarative sentences; concise, committee-ready, plain English. Measured and even-handed — never promotional. Precise reinsurance terms (loss ratio, attachment, aggregate, rate on line), no fluff or hype words like 'strong' without evidence. Structured memo with headers, not prose. More formal for committee; plainer for a broker email." |
-| AI do's and don'ts | "Always: cite the source submission for every figure, flag every exposure, say when data is missing or interim, frame it as a draft for sign-off. Never: invent or estimate numbers, make the underwriting decision, bury an exposure, be promotional. Avoid AI tells: no clichés or filler, no emoji, don't over-hedge, don't overuse em-dashes." |
-| (Delivery role block) good vs rushed; approvals | "Good = exposures flagged with evidence, numbers tied to the submission, a clear recommendation. Rushed = generic, unsupported, no missing-data callouts. Chain: underwriter drafts → SVP Treaty Underwriting reviews → underwriting committee decides." |
+| Name, title, team, who you report to | "Maya Chen, Senior Analytics Engineer, Global IT — Enterprise Data & AI Services. I report to the Director, Data & Platform Engineering." |
+| What are you accountable for? (one sentence) | "Modernizing the legacy model estate — turning undocumented Excel/VBA and R models into documentation and specs the Python platform team can build from." |
+| The 3–5 tasks that eat your week | "Process documentation and specs from legacy Excel/VBA and R models; code reviews before things ship to the platform; interviewing model owners for the business rules the code doesn't explain; keeping the modernization backlog current; answering the platform team's questions about legacy behavior." |
+| Tools / data you live in | "Microsoft 365 — Outlook, Teams, SharePoint — the legacy model estate, the Python platform repo, VS Code, Git, and Excel for tracing legacy logic." |
+| Voice & writing style (expect several) | "Bottom line first, then support. Short, declarative sentences; clear, practitioner-grade, plain English. Measured and precise — never dramatic. Precise engineering terms (input, transformation, hardcoded, edge case), no vague judgment like 'messy' without a specific finding. Structured doc with headers, not prose. Structured for the platform team; plainer for a stand-up note." |
+| AI do's and don'ts | "Always: cite the specific line or cell for every claim, flag every defect with what could go wrong, put anything unexplained in an open-questions section, frame it as a draft for sign-off. Never: invent behavior the code doesn't show, fix the code — flag it, bury a defect, be promotional. Avoid AI tells: no clichés or filler, no emoji, don't over-hedge, don't overuse em-dashes." |
+| (Delivery role block) good vs rushed; approvals | "Good = every claim cites its line, defects flagged with failure conditions, unknowns marked as open questions. Rushed = generic, uncited, glosses over what it doesn't know. Chain: engineer drafts → Director reviews → the platform team builds from it." |
 
-**Voice sample (give if it asks):** "Recommend renewal subject to a 5-point rate increase and a tightened aggregate. The relationship's sound, but the 5-year loss ratio has drifted from 58% to 71% and one event drove ~30% of incurred — both worth watching."
-**One memory fact (give if it asks):** "Underwriting committee meets Thursdays; write-ups due Tuesday EOD. Target loss ratio on treaty business is ≤65%."
+**Voice sample (give if it asks):** "This workbook prices property treaty layers from a pasted loss run. Three risks before we port it: the row count on LossRun!B1 is maintained by hand, the 5% trend constant hasn't been revisited since 2019, and the rate-on-line cell reads the wrong input. Nothing here is guessed."
+**One memory fact (give if it asks):** "Modernization stand-up is Thursdays; specs and docs due Tuesday EOD. Every claim cites the line it came from; defects are flagged, not fixed."
 
 ---
 
@@ -96,9 +97,10 @@ same agent developers use, no terminal. We teach Claude Cowork, exclusively."
 **[NOTE]** No Copilot framing on this branch. Governance depth is Workshop 4 — one line, move on.
 
 ### Get Set Up · 0:22–0:35 — *follow along: Lesson 2 + Lesson 3 "Mind the cost"*
-**[SAY] — connectors:** "Let Cowork see where you already work. Connect **Microsoft 365**: an admin consents
-**once**, it uses **delegated permissions** — sees only what *you* can — and **every call lands in your M365
-audit log.** That's why it clears at a reinsurer." **[SAY] — fallback:** "If your connector won't authorize,
+**[SAY] — data access:** "Cowork works on the **folders you grant it** — one scoped folder per task, nothing
+outside it. That's the whole data-access model, and it's why this clears at a reinsurer. If anyone asks about
+the **Microsoft 365 connector**: it's **not yet available at Gen Re — it's under IT Security review**; until
+it's approved, we work local-folder-first." **[SAY] — fallback:** "If anything won't authorize,
 **don't fight it** — run `/cowork-cosetup` anyway; it just asks more questions instead of pre-filling."
 
 **[SAY] — the cost dial (say it now, repeat it):** "Three habits keep this cheap and sharp. **Sonnet is the
@@ -120,17 +122,17 @@ you can keep different context per project. You'll run it in the lab."
 
 ---
 
-## Demo · 0:35–0:55 (20 min) — Summarize a cedent submission, before → after
-*Assets: `assets/demo/sample-submission-pack.md`, the exact prompt, and Maya's ready-made profile (`assets/demo/maya-profile/`) — on the [facilitator guide](pages/workshops/facilitator-guide.html#workshop-1).*
+## Demo · 0:35–0:55 (20 min) — Summarize a legacy model, before → after
+*Assets: `assets/demo/sample-legacy-model.md`, the exact prompt, and Maya's ready-made profile (`assets/demo/maya-profile/`) — on the [facilitator guide](pages/workshops/facilitator-guide.html#workshop-1).*
 
 **[SAY]** "Here's the difference setup makes — same file, same prompt, run twice." **[DO]** Grant Cowork the
-`submission-demo` folder (the sample submission pack). **[NOTE]** Least privilege out loud: one folder, not a parent.
+`model-demo` folder (the sample legacy model). **[NOTE]** Least privilege out loud: one folder, not a parent.
 
 ### (a) Cold — before any setup
 **[DO]** On your **cold path** (a session with no profile loaded), paste the **exact prompt**:
-> *"Read the cedent submission in this folder and write a one-page underwriting summary I can take to committee. Cover:
-> the cedent and the program requested, the loss-experience trend, the exposure profile, the terms and
-> conditions, rate adequacy, and the top three exposures to flag. Don't invent numbers — if something isn't in the submission, say so."*
+> *"Read the legacy model in this folder and write a one-page summary I can take to the modernization
+> stand-up. Cover: what the model does and who uses it, what each tab holds, every input the macro
+> depends on, and the top three risks to flag before we port it. Don't invent anything — if the file doesn't explain something, say so."*
 
 **[SAY]** as it runs: "Watch the right side — that's the **plan.** Read the plan before the result; fixing a
 wrong plan costs nothing." **[DO]** Approve a step; open the finished summary. **[SAY]** "Useful — but
@@ -138,30 +140,30 @@ wrong plan costs nothing." **[DO]** Approve a step; open the finished summary. *
 sentence* again."
 
 ### (b) Build the profile live — run co-setup as the persona
-**[DO]** Fresh session → `/cowork-cosetup`. It **harvests from M365 first** (if connected), then asks
+**[DO]** Fresh session → `/cowork-cosetup`. It harvests what it can from any granted folder, then asks
 **one question at a time in a popup** — answer **as Maya Chen** (persona card in pre-session prep): her role,
 what she's accountable for, her weekly work, her voice and writing style, and her AI do's and don'ts;
-`[FILL IN]` anything you'd skip. **[SAY]** "I'm answering as a **treaty underwriter** — the kind of
-person in this room. Notice it adapts its questions to my field, harvests what it can from M365 first, and
-asks one at a time."
+`[FILL IN]` anything you'd skip. **[SAY]** "I'm answering as an **analytics engineer in Global IT** — the kind of
+person in this room. Notice it adapts its questions to my field and asks one at a time."
 **[NOTE]** Short on time? Pre-build Maya's profile before the session and show just a **2–3 question snippet**
 here, then switch to the ready profile (ready-made files: `assets/demo/maya-profile/`).
 
 ### (c) After — same prompt, now personalized
 **[DO]** New session on **Maya's** profile; paste the **identical** prompt against the same file.
-**[SAY]** "Same file, same sentence. Now it's **Maya's committee memo** — bottom line first, in her voice,
-flagging the loss-ratio drift, the ~30% single-claim concentration, the stale interim bordereau — and it says
-what's *missing* instead of inventing it. That's `claude.md` and `about-me/` doing the work, and it's
+**[SAY]** "Same file, same sentence. Now it's **Maya's stand-up doc** — bottom line first, in her voice,
+flagging the hand-maintained row count, the trend constant hardcoded since 2019, the rate-on-line cell reading
+the wrong input — each with the line it lives on — and it marks what the file doesn't explain as *open
+questions* instead of inventing answers. That's `claude.md` and `about-me/` doing the work, and it's
 **20 minutes of setup, not 2 months.**"
 
-**[SAY] — reinsurance framing:** "This is a **draft an underwriter signs off on** — Cowork drafts, it doesn't decide.
+**[SAY] — framing:** "This is a **draft the responsible engineer signs off on** — Cowork drafts, it doesn't decide.
 Kept on **Sonnet** the whole time."
 
 ---
 
 ## Discuss · 0:55–1:05 (10 min) — One task you'd hand off
 **[SAY]** "Go around — name **one repetitive, document-heavy task** from your week you'd hand off. Concrete
-wins: *'summarize my renewal-submission notes,' 'first-pass a compliance doc.'*" **[DO]** Capture answers
+wins: *'document the covenant workbook,' 'review my R script before it ships.'*" **[DO]** Capture answers
 in Teams — **these seed Workshop 2's use-case shortlist.**
 
 ---
@@ -184,9 +186,9 @@ Paste your best second answer into Teams. If the mirror's blurry, your profile's
 `voice-profile.md` and re-run."
 
 **[THEY] — first delegation → a deliverable:** "Now delegate one real task that ends in something you can
-check. **Sonnet, ask-before-acting on, one clean folder, fresh session.** Starters: summarize a **cedent submission
-or renewal submission**; work through a **compliance/policy doc** for points and gaps; or draft a
-**recurring memo** in your voice. No file handy? Use the **sample submission pack** and the demo prompt. Read the
+check. **Sonnet, ask-before-acting on, one clean folder, fresh session.** Starters: summarize a **legacy model
+or script you own**; work through a **config or process doc** for points and gaps; or draft a
+**recurring status update** in your voice. No file handy? Use the **sample legacy model** and the demo prompt. Read the
 plan, approve each step, check the result against your bar — then **post the deliverable in Teams.**"
 
 **[NOTE]** Circulate — help with access and folder grants. Don't wait for 100%; setup spills to homework.
@@ -201,7 +203,7 @@ good, you post it.**
 **[SAY] — the safety answer (close the loop):** "I promised to answer *'should I let AI touch my work at a
 reinsurer?'* It's exactly what we did:
 - It only sees the **folders you grant**; code runs in an **isolated VM**; it **asks before it deletes.**
-- Connectors use **delegated permissions** and land in your **M365 audit log.**
+- Connectors are off until approved — the M365 connector is **under IT Security review** at Gen Re.
 - The June-2026 audit-coverage gap is **managed** — least privilege, approvals on, the admin dashboard +
   Analytics API. Work needing **zero-retention or centralized audit** routes to Anthropic's audited surfaces
   (the API or Claude Code Enterprise), not the Cowork interface. Governance in depth is Workshop 4."
@@ -236,7 +238,7 @@ real `about-me/`. Don't leave it on the cold demo profile.
 ### Script ↔ on-site sync notes
 - **Agenda** matches `module-1-workshop.html` / `syllabus.html` (8 slots, 2 hours) and the
   `facilitator-guide.html#workshop-1` demo + discussion.
-- **Demo asset:** `assets/demo/sample-submission-pack.md`; the **exact prompt** is the held-constant before/after
+- **Demo asset:** `assets/demo/sample-legacy-model.md`; the **exact prompt** is the held-constant before/after
   prompt and matches the code block on the facilitator guide.
 - **Entry file** is `claude.md`; the relevance prompt matches Lesson 3 Prompt 2 and the cosetup skill.
 - **Cost dial** lands in Teach (Lesson 3 "Mind the cost"); deep version is Lesson 5.

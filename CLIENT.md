@@ -7,8 +7,36 @@ about Cowork itself.
 - **Client:** Gen Re (General Reinsurance Corporation / General Reinsurance AG)
 - **Industry:** Reinsurance — Property & Casualty and Life & Health
 - **Researched:** 2026-07-22, from public sources (see **Sources** at the end)
-- **Status:** Pre-discovery. Everything here is public-record research. Nothing has been
-  confirmed by the client. Items needing confirmation are marked **[CONFIRM]**.
+- **Status:** Engagement live. Client contact: **Chris Engelhardt, Ph.D., VP, Head of AI
+  Services, Gen Re Global IT — Enterprise Data and AI Services** (Stamford). Items still
+  needing confirmation are marked **[CONFIRM]**.
+
+## 0. Engagement facts (confirmed by the client — 2026-07-27)
+
+Feedback from Chris Engelhardt (2026-07-27) established the following; these override the
+pre-discovery assumptions below where they conflict:
+
+- **The pilot cohort is Gen Re Global IT**, not underwriters. Anchor use cases for the
+  workshops: **documentation generation** (legacy Excel/VBA and R models → process docs and
+  build-ready specs — feeds their Python-platform modernization) and **technical review of
+  working code** (validated in their pilot as "an additional pair of eyes, not a replacement
+  for technical review").
+- **The M365 connector is NOT available at Gen Re — it is under IT Security review.** All
+  materials teach local-folder-first; the facilitator says exactly that if asked. Connector
+  setup content was removed from the participant materials.
+- **Pre-work and homework are optional** and framed that way everywhere; key components are
+  covered live in each session. (Chris: "I am not sure people will do that.")
+- **The site carries a "piloting scalable training materials" note** (homepage + Start Here)
+  so incomplete/generic material is expected rather than jarring.
+- **No draft-pending-sign-off banner and no acknowledgment gate** on the Rules of the Road —
+  removed at Chris's request.
+- **Gen Re runs a Claude pilot community** with documented wins to cite (their own examples):
+  IFRS 18 impact analysis (half a day → ~1 hour), expected-loss/pricing view from a 70-tab
+  submission (minutes; property reliable, casualty needed careful review), treaty-and-amendment
+  interpretation, claims-outlier segmentation, a disability-income claim form redesign
+  (~4 minutes), legacy Excel/VBA → Python spec translation, R scripts → process docs, and code
+  review that once caught an error human review missed — alongside false positives. Use these
+  as proof points; never oversell beyond their own caveats.
 
 
 ---

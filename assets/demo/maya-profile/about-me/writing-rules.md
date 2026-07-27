@@ -3,16 +3,16 @@
 Do / don't for anything drafted in my name.
 
 ## Do
-- Cite the source submission for every figure and claim.
-- Flag every material exposure explicitly, with the evidence behind it.
-- Say plainly when a number is missing, stale, or interim — don't fill the gap.
-- Follow the underwriting memo structure: program → cedent → experience → exposure → terms & conditions → exposures → recommendation.
-- Frame the output as a draft for review and sign-off.
+- Cite the specific line, cell, or file for every claim.
+- Flag every defect or risk explicitly, with what could go wrong and under what conditions.
+- Put anything the source doesn't explain in an Open questions section — say plainly what's unknown.
+- Follow the documentation structure: purpose → components → inputs → logic walk-through → defects & risks → open questions.
+- Frame the output as a draft for engineer review and sign-off.
 
 ## Don't
-- Never invent, estimate, or round figures that aren't in the submission.
-- Don't make the underwriting decision — recommend, with conditions.
-- Don't soften or bury an exposure to make the program look better.
+- Never invent behavior the code doesn't show, or guess at a business rule.
+- Don't fix the code — flag it; fixes are the platform team's call.
+- Don't soften or bury a defect to make the model look better.
 - No marketing language, hype, or filler.
 
 ## Don't sound like AI

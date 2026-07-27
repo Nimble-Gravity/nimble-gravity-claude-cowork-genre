@@ -57,46 +57,33 @@
     <div class="tip-trick-icon">⏱️</div>
     <div class="tip-trick-copy">
       <div class="tip-trick-label">Before you start</div>
-      <p>You'll need access to Cowork and 20 to 40 minutes. You can stop and pick up where you left off. Connect your M365 first so the interview can pull from your real email, Teams, and calendar instead of starting cold.</p>
+      <p>You'll need access to Cowork and 20 to 40 minutes. You can stop and pick up where you left off. Have a work folder in mind to grant Cowork access to — the interview personalizes from your answers, so nothing else is required.</p>
     </div>
   </div>
 </div>
 
-<!-- CONNECT DATA SOURCES -->
+<!-- GRANT A FOLDER -->
 <div class="section" id="connectors">
-  <div class="sec-eyebrow">02 — Connect your data sources</div>
-  <h2 class="sec-title">Connectors are part of <em>setup</em>, not an afterthought</h2>
-  <p class="sec-sub">Cowork is far more useful when it can see your real work. Connect your data sources before the interview so it can pre-fill from your email, calendar, and files instead of starting cold.</p>
+  <div class="sec-eyebrow">02 — Grant a working folder</div>
+  <h2 class="sec-title">Your files, one folder at a <em>time</em></h2>
+  <p class="sec-sub">Cowork works on the files you grant it — and only those. Pick one folder that holds the work you'll practice on, grant Cowork access to it, and keep everything else out of scope. That's the whole data-access model.</p>
 
   <div class="insight-grid" style="margin-top:28px;">
     <div class="insight-card">
-      <div class="sec-eyebrow" style="margin-bottom:6px;">Microsoft 365 shops</div>
-      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Turn on the M365 connector. An admin grants consent once; it then connects with delegated permissions, so Cowork sees only what you can see, and Graph calls are logged in your M365 audit log. In Cowork, open Settings, then Connectors, add Microsoft 365, and approve the scopes.</p>
+      <div class="sec-eyebrow" style="margin-bottom:6px;">Pick the folder</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">A specific project folder, not a drive root or your whole Documents. One folder with the task's files in it is the right grant — you can always add another folder later when a new task calls for it.</p>
     </div>
     <div class="insight-card">
-      <div class="sec-eyebrow" style="margin-bottom:6px;">Google and other shops</div>
-      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">Not on Microsoft? Connect Google Drive, Gmail, and Calendar the same way, from Settings, then Connectors. Local-files-only is also fine: grant a folder and skip connectors for now, then add them as new tasks call for it.</p>
+      <div class="sec-eyebrow" style="margin-bottom:6px;">Grant it in Cowork</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;margin:0;">When you start a session, Cowork asks which folder to work in. Choose the one you staged. Cowork reads, edits, and creates files inside it and nothing outside it, and checks with you before anything is permanently deleted.</p>
     </div>
   </div>
-
-  <figure class="gif-figure">
-    <img src="../../assets/gifs/connector-consent.gif" alt="Approving the Microsoft 365 connector consent flow" loading="lazy" data-client-slot="gif-connector-consent" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-    <figcaption>▶ GIF walkthrough — M365 connector consent (recording pending)</figcaption>
-  </figure>
 
   <div class="tip-trick" style="margin-top:32px;">
-    <div class="tip-trick-icon">🔌</div>
+    <div class="tip-trick-icon">📁</div>
     <div class="tip-trick-copy">
       <div class="tip-trick-label">Least privilege from the start</div>
-      <p>Connectors reach your services through Anthropic's cloud with delegated permissions scoped to you. Connect what the work needs and no more, and add connectors later as new tasks call for them.</p>
-    </div>
-  </div>
-
-  <div class="tip-trick" style="margin-top:18px;">
-    <div class="tip-trick-icon">🔁</div>
-    <div class="tip-trick-copy">
-      <div class="tip-trick-label">Can't connect? Run it anyway</div>
-      <p>If a connector won't authorize in time, don't wait on it. Run <code>/cowork-cosetup</code> without it — the interview just asks a few more questions instead of pre-filling from your data, and you still get the full personalization. Or grant a single folder and skip connectors for now.</p>
+      <p>The folder grant is the data control. Grant what the work needs and no more — one scoped folder per task beats one broad grant forever. This habit is also the core of what Workshop 4 governs.</p>
     </div>
   </div>
 </div>
@@ -117,7 +104,7 @@
     <div class="dev-card">
       <div class="dev-kicker">Step 2</div>
       <h3>Run it from a fresh session</h3>
-      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Open a new session and run <code>/cowork-cosetup</code>. If the interview can't pull anything in, check that your connectors are on so it can read your real work.</p>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Open a new session and run <code>/cowork-cosetup</code>. The interview asks you directly about your role, voice, and priorities, and writes the files from your answers.</p>
       <div class="dev-quote">Cowork picks up new skills only when a session starts.</div>
     </div>
   </div>
@@ -149,14 +136,14 @@
 <pre id="skill-cosetup">You're going to personalize Cowork for me. Run a thorough, adaptive interview, then write my personalization files to THIS folder so that from now on you know my role, my voice, my priorities, and my team. Treat it like onboarding a sharp new assistant — by the end you should be able to draft in my voice and tailor your help to my actual job.
 
 STEP 1 — HARVEST FIRST
-If my Microsoft 365 is connected, harvest everything you reasonably can about me BEFORE asking anything: my name, title, department and where I sit in the org, my manager, the people I email and meet with most, my recurring meetings and their cadence, the kinds of documents and data I work with, my current projects and priorities from recent threads, and how I write (tone, length, sign-off) from my sent mail. Build a draft picture of me from this, and only ask me about what you couldn't find or need to confirm.
-If M365 (or any connector) is NOT connected, or you can't read anything useful, do NOT stop and do NOT error — just go to the interview and ask me directly to fill every gap. Either path must finish and produce the files.
+If any data source or working folder is already accessible, harvest everything you reasonably can about me BEFORE asking anything: my name, title, and role signals, the kinds of documents and data I work with, my current projects and priorities, and how I write (tone, length, sign-off) from any drafts you can read. Build a draft picture of me from this, and only ask me about what you couldn't find or need to confirm.
+If nothing is connected, or you can't read anything useful, do NOT stop and do NOT error — just go to the interview and ask me directly to fill every gap. Either path must finish and produce the files.
 
 STEP 2 — IDENTIFY MY ROLE AND DOMAIN
 Work out what I actually do and in what field — finance, accounting, law, healthcare, sales, marketing, engineering, operations, HR, consulting, or anything else. If the harvest told you, confirm it in a sentence; if not, ask. This shapes everything that follows.
 
 STEP 3 — RUN AN ADAPTIVE INTERVIEW
-Tailor the questions to my role and field — a treaty underwriter, a litigator, a nurse manager, a sales engineer, an HR partner, and a controller should each get a different conversation. Don't read from a fixed script: let each answer shape your next question, and generate the questions that actually matter for my work. (For finance you'd dig into models, materiality, and sign-off; for law, matter types, privilege, jurisdictions, and citation standards; for healthcare, clinical vs admin work and PHI constraints; for sales, accounts, pipeline stages, and client-facing tone — use the same instinct for whatever I turn out to do.)
+Tailor the questions to my role and field — an analytics engineer, a litigator, a nurse manager, a sales engineer, an HR partner, and a controller should each get a different conversation. Don't read from a fixed script: let each answer shape your next question, and generate the questions that actually matter for my work. (For finance you'd dig into models, materiality, and sign-off; for law, matter types, privilege, jurisdictions, and citation standards; for healthcare, clinical vs admin work and PHI constraints; for sales, accounts, pipeline stages, and client-facing tone — use the same instinct for whatever I turn out to do.)
 
 Run it well:
 - Ask me ONE question at a time, using Cowork's question popup (the modal) — not by typing the questions inline in chat. Offer answer choices in the popup where they help, so I can just pick, and wait for each answer before asking the next.
@@ -258,8 +245,8 @@ START NOW: first tell me what you found about me from my connected tools (or say
 <!-- SEE THE DIFFERENCE -->
 <div class="section section--off" id="before-after">
   <div class="sec-eyebrow">07 — See the difference</div>
-  <h2 class="sec-title">Before and after, on a real cedent <em>submission</em></h2>
-  <p class="sec-sub">This is the demo from the session: the same submission and the same prompt, run once <em>cold</em> — before co-setup — and once <em>after</em>. Download the file and try it yourself, or compare the two finished summaries below.</p>
+  <h2 class="sec-title">Before and after, on a real legacy <em>model</em></h2>
+  <p class="sec-sub">This is the demo from the session: the same legacy model and the same prompt, run once <em>cold</em> — before co-setup — and once <em>after</em>. Download the file and try it yourself, or compare the two finished summaries below.</p>
 
   <div class="code-wrap" style="margin-top:28px;">
     <div class="code-topbar">
@@ -270,12 +257,12 @@ START NOW: first tell me what you found about me from my connected tools (or say
       <button class="copy-btn" onclick="copyBlock('submission-prompt', this)">Copy</button>
     </div>
     <div class="code-body">
-<pre id="submission-prompt">Read the cedent submission in this folder and write a one-page underwriting summary I can take to committee. Cover: the cedent and the program requested, the loss-experience trend, the exposure profile, the terms and conditions, rate adequacy, and the top three exposures to flag. Don't invent numbers — if something isn't in the submission, say so.</pre>
+<pre id="submission-prompt">Read the legacy model in this folder and write a one-page summary I can take to the modernization stand-up. Cover: what the model does and who uses it, what each tab holds, every input the macro depends on, and the top three risks to flag before we port it. Don't invent anything — if the file doesn't explain something, say so.</pre>
     </div>
   </div>
 
   <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
-    <a href="../../assets/demo/sample-submission-pack.md" download style="display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--teal);text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;">Download the submission pack ↓</a>
+    <a href="../../assets/demo/sample-legacy-model.md" download style="display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--teal);text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;">Download the legacy model ↓</a>
     <a href="../../assets/demo/example-summary-cold.md" download style="display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--teal);text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;">Cold result — before ↓</a>
     <a href="../../assets/demo/example-summary-after.md" download style="display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--teal);text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;">After-setup result ↓</a>
   </div>
@@ -284,7 +271,7 @@ START NOW: first tell me what you found about me from my connected tools (or say
     <div class="tip-trick-icon">🔍</div>
     <div class="tip-trick-copy">
       <div class="tip-trick-label">What changes</div>
-      <p>The cold run is accurate but generic — it restates the file. After setup, the same prompt returns a committee-ready memo: bottom line first, in your voice, with rate adequacy and the real exposures flagged, and missing or interim data called out instead of glossed over.</p>
+      <p>The cold run is accurate but generic — it restates the file. After setup, the same prompt returns a stand-up-ready summary: bottom line first, in your voice, with the real defects flagged line by line, and anything the file doesn't explain called out as an open question instead of glossed over.</p>
     </div>
   </div>
 </div>
