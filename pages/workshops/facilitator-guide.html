@@ -102,23 +102,51 @@
   <h3 style="margin-top:28px;font-size:19px;color:var(--navy);">Open (20 min) — Setup recap, protected</h3>
   <p class="sec-sub">Workshop 1 feedback was explicit: slow down, and recap setup before anything else — even if it costs time elsewhere. Open your own real Workshop 1 folder on screen (not a fresh rebuild) and run the pattern once: <strong>tell</strong> them what you're about to show, <strong>show</strong> the <code>claude.md</code> + <code>about-me/</code> files answering a relevance question, <strong>remind</strong> them what just happened, then <strong>show it again</strong> — move the files out of the folder and ask the same question <strong>in a fresh chat</strong> (Cowork reads <code>claude.md</code>/<code>about-me/</code> at session start, not mid-conversation, so this has to be a new chat or it'll just repeat itself) so the room watches Cowork lose the personalization, then move the files back and ask once more in one more fresh chat to watch it return. This also covers folder access live, so the standalone Folder Access teach slot is gone from today's Teach block. Full talk track in <code>workshop-2-script.md</code>.</p>
 
-  <h3 style="margin-top:28px;font-size:19px;color:var(--navy);">Demo (18 min) — Documentation from a legacy model</h3>
-  <p class="sec-sub">Asset: <code>assets/demo/sample-legacy-model.md</code> — a synthetic Excel/VBA treaty-pricing model with planted defects. Stage: put <code>sample-legacy-model.md</code> alone in a clean folder, for example <code>model-demo</code>. Grant Cowork only that folder and say "least privilege" out loud when you do it. Set the model to Sonnet. Tell them what you're about to show before you paste the prompt; once the output lands, say back what you just showed before moving to Discuss.</p>
+  <h3 style="margin-top:28px;font-size:19px;color:var(--navy);">Demo (18 min) — Tell · Show · Recap: solution profile + architecture diagram</h3>
+  <p class="sec-sub">Asset: <code>assets/demo/solution-profile-folder.zip</code> — six knowledge-worker files describing one fictional legacy system: Word macro export, Excel four-tab data snapshot, the analysts' run notes, a factor CSV, the handover-call transcript, and the kickoff meeting notes. Stage: unzip it, grant Cowork <strong>only</strong> that folder, and say "least privilege" out loud when you do it. Set the model to Sonnet. Delivery: present from the slide deck and pop to Claude Desktop for the run — the demo cue slide (slide 6) carries the three beats, and both prompts copy one-click from Lesson 4 §04. <strong>Tell</strong> them the deliverable before you run it; <strong>show</strong> by pasting prompt 1 and letting the silence work; <strong>recap</strong> from the cue slide before moving to Discuss. Dry-run prompt 1 before the session so you know the pacing — and whether it catches the planted stale row count in <code>LossRun!B1</code> (17, with data to row 19).</p>
 
   <div class="code-wrap" style="margin-top:18px;">
     <div class="code-topbar">
       <span class="cb-dot" style="background:#ff5f57"></span>
       <span class="cb-dot" style="background:#febc2e"></span>
       <span class="cb-dot" style="background:#28c840"></span>
-      <span class="code-label">Demo prompt — paste into Cowork</span>
+      <span class="code-label">Demo prompt 1 — the delegation</span>
       <button class="copy-btn" onclick="copyBlock('demo-prompt-w2', this)">Copy</button>
     </div>
     <div class="code-body">
-<pre id="demo-prompt-w2">Read the legacy model in this folder and write process documentation a new analyst could follow: what each tab holds, what the macro does step by step, every input it depends on, and the business rules it implements. Then add a defect and risk list for the modernization team — each finding with the line it lives on and what could go wrong. Cite the specific line or cell for every claim, mark anything unexplained as an open question, and treat it as a draft for the responsible engineer to sign off — not the final word.</pre>
+<pre id="demo-prompt-w2">Read everything in this folder. It documents a legacy Excel/VBA treaty-layer pricing tool: a Word export of the macro, the analysts' quarterly run notes, an Excel snapshot of the workbook's tabs, a factor export, the transcript of the original author's handover call, and the modernization kickoff meeting notes.
+
+Write a solution profile document, saved as a Word document (solution-profile.docx) in this folder, that a new engineer or analyst could rely on:
+
+1. Purpose and business context — what it prices and why it matters
+2. Users, owner, and run cadence
+3. How it runs today — the quarterly process step by step, including every manual step around the workbook
+4. Inputs and data sources — everything the macro reads and where it comes from
+5. Outputs and consumers — where the results go and who uses them
+6. Dependencies and assumptions — hardcoded values, hand-maintained cells, single points of failure
+7. Known risks and quirks — each with the file and line or cell it lives on
+8. Open questions — anything the sources don't explain; do not invent answers
+
+Create an architecture diagram of the as-is state and save it alongside the document as its own file the reviewer can open (an image or an HTML page): upstream sources, the workbook's tabs and macro, every manual step, and the downstream consumers. Reference it from the document.
+
+Cite the file (and line or cell) for every claim. This is a draft for the responsible engineer to sign off on — not the final word.</pre>
     </div>
   </div>
 
-  <p class="sec-sub" style="margin-top:16px;">As it runs: watch it flag the hand-maintained row count, the trend constant hardcoded since 2019, the trending off today's date instead of the prospective period, the single LDF applied to every year, and the rate-on-line cell reading the wrong input. Every finding cites the line it lives on. It calls out what it can't verify rather than asserting it. That is a draft the responsible engineer signs off on — and it mirrors what your own pilot found: an additional pair of eyes, not a replacement for review.</p>
+  <div class="code-wrap" style="margin-top:14px;">
+    <div class="code-topbar">
+      <span class="cb-dot" style="background:#ff5f57"></span>
+      <span class="cb-dot" style="background:#febc2e"></span>
+      <span class="cb-dot" style="background:#28c840"></span>
+      <span class="code-label">Demo prompt 2 — the follow-up steer</span>
+      <button class="copy-btn" onclick="copyBlock('demo-prompt-w2b', this)">Copy</button>
+    </div>
+    <div class="code-body">
+<pre id="demo-prompt-w2b">Two changes. In the architecture diagram, separate automated flows from manual ones — solid arrows for what the macro does, dashed arrows for what a person does by hand. Then add a "Modernization considerations" section: what the Python platform team should keep, fix, or confirm before porting. Keep everything else exactly as it is.</pre>
+    </div>
+  </div>
+
+  <p class="sec-sub" style="margin-top:16px;">When the draft lands, open the architecture diagram first — the picture is the fastest proof it understood the system (cedent bordereaux upstream, the workbook in the middle, the pricing memo and committee downstream, manual steps in between). Then scroll the open-questions section: it should flag the casualty discrepancy and the hand-maintained row count instead of inventing answers. Every claim cites its file and cell. That is a draft the responsible engineer signs off on — and it mirrors what your own pilot found: an additional pair of eyes, not a replacement for review.</p>
 
   <div class="tip-trick" style="margin-top:18px;">
     <div class="tip-trick-icon">🛡️</div>
