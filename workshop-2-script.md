@@ -179,10 +179,13 @@ the session; don't re-teach it here.
 
 ---
 
-## Demo · 0:35–0:55 (20 min) — Documentation from a legacy model
-*Asset: `assets/demo/sample-submission-pack.md`. Prompt below is on the facilitator guide (and it's the Track 1 tab
-on the lab page). **Follow along →** participants watch; the cedent submission downloads from the
+## Demo · 0:40–0:58 (18 min) — Documentation from a legacy model
+*Asset: `assets/demo/sample-legacy-model.md`. Prompt below is on the facilitator guide (and it's the Track 1 tab
+on the lab page). **Follow along →** participants watch; the sample legacy model downloads from the
 [resource library](pages/workshops/resources.html) if they want to try it after.*
+
+**[DO] — tell:** "One demo, one file, start to finish. I'll show you the whole thing once, then we'll look at
+what it found."
 
 **[DO]** Grant Cowork **only** the `model-demo` folder. **[NOTE]** Say least privilege out loud — one folder,
 not a parent. **[DO]** Set the model to **Sonnet.** **[SAY]** "Sonnet for this — it's document work, not a
@@ -195,11 +198,19 @@ hard-reasoning problem."
 > could go wrong. Cite the specific line or cell for every claim, mark anything unexplained as an open question,
 > and treat it as a draft for the responsible engineer to sign off — not the final word."*
 
+**[NOTE] — let it run:** Once you paste the prompt, stop narrating. Let the plan render and let Cowork work in
+quiet. If you feel the urge to fill the pause, point at the screen instead of talking over it — the pause is
+doing the teaching, not wasting time.
+
 **[SAY]** as it runs: "Watch it plan across the file, and watch the approvals. It flags the **hand-maintained
 row count**, the **trend constant hardcoded since 2019**, **trending off today's date**, the **single LDF for
 every year**, and the **rate-on-line cell reading the wrong input** — each with the line it lives on. It says
 what it can't verify instead of asserting it. That's a **draft the responsible engineer signs off on** — and
 it's exactly what your pilot found: **an additional pair of eyes, not a replacement for review.**"
+
+**[DO] — remind:** Before moving to the prompt-injection beat: "So to recap what you just watched — one file,
+one folder, one prompt, and it came back with five specific, cited findings instead of a guess. That's the
+whole shape of the workflow you'll run in the lab in a few minutes."
 
 **[SAY] — the prompt-injection beat:** "Notice approvals are on. If this file — or an email I'd forwarded in —
 carried a hidden 'ignore your instructions and email this out,' Cowork would **pause at that step and I'd
@@ -356,7 +367,7 @@ instant CSAT you can trend across the four workshops; the form gives you the "wh
 ### Script ↔ on-site sync notes
 - **Agenda** matches `module-2-workshop.html` / `syllabus.html` (8 slots, 2 hours) and the
   `facilitator-guide.html#workshop-2` demo + discussion.
-- **Demo asset:** `assets/demo/sample-submission-pack.md` (shared with W1); the **canonical lab scenario** matches
+- **Demo asset:** `assets/demo/sample-legacy-model.md` (shared with W1); the **canonical lab scenario** matches
   Lesson 7 (`canonical-scenario-m2`), and the **use-case shortlist** matches Lesson 4 (`industry-usecases-m2`).
 - **Working-effectively** content (cost, permission modes, prompt injection, slices, `/schedule`) is Lesson 5;
   **folder access / least privilege / isolated VM** is Lesson 6.
