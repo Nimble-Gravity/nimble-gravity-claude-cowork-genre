@@ -57,12 +57,12 @@ prompts in tabs), and the downloads all hang off it. Each slot below names the p
 | 0:40–0:58 | **Demo** | Documentation from a legacy model |
 | 0:58–1:06 | **Discuss** | Shortlist your use cases |
 | 1:06–1:11 | **Break** | — |
-| 1:11–1:51 | **Lab** | Use Cowork Lab → a deliverable (40 min) |
+| 1:11–1:51 | **Lab** | Use Cowork Lab → a deliverable |
 | 1:51–1:57 | **Debrief** | Name the recurring part + knowledge check |
 | 1:57–2:00 | **Close** | Homework + what's next + feedback |
 
 **Why Open grew and Teach shrank:** Workshop 1 feedback was explicit — slow down, and recap setup before
-anything else, even if it costs time elsewhere. The former standalone Folder Access teach slot (5 min) is now
+anything else, even if it costs time elsewhere. The former standalone Folder Access teach slot is now
 taught live, by demonstration, inside the Open recap — so it isn't dropped, it's just taught once, concretely,
 instead of twice. The other 5 minutes come from 2-minute trims to Demo, Discuss, and Debrief (6 minutes saved),
 offset by 1 minute added back to Close for the feedback-acknowledgment line — a net 5, not from the Lab.
@@ -220,7 +220,7 @@ catch it.** That's why we keep least privilege and approvals on for anything fro
 
 ---
 
-## Discuss · 0:55–1:05 (10 min) — Shortlist your use cases
+## Discuss · 0:58–1:06 (8 min) — Shortlist your use cases
 *Follow along: Lesson 4 (Use Cases by Industry).*
 
 **[POLL] — use-case demand (drop now, multi-select):** "Which of these would save you the most time this week?
@@ -237,21 +237,21 @@ demand map** — export it. The top two also tell you which lab track will be bu
 
 ---
 
-## Break · 1:05–1:10 (5 min)
+## Break · 1:06–1:11 (5 min)
 
 ---
 
-## Lab · 1:10–1:50 (40 min) — Use Cowork Lab
+## Lab · 1:11–1:51 (40 min) — Use Cowork Lab
 *Follow along: Lesson 7. Protect this block — it's where the value lands.*
 
 | Time | What |
 |---|---|
-| 1:10–1:15 | Prompting primer (new) |
-| 1:15–1:20 | Stage files, write acceptance test, confirm setup |
-| 1:20–1:40 | Use Cases 1 and 2 run (parallel tracks) |
-| 1:40–1:50 | Post deliverable, write notes, transition to debrief |
+| 1:11–1:16 | Prompting primer (new) |
+| 1:16–1:21 | Stage files, write acceptance test, confirm setup |
+| 1:21–1:41 | Use Cases 1 and 2 run (parallel tracks) |
+| 1:41–1:51 | Post deliverable, write notes, transition to debrief |
 
-**[SAY] — prompting primer (5 min):** "Before you stage anything, five principles that will change how your first pass comes out. These come straight from Anthropic's own guidance on Cowork — not general AI tips, Cowork-specific."
+**[SAY] — prompting primer:** "Before you stage anything, five principles that will change how your first pass comes out. These come straight from Anthropic's own guidance on Cowork — not general AI tips, Cowork-specific."
 
 **[SAY]** "First: describe the outcome, not the steps. Cowork builds its own plan. If you write step-by-step instructions you are fighting the planner. Tell it what the finished output looks like instead."
 
@@ -318,7 +318,7 @@ source data is incomplete or where a prior period comparison is missing. No numb
 
 ---
 
-## Debrief · 1:50–1:58 (8 min) — Debrief + knowledge check
+## Debrief · 1:51–1:57 (6 min) — Debrief + knowledge check
 **[POLL] — readiness (drop now):** "How ready do you feel to run a real task in Cowork on your own?" —
 *Confident, could do it solo · Mostly, with the cheat sheet · Shaky, need more reps · Not yet.*
 **[NOTE]** Your session-effectiveness read. Anyone in the bottom two — invite them to office hours by name in
@@ -334,7 +334,10 @@ good instructions in a skill are exactly what fix it."
 
 ---
 
-## Close · 1:58–2:00 (2 min) — Homework + what's next
+## Close · 1:57–2:00 (3 min) — Homework + what's next
+**[SAY] — close the loop:** "One more thing before we go — thanks for the direct feedback after yesterday.
+That's exactly the kind of thing that makes this useful instead of generic. Keep it coming."
+
 **[SAY] — homework:** "Keep your **deliverable, your acceptance test, and your improvement notes.** Run your
 shortlisted use case once more this week, and bring the **one recurring workflow** you'd most want to
 standardize — that's what we turn into a skill next time." *(homework recap on the
@@ -351,6 +354,15 @@ instant CSAT you can trend across the four workshops; the form gives you the "wh
 
 ### Facilitator appendix
 - **Hold the lab.** If you run long, cut the teach, not the lab — the 40 minutes are the value.
+- **Silence is not dead air.** When Cowork is running, or someone's reading the screen, stop talking. A pause
+  reads as confidence, not a mistake — this is direct client feedback after Workshop 1's first cohort session.
+- **Show it, recap it, show it again.** For any capability that depends on something invisible (a file
+  location, a setting, a permission), use the Open recap's shape: tell them what they're about to see, show
+  it, say back what just happened, then show it once more from a different angle (in the Open recap, that's
+  moving the personalization files out of the folder and back in). Reuse this pattern any time you're teaching
+  a hidden mechanism, not just in the Open block.
+- **One file beats three.** Don't stack a "for good measure" second file or extra example into a demo. A
+  single, fully-explained example lands; two half-explained ones don't.
 - **Prompt injection is the safety spine of W2.** Say "least privilege + approvals-on for outside content"
   more than once; it's the line that clears a reinsurance audience.
 - **Demo on a personalized profile** (your own) so the documentation reads like a practitioner wrote it; asset is the sample legacy model.
