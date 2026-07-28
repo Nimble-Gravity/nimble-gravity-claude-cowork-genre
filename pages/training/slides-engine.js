@@ -120,7 +120,8 @@
       /* Tip / trick boxes */
       sec.querySelectorAll('.tip-trick, .tip-box, .callout').forEach(function (tip) {
         var label = tip.querySelector('.tip-trick-label, .callout-label, strong');
-        var body  = tip.querySelector('p, .tip-trick-copy');
+        /* Prefer the <p> so the body doesn't swallow the label text again */
+        var body  = tip.querySelector('p') || tip.querySelector('.tip-trick-copy');
         if (label) {
           bullets.push({
             heading: textOf(label),
