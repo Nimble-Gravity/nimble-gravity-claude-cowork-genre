@@ -32,7 +32,7 @@ prompts in tabs), and the downloads all hang off it. Each slot below names the p
 3. **Keep your real Workshop 1 setup folder open too — you'll recap it live.** Don't rebuild a fresh one for
    the demo; open the actual `claude.md` + `about-me/` you set up in Workshop 1 so the recap is real, not staged.
    This is the Open segment's main asset.
-4. **Confirm folder access + the least-privilege story.** You'll grant only the submission folder on screen.
+4. **Confirm folder access + the least-privilege story.** You'll grant only the `model-demo` folder on screen.
 5. **Have a prompt-injection line ready** to narrate (see the Demo).
 6. **Optional — cue up quiet background audio for genuine dead air** (staging, downloads): share screen with
    sound at low volume if things stall. Do not use it during the Open recap's pauses or lab work time — that
@@ -86,21 +86,32 @@ happens to Cowork if those files move. Watch the folder, not just the chat windo
 **[DO] — show:** Open the folder from your **own real Workshop 1 setup** (not a fresh rebuild — see prep item
 3). Show `claude.md` and the `about-me/` folder sitting inside it. **[SAY]** "This is what `/cowork-cosetup`
 wrote yesterday — a `claude.md` file and an `about-me/` folder, sitting right here, in this folder, as real
-files. Not saved in the chat log. Not floating somewhere in the cloud. Right here." **[DO]** Ask a plain
-relevance question — *"Recap what you know about me"* — and read the answer aloud. **[SAY]** "That answer came
-from those files, not from memory of our conversation."
+files. Not saved in the chat log. Not floating somewhere in the cloud. Right here." **[NOTE]** Cowork reads
+these files fresh at the **start of a session**, not continuously — so every ask in this demo has to be a
+**new chat**, or you'll just be repeating the answer from memory of this conversation, not proof the files did
+anything. This also assumes your **Global instructions** (Settings) are empty or minimal from Workshop 1 — if
+you loaded broad always-on preferences there, the "it doesn't know" step won't read as empty. Check that
+before you go live. **[DO]** Start a **fresh chat** on this folder and ask a plain relevance question —
+*"Recap what you know about me"* — and read the answer aloud. **[SAY]** "That answer came from those files,
+read fresh when this chat opened — not from memory of our conversation. Anyone opening a new chat on this
+folder gets the same answer."
 
-**[DO] — remind:** "So — two files, sitting in a folder, and that's the entire reason Cowork just answered
-like it knows you. Say it back to me: where do the personalization files live?" Take a one-word answer from
-the room ("the folder") before moving on.
+**[DO] — remind:** "So — a file and a folder of files, read fresh at the start of every session, and that's
+the entire reason a new chat here answers like it knows you. Say it back to me: where do the personalization
+files live?" Take a one-word answer from the room ("the folder") before moving on.
 
 **[DO] — show again:** Move `claude.md` and `about-me/` out of the folder (drag to the desktop, or a sibling
-folder) while everyone watches. Ask the same question again — *"Recap what you know about me."* **[SAY]**
-"Watch — it doesn't know. No profile loaded, because the files aren't in the folder anymore. It's not broken;
-it's just reading what's actually there." **[DO]** Move the files back in. Ask the question a third time.
-**[SAY]** "And it's back — because I put the files back in the folder. You can move these, copy them, back
-them up, delete them and start fresh. Claude still works either way; it just answers *generically* when the
-files aren't there, and *like you* when they are."
+folder) while everyone watches. Start **another fresh chat** on the now-empty folder and ask the same
+question again — *"Recap what you know about me."* **[SAY]** "Watch — this new chat doesn't know. No profile
+loaded, because the files aren't in the folder anymore. It's not broken; it's just reading what's actually
+there, fresh, at the start of this chat." **[DO]** Move the files back in. Start **one more fresh chat** and
+ask the question a third time. **[SAY]** "And it's back — because I put the files back in the folder before
+this chat started. You can move these, copy them, back them up, delete them and start fresh. Every new
+session just answers *generically* when they're not there, and *like you* when they are."
+
+**[NOTE] — if you're behind:** this block now runs three fresh-chat round trips in twenty minutes on top of
+two polls. The "who's in the room" poll below is the droppable one if you need the time back — the demo is
+what they asked for; the poll is a nice-to-have.
 
 **[NOTE]** This is also the folder-access lesson, taught live instead of on a slide — you're demonstrating
 least privilege and per-folder scope by showing exactly what a folder does and doesn't carry. That's why the
@@ -174,8 +185,10 @@ low-stakes stuff — keep judgment calls interactive."
 
 **[NOTE]** Folder Access (Lesson 6) is no longer a separate teach slot — you demonstrated it live in the Open
 recap (moving `claude.md`/`about-me/` out of and back into the folder). If someone missed the Open recap or
-wants the reference version, point them to [Lesson 6](../training/06-folder-access-walkthrough.html) after
-the session; don't re-teach it here.
+wants the reference version, point them to [Lesson 6](pages/training/06-folder-access-walkthrough.html) after
+the session; don't re-teach it here. **If you're presenting from the slide deck** (Lesson 6's slides still
+exist there), skip past them when they come up — say so out loud rather than clicking through content you've
+already told the room to expect covered.
 
 ---
 
@@ -371,7 +384,7 @@ instant CSAT you can trend across the four workshops; the form gives you the "wh
   (slice it into steps with an artifact between).
 - **Seeds Workshop 3:** the Discuss shortlist and the Debrief "job you'd repeat" are the raw material for the
   skill each person builds next week — capture them.
-- **Polls do double duty.** Five one-tap Teams polls (prep item 5) keep the room engaged *and* hand you live
+- **Polls do double duty.** Five one-tap Teams polls (prep item 8) keep the room engaged *and* hand you live
   data: adoption (Open), the room's mix for track planning (Open), use-case demand (Discuss → the W3 backlog +
   W4 demand), and readiness + usefulness (Debrief + Close → your effectiveness read). Export the Discuss and
   readiness results.
