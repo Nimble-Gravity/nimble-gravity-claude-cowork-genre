@@ -1,0 +1,7 @@
+factor_name,value,cell,last_updated,source,notes
+LDF_all_years,1.18,Factors!B2,2021-11-03,Actuarial annual update,Single development factor applied to all loss years regardless of maturity
+annual_trend,0.05,(hardcoded in VBA),2019-06-14,Original author,Listed here for reference only - the macro does NOT read this row; the constant lives in mod_PriceLayer
+years_of_experience,,Inputs!B5,per treaty,Analyst entry,Denominator for expected layer loss; typed per treaty from the submission
+attachment,,Inputs!B2,per treaty,Analyst entry,Layer attachment point
+limit_for_layer_maths,,Inputs!B3,per treaty,Analyst entry,Used by LayerLoss()
+limit_for_rate_on_line,,Inputs!B4,per treaty,Analyst entry,Entered separately from B3; no validation that the two agree

@@ -159,6 +159,22 @@ for a reviewer to sign off, the same shape as treaty and facultative wording rev
 blank page. The other packs — financial services, life sciences — are **not approved**; don't install
 them. If one fits your workflow, raise it through the governance process we cover in Workshop 4."
 
+**[DEMO — Tell · Show · Recap]** *Lesson 4 §04 has the full block: the demo folder zip, both prompts
+with copy buttons, and the three-beat framing on the slide.*
+
+- **Tell:** "The workbook problem every IT team has — author gone, factors unexplained, modernization
+  starts with documenting what it does today. Cowork gets one folder of the files a real handover
+  leaves behind: the Word macro export, the Excel data snapshot, the run notes, the factor CSV, the
+  **transcript of the handover call**, the kickoff meeting notes. Deliverable: a **solution profile
+  with an architecture diagram.**" Name the deliverable *before* you run it.
+- **Show:** paste **Demo prompt 1**, grant the folder, go. Don't talk over it — let the room watch it
+  read all four files and cross-reference. When the draft lands, open the **Mermaid diagram first**;
+  the picture is the fastest proof it understood the system. Then paste **Demo prompt 2** — the
+  one-message steer (dashed arrows for manual steps + a modernization section).
+- **Recap:** point at the **open questions it flagged instead of inventing** — the casualty
+  discrepancy, the hand-maintained row count. "Folder in → reviewable draft out → engineer signs
+  off. Same folder, same prompt, your machine — then a system you actually own."
+
 **[SAY] — the move that sticks:** "A demo on sample data proves nothing about *your* job. The moment curious
 turns into daily is when you run a starter **on your own files.**"
 

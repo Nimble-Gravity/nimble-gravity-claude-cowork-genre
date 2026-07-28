@@ -109,6 +109,84 @@
   </div>
 </div>
 
+<!-- LIVE DEMO -->
+<div class="section section-dark" id="demo">
+  <div class="sec-eyebrow on-dark">04 — Live demo · Tell → Show → Recap</div>
+  <h2 class="sec-title on-dark">Watch one run: a solution profile <em>from a folder</em></h2>
+  <p class="sec-sub on-dark">The documentation use case, run live. A folder of legacy-system files goes in; a <strong>solution profile document with an architecture diagram</strong> comes out — a draft the responsible engineer signs off on. Download the same folder below and run it alongside the presenter.</p>
+
+  <div class="dev-grid-3" style="margin-top:28px;">
+    <div class="dev-card">
+      <div class="dev-kicker">1 · Tell</div>
+      <h3>Frame it before you run it</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">"This is the workbook problem every IT team has: the author left, nobody knows what the factors do, and modernization starts with documenting what it does today. Cowork gets one folder — the macro export, the analysts' run notes, the workbook data snapshot, the factor export, the transcript of the author's handover call, and the modernization kickoff notes — and nothing else."</p>
+      <div class="dev-quote">Name the deliverable before it exists: a solution profile plus an architecture diagram.</div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-kicker">2 · Show</div>
+      <h3>Delegate, then let the silence work</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Paste the prompt, grant the folder, hit go. Narrate only what chat can't do: it reads all four files, cross-references the runbook against the code, and asks before it writes. When the drafts land, open the architecture diagram first — the picture is the fastest proof it understood the system.</p>
+      <div class="dev-quote">Don't talk over it. Watching it work unprompted is the demo.</div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-kicker">3 · Recap</div>
+      <h3>Land the pattern, not the magic</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Point at what the profile got right — and at what it flagged as an open question instead of inventing (the casualty discrepancy, the hand-maintained row count). Then hand it to the room: same folder, same prompt, your machine — and after that, a system you actually own.</p>
+      <div class="dev-quote">Folder in → reviewable draft out → a person signs off. That's the whole pattern.</div>
+    </div>
+  </div>
+
+  <div class="tip-trick tip-trick--dark" style="margin-top:32px;">
+    <div class="tip-trick-icon">📁</div>
+    <div class="tip-trick-copy">
+      <div class="tip-trick-label">The demo folder — download, unzip, grant</div>
+      <p><a href="../../assets/demo/solution-profile-folder.zip" download style="color:var(--mint-on-dark);">Download solution-profile-folder.zip</a>, unzip it somewhere sensible, and grant Cowork that one folder. Inside — the files a real handover leaves behind: <code>TreatyLayerPricer-macro-export.docx</code> (the VBA as found), <code>TreatyLayerPricer-data-snapshot.xlsx</code> (the workbook's four tabs), <code>quarterly-run-notes.docx</code> (how the analysts actually run it), <code>factors.csv</code> (the factor export), <code>handover-call-transcript.docx</code> (the departed author's recorded call), and <code>modernization-kickoff-notes.docx</code> (what the team agreed to deliver). Fictional, and deliberately imperfect — the gaps are what make the open-questions section interesting.</p>
+    </div>
+  </div>
+
+  <div class="code-wrap" style="margin-top:32px;">
+    <div class="code-topbar">
+      <span class="cb-dot" style="background:#ff5f57"></span>
+      <span class="cb-dot" style="background:#febc2e"></span>
+      <span class="cb-dot" style="background:#28c840"></span>
+      <span class="code-label">Demo prompt 1 — the delegation</span>
+      <button class="copy-btn" onclick="copyBlock('demo-prompt-1', this)">Copy</button>
+    </div>
+    <div class="code-body">
+<pre id="demo-prompt-1">Read everything in this folder. It documents a legacy Excel/VBA treaty-layer pricing tool: a Word export of the macro, the analysts' quarterly run notes, an Excel snapshot of the workbook's tabs, a factor export, the transcript of the original author's handover call, and the modernization kickoff meeting notes.
+
+Write a solution profile document, saved as a Word document (solution-profile.docx) in this folder, that a new engineer or analyst could rely on:
+
+1. Purpose and business context — what it prices and why it matters
+2. Users, owner, and run cadence
+3. How it runs today — the quarterly process step by step, including every manual step around the workbook
+4. Inputs and data sources — everything the macro reads and where it comes from
+5. Outputs and consumers — where the results go and who uses them
+6. Dependencies and assumptions — hardcoded values, hand-maintained cells, single points of failure
+7. Known risks and quirks — each with the file and line or cell it lives on
+8. Open questions — anything the sources don't explain; do not invent answers
+
+Create an architecture diagram of the as-is state and save it alongside the document as its own file the reviewer can open (an image or an HTML page): upstream sources, the workbook's tabs and macro, every manual step, and the downstream consumers. Reference it from the document.
+
+Cite the file (and line or cell) for every claim. This is a draft for the responsible engineer to sign off on — not the final word.</pre>
+    </div>
+  </div>
+
+  <div class="code-wrap" style="margin-top:20px;">
+    <div class="code-topbar">
+      <span class="cb-dot" style="background:#ff5f57"></span>
+      <span class="cb-dot" style="background:#febc2e"></span>
+      <span class="cb-dot" style="background:#28c840"></span>
+      <span class="code-label">Demo prompt 2 — the follow-up steer</span>
+      <button class="copy-btn" onclick="copyBlock('demo-prompt-2', this)">Copy</button>
+    </div>
+    <div class="code-body">
+<pre id="demo-prompt-2">Two changes. In the architecture diagram, separate automated flows from manual ones — solid arrows for what the macro does, dashed arrows for what a person does by hand. Then add a "Modernization considerations" section: what the Python platform team should keep, fix, or confirm before porting. Keep everything else exactly as it is.</pre>
+    </div>
+  </div>
+  <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.65;margin-top:16px;max-width:820px;">The follow-up is part of the demo: the first draft is never the end of the conversation, and steering with one precise message — instead of starting over — is the habit that separates delegation from chat.</p>
+</div>
+
 <!-- NEXT -->
 <div class="section" id="next">
   <div class="sec-eyebrow">Up next</div>
@@ -118,5 +196,17 @@
 </div>
 
 <div class="page-footer"></div>
+
+<script>
+function copyBlock(id, btn) {
+  var pre = document.getElementById(id);
+  if (!pre || !navigator.clipboard) return;
+  navigator.clipboard.writeText(pre.innerText).then(function () {
+    var prev = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(function () { btn.textContent = prev; }, 2000);
+  });
+}
+</script>
 </body>
 </html>
