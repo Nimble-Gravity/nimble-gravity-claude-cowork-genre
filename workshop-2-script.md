@@ -24,14 +24,24 @@ prompts in tabs), and the downloads all hang off it. Each slot below names the p
 
 ## Pre-session prep
 1. **Stage the demo folder.** Put `sample-legacy-model.md` alone in a clean folder (e.g. `model-demo`). Have the
-   **documentation prompt** (below) open to paste.
+   **documentation prompt** (below) open to paste. One file only — no "second doc for a multi-file feel." A
+   single, fully-explained example lands better than two half-explained ones.
 2. **Load a personalized profile for the demo.** Run the demo on your own profile
    — so the documentation comes back in a practitioner's voice. (No before/after today;
    everyone's already set up from W1.)
-3. **Confirm folder access + the least-privilege story.** You'll grant only the submission folder on screen.
-4. **Have a prompt-injection line ready** to narrate (see the Demo). Optional: a second doc in the folder for
-   a multi-file feel.
-5. **Pre-build the Teams polls** so each launches in one click (they're marked **[POLL]** at each slot below):
+3. **Keep your real Workshop 1 setup folder open too — you'll recap it live.** Don't rebuild a fresh one for
+   the demo; open the actual `claude.md` + `about-me/` you set up in Workshop 1 so the recap is real, not staged.
+   This is the Open segment's main asset.
+4. **Confirm folder access + the least-privilege story.** You'll grant only the `model-demo` folder on screen.
+5. **Have a prompt-injection line ready** to narrate (see the Demo).
+6. **Optional — cue up quiet background audio for genuine dead air** (staging, downloads): share screen with
+   sound at low volume if things stall. Do not use it during the Open recap's pauses or lab work time — that
+   silence is intentional, not dead air, and playing over it undercuts the point.
+7. **If a second person is on the call, ask them to read the room** — chat, reactions, faces on their own
+   tile — and privately flag you (Teams chat, facilitator-only) if the pace needs to change. Facilitating
+   solo? Build in an explicit check instead: "thumbs-up in chat when that makes sense" before moving on from
+   the Open recap.
+8. **Pre-build the Teams polls** so each launches in one click (they're marked **[POLL]** at each slot below):
    - Open — "Since Workshop 1, how much have you used Cowork?" *(single)*
    - Open — "Which best describes your day-to-day work?" *(single)*
    - Discuss — "Which use cases would save you the most time? Pick up to 2." *(multi-select)*
@@ -42,23 +52,70 @@ prompts in tabs), and the downloads all hang off it. Each slot below names the p
 ### Run of show — the 2-hour agenda
 | Time | Slot | Content |
 |---|---|---|
-| 0:00–0:10 | **Open** | Recap W1 homework + objectives |
-| 0:10–0:35 | **Teach** | Use cases (0:10–0:20) · Working effectively (0:20–0:30) · Folder access (0:30–0:35) |
-| 0:35–0:55 | **Demo** | Documentation from a legacy model |
-| 0:55–1:05 | **Discuss** | Shortlist your use cases |
-| 1:05–1:10 | **Break** | — |
-| 1:10–1:50 | **Lab** | Use Cowork Lab → a deliverable (40 min) |
-| 1:50–1:58 | **Debrief** | Name the recurring part + knowledge check |
-| 1:58–2:00 | **Close** | Homework + what's next + feedback |
+| 0:00–0:20 | **Open** | Acknowledge W1 feedback + live setup recap (protected — cut Teach/Discuss before this) |
+| 0:20–0:40 | **Teach** | Use cases (0:20–0:30) · Working effectively (0:30–0:40) |
+| 0:40–0:58 | **Demo** | Documentation from a legacy model |
+| 0:58–1:06 | **Discuss** | Shortlist your use cases |
+| 1:06–1:11 | **Break** | — |
+| 1:11–1:51 | **Lab** | Use Cowork Lab → a deliverable (40 min) |
+| 1:51–1:57 | **Debrief** | Name the recurring part + knowledge check |
+| 1:57–2:00 | **Close** | Homework + what's next + feedback |
+
+**Why Open grew and Teach shrank:** Workshop 1 feedback was explicit — slow down, and recap setup before
+anything else, even if it costs time elsewhere. The former standalone Folder Access teach slot (5 min) is now
+taught live, by demonstration, inside the Open recap — so it isn't dropped, it's just taught once, concretely,
+instead of twice. The other 5 minutes come from 2-minute trims to Demo, Discuss, and Debrief (6 minutes saved),
+offset by 1 minute added back to Close for the feedback-acknowledgment line — a net 5, not from the Lab.
 
 ---
 
-## Open · 0:00–0:10 (10 min)
-**[SAY] — recap:** "Before we get into today, thirty seconds on where we are in the series. Workshop 1
-covered what Cowork is, how it differs from chat, and your first delegation. Today we go deeper: real reinsurance
-use cases, how to work effectively without overspending, and a task you will run end to end to a finished
-deliverable. The thread across all four workshops: W1 gave you the setup, today gives you the workflow, W3
-packages it as a reusable skill, and W4 governs and scales it. Keep that arc in mind as we go."
+## Open · 0:00–0:20 (20 min) — protected: cut Teach or Discuss before you cut this
+
+**[NOTE] — why this got longer:** Chris and Amrita's feedback from yesterday was specific: slow down, and
+recap setup before anything else — "even if other sessions get shortened or cut." This block is that recap.
+Don't rush it to protect time elsewhere; the retimed agenda already assumes you won't.
+
+**[SAY] — name it, don't apologize for it:** "Before we start today — quick, honest note. Yesterday we moved
+fast, and a few of you told us so. That's good feedback and we're acting on it: today we're slowing down on
+purpose, and if a pause feels a little long, that's intentional, not a technical problem. So — let's actually
+recap setup, properly this time."
+
+**[DO] — tell:** "Here's what I'm about to show you: where your personalization actually lives, and what
+happens to Cowork if those files move. Watch the folder, not just the chat window."
+
+**[DO] — show:** Open the folder from your **own real Workshop 1 setup** (not a fresh rebuild — see prep item
+3). Show `claude.md` and the `about-me/` folder sitting inside it. **[SAY]** "This is what `/cowork-cosetup`
+wrote yesterday — a `claude.md` file and an `about-me/` folder, sitting right here, in this folder, as real
+files. Not saved in the chat log. Not floating somewhere in the cloud. Right here." **[NOTE]** Cowork reads
+these files fresh at the **start of a session**, not continuously — so every ask in this demo has to be a
+**new chat**, or you'll just be repeating the answer from memory of this conversation, not proof the files did
+anything. This also assumes your **Global instructions** (Settings) are empty or minimal from Workshop 1 — if
+you loaded broad always-on preferences there, the "it doesn't know" step won't read as empty. Check that
+before you go live. **[DO]** Start a **fresh chat** on this folder and ask a plain relevance question —
+*"Recap what you know about me"* — and read the answer aloud. **[SAY]** "That answer came from those files,
+read fresh when this chat opened — not from memory of our conversation. Anyone opening a new chat on this
+folder gets the same answer."
+
+**[DO] — remind:** "So — a file and a folder of files, read fresh at the start of every session, and that's
+the entire reason a new chat here answers like it knows you. Say it back to me: where do the personalization
+files live?" Take a one-word answer from the room ("the folder") before moving on.
+
+**[DO] — show again:** Move `claude.md` and `about-me/` out of the folder (drag to the desktop, or a sibling
+folder) while everyone watches. Start **another fresh chat** on the now-empty folder and ask the same
+question again — *"Recap what you know about me."* **[SAY]** "Watch — this new chat doesn't know. No profile
+loaded, because the files aren't in the folder anymore. It's not broken; it's just reading what's actually
+there, fresh, at the start of this chat." **[DO]** Move the files back in. Start **one more fresh chat** and
+ask the question a third time. **[SAY]** "And it's back — because I put the files back in the folder before
+this chat started. You can move these, copy them, back them up, delete them and start fresh. Every new
+session just answers *generically* when they're not there, and *like you* when they are."
+
+**[NOTE] — if you're behind:** this block now runs three fresh-chat round trips in twenty minutes on top of
+two polls. The "who's in the room" poll below is the droppable one if you need the time back — the demo is
+what they asked for; the poll is a nice-to-have.
+
+**[NOTE]** This is also the folder-access lesson, taught live instead of on a slide — you're demonstrating
+least privilege and per-folder scope by showing exactly what a folder does and doesn't carry. That's why the
+standalone Folder Access teach slot is gone from today's Teach block: you already covered it here, concretely.
 
 **[DO] — home base:** "Open the **[Workshop 2 hub](pages/workshops/module-2-workshop.html)** now — that's your
 page for today; every lesson, the lab, and the downloads hang off it, and I'll call out which one to open as
@@ -66,16 +123,16 @@ we go."
 
 **[POLL] — usage pulse (drop now):** "Since Workshop 1, how much have you used Cowork?" — *Ran a real task, it
 saved me time · Tried it, output needed work · Opened it but didn't finish · Haven't yet.*
-**[NOTE]** The top-two share is your between-session **adoption number** — the "are people using it?" metric,
-live. If most land in the bottom two, spend 60 seconds on the barrier before you move on.
+**[NOTE]** The top-two share is your between-session **adoption number.** If most land in the bottom two,
+that's an expected read after a fast Day 1 — say so, and point at the recap they just watched as the fix, not
+a lecture.
 
-**[SAY]** "Last time you got set up and ran a first delegation. The homework was one more — so let's start
-there: **who delegated something this week, and what did it produce?**" **[DO]** Take two or three in voice
-or Teams; keep it quick.
+**[SAY]** "Who delegated something this week, and what did it produce?" **[DO]** Take two or three in voice or
+Teams — then stop talking. Let the answer land before you respond.
 
 **[SAY] — objectives:** "Today is about doing **real work** with Cowork — and doing it **effectively and
 safely.** By the end you'll have run a real reinsurance task end to end to a finished deliverable, and you'll
-have named the one workflow you'd most want to standardize — because next week we turn it into a skill."
+have named the one workflow you'd most want to standardize."
 
 **[POLL] — who's in the room (drop now):** "Which best describes your day-to-day work?" — *Models / analytics
 engineering · Application development · Data & platforms · IT ops / support · Architecture / security · Other.*
@@ -84,9 +141,9 @@ pool — and tells you which use cases to lean on today.
 
 ---
 
-## Teach · 0:10–0:35 (25 min)
+## Teach · 0:20–0:40 (20 min)
 
-### Use Cases by Industry · 0:10–0:20 — *follow along: Lesson 4*
+### Use Cases by Industry · 0:20–0:30 — *follow along: Lesson 4*
 **[SAY]** "The best first tasks are the **multi-step, multi-file jobs you already do by hand** that end in
 something you can eyeball. For this cohort, the shortlist:
 - **process documentation** generated from a legacy Excel/VBA or R model — the modernization on-ramp,
@@ -103,7 +160,7 @@ staged for a person to approve. Seed from those, not a blank page."
 **[SAY] — the move that sticks:** "A demo on sample data proves nothing about *your* job. The moment curious
 turns into daily is when you run a starter **on your own files.**"
 
-### Working Effectively · 0:20–0:30 — *follow along: Lesson 5*
+### Working Effectively · 0:30–0:40 — *follow along: Lesson 5*
 **[SAY] — cost (the full cost dial):** "From W1: **Sonnet is the default.** Reach for Opus only on genuinely
 hard reasoning — reviewing a contract, a strategic call. Cowork costs more than chat, so group related work
 into one session, keep simple questions in chat, and watch **Settings → Usage.**"
@@ -126,21 +183,22 @@ it decides it's done when it isn't. **Break big jobs into slices with a clear ar
 On Claude Cowork it runs only while your machine's awake and the app's open. Automate the safe, verifiable,
 low-stakes stuff — keep judgment calls interactive."
 
-### Folder Access · 0:30–0:35 — *follow along: Lesson 6*
-**[SAY]** "Access is **per folder.** Grant the **one** folder the task needs — never a parent 'to be safe,'
-that hands over everything inside it. Within it Cowork reads and writes; it runs any code in an **isolated
-VM**; and it **always asks before it permanently deletes.**"
-
-**[SAY] — least privilege ties it together:** "The smallest grant that does the job also **shrinks the blast
-radius** if a document tries to redirect Cowork — that's the prompt-injection link. **A folder per task, not
-per drive.** This is the control story you'll show IT in Workshop 4."
+**[NOTE]** Folder Access (Lesson 6) is no longer a separate teach slot — you demonstrated it live in the Open
+recap (moving `claude.md`/`about-me/` out of and back into the folder). If someone missed the Open recap or
+wants the reference version, point them to [Lesson 6](pages/training/06-folder-access-walkthrough.html) after
+the session; don't re-teach it here. **If you're presenting from the slide deck** (Lesson 6's slides still
+exist there), skip past them when they come up — say so out loud rather than clicking through content you've
+already told the room to expect covered.
 
 ---
 
-## Demo · 0:35–0:55 (20 min) — Documentation from a legacy model
-*Asset: `assets/demo/sample-submission-pack.md`. Prompt below is on the facilitator guide (and it's the Track 1 tab
-on the lab page). **Follow along →** participants watch; the cedent submission downloads from the
+## Demo · 0:40–0:58 (18 min) — Documentation from a legacy model
+*Asset: `assets/demo/sample-legacy-model.md`. Prompt below is on the facilitator guide (and it's the Track 1 tab
+on the lab page). **Follow along →** participants watch; the sample legacy model downloads from the
 [resource library](pages/workshops/resources.html) if they want to try it after.*
+
+**[DO] — tell:** "One demo, one file, start to finish. I'll show you the whole thing once, then we'll look at
+what it found."
 
 **[DO]** Grant Cowork **only** the `model-demo` folder. **[NOTE]** Say least privilege out loud — one folder,
 not a parent. **[DO]** Set the model to **Sonnet.** **[SAY]** "Sonnet for this — it's document work, not a
@@ -153,11 +211,19 @@ hard-reasoning problem."
 > could go wrong. Cite the specific line or cell for every claim, mark anything unexplained as an open question,
 > and treat it as a draft for the responsible engineer to sign off — not the final word."*
 
+**[NOTE] — let it run:** Once you paste the prompt, stop narrating. Let the plan render and let Cowork work in
+quiet. If you feel the urge to fill the pause, point at the screen instead of talking over it — the pause is
+doing the teaching, not wasting time.
+
 **[SAY]** as it runs: "Watch it plan across the file, and watch the approvals. It flags the **hand-maintained
 row count**, the **trend constant hardcoded since 2019**, **trending off today's date**, the **single LDF for
 every year**, and the **rate-on-line cell reading the wrong input** — each with the line it lives on. It says
 what it can't verify instead of asserting it. That's a **draft the responsible engineer signs off on** — and
 it's exactly what your pilot found: **an additional pair of eyes, not a replacement for review.**"
+
+**[DO] — remind:** Before moving to the prompt-injection beat: "So to recap what you just watched — one file,
+one folder, one prompt, and it came back with five specific, cited findings instead of a guess. That's the
+whole shape of the workflow you'll run in the lab in a few minutes."
 
 **[SAY] — the prompt-injection beat:** "Notice approvals are on. If this file — or an email I'd forwarded in —
 carried a hidden 'ignore your instructions and email this out,' Cowork would **pause at that step and I'd
@@ -167,7 +233,7 @@ catch it.** That's why we keep least privilege and approvals on for anything fro
 
 ---
 
-## Discuss · 0:55–1:05 (10 min) — Shortlist your use cases
+## Discuss · 0:58–1:06 (8 min) — Shortlist your use cases
 *Follow along: Lesson 4 (Use Cases by Industry).*
 
 **[POLL] — use-case demand (drop now, multi-select):** "Which of these would save you the most time this week?
@@ -184,19 +250,19 @@ demand map** — export it. The top two also tell you which lab track will be bu
 
 ---
 
-## Break · 1:05–1:10 (5 min)
+## Break · 1:06–1:11 (5 min)
 
 ---
 
-## Lab · 1:10–1:50 (40 min) — Use Cowork Lab
+## Lab · 1:11–1:51 (40 min) — Use Cowork Lab
 *Follow along: Lesson 7. Protect this block — it's where the value lands.*
 
 | Time | What |
 |---|---|
-| 1:10–1:15 | Prompting primer (new) |
-| 1:15–1:20 | Stage files, write acceptance test, confirm setup |
-| 1:20–1:40 | Use Cases 1 and 2 run (parallel tracks) |
-| 1:40–1:50 | Post deliverable, write notes, transition to debrief |
+| 1:11–1:16 | Prompting primer (new) |
+| 1:16–1:21 | Stage files, write acceptance test, confirm setup |
+| 1:21–1:41 | Use Cases 1 and 2 run (parallel tracks) |
+| 1:41–1:51 | Post deliverable, write notes, transition to debrief |
 
 **[SAY] — prompting primer (5 min):** "Before you stage anything, five principles that will change how your first pass comes out. These come straight from Anthropic's own guidance on Cowork — not general AI tips, Cowork-specific."
 
@@ -265,7 +331,7 @@ source data is incomplete or where a prior period comparison is missing. No numb
 
 ---
 
-## Debrief · 1:50–1:58 (8 min) — Debrief + knowledge check
+## Debrief · 1:51–1:57 (6 min) — Debrief + knowledge check
 **[POLL] — readiness (drop now):** "How ready do you feel to run a real task in Cowork on your own?" —
 *Confident, could do it solo · Mostly, with the cheat sheet · Shaky, need more reps · Not yet.*
 **[NOTE]** Your session-effectiveness read. Anyone in the bottom two — invite them to office hours by name in
@@ -281,7 +347,10 @@ good instructions in a skill are exactly what fix it."
 
 ---
 
-## Close · 1:58–2:00 (2 min) — Homework + what's next
+## Close · 1:57–2:00 (3 min) — Homework + what's next
+**[SAY] — close the loop:** "One more thing before we go — thanks for the direct feedback after yesterday.
+That's exactly the kind of thing that makes this useful instead of generic. Keep it coming."
+
 **[SAY] — homework:** "Keep your **deliverable, your acceptance test, and your improvement notes.** Run your
 shortlisted use case once more this week, and bring the **one recurring workflow** you'd most want to
 standardize — that's what we turn into a skill next time." *(homework recap on the
@@ -298,6 +367,15 @@ instant CSAT you can trend across the four workshops; the form gives you the "wh
 
 ### Facilitator appendix
 - **Hold the lab.** If you run long, cut the teach, not the lab — the 40 minutes are the value.
+- **Silence is not dead air.** When Cowork is running, or someone's reading the screen, stop talking. A pause
+  reads as confidence, not a mistake — this is direct client feedback after Workshop 1's first cohort session.
+- **Show it, recap it, show it again.** For any capability that depends on something invisible (a file
+  location, a setting, a permission), use the Open recap's shape: tell them what they're about to see, show
+  it, say back what just happened, then show it once more from a different angle (in the Open recap, that's
+  moving the personalization files out of the folder and back in). Reuse this pattern any time you're teaching
+  a hidden mechanism, not just in the Open block.
+- **One file beats three.** Don't stack a "for good measure" second file or extra example into a demo. A
+  single, fully-explained example lands; two half-explained ones don't.
 - **Prompt injection is the safety spine of W2.** Say "least privilege + approvals-on for outside content"
   more than once; it's the line that clears a reinsurance audience.
 - **Demo on a personalized profile** (your own) so the documentation reads like a practitioner wrote it; asset is the sample legacy model.
@@ -306,7 +384,7 @@ instant CSAT you can trend across the four workshops; the form gives you the "wh
   (slice it into steps with an artifact between).
 - **Seeds Workshop 3:** the Discuss shortlist and the Debrief "job you'd repeat" are the raw material for the
   skill each person builds next week — capture them.
-- **Polls do double duty.** Five one-tap Teams polls (prep item 5) keep the room engaged *and* hand you live
+- **Polls do double duty.** Five one-tap Teams polls (prep item 8) keep the room engaged *and* hand you live
   data: adoption (Open), the room's mix for track planning (Open), use-case demand (Discuss → the W3 backlog +
   W4 demand), and readiness + usefulness (Debrief + Close → your effectiveness read). Export the Discuss and
   readiness results.
@@ -314,7 +392,7 @@ instant CSAT you can trend across the four workshops; the form gives you the "wh
 ### Script ↔ on-site sync notes
 - **Agenda** matches `module-2-workshop.html` / `syllabus.html` (8 slots, 2 hours) and the
   `facilitator-guide.html#workshop-2` demo + discussion.
-- **Demo asset:** `assets/demo/sample-submission-pack.md` (shared with W1); the **canonical lab scenario** matches
+- **Demo asset:** `assets/demo/sample-legacy-model.md` (shared with W1); the **canonical lab scenario** matches
   Lesson 7 (`canonical-scenario-m2`), and the **use-case shortlist** matches Lesson 4 (`industry-usecases-m2`).
 - **Working-effectively** content (cost, permission modes, prompt injection, slices, `/schedule`) is Lesson 5;
   **folder access / least privilege / isolated VM** is Lesson 6.
