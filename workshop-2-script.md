@@ -64,7 +64,8 @@ prompts in tabs), and the downloads all hang off it. Each slot below names the p
 **Why Open grew and Teach shrank:** Workshop 1 feedback was explicit — slow down, and recap setup before
 anything else, even if it costs time elsewhere. The former standalone Folder Access teach slot (5 min) is now
 taught live, by demonstration, inside the Open recap — so it isn't dropped, it's just taught once, concretely,
-instead of twice. The remaining 5 minutes come from small trims to Demo, Discuss, and Debrief, not from the Lab.
+instead of twice. The other 5 minutes come from 2-minute trims to Demo, Discuss, and Debrief (6 minutes saved),
+offset by 1 minute added back to Close for the feedback-acknowledgment line — a net 5, not from the Lab.
 
 ---
 
