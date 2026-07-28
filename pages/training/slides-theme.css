@@ -187,6 +187,28 @@
   color: rgba(255,255,255,.5);
 }
 
+/* Continuation-slide marker on split sections */
+.sl-cont {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.4em;
+  font-weight: 400;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.35);
+  vertical-align: middle;
+}
+
+/* Density steps — slides carry full, untruncated text; long ones scale
+   down instead of overflowing the 1280×720 frame. */
+.sl-dense .sl-heading { font-size: 32px; margin-bottom: 12px; }
+.sl-dense .sl-subtitle { font-size: 15px; margin-bottom: 18px; }
+.sl-dense .sl-bullets { gap: 7px; }
+.sl-dense .sl-bullets li { font-size: 14px; line-height: 1.5; padding: 9px 14px; }
+
+.sl-dense-2 .sl-heading { font-size: 28px; margin-bottom: 10px; }
+.sl-dense-2 .sl-subtitle { font-size: 14px; line-height: 1.55; margin-bottom: 14px; }
+.sl-dense-2 .sl-bullets { gap: 6px; }
+.sl-dense-2 .sl-bullets li { font-size: 13px; line-height: 1.45; padding: 8px 12px; }
+
 /* Tip bullets get amber accent */
 .sl-tip {
   border-left-color: var(--amber) !important;

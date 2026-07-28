@@ -87,7 +87,9 @@ Notes for authors:
   and `.tip-trick` — prefer these so the lesson page and the slide both look right. The others
   (`.comp-card`, `.hy-card`, `.sg-card`, `.comparison-card`, …) extract to slides but were page-scoped
   in the originals; add page CSS if you use them.
-- `<em>` inside titles is preserved on slides; bodies are truncated (~110 chars).
+- `<em>` inside titles is preserved on slides; bodies render in full (no truncation). Sections with
+  more than four cards split onto continuation slides ("(cont.)"), and long slides get a density
+  class (`sl-dense` / `sl-dense-2`) that scales text down to fit the 1280×720 frame.
 - Add `class="section-dark"` to render a slide on the dark background.
 
 ## Authoring Rule

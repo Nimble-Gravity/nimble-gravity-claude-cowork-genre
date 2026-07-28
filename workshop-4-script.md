@@ -163,7 +163,8 @@ sub-agents, commands, hooks — and critically, it's the thing your admin can *r
 **[SAY] — the click-path, because this room will actually do it:** "It all lives at **Organization
 settings → Plugins**. Prerequisite first: **Cowork *and* Skills both have to be enabled** — if that page
 looks empty, that's why. Three ways in. **Add plugins → Browse Anthropic sources** pulls in Anthropic's
-own marketplaces; Knowledge Work is already there by default. **Add plugins → Upload a file** creates
+own marketplaces; Knowledge Work is already there by default — and remember, at Gen Re only the **Legal**
+marketplace is approved, so add that one and remove the rest. **Add plugins → Upload a file** creates
 your own marketplace from `.zip` files — quick to iterate, and uploading the same plugin name overwrites
 the previous version. **Add plugin → GitHub** syncs from a repo as `owner/repo` — it has to be private
 or internal, public repos are rejected, and syncs fire on a version-bump PR merging to the default

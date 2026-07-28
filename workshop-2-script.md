@@ -153,9 +153,11 @@ something you can eyeball. For this cohort, the shortlist:
 Every one is **a draft the responsible engineer or analyst signs off on** — Cowork drafts, it doesn't decide.
 And these aren't ours — **your own pilot community has already done every one of them.**"
 
-**[SAY] — build on the packs:** "Anthropic open-sourced first-party packs for regulated work — the
-`financial-services` pack has reference agents like a Pitch Agent, a GL Reconciler, a KYC Screener, all
-staged for a person to approve. Seed from those, not a blank page."
+**[SAY] — build on the approved plugin:** "Anthropic publishes first-party packs for regulated work, but
+at Gen Re exactly **one is approved: the Legal plugin** — `/review-contract`, `/triage-nda`, always a draft
+for a reviewer to sign off, the same shape as treaty and facultative wording review. Seed from that, not a
+blank page. The other packs — financial services, life sciences — are **not approved**; don't install
+them. If one fits your workflow, raise it through the governance process we cover in Workshop 4."
 
 **[SAY] — the move that sticks:** "A demo on sample data proves nothing about *your* job. The moment curious
 turns into daily is when you run a starter **on your own files.**"

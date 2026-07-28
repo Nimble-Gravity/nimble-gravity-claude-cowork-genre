@@ -70,6 +70,10 @@ and the machine awake for tasks. Launched Jan 12 2026 (macOS preview); GA Apr 9 
 - **Industry seeds (open-sourced by Anthropic):** `anthropics/financial-services` (Pitch Agent, GL Reconciler,
   KYC Screener — "AI drafts, humans sign off"); `anthropics/claude-for-legal` (`/review-contract`, `/triage-nda`,
   cold-start interview → practice profile, "draft for attorney review"); `anthropics/knowledge-work-plugins`.
+- **Gen Re approval status (client fact, 2026-07-28):** only the **Legal plugin** (`anthropics/claude-for-legal`)
+  is approved for use at Gen Re. No other Anthropic pack/plugin (financial-services, knowledge-work, life
+  sciences) is approved — content must speak to the approved plugin only and route everything else through the
+  Workshop 4 governance/review process. Don't present unapproved packs as installable seeds.
 
 ### Module 3 — skills (highest-scrutiny; quote Anthropic verbatim, date-stamp)
 - A skill = a folder with **`SKILL.md`** (YAML frontmatter + Markdown body), on the open **Agent Skills** standard;

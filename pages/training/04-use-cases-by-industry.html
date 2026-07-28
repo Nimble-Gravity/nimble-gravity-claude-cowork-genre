@@ -29,7 +29,7 @@
 <div class="page-header" id="intro">
   <div class="eyebrow"><a href="../workshops/module-2-workshop.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Workshop 2</a> · Lesson 1 of 4</div>
   <h1 class="title">Use Cases <em>by Industry</em></h1>
-  <p class="subtitle">The quickest way to see what Cowork is worth is to point it at a job that matters in your own work. This lesson covers the tasks worth trying first in each industry, and the open-sourced packs from Anthropic you can build on instead of starting from nothing.</p>
+  <p class="subtitle">The quickest way to see what Cowork is worth is to point it at a job that matters in your own work. This lesson covers the tasks worth trying first in each industry, and the one Anthropic plugin approved at Gen Re that you can build on instead of starting from nothing.</p>
   <div class="header-phase">
     <div class="header-phase-dot" style="background:var(--violet)"></div>
     Use Cowork · ~20 min
@@ -57,21 +57,21 @@
 <!-- BY INDUSTRY -->
 <div class="section section-dark" id="industries">
   <div class="sec-eyebrow on-dark">02 — By industry</div>
-  <h2 class="sec-title on-dark">Build on Anthropic's <em>open-sourced</em> packs</h2>
-  <p class="sec-sub on-dark">Anthropic has open-sourced first-party skill and plugin packs for regulated work, all built so that the agent drafts and a person signs off. Seed your industry labs from these rather than from a blank page.</p>
+  <h2 class="sec-title on-dark">Build on the <em>approved</em> Anthropic plugin</h2>
+  <p class="sec-sub on-dark">Anthropic publishes first-party skill and plugin packs for regulated work, all built so that the agent drafts and a person signs off. At Gen Re, exactly one has been approved for use: the <strong>Legal plugin</strong>. Seed your labs from it rather than from a blank page.</p>
 
   <div class="dev-grid-2" style="margin-top:28px;">
     <div class="dev-card">
-      <div class="dev-kicker">Financial services</div>
-      <h3>Insurance, reinsurance, equity research</h3>
-      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">The <code>anthropics/financial-services</code> pack includes reference agents like a Pitch Agent, a GL Reconciler, and a KYC Screener — the same draft-and-review pattern maps onto submission review, experience analysis, and claims. Every output is staged for a person to approve, and nothing binds or posts on its own.</p>
-      <div class="dev-quote">Available as a Cowork plugin or through the Managed Agents API.</div>
+      <div class="dev-kicker">Approved at Gen Re</div>
+      <h3>Legal — contract and treaty-wording work</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">The <code>anthropics/claude-for-legal</code> marketplace ships plugins such as <code>/review-contract</code> and <code>/triage-nda</code>. A cold-start interview writes a practice profile the other skills read, and the result is always a draft for a reviewer to sign off — the same shape as reviewing treaty and facultative wordings.</p>
+      <div class="dev-quote">The draft-and-review pattern fits P&amp;C, Life &amp; Health, and claims.</div>
     </div>
     <div class="dev-card">
-      <div class="dev-kicker">Legal</div>
-      <h3>Contract and treaty-wording work</h3>
-      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">The <code>anthropics/claude-for-legal</code> marketplace ships plugins such as <code>/review-contract</code> and <code>/triage-nda</code>. A cold-start interview writes a practice profile the other skills read, and the result is always a draft for a reviewer to sign off — the same shape as reviewing treaty and facultative wordings.</p>
-      <div class="dev-quote">The same draft-and-review pattern fits P&amp;C, Life &amp; Health, and claims.</div>
+      <div class="dev-kicker">Not approved</div>
+      <h3>Every other pack goes through review first</h3>
+      <p style="color:rgba(255,255,255,.65);font-size:15px;line-height:1.65;">Anthropic also publishes packs for financial services, life sciences, and general knowledge work — none of them are approved at Gen Re, so don't install them. If one maps onto your workflow, raise it through the governance process covered in Workshop 4 and let it clear review before anyone builds on it.</p>
+      <div class="dev-quote">Approved today: the Legal plugin. Nothing else.</div>
     </div>
   </div>
 </div>

@@ -38,11 +38,6 @@
     return clone.innerHTML;
   }
 
-  function truncate(str, max) {
-    str = str.trim();
-    return str.length > max ? str.substring(0, max).replace(/\s+\S*$/, '') + '…' : str;
-  }
-
   /* ─── Extraction ────────────────────────────────────────── */
 
   /**
@@ -89,7 +84,7 @@
         if (head) {
           bullets.push({
             heading: textOf(head),
-            body:    body ? truncate(textOf(body), 110) : ''
+            body:    body ? textOf(body) : ''
           });
         }
       });
@@ -103,7 +98,7 @@
         if (heading) {
           bullets.push({
             heading: heading,
-            body:    body ? truncate(textOf(body), 110) : ''
+            body:    body ? textOf(body) : ''
           });
         }
       });
@@ -117,7 +112,7 @@
         if (heading.trim()) {
           bullets.push({
             heading: heading.trim(),
-            body:    body ? truncate(textOf(body), 110) : ''
+            body:    body ? textOf(body) : ''
           });
         }
       });
@@ -129,7 +124,7 @@
         if (label) {
           bullets.push({
             heading: textOf(label),
-            body:    body ? truncate(textOf(body), 110) : '',
+            body:    body ? textOf(body) : '',
             isTip:   true
           });
         }
@@ -142,7 +137,7 @@
         if (head) {
           bullets.push({
             heading: textOf(head),
-            body:    body ? truncate(textOf(body), 110) : ''
+            body:    body ? textOf(body) : ''
           });
         }
       });
@@ -156,7 +151,7 @@
         if (heading.trim()) {
           bullets.push({
             heading: heading.trim(),
-            body:    body ? truncate(textOf(body), 110) : ''
+            body:    body ? textOf(body) : ''
           });
         }
       });
@@ -166,12 +161,12 @@
         var header = card.querySelector('.sg-header');
         var title  = card.querySelector('.sg-title');
         var body   = card.querySelector('p');
-        var heading = header ? textOf(header).replace(/^[\u2605-\uFFFF\s✅⚠️❌]+/u, '').trim() : (title ? textOf(title) : '');
+        var heading = header ? textOf(header).replace(/^[★-￿\s✅⚠️❌]+/u, '').trim() : (title ? textOf(title) : '');
         if (!heading && title) heading = textOf(title);
         if (heading) {
           bullets.push({
             heading: heading,
-            body:    (title && header ? textOf(title) + (body ? ' — ' + truncate(textOf(body), 80) : '') : (body ? truncate(textOf(body), 110) : ''))
+            body:    (title && header ? textOf(title) + (body ? ' — ' + textOf(body) : '') : (body ? textOf(body) : ''))
           });
         }
       });
@@ -183,7 +178,7 @@
         if (q) {
           bullets.push({
             heading: textOf(q).replace(/^"|"$/g, ''),
-            body:    hint ? truncate(textOf(hint), 110) : ''
+            body:    hint ? textOf(hint) : ''
           });
         }
       });
@@ -195,18 +190,29 @@
         if (head) {
           bullets.push({
             heading: textOf(head),
-            body:    body ? truncate(textOf(body), 110) : ''
+            body:    body ? textOf(body) : ''
           });
         }
       });
 
-      slides.push({
-        type:     'content',
-        dark:     isDark,
-        eyebrow:  textOf(eyeEl),
-        title:    innerOf(h2),
-        subtitle: textOf(subEl),
-        bullets:  bullets.slice(0, 4)   /* cap at 4 bullets per slide */
+      /* Nothing is truncated or dropped: overflow bullets continue onto
+         follow-on slides instead of being cut at four per slide. */
+      var PER_SLIDE = 4;
+      var chunks = [];
+      for (var i = 0; i < bullets.length; i += PER_SLIDE) {
+        chunks.push(bullets.slice(i, i + PER_SLIDE));
+      }
+      if (!chunks.length) chunks.push([]);
+
+      chunks.forEach(function (chunk, idx) {
+        slides.push({
+          type:     'content',
+          dark:     isDark,
+          eyebrow:  textOf(eyeEl),
+          title:    innerOf(h2) + (idx > 0 ? ' <span class="sl-cont">(cont.)</span>' : ''),
+          subtitle: idx === 0 ? textOf(subEl) : '',
+          bullets:  chunk
+        });
       });
     });
 
@@ -247,6 +253,13 @@
 
   function buildContent(slide) {
     var cls = 'sl-content' + (slide.dark ? ' sl-dark' : '');
+    /* Long, untruncated slides get a density class so the full text
+       scales down to fit rather than overflowing the 1280×720 frame. */
+    var totalChars = slide.bullets.reduce(function (n, b) {
+      return n + b.heading.length + b.body.length;
+    }, slide.subtitle ? slide.subtitle.length : 0);
+    if (totalChars > 900)      cls += ' sl-dense-2';
+    else if (totalChars > 550) cls += ' sl-dense';
     var sec = makeSection(cls);
     var html = '';
     if (slide.eyebrow)  html += '<div class="sl-eyebrow">' + slide.eyebrow + '</div>';

@@ -108,6 +108,8 @@ There are three ways in.
 Add plugins, then Browse Anthropic sources,
 pulls in Anthropic's own marketplaces.
 Knowledge Work is already there by default.
+Remember — at Gen Re only the Legal marketplace is approved.
+Add that one. Remove the rest.
 
 Add plugins, then Upload a file,
 creates your own marketplace from zip files.
