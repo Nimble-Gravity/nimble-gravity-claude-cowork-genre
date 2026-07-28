@@ -130,9 +130,9 @@ pool — and tells you which use cases to lean on today.
 
 ---
 
-## Teach · 0:10–0:35 (25 min)
+## Teach · 0:20–0:40 (20 min)
 
-### Use Cases by Industry · 0:10–0:20 — *follow along: Lesson 4*
+### Use Cases by Industry · 0:20–0:30 — *follow along: Lesson 4*
 **[SAY]** "The best first tasks are the **multi-step, multi-file jobs you already do by hand** that end in
 something you can eyeball. For this cohort, the shortlist:
 - **process documentation** generated from a legacy Excel/VBA or R model — the modernization on-ramp,
@@ -149,7 +149,7 @@ staged for a person to approve. Seed from those, not a blank page."
 **[SAY] — the move that sticks:** "A demo on sample data proves nothing about *your* job. The moment curious
 turns into daily is when you run a starter **on your own files.**"
 
-### Working Effectively · 0:20–0:30 — *follow along: Lesson 5*
+### Working Effectively · 0:30–0:40 — *follow along: Lesson 5*
 **[SAY] — cost (the full cost dial):** "From W1: **Sonnet is the default.** Reach for Opus only on genuinely
 hard reasoning — reviewing a contract, a strategic call. Cowork costs more than chat, so group related work
 into one session, keep simple questions in chat, and watch **Settings → Usage.**"
@@ -172,14 +172,10 @@ it decides it's done when it isn't. **Break big jobs into slices with a clear ar
 On Claude Cowork it runs only while your machine's awake and the app's open. Automate the safe, verifiable,
 low-stakes stuff — keep judgment calls interactive."
 
-### Folder Access · 0:30–0:35 — *follow along: Lesson 6*
-**[SAY]** "Access is **per folder.** Grant the **one** folder the task needs — never a parent 'to be safe,'
-that hands over everything inside it. Within it Cowork reads and writes; it runs any code in an **isolated
-VM**; and it **always asks before it permanently deletes.**"
-
-**[SAY] — least privilege ties it together:** "The smallest grant that does the job also **shrinks the blast
-radius** if a document tries to redirect Cowork — that's the prompt-injection link. **A folder per task, not
-per drive.** This is the control story you'll show IT in Workshop 4."
+**[NOTE]** Folder Access (Lesson 6) is no longer a separate teach slot — you demonstrated it live in the Open
+recap (moving `claude.md`/`about-me/` out of and back into the folder). If someone missed the Open recap or
+wants the reference version, point them to [Lesson 6](../training/06-folder-access-walkthrough.html) after
+the session; don't re-teach it here.
 
 ---
 
