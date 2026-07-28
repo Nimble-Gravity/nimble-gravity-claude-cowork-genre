@@ -57,12 +57,12 @@ prompts in tabs), and the downloads all hang off it. Each slot below names the p
 | 0:40–0:58 | **Demo** | Documentation from a legacy model |
 | 0:58–1:06 | **Discuss** | Shortlist your use cases |
 | 1:06–1:11 | **Break** | — |
-| 1:11–1:51 | **Lab** | Use Cowork Lab → a deliverable |
+| 1:11–1:51 | **Lab** | Use Cowork Lab → a deliverable (40 min) |
 | 1:51–1:57 | **Debrief** | Name the recurring part + knowledge check |
 | 1:57–2:00 | **Close** | Homework + what's next + feedback |
 
 **Why Open grew and Teach shrank:** Workshop 1 feedback was explicit — slow down, and recap setup before
-anything else, even if it costs time elsewhere. The former standalone Folder Access teach slot is now
+anything else, even if it costs time elsewhere. The former standalone Folder Access teach slot (5 min) is now
 taught live, by demonstration, inside the Open recap — so it isn't dropped, it's just taught once, concretely,
 instead of twice. The other 5 minutes come from 2-minute trims to Demo, Discuss, and Debrief (6 minutes saved),
 offset by 1 minute added back to Close for the feedback-acknowledgment line — a net 5, not from the Lab.
@@ -251,7 +251,7 @@ demand map** — export it. The top two also tell you which lab track will be bu
 | 1:21–1:41 | Use Cases 1 and 2 run (parallel tracks) |
 | 1:41–1:51 | Post deliverable, write notes, transition to debrief |
 
-**[SAY] — prompting primer:** "Before you stage anything, five principles that will change how your first pass comes out. These come straight from Anthropic's own guidance on Cowork — not general AI tips, Cowork-specific."
+**[SAY] — prompting primer (5 min):** "Before you stage anything, five principles that will change how your first pass comes out. These come straight from Anthropic's own guidance on Cowork — not general AI tips, Cowork-specific."
 
 **[SAY]** "First: describe the outcome, not the steps. Cowork builds its own plan. If you write step-by-step instructions you are fighting the planner. Tell it what the finished output looks like instead."
 
