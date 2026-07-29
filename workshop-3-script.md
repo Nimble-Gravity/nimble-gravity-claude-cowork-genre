@@ -56,8 +56,8 @@ installed for homework pointers. Skills are on the
    section below.
 8. **Distribute lab files.** Share all six lab files (on the hub and lab page) in Teams chat *before*
    the break — participants need them staged before the vault clock starts:
-   `meeting-extractor-SKILL.md`, `vault-standup-notes.txt`, `client-formatter-SKILL.md`,
-   `raw-notes.txt`, `interview-notes-jmalik.txt`, `qa-checklist.txt`.
+   `meeting-extractor-SKILL.md`, `vault-standup-notes.docx`, `client-formatter-SKILL.md`,
+   `raw-notes.docx`, `interview-notes-jmalik.docx`, `qa-checklist.docx`.
    **Note:** `meeting-extractor-SKILL.md` must be installed as a Cowork skill before the vault opens
    (Room 1 step 1). Tell participants to create a folder named `meeting-extractor`, put the file
    inside it, and add it via Settings → Skills.
@@ -405,7 +405,7 @@ three-word verdict as constraints — not just mention them."*
 **[NOTE]** Teams use one prompt to invoke both the repaired Client Formatter (Room 2) and the
 Candidate Evaluator (Room 3), then run the QA checklist against the output. Both skills must fire from
 a single multi-intent prompt for the door to open. Codes are case-insensitive. The QA checklist prompt
-(in the lab step and in `qa-checklist.txt`) now asks for a per-item breakdown — teams see exactly which
+(in the lab step and in `qa-checklist.docx`) now asks for a per-item breakdown — teams see exactly which
 items pass or fail, not just a total count.
 
 **Room 4 has two distinct failure modes — know which one you're looking at:**

@@ -11,7 +11,7 @@
       "labSteps": [
         "Install the provided 'meeting-extractor-SKILL.md' into Cowork: create a folder named 'meeting-extractor', place the SKILL.md file inside it, then add that folder via Settings → Skills (or drag it to your skills panel). Confirm 'Meeting Extractor' appears in the panel before continuing.",
         "Read its description — note what kind of request triggers it and what output it promises.",
-        "Upload the provided file 'vault-standup-notes.txt' to your session.",
+        "Upload the provided file 'vault-standup-notes.docx' to your session.",
         "Prompt Cowork with a request that matches the skill's trigger (ask it to extract action items from the notes).",
         "The skill outputs an action-item table. The unlock code is the number of action items assigned to 'R. Vega' followed by the first word of Vega's first action item, no space. Example format: 3Draft"
       ],
@@ -32,7 +32,7 @@
         "The description says 'A skill.' — too vague for Cowork to ever match it to a request. This is the sabotage.",
         "Rewrite the description so it clearly states WHEN to use the skill (formatting raw notes into the firm's client status update template) and WHAT triggers it (mentions of status updates, client reports, weekly summaries).",
         "Save the repaired skill into your Cowork session.",
-        "Prompt: 'Turn these notes into a client status update' using the provided 'raw-notes.txt'. If your description repair worked, the skill fires and formats the output.",
+        "Prompt: 'Turn these notes into a client status update' using the provided 'raw-notes.docx'. If your description repair worked, the skill fires and formats the output.",
         "The formatted output has a footer line the instructions always append. The unlock code is the name of the firm's method in that footer."
       ],
       "codePlaintext": "Cornerstone",
@@ -51,7 +51,7 @@
         "Ask Cowork to help you draft a new SKILL.md for a 'Candidate Evaluator' skill.",
         "Requirements for the instructions: output must have exactly four sections — Strengths, Concerns, Evidence, Recommendation — and the Recommendation must be one of: Advance, Hold, Decline.",
         "Write a description that would trigger on requests like 'write up my interview feedback'.",
-        "Load your new skill, then run it against the provided 'interview-notes-jmalik.txt'.",
+        "Load your new skill, then run it against the provided 'interview-notes-jmalik.docx'.",
         "If your skill enforced the format, the Recommendation section contains a single verdict word. The unlock code is that verdict plus the number of items your skill listed under Concerns. Example format: Hold3"
       ],
       "codePlaintext": "Advance2",
@@ -67,10 +67,10 @@
       "title": "The Playbook Door",
       "narrative": "The client call is in minutes, and they want one document: where the modernization stands and who is replacing the consultant. The final door needs two keys turned at once — chain the repaired Client Formatter with your new Candidate Evaluator to produce it: a hiring status update for the client.",
       "labSteps": [
-        "Upload 'interview-notes-jmalik.txt' and 'raw-notes.txt' into one session.",
+        "Upload 'interview-notes-jmalik.docx' and 'raw-notes.docx' into one session.",
         "Prompt Cowork to first evaluate the candidate (your Room 3 skill should fire), then fold that evaluation into a client status update (the Room 2 skill should fire).",
         "Verify both skills triggered — the output should show the four evaluation sections nested inside the status update template with the firm's footer.",
-        "Run the QA checklist prompt in Cowork: 'Check this document against qa-checklist.txt. For each item, state whether it passes or fails and briefly why. Then report the total pass count.'",
+        "Run the QA checklist prompt in Cowork: 'Check this document against qa-checklist.docx. For each item, state whether it passes or fails and briefly why. Then report the total pass count.'",
         "The unlock code is the total pass count followed by the candidate's verdict word. Example format: 7Hold"
       ],
       "codePlaintext": "8Advance",

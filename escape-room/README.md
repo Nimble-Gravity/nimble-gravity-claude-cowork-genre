@@ -175,10 +175,16 @@ public repos.
 
 1. Edit `config/rooms.source.json`; run `node tools/generate-hashes.mjs`.
 2. Prepare the lab input files the rooms reference (e.g.
-   `vault-standup-notes.docx`, `client-formatter-SKILL.md`, `raw-notes.txt`,
-   `interview-notes-jmalik.txt`, `qa-checklist.txt`) so that the labs actually
+   `vault-standup-notes.docx`, `client-formatter-SKILL.md`, `raw-notes.docx`,
+   `interview-notes-jmalik.docx`, `qa-checklist.docx`) so that the labs actually
    produce the codes — distribute them to participants via your usual channel;
-   they are not part of this app.
+   they are not part of this app. Participant-facing content files are Word
+   documents (business users recognize them); the `.txt` files alongside them in
+   `lab-files/` are the editable sources — edit those, then regenerate the
+   `.docx` with `python tools/convert-lab-files.py`. The two `SKILL.md` files
+   stay Markdown deliberately: that's Cowork's skill file format, and reading
+   and repairing it is the exercise. Unlock codes are derived from file
+   content, so re-verify codes after any content edit.
 3. Configure (or skip) Supabase in `config/app-config.js`; set `adminKey`.
 4. Deploy; open `admin.html` on the facilitator machine; teams open the root
    URL, enter a team name, and the clock starts.
