@@ -1,13 +1,13 @@
 {
   "workshopTitle": "Workshop 3: The Skill Vault",
-  "scenario": "A departing consultant locked the team's playbook inside the Skill Vault. Their custom Cowork skills are the only keys. Learn them, fix them, build your own — and get the playbook out before the client call in 40 minutes.",
+  "scenario": "After A. Keller left, an outside consultant ran the TreatyLayerPricer modernization delivery — the standups, the client status updates, the hiring. Now they've rolled off too, and locked the team's playbook inside the Skill Vault. Their custom Cowork skills are the only keys. Learn them, fix them, build your own — and get the playbook out before the client call in 40 minutes.",
   "timeLimitMinutes": 40,
   "hintPenaltySeconds": 120,
   "rooms": [
     {
       "id": "room-1",
       "title": "The Inherited Skill",
-      "narrative": "The consultant left one working skill behind: 'Meeting Extractor.' Nobody knows what it does. Invoke it correctly and it will surrender the first key.",
+      "narrative": "The consultant left one working skill behind: 'Meeting Extractor' — the one they ran after every modernization-team standup. Nobody else ever used it. Invoke it correctly on the team's standup notes and it will surrender the first key.",
       "labSteps": [
         "Install the provided 'meeting-extractor-SKILL.md' into Cowork: create a folder named 'meeting-extractor', place the SKILL.md file inside it, then add that folder via Settings → Skills (or drag it to your skills panel). Confirm 'Meeting Extractor' appears in the panel before continuing.",
         "Read its description — note what kind of request triggers it and what output it promises.",
@@ -26,7 +26,7 @@
     {
       "id": "room-2",
       "title": "The Broken Trigger",
-      "narrative": "The second key sits behind the skill 'Client Formatter' — but it never fires. The consultant sabotaged its description on the way out. Repair it and the skill will do the rest.",
+      "narrative": "The second key sits behind 'Client Formatter' — the skill that turned the team's raw notes into the weekly client status update on the modernization. It never fires: the consultant sabotaged its description on the way out. Repair it and the skill will do the rest.",
       "labSteps": [
         "Open the provided file 'client-formatter-SKILL.md' and read its three parts: name, description, instructions.",
         "The description says 'A skill.' — too vague for Cowork to ever match it to a request. This is the sabotage.",
@@ -46,7 +46,7 @@
     {
       "id": "room-3",
       "title": "Forge Your Own Key",
-      "narrative": "The third lock has no matching skill. The vault only opens for a skill YOU build: one that turns messy interview notes into the firm's candidate evaluation format.",
+      "narrative": "The third lock has no matching skill — the consultant is gone, and someone has to be hired to replace them. The vault only opens for a skill YOU build: one that turns messy interview notes into the firm's candidate evaluation format.",
       "labSteps": [
         "Ask Cowork to help you draft a new SKILL.md for a 'Candidate Evaluator' skill.",
         "Requirements for the instructions: output must have exactly four sections — Strengths, Concerns, Evidence, Recommendation — and the Recommendation must be one of: Advance, Hold, Decline.",
@@ -65,7 +65,7 @@
     {
       "id": "room-4",
       "title": "The Playbook Door",
-      "narrative": "The final door needs two keys turned at once: chain the repaired Client Formatter with your new Candidate Evaluator to produce the one document the vault accepts — a hiring status update for the client.",
+      "narrative": "The client call is in minutes, and they want one document: where the modernization stands and who is replacing the consultant. The final door needs two keys turned at once — chain the repaired Client Formatter with your new Candidate Evaluator to produce it: a hiring status update for the client.",
       "labSteps": [
         "Upload 'interview-notes-jmalik.txt' and 'raw-notes.txt' into one session.",
         "Prompt Cowork to first evaluate the candidate (your Room 3 skill should fire), then fold that evaluation into a client status update (the Room 2 skill should fire).",

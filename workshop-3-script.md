@@ -9,12 +9,16 @@
 real `SKILL.md`, and (2) having built, repaired, authored, and chained skills under live pressure in the
 **Skill Vault** — the 40-minute escape-room lab.
 
-**Demo asset:** the **workflow-decomposition skill** (`skills/workflow-decomposition/SKILL.md`) and the
-**memo-generation skill** (`skills/memo-generation/SKILL.md`) — both on the
+**Demo asset:** **yesterday's solution-profile demo** — Demo prompt 1 from Lesson 4 §04 (the exact
+prompt the room watched run in W2) and the `solution-profile-demo` folder (TreatyLayerPricer), still
+staged from yesterday. The demo turns that prompt into a skill live; a finished
+**solution-profile skill** (`skills/solution-profile/SKILL.md`) stays open in a side window as the
+safety net. The **workflow-decomposition skill** (`skills/workflow-decomposition/SKILL.md`) stays
+installed for homework pointers. Skills are on the
 [facilitator guide](pages/workshops/facilitator-guide.html#workshop-3) and in the
 [resource library](pages/workshops/resources.html).
 
-**Lab asset:** five files distributed before breakout rooms open — on the
+**Lab asset:** six files distributed before breakout rooms open — on the
 [lab page](pages/training/11-build-a-skill-lab.html) and the workshop hub.
 
 **Legend:** **[SAY]** talk track · **[DO]** live demo · **[THEY]** participants act · **[NOTE]** facilitator note · **[POLL]** Teams poll · **[>>]** color commentary — the WHY behind the step
@@ -22,51 +26,83 @@ real `SKILL.md`, and (2) having built, repaired, authored, and chained skills un
 ---
 
 ## Pre-session prep
-1. **Download and install both skills.** Confirm `workflow-decomposition` and `memo-generation` are
-   installed and trigger correctly in your Cowork session before the call.
-2. **Pre-build the W2 quiz poll.** The Open slot runs the Workshop 2 knowledge-check live — 5 questions,
-   single answers, one at a time or as a batch poll. Build it in Teams the day before.
-3. **Pull 2–3 skill seeds from the W2 Discuss export.** These are the top-ranked use cases from the W2
-   "which would save you the most time" poll. Name them in the Open to make it concrete.
-4. **Pre-recruit two heavy users for the Discuss slot.** DM them the day before: *"I'd love you to
-   kick off the discussion — would you share your take on good vs bad skills in 90 seconds? No prep
-   needed."* This removes cold-call risk from the highest-stakes discussion in W3.
-5. **Stage the demo.** Have the memo-generation `SKILL.md` open in a text editor (so you can read
-   against it on screen) and the workflow-decomposition skill installed. Run the decomposition live on
-   the memo workflow — the prompt is in the Demo section below.
-6. **Distribute lab files.** Share all six lab files (on the hub and lab page) in Teams chat *before*
+1. **Stage yesterday's demo, again.** The W3 demo turns *yesterday's* solution-profile prompt into a
+   skill live, on the same TreatyLayerPricer folder the room already watched. Confirm the
+   `solution-profile-demo` folder is still intact from W2 (re-unzip if you modified it), open
+   **Lesson 4 §04** in a tab so Demo prompt 1 is one Copy-click away, and keep a finished copy of
+   `skills/solution-profile/SKILL.md` in a side window as your safety net if the live draft goes
+   sideways. Do **not** pre-install a solution-profile skill — the room must watch it get made.
+   Install the workflow-decomposition skill for homework pointers.
+2. **Pre-build BOTH quiz polls — W1 and W2.** The Open slot runs the Workshop 1 *and* Workshop 2
+   knowledge checks live (they were cut for time in W2 — client asked for them back, at the start).
+   4 questions each, single answers, built in Teams the day before. The questions live in
+   `interactive.js` (`QUIZZES.m1` / `QUIZZES.m2`) — answers were re-checked for clarity/accuracy on
+   2026-07-29; read each poll against the site version the night before so poll text matches exactly.
+3. **Test your screen share end to end.** Yesterday's share snafu cost minutes — do a full dry run:
+   share the slides tab, confirm the room sees it, then switch to the Cowork window and back. Present
+   the deck at higher zoom (Ctrl+= once or twice) — W2 feedback said the slide font read small.
+4. **Confirm the canonical Cowork folder path.** The filing-system beat (Teach → "Where every file
+   lives") names ONE path for everything. It must match what participants saw in W1/W2 — verify the
+   path you'll say out loud is the same one on their machines before you script it on a slide.
+5. **Pull 2–3 skill seeds from the W2 Discuss export.** These are the top-ranked use cases from the W2
+   "which would save you the most time" poll. Name them in the Open to make it concrete — they also
+   seed the Discuss brainstorm.
+6. **Pre-recruit two heavy users for the Discuss slot.** DM them the day before: *"I'd love you to
+   kick off the brainstorm — would you name the first skill idea from your own work in 90 seconds? No
+   prep needed."* This removes cold-call risk from the highest-stakes discussion in W3.
+7. **Stage the demo (recap of item 1).** Lesson 4 §04 tab open for Demo prompt 1;
+   `solution-profile-demo` folder intact; finished `skills/solution-profile/SKILL.md` open in a side
+   window as the safety net; workflow-decomposition skill installed. The demo flow is in the Demo
+   section below.
+8. **Distribute lab files.** Share all six lab files (on the hub and lab page) in Teams chat *before*
    the break — participants need them staged before the vault clock starts:
    `meeting-extractor-SKILL.md`, `vault-standup-notes.txt`, `client-formatter-SKILL.md`,
    `raw-notes.txt`, `interview-notes-jmalik.txt`, `qa-checklist.txt`.
    **Note:** `meeting-extractor-SKILL.md` must be installed as a Cowork skill before the vault opens
    (Room 1 step 1). Tell participants to create a folder named `meeting-extractor`, put the file
    inside it, and add it via Settings → Skills.
-7. **Open the [facilitator view](escape-room/admin.html).** Keep it in a side window during the lab —
+9. **Open the [facilitator view](escape-room/admin.html).** Keep it in a side window during the lab —
    it shows live team progress, hints used, and a reset button for stuck teams.
 
 ### Run of show — the 2-hour agenda
 | Time | Slot | Content |
 |---|---|---|
-| 0:00–0:10 | **Open** | W2 knowledge check live + skill seeds |
-| 0:10–0:33 | **Teach** | What is a skill? (0:10–0:13) · Decompose (0:13–0:20) · Anatomy (0:20–0:28) · Make it a skill (0:28–0:33) |
-| 0:33–0:52 | **Demo** | Live: decompose the memo workflow + read it against the standards |
-| 0:52–1:04 | **Discuss** | Good skill vs bad + announce vault teams |
+| 0:00–0:15 | **Open** | W1 + W2 knowledge checks live (protected) + skill seeds |
+| 0:15–0:35 | **Teach** | What is a skill? + where every file lives (0:15–0:21) · Decompose (0:21–0:27) · Anatomy (0:27–0:33) · Make it a skill preview (0:33–0:35) |
+| 0:35–0:52 | **Demo** | Live: turn yesterday's solution-profile prompt into a skill — tell, show, recap, then schedule it |
+| 0:52–1:04 | **Discuss** | Skill-idea brainstorm + good/bad litmus + announce vault teams |
 | 1:04–1:10 | **Break** | Team setup + file confirm |
 | 1:10–1:50 | **Lab** | The Skill Vault — 40-minute escape room |
 | 1:50–1:57 | **Debrief** | One share per team + knowledge check |
 | 1:57–2:00 | **Close** | Homework + what's next + feedback |
 
+**Why Open grew and Demo changed shape:** W2 feedback, verbatim asks — *"let's do the quizzes at the
+beginning to recap sessions 1 & 2 before starting 3"* (they were cut for time in W2); *"make sure they
+understand the concept of a skill and then how to create one. Let them watch you do it. Then recap.
+Then maybe schedule one"*; and *"more brainstorming of skill ideas before doing the escape room."* The
+5 extra Open minutes come from the Teach block (the demo now teaches Make-It-a-Skill by doing it) and
+2 from the Demo. The Lab keeps its full 40 minutes — never cut it.
+
 ---
 
-## Open · 0:00–0:10 (10 min)
+## Open · 0:00–0:15 (15 min) — protected: cut Teach before you cut the quizzes
 
-**[DO] — W2 quiz live (5 min):** Launch the pre-built W2 knowledge-check poll. Read each question and
-the correct answer aloud as the results land. Keep it brisk — this is a quick loop-close, not a
-lesson review.
+**[SAY] — name the callback:** "Two sessions ago I promised you the knowledge checks and then cut them
+for time. Today we start with them — five minutes on Workshop 1, five on Workshop 2. No grades, no
+names; this is a recap, not a test."
 
-**[>>]** *Why open with a quiz?* The W2 knowledge check was deferred as homework for some cohorts; doing it live now closes the accountability loop and — importantly — signals that this series has continuity. Participants who see callbacks to last session's content pay more attention. It's also a 5-minute warm-up that doesn't require anyone to say anything out loud, which lowers the pressure before a more complex session.
+**[DO] — W1 quiz live (5 min):** Launch the pre-built W1 knowledge-check poll (4 questions). Read each
+question and the correct answer aloud as the results land. On the "where does Cowork read your files"
+question, land the one-liner: *"On your machine, only in the folder you grant — that's the filing
+story we'll nail down completely today."*
 
-**[SAY]** "Before we start — three things you told us after Workshop 2." **[DO]** Name 2–3 use cases
+**[DO] — W2 quiz live (5 min):** Same rhythm, 4 questions. On the "connect only the folder the task
+needs" question, say it again: *"One task, one folder. Hold that thought for ten minutes."* Keep both
+quizzes brisk — this is a loop-close, not a lesson review.
+
+**[>>]** *Why open with both quizzes?* Direct client ask after W2: run the session 1 & 2 quizzes at the beginning, before starting session 3 — they were cut for time and the client noticed. Beyond the accountability loop, the quizzes are a warm-up that requires zero speaking, and two of the eight questions (folder grant, file locations) tee up today's defined filing process before you ever present it. Poll answers were re-verified for clarity and accuracy on 2026-07-29 — read them confidently.
+
+**[SAY]** "Now — three things you told us after Workshop 2." **[DO]** Name 2–3 use cases
 from the W2 Discuss export. *"You said: 'triage my incoming claims advices,' 'summarize a new renewal
 submission,' 'first-pass my quarterly aggregate review.' Today we learn how to turn one of those into
 a skill that runs every time, not just when you remember to ask."*
@@ -83,9 +119,9 @@ your page today. All four lessons, the lab, and the download links hang off it."
 
 ---
 
-## Teach · 0:10–0:33 (23 min)
+## Teach · 0:15–0:35 (20 min)
 
-### What Is a Skill? · 0:10–0:13 (3 min orientation)
+### What Is a Skill? + Where every file lives · 0:15–0:21 (6 min orientation)
 
 **[SAY]** "Before we build one, let's be clear on what we're building. In Workshops 1 and 2 you
 typed a prompt — you described a task, Cowork ran it, you got a result. That's a **delegation**. A
@@ -104,11 +140,29 @@ it reliably worked. A skill is that prompt, packaged so anyone on your team gets
 result without having to rediscover the right words. That's why Workshop 3 exists: to take the
 thing you learned to do and make it something the whole team can do."
 
-**[>>]** *Why carve out a three-minute definition block before the canvas?* Because without it, participants hear "decompose a workflow" and "write a SKILL.md" as two separate technical tasks with no clear relationship to anything they did in W1/W2. The definition creates the through-line: W2 prompt → W3 skill → W4 plugin. That arc is what makes the Skill Vault feel like a meaningful step rather than a new subject. It also prevents the most common confusion in W3: participants who think a skill is something you run manually like a slash command, rather than something that fires automatically when the situation matches.
+**[SAY] — where every file lives (the filing system — say it exactly this way, every time):** "Before
+we build anything: where do files go? One answer, no options. Everything Cowork lives in **one home
+folder** — the folder you set up in Workshop 1. Inside it, exactly three kinds of things:
+**your profile** — `claude.md` and the `about-me` folder — one copy, at the top, edit it in place,
+never copy it anywhere else. **One folder per task** — inputs go *into the folder before you start*,
+not into the chat; you grant Cowork that one folder; the output lands there too. **One folder per
+skill** — a folder named for the skill with `SKILL.md` inside; to change a skill you edit that one
+file and re-add it — you never make a second copy. If you ever have two copies of anything, delete
+one now. That's the whole system: one home, one profile, one folder per task, one folder per skill."
+
+**[NOTE]** This is the tightened answer to the W2 confusion about where files go and how to update
+them without ending up with multiple copies. Deliver it as **the** process, not a recommendation —
+no alternatives, no "you could also." If someone asks about a different arrangement, the answer is:
+*"That works too — bring it to office hours; in this program we all do it this one way."* Confirm the
+home-folder path matches what W1 actually set up (prep item 4) and show the path on screen as you say it.
+
+**[>>]** *Why a no-options filing system?* W2 feedback verbatim: "the folder structure is a hard one... we need to set up a defined process to be able to speak to, not give them options" and "tighten up our messaging about... where files are going and how to control and update them to avoid multiple copies." Options are a tax on novices — every fork ("you could put it here, or here") becomes a support question later. One prescribed layout means every later instruction ("stage your lab files," "install the skill") can name an exact place, and the Room 1 install steps land without confusion.
+
+**[>>]** *Why carve out a definition block before the canvas?* Because without it, participants hear "decompose a workflow" and "write a SKILL.md" as two separate technical tasks with no clear relationship to anything they did in W1/W2. The definition creates the through-line: W2 prompt → W3 skill → W4 plugin. That arc is what makes the Skill Vault feel like a meaningful step rather than a new subject. It also prevents the most common confusion in W3: participants who think a skill is something you run manually like a slash command, rather than something that fires automatically when the situation matches.
 
 ---
 
-### Decompose Your Workflow · 0:13–0:20 — *follow along: Lesson 8*
+### Decompose Your Workflow · 0:21–0:27 — *follow along: Lesson 8*
 
 **[SAY]** "A skill is only as good as the thinking before you write it. If you sit down and start
 writing a `SKILL.md`, you're going to write documentation — and documentation nobody tested is the
@@ -135,7 +189,7 @@ needed to pass."
 
 ---
 
-### Anatomy of a Skill · 0:20–0:28 — *follow along: Lesson 9*
+### Anatomy of a Skill · 0:27–0:33 — *follow along: Lesson 9*
 
 **[SAY] — the two parts of a `SKILL.md`:** "A skill is a folder with one file: `SKILL.md`. YAML
 frontmatter up top — name and description — and a Markdown body below. That's the open Agent Skills
@@ -174,107 +228,105 @@ works on the largest model isn't finished."
 
 ---
 
-### Make It a Skill · 0:28–0:33 — *follow along: Lesson 10*
+### Make It a Skill (preview) · 0:33–0:35 — *follow along: Lesson 10*
 
 **[SAY]** "You don't have to start from a blank `SKILL.md`. The fastest path: paste a working prompt
-and say **'Turn this into a skill with a description that triggers when I ask for [X].'** Claude
-drafts the SKILL.md — frontmatter and body — from your text. This is how most first skills are built,
-and it's the exact technique you'll use in your homework."
+and say **'Turn this into a skill with a description that triggers when I ask for [X].'** Then the
+loop: test it against a baseline without the skill, and add only what the evals demand. Rather than
+talk you through it — I'm going to do it, right now, start to finish. Watch."
 
-**[SAY] — the skill-creator loop:** "A first draft fires unreliably and over-explains. The loop fixes
-that: capture the trigger intent, draft, test against a baseline without the skill, grade, add only
-what the evals demand. Then package it as a `.skill`. The description is the part worth iterating
-hardest."
-
-**[SAY] — one thing to know about the optimizer:** "The skill-creator has an auto-tuner called
-`run_loop` that can optimize your description automatically — but it needs a raw `ANTHROPIC_API_KEY`.
-If your org signs in through SSO only, you can't run it. **That's fine.** Tune the description by
-hand: add trigger words, test whether the skill fires on a few realistic prompts, adjust. Slower, same
-result."
-
-**[>>]** *Why mention the SSO caveat now?* Because some participants will have Googled the skill-creator and seen the `run_loop` flag, and they'll be confused when it doesn't work in their account. Addressing it in Teach saves a 3-minute derail during the lab. The key message: SSO is not a blocker for shipping a good skill, just for the automated optimizer. Frame it as a note, not a limitation.
+**[NOTE]** Keep this to two minutes — it's a preview, not a lesson. The demo *is* the lesson now
+(teach-show-recap). If asked about the skill-creator's `run_loop` auto-tuner: it needs a raw
+`ANTHROPIC_API_KEY`, so SSO-only sign-ins can't run it — hand-tuning the description gets the same
+result. Park deeper questions to office hours.
 
 ---
 
-## Demo · 0:33–0:52 (19 min) — Decompose the memo workflow
+## Demo · 0:35–0:52 (17 min) — Create the solution-profile skill live: tell, show, recap, schedule
 
-*Asset: `skills/workflow-decomposition/SKILL.md` (installed) and `skills/memo-generation/SKILL.md`
-(open in a text editor). Follow along → [Lesson 8](pages/training/08-decompose-your-workflow.html)
-and [Lesson 9](pages/training/09-anatomy-of-a-skill.html) for participants watching.*
+*Asset: **Demo prompt 1 from Lesson 4 §04** (the exact prompt from yesterday's demo) + the
+`solution-profile-demo` TreatyLayerPricer folder, still staged from W2 +
+`skills/solution-profile/SKILL.md` open in a side window as the safety net. Follow along →
+[Lesson 10](pages/training/10-make-it-a-skill.html) for participants watching.*
 
-**[SAY]** "I'm going to show you the full cycle in 19 minutes — decompose a workflow, then read the
-finished skill against the standards. Everything you're about to see is a key to a door."
+**[>>]** *Why the demo changed shape — and why it reuses yesterday's material.* W2 feedback, verbatim: "make sure they understand the concept of a skill and then how to create one. **Let them watch you do it. Then recap. Then maybe schedule one.**" The old demo decomposed a workflow and read a finished skill — participants never saw a skill get *made*. This demo makes one, end to end, with tell-show-recap — and it makes it from the *exact prompt the room watched run yesterday*, on the same TreatyLayerPricer folder. One system carries the whole arc: W1 summarized it, W2 documented it with a long prompt, W3 packages that prompt so nobody ever types it again. One example, fully explained — less is more.
 
-**[>>]** *"A key to a door" — say this line.* It's the transition that primes the lab. The vault's narrative (a departing consultant locked the team's playbook) is activated by this phrase. Participants who hear it land in the lab with the right mental model: the skills they just watched you build are literally how you open the rooms. The line also signals that the demo isn't abstract — it's directly load-bearing for what comes next.
+**[DO] — tell (1 min):** "Yesterday you watched me run one long prompt on the TreatyLayerPricer
+folder and get a solution profile and an architecture diagram back. Here's what you're about to
+watch, in four steps: I take that exact prompt. I ask Claude to turn it into a skill. I file it and
+install it — the one way we always do it. Then I open a fresh session and watch it fire from one
+plain sentence. Watch the folder and the description — those are the two things that matter."
 
-### (a) Run the workflow-decomposition skill
-**[DO]** New session in Cowork, workflow-decomposition skill installed. Paste this prompt:
-> *"I want to build a skill for drafting underwriting committee memos from cedent submissions. Help me
-> decompose the workflow: the steps, the data source for each step, and a clear picture of what a
-> good output looks like versus a bad one."*
+**[DO] — show: create it (9 min):**
+1. New Cowork session. Pop to the Lesson 4 tab, hit **Copy on Demo prompt 1**, paste it on screen —
+   don't run it. **[SAY]** "This is yesterday's prompt, word for word. It works — but it's a page
+   long, it lives in a lesson page, and next quarter whoever needs it will retype a worse version.
+   Now:"
+2. Above it, type: *"Turn the prompt below into a skill with a description that triggers when I ask
+   to document a legacy system, write a solution profile, or prepare handover documentation."* Let it
+   draft the `SKILL.md`. **Stop talking while it runs** — let the room read the draft as it lands.
+3. **[SAY]** as you review the draft: "Two parts — the description up top, that's the doorway; the
+   instructions below, under 500 lines. Everything yesterday's prompt spelled out — the eight
+   sections, cite every claim, don't invent answers — is now the skill's instructions. The
+   description is new: third person, keyword-rich, says exactly when to use it."
+4. File it **the one way**: a folder named `solution-profile` inside the skills folder of your Cowork
+   home, `SKILL.md` inside it. **[SAY]** "One folder per skill. `SKILL.md` inside. That's the whole
+   filing act — and when I improve this skill next month, I edit *this file, in this folder*. No
+   second copies." Add it via Settings → Skills.
+5. Fresh session, grant **only** the `solution-profile-demo` folder — least privilege, out loud.
+   Type one plain sentence — *"Document this legacy pricing tool for the modernization team"* — and
+   let the skill fire. **[SAY]** "Yesterday that took a page of prompt. Today it took nine words —
+   because I didn't name the skill, I described my task, and the description matched it. That's a
+   skill triggering on intent." (No need to let the full profile finish — the skill firing and the
+   plan rendering is the proof; move on.)
 
-**[SAY]** as it runs: "Watch it interview me — it's not asking me to write the skill yet, it's
-helping me think through what the skill needs to do. Steps, inputs, good output, bad output. This is
-the canvas from Lesson 8, built interactively."
+**[DO] — recap (2 min):** "Say back what you just watched — four steps: yesterday's working prompt →
+'turn this into a skill' → one folder, one file, installed → fresh session and nine words fire it.
+That's the whole method. It's also exactly what you'll do in the vault, under a clock." Pause. Ask
+for questions in chat, take one or two.
 
-**[DO]** Let it produce the decomposition output. **[SAY]** "That's a working canvas: steps, data
-sources, good vs bad. Now I'll hand that to the skill author."
+**[DO] — show again: schedule it (3 min):** "One more thing — a skill you trigger by hand is good; a
+skill that runs on a schedule is better. TreatyLayerPricer runs quarterly — so:" Use `/schedule` to
+set a quarterly task — narrate: *"First Monday of each quarter, refresh the solution profile in this
+folder from the latest run notes."* **[SAY]** "That's the full arc: yesterday's prompt became a skill
+anyone can trigger, and now it's a delegation that runs without anyone asking. That's the difference
+between using Cowork and *operating* it."
 
-**[>>]** *What to do if the skill doesn't trigger.* If the workflow-decomposition skill doesn't fire on your prompt, say it explicitly: *"The description wasn't specific enough to match that intent — I'll adjust the trigger."* This is actually a perfect teaching moment that previews Room 2. Don't apologize; narrate it as intended behavior and fix it live in 30 seconds by adding more trigger words to your prompt.
+**[DO] — hold it against the standards (2 min):** Scroll the draft once more: "Description — would it
+trigger? Yes. Body — under 500 lines, real examples, guardrails with the *why*, no ALL-CAPS. Evals —
+we tested it against a fresh session before trusting it. Now: **'Everything you just watched is a key
+to a door.'** After the break you'll use these exact disciplines to escape the vault."
 
-### (b) Read the memo skill against the standards
-**[DO]** Open `skills/memo-generation/SKILL.md` in your text editor, screen-shared. Read through it
-as you narrate each standard aloud:
+**[>>]** *"A key to a door" — say this line.* It's the transition that primes the lab. The vault's narrative continues the demo's story: after A. Keller left (yesterday's handover call), an outside consultant ran the TreatyLayerPricer modernization delivery — and has now rolled off too, locking the modernization team's playbook behind skill-locked doors. The skills they just watched you build are literally how you open the rooms.
 
-**[SAY]** "Description — third person, keyword-rich: *'Use when someone asks to write a memo, turn
-these notes into a memo, draft a summary memo, or put this in memo form, especially for recurring
-internal or client-facing memos in regulated, document-heavy work.'* Would that trigger? Yes.
-Is it specific enough to fire on intent, not magic words? Yes."
-
-**[SAY]** "Body — under 500 lines. This one is well under. Progressive disclosure: if there were a
-300-line format file, it would live at `reference/memo-format.md` and be pointed to from here — not
-pasted in. Good vs bad examples: right here in the body — two short paragraphs. Guardrails: never
-present as final, never fabricate. That's it."
-
-**[SAY]** "No ALL-CAPS rules. Every guardrail says *why*: 'never fabricate figures — unknown → [NEEDS
-INPUT: ...].' That's the rule plus the reason, so Claude can generalize when the situation varies."
-
-**[SAY]** "Evals: *not in the file*, but in a separate test log. The skill was built by running
-scenarios without it first — the file is the minimum needed to pass those evals, nothing more."
-
-**[SAY]** "Now: **'Everything you just watched is a key to a door.'** In 8 minutes you'll use these
-exact disciplines to escape the vault."
+**[>>]** *If the live draft goes sideways.* You have the finished `solution-profile/SKILL.md` in a side window — switch to it, say *"here's one I made earlier,"* and continue from the filing step. Losing two minutes to a bad draft is fine; losing ten to live-debugging is not. And if the skill doesn't fire in step 5, narrate it as a preview of Room 2: *"The description wasn't specific enough to match that intent — watch me widen the trigger."* Fix it live in 30 seconds. Don't apologize; that failure mode is the single most instructive moment available.
 
 ---
 
-## Discuss · 0:52–1:04 (12 min) — Good skill vs bad + vault teams
+## Discuss · 0:52–1:04 (12 min) — Skill-idea brainstorm + good/bad litmus + vault teams
 
 *Follow along: Lesson 9 good-vs-bad section (`#goodbad`). Pre-recruited heavy users go first.*
 
-**[SAY]** "Let's stress-test it. Here's a sample skill description:" **[DO]** Paste or screen-share
-this bad example:
-> *"I am a skill that helps you with your work. Use me whenever you need assistance."*
+**[DO] — brainstorm, chat-first (7 min):** "Before the vault: what would *you* make into a skill?
+Everyone — type one repetitive task from your own week into chat. The rule from the demo: it's a
+skill candidate if you'd run it more than once and you can say what good output looks like. Nobody
+talks until there are ten ideas in chat." **[DO]** Call your pre-recruited heavy users first to break
+the seal: *"[Name] — what's the first skill you'd build, in one line?"* As ideas land, read the best
+aloud, group them ("that's three of you with a triage skill — that's one skill, shared"), and tie
+back to the W2 seeds you named in the Open. **[SAY]** "Screenshot this chat — this list is your
+homework menu, and the best of these become the team plugins in Workshop 4."
 
-**[SAY]** "Hold it against the rubric. Is it third-person? No — it's first-person. Is it keyword-rich?
-No — there's no trigger language. Would Claude pick this skill over any other when you ask for a memo?
-Never. It's not wrong, it just doesn't work."
+**[>>]** *Why brainstorm before the vault, and why chat-first?* Two pieces of W2 feedback at once: "maybe do some more brainstorming of skill ideas before doing the escape room exercise," and "wish we had more participation with the polls." Typing into chat is the lowest-stakes participation there is — no unmute, no wrong answers, and ten ideas in chat beats two brave volunteers. Doing it *before* the vault means participants walk into the escape room already knowing what they'd build for real — the lab stops being a game about our scenario and becomes a rehearsal for theirs. The exported chat is also your W4 plugin-demand data; save it.
 
-**[DO]** Call on your pre-recruited heavy users: *"[Name], in 90 seconds — what makes a skill
-description fail in your experience?"* Take one or two more from the room.
+**[SAY] — the good/bad litmus (2 min):** "One filter before the vault. Here's a real skill
+description: *'I am a skill that helps you with your work. Use me whenever you need assistance.'*
+Would Claude ever pick that when you ask for a memo? Never — first person, no trigger words, matches
+nothing. In practice, the failure is almost always the description. Not the body — the description.
+A bad description and nothing else will ever fire. That's Room 2 of the vault in one sentence."
 
-**[SAY] — what bad looks like in full:** "The complete bad skill: first-person or vague description;
-a 900-line body of ALL-CAPS rules; no examples; nested references three levels deep; no evals, so
-nobody knows whether it works. It reads like documentation nobody tested. A fresh Claude picks it up
-cold — and can't use it."
+**[>>]** *Why keep the bad example, compressed?* The failure mode is more memorable than the success mode, especially for a reinsurance audience trained on audit findings and exception reports. But it's now a 2-minute litmus, not the centerpiece — the brainstorm earns the slot's time because it feeds the lab, the homework, and W4. Less is more; the full good-vs-bad catalog lives in Lesson 9 (`#goodbad`) for after the session.
 
-**[>>]** *Why critique the bad example first, before the good?* Because the failure mode is more memorable than the success mode, especially for a reinsurance audience that's trained on audit findings and exception reports. Starting with "here's what fails and why" is how treaty underwriters think. The good memo skill they just saw in the demo is the implicit counterexample — they can hold it side by side in their head.
-
-**[SAY] — the one thing that's usually wrong:** "In practice, the failure is almost always the
-description. Not the body — the description. Everything else in a skill can be mediocre and it might
-still work. A bad description and nothing else will ever fire. That's Room 2 of the vault in one
-sentence."
-
-**[DO] — vault team announcements (4 min):** "Here's how the vault works: you'll play in teams of
+**[DO] — vault team announcements (3 min):** "Here's how the vault works: you'll play in teams of
 2–4. One person drives Cowork and shares their screen; everyone else advises. Two hints per room: the
 first is free, the second adds 2 minutes. Wrong codes cost nothing but time. You have 40 minutes."
 **[DO]** Announce breakout room assignments and which participant drives per team. Give teams 30
@@ -286,10 +338,15 @@ seconds to find their room before break.
 
 ## Break · 1:04–1:10 (6 min)
 
-**[DO]** "During the break: confirm all five lab files are downloaded and in a folder you can grant
-Cowork access to. Open the [Skill Vault](escape-room/) in a new tab — not in the lab page. Find your
+**[DO]** "During the break, file everything the one way we always do: make one folder for today's lab
+inside your Cowork home — that's the folder your driver grants. Put all six lab files in it. The
+`meeting-extractor-SKILL.md` is the exception — it's a skill, so it gets the skill treatment: a folder
+named `meeting-extractor` in your skills folder, the file inside renamed `SKILL.md`, added via
+Settings → Skills. Open the [Skill Vault](escape-room/) in a new tab — not in the lab page. Find your
 breakout room. Decide who drives Cowork and shares their screen." **[NOTE]** Keep the
-[facilitator view](escape-room/admin.html) open — it shows team status live.
+[facilitator view](escape-room/admin.html) open — it shows team status live. The staging instructions
+deliberately reuse the filing-system language from Teach — same words, third repetition. By the time
+the clock starts, "one folder per task, one folder per skill" should sound like a habit, not a rule.
 
 **[>>]** *The break is a staging break, not a rest break.* Participants who arrive at the lab without their files staged will burn 5 minutes of the 40-minute clock on logistics. The break announcement above is explicit about this. You'll need to confirm in Teams chat that files are ready before you open the vault clock, and it's worth waiting an extra 30–60 seconds for stragglers rather than starting with 2–3 teams file-less.
 
@@ -299,6 +356,14 @@ breakout room. Decide who drives Cowork and shares their screen." **[NOTE]** Kee
 
 *Follow along: Lesson 11. Open the vault at [escape-room/](escape-room/) — participants in breakout
 rooms. Keep the [facilitator view](escape-room/admin.html) open throughout.*
+
+**[SAY] — the story so far:** "Quick story beat before the clock: yesterday you met TreatyLayerPricer
+— Keller built it, Keller left, and you watched Cowork document what was left behind. After Keller,
+an outside consultant ran the modernization project's delivery workflow — the standups, the client
+status updates, the hiring. That consultant just rolled off, and on the way out they locked the
+team's playbook in a vault. Their custom Cowork skills are the only keys: one still works, one they
+sabotaged, one you'll have to build yourself, and the last door needs two turned at once. Same
+discipline you just watched in the demo — under a clock."
 
 **[DO]** "Vault is open. Clock starts when your team enters a team name. One driver per team in
 Cowork — the rest advise. Vault in one window, Cowork in the other. Go."
@@ -421,8 +486,27 @@ and the **[cheat sheet](pages/workshops/cheat-sheet.html)** link.
 
 ### Facilitator appendix
 
-**Hold the lab.** If you run long anywhere, cut Teach — shorten the anatomy walkthrough or the loop
-section — not the vault. The 40 minutes are where the value lands.
+**Hold the lab.** If you run long anywhere, cut Teach — shorten the anatomy walkthrough — not the
+vault. The 40 minutes are where the value lands.
+
+**The quizzes are protected too.** They were cut in W2 and the client noticed. If timing slips, the
+opening quizzes and the lab are the two blocks you do not touch; Teach is the flex.
+
+**One process, no options.** For anything about file locations — profiles, task folders, skill
+folders — there is exactly one answer, and it's the filing-system block in Teach. Never present
+alternatives live ("you could also put it..."). Deviations go to office hours. This is direct W2
+client feedback: a defined process to speak to, not options.
+
+**Chat-first participation.** Poll and discussion participation was thin in W2. The fix used in the
+Discuss brainstorm generalizes: ask for typed one-liners in chat before asking anyone to speak, and
+have your pre-recruited users break the seal. Never open with "anyone want to share?"
+
+**Silence is not dead air.** When Cowork is drafting the skill in the demo, stop talking and let the
+room read. Same rule as W2 — a pause reads as confidence.
+
+**Slides, zoomed.** Deliver from the slide deck, not by scrolling the microsite — W2 confirmed it's
+easier to follow. Present at higher browser zoom; the deck's body text was bumped after W2 feedback,
+but zoom in anyway for the Cowork window, where you can't control the font.
 
 **Skill Vault mechanics (recap):**
 - Codes are **case-insensitive**; if a team is stuck on a code that looks right, confirm casing isn't the issue.
@@ -444,10 +528,16 @@ section — not the vault. The 40 minutes are where the value lands.
 
 ### Script ↔ on-site sync notes
 - **Agenda** matches `module-3-workshop.html` / `syllabus.html` (8 slots, 2 hours) and the
-  `facilitator-guide.html#workshop-3` notes.
-- **Demo assets:** `skills/workflow-decomposition/SKILL.md` (installed skill); `skills/memo-generation/SKILL.md`
-  (open in text editor for the standards walkthrough).
-- **Lab assets:** five files from `escape-room/lab-files/` — confirmed downloaded before break.
+  `facilitator-guide.html#workshop-3` notes. Retimed 2026-07-29 per W2 feedback: Open 15 (both
+  quizzes) · Teach 20 · Demo 17 (live creation + schedule) · Discuss 12 (brainstorm-first); Break,
+  Lab, Debrief, Close unchanged.
+- **Demo assets:** Demo prompt 1 from Lesson 4 §04 + the `solution-profile-demo` TreatyLayerPricer
+  folder (both from yesterday's W2 demo — the skill is created live from them);
+  `skills/solution-profile/SKILL.md` open in a side window as the safety net;
+  `skills/workflow-decomposition/SKILL.md` installed for homework pointers. The vault narrative
+  continues the same story (the modernization consultant who rolled off) — see
+  `escape-room/config/rooms.source.json`; lab files, steps, and codes are unchanged.
+- **Lab assets:** six files from `escape-room/lab-files/` — confirmed downloaded before break.
 - **Facilitator view:** `escape-room/admin.html` — open throughout the lab slot.
 - **Skill authoring standards** quoted in Teach are from Anthropic's skill-authoring best-practices
   doc on platform.claude.com, dated June 2026 — re-verify before each cohort (the `cowork-context.md`

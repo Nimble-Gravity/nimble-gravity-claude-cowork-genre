@@ -1,12 +1,13 @@
 # Workshop Skills
 
-The three skills the workshop ships as real, downloadable artifacts. They *are* the product — and they demonstrate skill-authoring by being skills. Each is a standard Agent-Skills folder (a `SKILL.md` plus any referenced files), served as-is by GitHub Pages so an attendee can download and install it directly.
+The four skills the workshop ships as real, downloadable artifacts. They *are* the product — and they demonstrate skill-authoring by being skills. Each is a standard Agent-Skills folder (a `SKILL.md` plus any referenced files), served as-is by GitHub Pages so an attendee can download and install it directly.
 
 | Skill | Folder | Embedded in lesson | Purpose |
 |---|---|---|---|
 | Co-setup | `cowork-cosetup/` | `02-getting-set-up.html` | Interviews you and writes your personalization / about-me files. |
 | Workflow decomposition | `workflow-decomposition/` | `11-build-a-skill-lab.html` | Interviews you about a workflow and offers to draft it as a skill. |
 | Memo generation | `memo-generation/` | `09-anatomy-of-a-skill.html` | Small, finished, high-ROI example: notes/email → formatted memo. The good-vs-bad worked example. |
+| Solution profile | `solution-profile/` | `04-use-cases-by-industry.html` §04 | The W2 demo prompt packaged as a skill: legacy-system folder → cited solution profile + as-is architecture diagram. Created live in the W3 demo; this finished copy is the facilitator's safety net. |
 
 ## Distribution (v1 = copy-paste)
 
